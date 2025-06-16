@@ -1,125 +1,111 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Central Thailand</title>
-  <link rel="stylesheet" href="./output.css">
+  <link rel="stylesheet" href="./output.css" />
   <script>
-    const html = document.querySelector('html');
-      const isLightOrAuto = localStorage.getItem('hs_theme') === 'light' || (localStorage.getItem('hs_theme') === 'auto' && !window.matchMedia('(prefers-color-scheme: dark)').matches);
-      const isDarkOrAuto = localStorage.getItem('hs_theme') === 'dark' || (localStorage.getItem('hs_theme') === 'auto' && window.matchMedia('(prefers-color-scheme: dark)').matches);
+    const html = document.documentElement;
+    const theme = localStorage.getItem('hs_theme');
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
 
-      if (isLightOrAuto && html.classList.contains('dark')) html.classList.remove('dark');
-      else if (isDarkOrAuto && html.classList.contains('light')) html.classList.remove('light');
-      else if (isDarkOrAuto && !html.classList.contains('dark')) html.classList.add('dark');
-      else if (isLightOrAuto && !html.classList.contains('light')) html.classList.add('light');                             
+    if (theme === 'dark' || (theme === 'auto' && prefersDark)) {
+      html.classList.add('dark');
+    } else {
+      html.classList.remove('dark');
+    }
   </script>
 </head>
 
-<body class="bg-white font-sans text-gray-800 dark:bg-gray-600">
+<body class="bg-white text-gray-800 font-sans dark:bg-gray-900 dark:text-white transition-colors duration-300">
 
   <!-- Navigation Tabs -->
-  <div class="flex justify-center py-4 shadow-md w-[600px] m-auto rounded-3xl">
-    <div class="flex space-x-12 px-6 py-2">
-      <a href="#" class="text-gray-600 hover:text-pink-500">North</a>
+  <nav class="w-full max-w-4xl mx-auto mt-6 rounded-3xl shadow-md bg-white dark:bg-gray-800">
+    <div class="flex justify-center flex-wrap space-x-4 sm:space-x-8 px-4 py-3">
+      <a href="#" class="text-gray-600 dark:text-gray-300 hover:text-pink-500">North</a>
       <a href="#" class="text-pink-600 font-semibold border-b-2 border-pink-600">Central</a>
-      <a href="#" class="text-gray-600 hover:text-pink-500">South</a>
-      <a href="#" class="text-gray-600 hover:text-pink-500">East</a>
-      <a href="#" class="text-gray-600 hover:text-pink-500">North East</a>
-      <a href="#" class="text-gray-600 hover:text-pink-500">West</a>
+      <a href="#" class="text-gray-600 dark:text-gray-300 hover:text-pink-500">South</a>
+      <a href="#" class="text-gray-600 dark:text-gray-300 hover:text-pink-500">East</a>
+      <a href="#" class="text-gray-600 dark:text-gray-300 hover:text-pink-500">North East</a>
+      <a href="#" class="text-gray-600 dark:text-gray-300 hover:text-pink-500">West</a>
     </div>
-  </div>
+  </nav>
 
   <!-- Main Section -->
-  <div class="px-6 py-12 max-w-7xl mx-auto flex lg:flex-row gap-12">
-
-    <!-- Left: Map -->
+  <section class="max-w-7xl mx-auto px-4 py-12 flex flex-col lg:flex-row gap-12">
+    <!-- Map -->
     <div class="flex-1 flex justify-center">
-      <div class="relative">
+      <div class="relative max-w-md w-full">
         <img
           src="https://static.vecteezy.com/system/resources/previews/014/342/245/non_2x/doodle-freehand-drawing-of-cambodia-map-free-png.png"
-          alt="Map of Thailand" class="w-full max-w-md">
-        <!-- Marker -->
+          alt="Map of Thailand" class="w-full rounded-xl shadow-md" />
         <div class="absolute top-[30%] left-[46%]">
           <div class="w-4 h-4 bg-yellow-500 rounded-full shadow-md"></div>
         </div>
       </div>
     </div>
 
-    <!-- Right: Text -->
+    <!-- Text -->
     <div class="flex-1">
       <h2 class="text-yellow-400 text-5xl font-bold mb-6">Central</h2>
-      <p class="text-lg text-gray-700 leading-relaxed dark:text-white">
+      <p class="text-lg leading-relaxed text-gray-700 dark:text-gray-200">
         Central Thailand is mainly plains and is a huge area of rice farming and agriculture.
         The Chao Phraya River is very important to Thailand’s history. Interesting places to visit are ancient
-        historical temples,
-        Bang Pa-in Royal Palace and Bang Sai Royal Fol.
+        historical temples, Bang Pa-in Royal Palace and Bang Sai Royal Fol.
       </p>
     </div>
-
-  </div>
+  </section>
 
   <!-- Province Cards Section -->
-  <div class="mt-4 flex gap-5 justify-center mr-5">
-    <!-- Angkor Wat -->
-    <div class="w-[320px] h-[420px] rounded-2xl overflow-hidden shadow-lg relative">
-      <a href="#">
+  <section class="px-4 pb-12">
+    <div class="flex justify-center">
+      <div class="grid grid-cols2 md:grid-cols-3 gap-4 ">
 
-        <img
-          src="https://www.adventureworld.com/media/0s1j1eh1/cambodia-angkor-wat.jpg?center=0.5%2C0.5&format=webp&mode=crop&width=1200&height=1200&quality=80"
-          alt="Angkor wat" class="w-full h-full object-cover transition-transform duration-300 hover:scale-110" />
-        <div
-          class="absolute bottom-0 w-full bg-opacity-20 text-white text-xl font-bold px-4 py-3 backdrop-blur-sm">
-          ប្រាសាទអង្គវត្ត
-        </div>
-      </a>
+        <!-- Angkor Wat -->
+        <div class="w-[260px] h-[350px] rounded-2xl overflow-hidden shadow-lg relative">
+        <a href="#">
+          <img
+            src="https://www.adventureworld.com/media/0s1j1eh1/cambodia-angkor-wat.jpg?center=0.5%2C0.5&format=webp&mode=crop&width=1200&height=1200&quality=80"
+            alt="Angkor wat" class="w-full h-full object-cover transition-transform duration-300 hover:scale-110" />
+          <div class="absolute bottom-0 w-full bg-black/40 text-white text-xl font-bold px-4 py-3 backdrop-blur-sm">
+            ប្រាសាទអង្គវត្ត
+          </div>
+        </a>
       </div>
-  
-    <!-- Bayon -->
-     <a href="">
 
-       <div class="w-[320px] h-[420px] rounded-2xl overflow-hidden shadow-lg relative">
-         <img src="https://visitlocaltravel.com/blog/wp-content/uploads/2023/12/Boyon-Temple-the-Smilling-Face.webp"
-           alt="bayon" class="w-full h-full object-cover transition-transform duration-300 hover:scale-110" />
-         <div
-         class="absolute bottom-0 w-full bg-opacity-20 text-white text-xl font-bold px-4 py-3 backdrop-blur-sm">
-           ប្រាសាទបាយ័ន
-         </div>
-       </div>
-     </a>
-  
-    <!-- Preah Vihear -->
-     <a href="">
+      <!-- Bayon -->
+      <div class="w-[260px] h-[350px] rounded-2xl overflow-hidden shadow-lg relative">
+        <a href="#">
+          <img
+            src="https://visitlocaltravel.com/blog/wp-content/uploads/2023/12/Boyon-Temple-the-Smilling-Face.webp"
+            alt="Bayon Temple"
+            class="w-full h-full object-cover transition-transform duration-300 hover:scale-110" />
+          <div class="absolute bottom-0 w-full bg-black/40 text-white text-xl font-bold px-4 py-3 backdrop-blur-sm">
+            ប្រាសាទបាយ័ន
+          </div>
+        </a>
+      </div>
 
-       <div class="w-[320px] h-[420px] rounded-2xl overflow-hidden shadow-lg relative">
-         <img
-           src="https://huunghivietnamcampuchia.thoidai.com.vn/stores/news_dataimages/huunghivietnamcampuchia-thoidai-com-vn/072019/07/14/fn-2018-07-15-16-02-44-020210111134208.0533400.jpg"
-           alt="preas-vihea" class="w-full h-full object-cover transition-transform duration-300 hover:scale-110" />
-         <div
-           class="absolute bottom-0 w-full bg-opacity-20 text-white text-xl font-bold px-4 py-3 backdrop-blur-sm">
-           ប្រាសាទព្រះវិហារ
-         </div>
-       </div>
-     </a>
-    <!-- Preah Vihear -->
-     <a href="">
+      <!-- Preah Vihear -->
+      <div class="w-[260px] h-[350px] rounded-2xl overflow-hidden shadow-lg relative">
+        <a href="#">
+          <img
+            src="https://huunghivietnamcampuchia.thoidai.com.vn/stores/news_dataimages/huunghivietnamcampuchia-thoidai-com-vn/072019/07/14/fn-2018-07-15-16-02-44-020210111134208.0533400.jpg"
+            alt="Preah Vihear"
+            class="w-full h-full object-cover transition-transform duration-300 hover:scale-110" />
+          <div class="absolute bottom-0 w-full bg-black/40 text-white text-xl font-bold px-4 py-3 backdrop-blur-sm">
+            ប្រាសាទព្រះវិហារ
+          </div>
+        </a>
+      </div>
+    </div>
+    </div>
+  </section>
 
-       <div class="w-[320px] h-[420px] rounded-2xl overflow-hidden shadow-lg relative">
-         <img
-           src="https://khmerbamboo.wordpress.com/wp-content/uploads/2012/02/banteay_srei-n2.jpg"
-           alt="preas-vihea" class="w-full h-full object-cover transition-transform duration-300 hover:scale-110" />
-         <div
-           class="absolute bottom-0 w-full bg-opacity-20 text-white text-xl font-bold px-4 py-3 backdrop-blur-sm">
-           ប្រាសាទព្រះវិហារ
-         </div>
-       </div>
-     </a>
-  </div>
-  
-
-    
-    <script src="../node_modules/preline/dist/preline.js"></script>
+  <!-- JS -->
+  <script src="../node_modules/preline/dist/preline.js"></script>
 </body>
 
 </html>
