@@ -4,15 +4,178 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Footer page</title>
+    <link rel="stylesheet" href="./output.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
         integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="./output.css">
+        <style>
+            .rotate {
+                transition: transform 0.3s ease;
+            }
+        
+            .rotate.open {
+                transform: rotate(90deg);
+            }</style>
 </head>
 <body>
     <footer class="bg-gray-100 text-gray-800 text-sm px-6 pt-12 pb-6">
-        <div class="max-w-7xl mx-auto grid grid-cols-5 md:grid-cols-3 lg:grid-cols-5 gap-8">
-            <!-- Column 1 -->
+    
+        <!-- Mobile: Accordion style (visible only on small screens) -->
+        <div class="block md:hidden space-y-4">
+            <!-- Repeat for each section -->
+            <div>
+                <button class="w-full text-left font-bold mb-2 flex justify-between items-center"
+                    onclick="toggleFooter(this)">
+                    Top Destinations
+                    <svg class="w-4 h-4 transition-transform transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path d="M9 5l7 7-7 7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />        </svg>
+                </button>
+                <div class="hidden">
+                    <hr class="border-t-2 border-gray-300 w-full mb-1">
+                    <ul class="space-y-1">
+                        <li>Bangkok</li>
+                        <li>Chiang Mai</li>
+                        <li>Phuket</li>
+                        <li>Chon Buri</li>
+                        <li>Ubon Ratchathani</li>
+                    </ul>
+                </div>
+            </div>
+    
+            <div>
+                <button class="w-full text-left font-bold mb-2 flex justify-between items-center"
+                    onclick="toggleFooter(this)">
+                    Destinations
+                    <svg class="w-4 h-4 transition-transform transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path d="M9 5l7 7-7 7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />        </svg>
+                </button>
+                <div class="hidden">
+                    <hr class="border-t-2 border-gray-300 w-full mb-1">
+                    <ul class="space-y-1">
+                        <li>See & Do</li>
+                        <li>Food</li>
+                        <li>Shop</li>
+                        <li>Spa & Wellness</li>
+                        <li>Recreational & Entertainment</li>
+                    </ul>
+                </div>
+            </div>
+    
+            <div>
+                <button class="w-full text-left font-bold mb-2 flex justify-between items-center"
+                    onclick="toggleFooter(this)">
+                    Regions of Thailand
+                    <svg class="w-4 h-4 transition-transform transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path d="M9 5l7 7-7 7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />        </svg>
+                </button>
+                <div class="hidden">
+                    <hr class="border-t-2 border-gray-300 w-full mb-1">
+                    <ul class="space-y-1">
+                        <li>North</li>
+                        <li>Central</li>
+                        <li>East</li>
+                        <li>North East</li>
+                        <li>South</li>
+                    </ul>
+                </div>
+            </div>
+    
+            <div>
+                <button class="w-full text-left font-bold mb-2 flex justify-between items-center"
+                    onclick="toggleFooter(this)">
+                    Experiences
+                    <svg class="w-4 h-4 transition-transform transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path d="M9 5l7 7-7 7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />        </svg>
+                </button>
+                <div class="hidden">
+                    <hr class="border-t-2 border-gray-300 w-full mb-1">
+                    <ul class="space-y-1">
+                        <li>History / Religion / Museum</li>
+                        <li>Nature & Outdoor</li>
+                        <li>Events & Festivals</li>
+                        <li>Food / Shopping / Entertainment</li>
+                    </ul>
+                </div>
+            </div>
+    
+            <div>
+                <button class="w-full text-left font-bold mb-2 flex justify-between items-center"
+                    onclick="toggleFooter(this)">
+                    Helpful Links
+                    <svg class="w-4 h-4 transition-transform transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path d="M9 5l7 7-7 7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />        </svg>
+                </button>
+                <div class="hidden">
+                    <hr class="border-t-2 border-gray-300 w-full mb-1">
+                    <ul class="space-y-1">
+                        <li>Business Partner</li>
+                        <li>Media & Press</li>
+                        <li>About TAT</li>
+                        <li>Request Inquiry</li>
+                        <li>Feedback</li>
+                    </ul>
+                </div>
+            </div>
+    
+            <div>
+                <button class="w-full text-left font-bold mb-2 flex justify-between items-center"
+                    onclick="toggleFooter(this)">
+                    Promotions
+                    <svg class="w-4 h-4 transition-transform transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path d="M9 5l7 7-7 7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />        </svg>
+                </button>
+                <div class="hidden">
+                    <hr class="border-t-2 border-gray-300 w-full mb-1">
+                    <ul class="space-y-1">
+                        <li>Trip Planner</li>
+                        <li>Tour Agent</li>
+                        <li>Stays</li>
+                        <li>Cambodia</li>
+                    </ul>
+                </div>
+            </div>
+    
+            <div>
+                <button class="w-full text-left font-bold mb-2 flex justify-between items-center"
+                    onclick="toggleFooter(this)">
+                    Personal Data Protection
+                    <svg class="w-4 h-4 transition-transform transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path d="M9 5l7 7-7 7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />        </svg>
+                </button>
+                <div class="hidden">
+                    <hr class="border-t-2 border-gray-300 w-full mb-1">
+                    <ul class="space-y-1">
+                        <li>Privacy Notice</li>
+                        <li>Data Subject Request</li>
+                        <li>Data Breach Complaint</li>
+                        <li>Contact DPA</li>
+                    </ul>
+                </div>
+            </div>
+    
+            <div>
+                <button class="w-full text-left font-bold mb-2 flex justify-between items-center"
+                    onclick="toggleFooter(this)">
+                    Contact Us
+                    <svg class="w-4 h-4 transition-transform transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path d="M9 5l7 7-7 7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />        </svg>
+                </button>
+                <div class="hidden">
+                    <hr class="border-t-2 border-gray-300 w-full mb-1">
+                    <ul class="space-y-1">
+                        <li>Phone number: +885 964 735 981</li>
+                        <li>Telegram: +885 854 620 66</li>
+                        <li>Facebook page: Visit Cambodia</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    
+        <!-- Desktop: Grid layout (visible from md: and above) -->
+        <div class="hidden md:grid max-w-7xl mx-auto grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-8">
+            <!-- Repeat your original 10 column layout here (unchanged) -->
+            <!-- Just paste the same content you had originally -->
+            <!-- ... (Your 10 columns go here, full content preserved) -->
             <div>
                 <h3 class="font-bold mb-2">Top Destinations</h3>
                 <hr class="border-t-2 border-gray-300 w-full">
@@ -24,8 +187,6 @@
                     <li>Ubon Ratchathani</li>
                 </ul>
             </div>
-    
-            <!-- Column 2 -->
             <div>
                 <h3 class="font-bold mb-2">Destinations</h3>
                 <hr class="border-t-2 border-gray-300 w-full">
@@ -37,8 +198,6 @@
                     <li>Recreational & Entertainment</li>
                 </ul>
             </div>
-    
-            <!-- Column 3 -->
             <div>
                 <h3 class="font-bold mb-2">Regions of Thailand</h3>
                 <hr class="border-t-2 border-gray-300 w-full">
@@ -50,8 +209,6 @@
                     <li>South</li>
                 </ul>
             </div>
-            
-            <!-- Column 4 -->
             <div>
                 <h3 class="font-bold mb-2">Experiences</h3>
                 <hr class="border-t-2 border-gray-300 w-full">
@@ -62,8 +219,6 @@
                     <li>Food / Shopping / Entertainment</li>
                 </ul>
             </div>
-    
-            <!-- Column 5 -->
             <div>
                 <h3 class="font-bold mb-2">Helpful Links</h3>
                 <hr class="border-t-2 border-gray-300 w-full">
@@ -75,8 +230,6 @@
                     <li>Feedback</li>
                 </ul>
             </div>
-    
-            <!-- Column 6 -->
             <div>
                 <h3 class="font-bold mb-2">Promotions</h3>
                 <hr class="border-t-2 border-gray-300 w-full">
@@ -87,7 +240,6 @@
                     <li>Cambodia</li>
                 </ul>
             </div>
-            <!-- Column 7 -->
             <div>
                 <h3 class="font-bold mb-2">Personal Data Protection</h3>
                 <hr class="border-t-2 border-gray-300 w-full">
@@ -98,29 +250,6 @@
                     <li>Contact DPA</li>
                 </ul>
             </div>
-            <!-- Column 8 -->
-            <div>
-                <h3 class="font-bold mb-2">Personal Data Protection</h3>
-                <hr class="border-t-2 border-gray-300 w-full">
-                <ul class="space-y-1">
-                    <li>Privacy Notice</li>
-                    <li>Data Subject Request</li>
-                    <li>Data Breach Complaint</li>
-                    <li>Contact DPA</li>
-                </ul>
-            </div>
-            <!-- Column 9 -->
-            <div>
-                <h3 class="font-bold mb-2">Personal Data Protection</h3>
-                <hr class="border-t-2 border-gray-300 w-full">
-                <ul class="space-y-1">
-                    <li>Privacy Notice</li>
-                    <li>Data Subject Request</li>
-                    <li>Data Breach Complaint</li>
-                    <li>Contact DPA</li>
-                </ul>
-            </div>
-            <!-- Column 10 -->
             <div>
                 <h3 class="font-bold mb-2">Contact Us</h3>
                 <hr class="border-t-2 border-gray-300 w-full">
@@ -132,18 +261,17 @@
             </div>
         </div>
     
-        </div>
-    
         <!-- Divider -->
-        <div class="my-8 border-t border-gray-300 w-[150vh] m-auto"></div>
+        <div class="my-8 border-t border-gray-300 w-full"></div>
     
         <!-- Footer Bottom -->
         <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-gray-600">
             <div class="flex items-center gap-3">
-                <img src="https://www.cambodiaembassyuk.org/wp-content/uploads/2023/04/Visit-Cambodia-Year-2023-11.jpg" alt="Logo" class="h-10 w-auto">
+                <img src="https://www.cambodiaembassyuk.org/wp-content/uploads/2023/04/Visit-Cambodia-Year-2023-11.jpg"
+                    alt="Logo" class="h-10 w-auto">
                 <span>
                     Tourism Authority of Cambodia<br>
-                    1600 Phetchaburi Road, Makkasan, Ratchathevi, Phnom penh 
+                    1600 Phetchaburi Road, Makkasan, Ratchathevi, Phnom Penh
                 </span>
             </div>
     
@@ -154,11 +282,18 @@
                         class="fab fa-facebook"></i></a>
                 <a href="#" aria-label="YouTube" class="text-gray-500 hover:text-gray-800"><i
                         class="fab fa-youtube"></i></a>
-                        <!-- You can use image here -->
-                <!-- <img src="https://via.placeholder.com/32x20?text=IPv6" alt="Copyright" class="h-6"> -->
             </div>
         </div>
     </footer>
+    
+    <!-- Accordion Toggle Script -->
+    <script>
+        function toggleFooter(btn) {
+            const content = btn.nextElementSibling;
+            content.classList.toggle('hidden');
+        }
+    </script>
+      
     <script src="../node_modules/preline/dist/preline.js"></script>
     
 </body>
