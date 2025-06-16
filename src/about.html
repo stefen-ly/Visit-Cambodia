@@ -1,0 +1,622 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us</title>
+    <link rel="stylesheet" href="./output.css">
+</head>
+<body>
+
+      <header class=" flex flex-wrap  md:justify-start md:flex-nowrap z-50 w-full bg-white border-b border-gray-200 dark:bg-neutral-800 dark:border-neutral-700">
+  <nav class="relative max-w-[85rem] w-full mx-auto flex items-center justify-between gap-3 py-2 px-4 sm:px-6 lg:px-8">
+
+    <!-- <a class="flex-none font-semibold text-xl text-black focus:outline-hidden focus:opacity-80 dark:text-white" href="#" aria-label="Brand">Brand</a> -->
+    <img class="flex-none font-semibold text-xl text-black focus:outline-hidden focus:opacity-80 dark:text-white w-[90px]" src="https://theangkorguide.net/images/logo.png" alt="logo">
+    <div class="md:order-3 flex justify-end items-center gap-x-1">
+      <!-- Collapse Button -->
+      <button type="button" class="md:hidden relative p-2 flex items-center font-medium text-sm rounded-lg border border-gray-200 text-gray-800 hover:bg-gray-100 focus:outline-hidden focus:bg-gray-100 disabled:opacity-50 disabled:pointer-events-none dark:text-white dark:border-neutral-700 dark:hover:bg-neutral-700 dark:focus:bg-neutral-700" id="hs-header-base-collapse" aria-haspopup="dialog" aria-expanded="false" aria-controls="hs-header-base" aria-label="Toggle navigation" data-hs-overlay="#hs-header-base"  >
+        Menu
+        <svg class="shrink-0 size-4 ms-1" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="1"/><circle cx="12" cy="5" r="1"/><circle cx="12" cy="19" r="1"/></svg>
+      </button>
+      <!-- End Collapse Button -->
+
+      <div class="hidden md:inline-block md:me-2">
+        <div class="w-px h-4 bg-gray-300 dark:bg-neutral-700"></div>
+      </div>
+
+      <!-- Offcanvas Toggle -->
+      <button type="button" class="relative size-9 flex justify-center items-center text-sm font-semibold rounded-lg border border-transparent text-gray-800 hover:bg-gray-100 focus:outline-hidden focus:bg-gray-100 disabled:opacity-50 disabled:pointer-events-none dark:text-white dark:border-transparent dark:hover:bg-neutral-700 dark:focus:bg-neutral-700" aria-haspopup="dialog" aria-expanded="false" aria-controls="hs-header-base-offcanvas" aria-label="Toggle navigation" data-hs-overlay="#hs-header-base-offcanvas">
+        <svg class="shrink-0 size-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="3" rx="2"/><path d="M15 3v18"/><path d="m8 9 3 3-3 3"/></svg>
+        <span class="sr-only">Toggle navigation</span>
+      </button>
+      <!-- End Offcanvas Toggle -->
+    </div>
+
+    <!-- Collapse -->
+    <div id="hs-header-base" class="hs-overlay [--auto-close:md] hs-overlay-open:translate-x-0 -translate-x-full fixed top-0 start-0 transition-all duration-300 transform h-full max-w-xs w-full z-60 bg-white border-e basis-full grow md:order-2 md:static md:block md:h-auto md:max-w-none md:w-auto md:border-e-transparent md:transition-none md:translate-x-0 md:z-40 md:basis-auto dark:bg-neutral-800 dark:border-e-gray-700 md:dark:border-e-transparent hidden " role="dialog" tabindex="-1" aria-label="Sidebar" data-hs-overlay-close-on-resize  >
+      <div class="overflow-hidden overflow-y-auto max-h-[75vh] [&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-track]:bg-gray-100 [&::-webkit-scrollbar-thumb]:bg-gray-300 dark:[&::-webkit-scrollbar-track]:bg-neutral-700 dark:[&::-webkit-scrollbar-thumb]:bg-neutral-500">
+        <div class="py-2 md:py-0 px-2 md:px-0 flex flex-col md:flex-row md:items-center gap-0.5 md:gap-1">
+          <!-- Offcanvas Header -->
+          <div class="md:hidden p-2 flex justify-between items-center">
+            <h3 id="hs-header-base-label" class="font-bold text-gray-800 dark:text-white">
+              Menu title
+            </h3>
+            <button type="button" class="size-8 inline-flex justify-center items-center gap-x-2 rounded-full border border-transparent bg-gray-100 text-gray-800 hover:bg-gray-200 focus:outline-hidden focus:bg-gray-200 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-700 dark:hover:bg-neutral-600 dark:text-neutral-400 dark:focus:bg-neutral-600" aria-label="Close" data-hs-overlay="#hs-header-base">
+              <span class="sr-only">Close</span>
+              <svg class="shrink-0 size-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+            </button>
+          </div>
+          <!-- End Offcanvas Header -->
+          <div class="grow">
+            <div class="flex flex-col md:flex-row md:justify-end md:items-center gap-0.5 md:gap-1">
+              <a
+              class="pe-3 ps-px sm:px-3 md:py-4 text-lg text-[#1e1e1e] hover:text-[#ff4f5f]  focus:outline-hidden focus:text-neutral-300"
+              href="./search.html"
+              aria-current="page"
+              >Search</a
+            >
+            <a
+              class="pe-3 ps-px sm:px-3 md:py-4 text-lg text-[#1e1e1e] hover:text-[#ff4f5f]  focus:outline-hidden focus:text-neutral-300"
+              href="story.html"
+              >Redeem</a
+            >
+
+              <!-- Destination -->
+              <div
+              class="hs-dropdown [--strategy:static] md:[--strategy:absolute] [--adaptive:none] md:[--trigger:hover] [--auto-close:inside] md:inline-block"
+            >
+              <!-- Link Button -->
+              <button
+                id="hs-pro-anpd"
+                type="button"
+                class="hs-dropdown-toggle md:px-3 md:py-4 w-full md:w-auto flex items-center text-lg text-[#1e1e1e] hover:text-[#ff4f5f]  focus:outline-hidden focus:text-neutral-300"
+                aria-haspopup="menu"
+                aria-expanded="false"
+                aria-label="Dropdown"
+              >
+                Destinations
+                <svg
+                  class="hs-dropdown-open:-rotate-180 md:hs-dropdown-open:rotate-0 duration-300 ms-auto md:ms-1 shrink-0 size-3.5"
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path d="m6 9 6 6 6-6" />
+                </svg>
+              </button>
+              <!-- End Link Button -->
+
+              <!-- Dropdown Menu -->
+              <div
+                class="hs-dropdown-menu transition-[opacity,margin] duration-[0.1ms] lg:duration-[150ms] hs-dropdown-open:opacity-100 opacity-0 relative w-full md:w-full hidden z-10 top-full end-0 rounded-2xl bg-gray-200  p-1 before:absolute before:-top-4 before:start-0 before:w-full before:h-5 md:after:hidden mt-2 md:mt-0"
+                aria-orientation="vertical"
+                aria-labelledby="hs-pro-anpd"
+              >
+                <div class="flex flex-col gap-y-1">
+                  <!-- Grid -->
+                  
+                      <!-- Heading -->
+                      <div class="container mx-auto px-4 py-8">
+        <div class="grid md:grid-cols-3 gap-8">
+        
+          <div>
+            <h2 class="text-xl font-medium text-pink-500 mb-6">Top Destinations</h2>
+            <ul class="space-y-4">
+              <li class="flex items-center gap-3">
+                <span class="h-2 w-2 rounded-full bg-black"></span>
+                <a href="#" class="text-lg hover:text-pink-500">
+                  Phnom Penh
+                </a>
+              </li>
+              <li class="flex items-center gap-3">
+                <span class="h-2 w-2 rounded-full bg-black"></span>
+                <a href="#" class="text-lg hover:text-pink-500">
+                  Siem Reap
+                </a>
+              </li>
+              <li class="flex items-center gap-3">
+                <span class="h-2 w-2 rounded-full bg-black"></span>
+                <a href="#" class="text-lg hover:text-pink-500">
+                  Kompot
+                </a>
+              </li>
+              <li class="flex items-center gap-3">
+                <span class="h-2 w-2 rounded-full bg-black"></span>
+                <a href="#" class="text-lg hover:text-pink-500">
+                  Ratanakiri
+                </a>
+              </li>
+              <li class="flex items-center gap-3">
+                <span class="h-2 w-2 rounded-full bg-black"></span>
+                <a href="#" class="text-lg hover:text-pink-500">
+                  Koh Kong
+                </a>
+              </li>
+            </ul>
+          </div>
+
+         
+          <div>
+            <h2 class="text-xl font-medium text-pink-500 mb-6">By Category</h2>
+            <ul class="space-y-4">
+              <li class="flex items-center gap-3">
+                <span class="h-2 w-2 rounded-full bg-black"></span>
+                <a href="#" class="text-lg hover:text-pink-500">
+                  All Regions
+                </a>
+              </li>
+              <li class="flex items-center gap-3">
+                <span class="h-2 w-2 rounded-full bg-black"></span>
+                <a href="#" class="text-lg hover:text-pink-500">
+                  North
+                </a>
+              </li>
+              <li class="flex items-center gap-3">
+                <span class="h-2 w-2 rounded-full bg-black"></span>
+                <a href="#" class="text-lg hover:text-pink-500">
+                  Central
+                </a>
+              </li>
+              <li class="flex items-center gap-3">
+                <span class="h-2 w-2 rounded-full bg-black"></span>
+                <a href="#" class="text-lg hover:text-pink-500">
+                  East
+                </a>
+              </li>
+              <li class="flex items-center gap-3">
+                <span class="h-2 w-2 rounded-full bg-black"></span>
+                <a href="#" class="text-lg hover:text-pink-500">
+                  North East
+                </a>
+              </li>
+              <li class="flex items-center gap-3">
+                <span class="h-2 w-2 rounded-full bg-black"></span>
+                <a href="#" class="text-lg hover:text-pink-500">
+                  South
+                </a>
+              </li>
+              <li class="flex items-center gap-3">
+                <span class="h-2 w-2 rounded-full bg-black"></span>
+                <a href="#" class="text-lg hover:text-pink-500">
+                  West
+                </a>
+              </li>
+            </ul>
+          </div>
+
+          
+          <div class="flex justify-between ">
+            <div class="relative w-full max-w-xs">
+              <Image
+                src=https://upload.wikimedia.org/wikipedia/commons/thumb/0/04/Provincial_Boundaries_in_Cambodia.svg/691px-Provincial_Boundaries_in_Cambodia.svg.png
+                alt="Cambodia Maps"
+                width={300}
+                height={400}
+                class="w-full h-auto"
+              />
+            </div>
+          </div>
+        </div>
+                      </div>
+                      
+
+                      
+                    </div>
+                    <!-- End Col -->
+
+                    <div
+                      class="p-5 min-h-50 flex flex-col justify-between md:rounded-tr-xl"
+                    >
+                      <!-- Heading -->
+                      
+                      <!-- End Heading -->
+
+                      <!-- List -->
+                     
+                      <!-- End List -->
+                    </div>
+                    <!-- End Col -->
+                  </div>
+                 
+                </div>
+              <!-- End Dropdown -->
+
+
+            <!--Plan Your Trip-->
+            <div
+              class="hs-dropdown [--strategy:static] md:[--strategy:absolute] [--adaptive:none] md:[--trigger:hover] [--auto-close:inside] md:inline-block"
+            >
+              <!-- Link Button -->
+              <button
+                id="hs-pro-anpd"
+                type="button"
+                class="hs-dropdown-toggle md:px-3 md:py-4 w-full md:w-auto flex items-center text-lg text-[#1e1e1e] hover:text-[#ff4f5f]  focus:outline-hidden focus:text-neutral-300"
+                aria-haspopup="menu"
+                aria-expanded="false"
+                aria-label="Dropdown"
+              >
+                Plan Your Trip
+                <svg
+                  class="hs-dropdown-open:-rotate-180 md:hs-dropdown-open:rotate-0 duration-300 ms-auto md:ms-1 shrink-0 size-3.5"
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path d="m6 9 6 6 6-6" />
+                </svg>
+              </button>
+              <!-- End Link Button -->
+
+              <!-- Dropdown Menu -->
+              <div
+                class="hs-dropdown-menu transition-[opacity,margin] duration-[0.1ms] lg:duration-[150ms] hs-dropdown-open:opacity-100 opacity-0 relative w-full md:w-full hidden z-10 top-full end-0 rounded-2xl bg-gray-200 p-1 before:absolute before:-top-4 before:start-0 before:w-full before:h-5 md:after:hidden mt-2 md:mt-0"
+                aria-orientation="vertical"
+                aria-labelledby="hs-pro-anpd"
+              >
+                <div class="flex flex-col gap-y-1">
+                  <!-- Grid -->
+                  
+                      <!-- Heading -->
+                      <div class="container mx-auto px-4 py-8">
+        <div class="grid md:grid-cols-3 gap-8">
+        
+          <div>
+            <h2 class="text-xl font-medium text-pink-500 mb-6">Top Destinations</h2>
+            <ul class="space-y-4">
+              <li class="flex items-center gap-3">
+                <span class="h-2 w-2 rounded-full bg-black"></span>
+                <a href="#" class="text-lg hover:text-pink-500">
+                  Promotion
+                </a>
+              </li>
+              <li class="flex items-center gap-3">
+                <span class="h-2 w-2 rounded-full bg-black"></span>
+                <a href="#" class="text-lg hover:text-pink-500">
+                  Trip Planner
+                </a>
+              </li>
+              <li class="flex items-center gap-3">
+                <span class="h-2 w-2 rounded-full bg-black"></span>
+                <a href="#" class="text-lg hover:text-pink-500">
+                 Tour Agents
+                </a>
+              </li>
+              <li class="flex items-center gap-3">
+                <span class="h-2 w-2 rounded-full bg-black"></span>
+                <a href="#" class="text-lg hover:text-pink-500">
+                  Stays
+                </a>
+              </li>
+              <li class="flex items-center gap-3">
+                <span class="h-2 w-2 rounded-full bg-black"></span>
+                <a href="#" class="text-lg hover:text-pink-500">
+                  Around Cambodia
+                </a>
+              </li>
+            </ul>
+          </div>
+
+         
+          <div>
+            <h2 class="text-xl font-medium text-pink-500 mb-6">By Category</h2>
+            <ul class="space-y-4">
+              <li class="flex items-center gap-3">
+                <span class="h-2 w-2 rounded-full bg-black"></span>
+                <a href="#" class="text-lg hover:text-pink-500">
+                  Getting to Cambodia
+                </a>
+              </li>
+              <li class="flex items-center gap-3">
+                <span class="h-2 w-2 rounded-full bg-black"></span>
+                <a href="#" class="text-lg hover:text-pink-500">
+                 Passports & Visa
+                </a>
+              </li>
+              <li class="flex items-center gap-3">
+                <span class="h-2 w-2 rounded-full bg-black"></span>
+                <a href="#" class="text-lg hover:text-pink-500">
+                 Customs & Duty
+                </a>
+              </li>
+              <li class="flex items-center gap-3">
+                <span class="h-2 w-2 rounded-full bg-black"></span>
+                <a href="#" class="text-lg hover:text-pink-500">
+                 Vat, Tax Refund
+                </a>
+              </li>
+              <li class="flex items-center gap-3">
+                <span class="h-2 w-2 rounded-full bg-black"></span>
+                <a href="#" class="text-lg hover:text-pink-500">
+                  Cambodia Currency
+                </a>
+              </li>
+              <li class="flex items-center gap-3">
+                <span class="h-2 w-2 rounded-full bg-black"></span>
+                <a href="#" class="text-lg hover:text-pink-500">
+                 In An Emergency
+                </a>
+              </li>
+              <li class="flex items-center gap-3">
+                <span class="h-2 w-2 rounded-full bg-black"></span>
+                <a href="#" class="text-lg hover:text-pink-500">
+                  Accessibility
+                </a>
+              </li>
+            </ul>
+          </div>
+
+          
+          <div class="flex justify-between ">
+            <div class="relative w-full max-w-xs">
+              <Image
+                src=https://upload.wikimedia.org/wikipedia/commons/thumb/0/04/Provincial_Boundaries_in_Cambodia.svg/691px-Provincial_Boundaries_in_Cambodia.svg.png
+                alt="Cambodia Maps"
+                width={300}
+                height={400}
+                class="w-full h-auto"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+                      
+
+                      
+                    </div>
+                    <!-- End Col -->
+
+                    <div
+                      class="p-5 min-h-50 flex flex-col justify-between md:rounded-tr-xl"
+                    >
+                      
+                    </div>
+                    <!-- End Col -->
+                  </div>
+                 
+                </div>
+
+
+              <!--Experience-->
+            <div
+              class="hs-dropdown [--strategy:static] md:[--strategy:absolute] [--adaptive:none] md:[--trigger:hover] [--auto-close:inside] md:inline-block"
+            >
+              <!-- Link Button -->
+              <button
+                id="hs-pro-anpd"
+                type="button"
+                class="hs-dropdown-toggle md:px-3 md:py-4 w-full md:w-auto flex items-center text-lg text-[#1e1e1e] hover:text-[#ff4f5f]  focus:outline-hidden focus:text-neutral-300"
+                aria-haspopup="menu"
+                aria-expanded="false"
+                aria-label="Dropdown"
+              >
+                Experience
+                <svg
+                  class="hs-dropdown-open:-rotate-180 md:hs-dropdown-open:rotate-0 duration-300 ms-auto md:ms-1 shrink-0 size-3.5"
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path d="m6 9 6 6 6-6" />
+                </svg>
+              </button>
+              <!-- End Link Button -->
+
+              <!-- Dropdown Menu -->
+              <div
+                class="hs-dropdown-menu transition-[opacity,margin] duration-[0.1ms] lg:duration-[150ms] hs-dropdown-open:opacity-100 opacity-0 relative w-full md:w-full hidden z-10 top-full end-0 rounded-2xl bg-gray-200  p-1 before:absolute before:-top-4 before:start-0 before:w-full before:h-5 md:after:hidden mt-2 md:mt-0"
+                aria-orientation="vertical"
+                aria-labelledby="hs-pro-anpd"
+              >
+                <div class="flex flex-col gap-y-1">
+                  <!-- Grid -->
+                  
+                      <!-- Heading -->
+                      <div class="container mx-auto px-4 py-8">
+        <div class="grid md:grid-cols-3 gap-8">
+        
+          <div>
+            <h2 class="text-xl font-medium text-pink-500 mb-6">Top Destinations</h2>
+            <ul class="space-y-4">
+              <li class="flex items-center gap-3">
+                <span class="h-2 w-2 rounded-full bg-black"></span>
+                <a href="#" class="text-lg hover:text-pink-500">
+                  See & Do
+                </a>
+              </li>
+              <li class="flex items-center gap-3">
+                <span class="h-2 w-2 rounded-full bg-black"></span>
+                <a href="#" class="text-lg hover:text-pink-500">
+                 Shopping
+                </a>
+              </li>
+              <li class="flex items-center gap-3">
+                <span class="h-2 w-2 rounded-full bg-black"></span>
+                <a href="#" class="text-lg hover:text-pink-500">
+                  Food 7 Drink
+                </a>
+              </li>
+              <li class="flex items-center gap-3">
+                <span class="h-2 w-2 rounded-full bg-black"></span>
+                <a href="#" class="text-lg hover:text-pink-500">
+                  Event & Festival
+                </a>
+              </li>
+              <li class="flex items-center gap-3">
+                <span class="h-2 w-2 rounded-full bg-black"></span>
+                <a href="#" class="text-lg hover:text-pink-500">
+                  Entertainment
+                </a>
+              </li>
+            </ul>
+          </div>
+
+         
+          <div>
+            <h2 class="text-xl font-medium text-pink-500 mb-6">By Category</h2>
+            <ul class="space-y-4">
+              <li class="flex items-center gap-3">
+                <span class="h-2 w-2 rounded-full bg-black"></span>
+                <a href="#" class="text-lg hover:text-pink-500">
+                  By Experiences
+                </a>
+              </li>
+              <li class="flex items-center gap-3">
+                <span class="h-2 w-2 rounded-full bg-black"></span>
+                <a href="#" class="text-lg hover:text-pink-500">
+                  History / Religion /Museum
+                </a>
+              </li>
+              <li class="flex items-center gap-3">
+                <span class="h-2 w-2 rounded-full bg-black"></span>
+                <a href="#" class="text-lg hover:text-pink-500">
+                 Nature & Outdoor
+                </a>
+              </li>
+              <li class="flex items-center gap-3">
+                <span class="h-2 w-2 rounded-full bg-black"></span>
+                <a href="#" class="text-lg hover:text-pink-500">
+                  Events & Festival
+                </a>
+              </li>
+              <li class="flex items-center gap-3">
+                <span class="h-2 w-2 rounded-full bg-black"></span>
+                <a href="#" class="text-lg hover:text-pink-500">
+                  Foods 
+                </a>
+              </li>
+              <li class="flex items-center gap-3">
+                <span class="h-2 w-2 rounded-full bg-black"></span>
+                <a href="#" class="text-lg hover:text-pink-500">
+                 Shopping
+                </a>
+              </li>
+              <li class="flex items-center gap-3">
+                <span class="h-2 w-2 rounded-full bg-black"></span>
+                <a href="#" class="text-lg hover:text-pink-500">
+                 Entertainment
+                </a>
+              </li>
+            </ul>
+          </div>
+
+          
+          <div class="flex justify-between ">
+            <div class="relative w-full max-w-xs">
+              <Image
+                src=https://upload.wikimedia.org/wikipedia/commons/thumb/0/04/Provincial_Boundaries_in_Cambodia.svg/691px-Provincial_Boundaries_in_Cambodia.svg.png
+                alt="Cambodia Maps"
+                width={300}
+                height={400}
+                class="w-full h-auto"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+                      
+
+                      
+                    </div>
+                    <!-- End Col -->
+
+                    <div
+                      class="p-5 min-h-50 flex flex-col justify-between md:rounded-tr-xl"
+                    >
+                      <!-- Heading -->
+                      
+                      <!-- End Heading -->
+
+                      <!-- List -->
+                     
+                      <!-- End List -->
+                    </div>
+                    <!-- End Col -->
+                  </div>
+                 
+                </div>
+              <!--About Us-->
+              <a
+              class="pe-3 ps-px sm:px-3 md:py-4 text-lg text-[#1e1e1e] hover:text-[#ff4f5f]  focus:outline-hidden focus:text-neutral-300"
+              href="about.html"
+              >About Us</a
+            >
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- End Collapse -->
+  </nav>
+</header>
+
+
+    <!-- Team -->
+<div class="max-w-6xl mx-auto px-4 py-10">
+  <h2 class="text-3xl font-bold mb-8 text-center">Our Team Members</h2>
+  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6">
+
+    <!-- Member 1 -->
+    <div class="bg-white border-4 border-pink-400 rounded-2xl p-5 text-center shadow-md">
+      <img src="../img/vanly.png" alt="Member 1" class="w-40 h-48 rounded-full mx-auto mb-4 border-2 border-pink-400">
+      <h3 class="text-lg font-bold text-pink-400">Thouen  Vanly</h3>
+      <p class="text-sm text-gray-600">Team Leader</p>
+    </div>
+
+    <!-- Member 2 -->
+    <div class="bg-white border-4 border-pink-400 rounded-2xl p-5 text-center shadow-md">
+      <img src="../img/na.jpg" alt="Member 2" class="w-40 h-48   rounded-full mx-auto mb-4 border-2 border-pink-400">
+      <h3 class="text-lg font-bold text-pink-400">Khann Kanhchana</h3>
+      <p class="text-sm text-gray-600">Web Designer</p>
+    </div>
+
+    <!-- Member 3 -->
+    <div class="bg-white border-4 border-pink-400 rounded-2xl p-5 text-center shadow-md">
+      <img src="../img/nak.jpg" alt="Member 3" class="w-40 h-48   rounded-full mx-auto mb-4 border-2 border-pink-400">
+      <h3 class="text-lg font-bold text-pink-400">Thai Ratanak</h3>
+      <p class="text-sm text-gray-600">Web Designer</p>
+    </div>
+
+    <!-- Member 4 -->
+    <div class="bg-white border-4 border-pink-400 rounded-2xl p-5 text-center shadow-md">
+      <img src="../img/chimmy.jpg" alt="Member 4" class="w-40 h-48   rounded-full mx-auto mb-4 border-2 border-pink-400">
+      <h3 class="text-lg font-bold text-pink-400">Chit Chimy</h3>
+      <p class="text-sm text-gray-600">Web Designer</p>
+    </div>
+
+    <!-- Member 5 -->
+    <div class="bg-white border-4 border-pink-400 rounded-2xl p-5 text-center shadow-md">
+      <img src="../img/nona.jpg" alt="Member 5" class="w-40 h-48  rounded-full mx-auto mb-4 border-2 border-pink-400">
+      <h3 class="text-lg font-bold text-pink-400">Yorn Nona</h3>
+      <p class="text-sm text-gray-600">Web Designer</p>
+    </div>
+
+  </div>
+</div>
+
+
+
+
+<!-- End Team -->
+
+     <script src="../node_modules/preline/dist/preline.js"></script>
+</body>
+</html>
