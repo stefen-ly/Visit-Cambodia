@@ -6,3 +6,5 @@
 
 /* Plugins */
 @plugin "@tailwindcss/forms";
+
+@custom-variant dark (&:where(.dark, .dark *));

@@ -1,0 +1,2280 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Discover the authentic beauty of Cambodia through food, temples, palaces, beaches, adventures, and festivals"
+    />
+    <meta
+      name="keywords"
+      content="Cambodia, travel, culture, food, temples, beaches, adventures"
+    />
+
+    <title>Experience Khmerness - Discover Authentic Cambodia</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            animation: {
+              "fade-in": "fadeIn 0.5s ease-in-out",
+              "slide-up": "slideUp 0.6s ease-out",
+              "scale-in": "scaleIn 0.4s ease-out",
+            },
+            keyframes: {
+              fadeIn: {
+                "0%": { opacity: "0" },
+                "100%": { opacity: "1" },
+              },
+              slideUp: {
+                "0%": { transform: "translateY(20px)", opacity: "0" },
+                "100%": { transform: "translateY(0)", opacity: "1" },
+              },
+              scaleIn: {
+                "0%": { transform: "scale(0.95)", opacity: "0" },
+                "100%": { transform: "scale(1)", opacity: "1" },
+              },
+            },
+          },
+        },
+      };
+    </script>
+
+    <style>
+      :root {
+        --primary: #ec4899;
+        --primary-dark: #be185d;
+        --gradient-bg: linear-gradient(
+          to bottom,
+          rgba(0, 0, 0, 0.8),
+          transparent
+        );
+        --card-gradient: linear-gradient(
+          to top,
+          rgba(0, 0, 0, 0.7),
+          transparent
+        );
+        --glass-bg: rgba(255, 255, 255, 0.15);
+        --glass-border: rgba(255, 255, 255, 0.3);
+        --glass-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+      }
+
+      .slider-container {
+        transition: transform 0.5s ease-in-out;
+      }
+
+      .card-hover {
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+
+      .card-hover:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+      }
+
+      .featured-card {
+        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+      }
+
+      .image-hover {
+        transition: transform 0.7s ease;
+      }
+
+      .image-hover:hover {
+        transform: scale(1.05);
+      }
+
+      .card-image-hover {
+        transition: transform 0.5s ease;
+      }
+
+      .card-hover:hover .card-image-hover {
+        transform: scale(1.1);
+      }
+
+      .slide-indicator {
+        transition: all 0.3s ease;
+      }
+
+      .slide-indicator.active {
+        width: 1.5rem;
+        background-color: var(--primary);
+      }
+
+      .btn-disabled {
+        opacity: 0.5;
+        cursor: not-allowed;
+      }
+
+      .stats-card {
+        transition: box-shadow 0.3s ease, transform 0.3s ease,
+          background-color 0.3s ease;
+        background: var(--glass-bg);
+        backdrop-filter: blur(12px);
+        border: 1px solid var(--glass-border);
+        border-radius: 1rem;
+        padding: 1.5rem;
+      }
+
+      .stats-card:hover {
+        box-shadow: var(--glass-shadow);
+        transform: translateY(-6px);
+        background: rgba(255, 255, 255, 0.2);
+      }
+
+      .stats-card .stats-number {
+        font-size: 2rem;
+        font-weight: 700;
+        background: linear-gradient(45deg, var(--primary), var(--primary-dark));
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+      }
+
+      .stats-card .stats-label {
+        font-size: 0.875rem;
+        color: #4b5563;
+        margin-top: 0.5rem;
+      }
+
+      .scrollbar-hide {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+      }
+
+      .scrollbar-hide::-webkit-scrollbar {
+        display: none;
+      }
+
+      .gradient-overlay {
+        background: var(--gradient-bg);
+      }
+
+      .card-gradient-overlay {
+        background: var(--card-gradient);
+      }
+
+      [role="button"]:focus-visible,
+      button:focus-visible {
+        outline: 2px solid var(--primary);
+        outline-offset: 2px;
+      }
+      .carousel-container {
+        transition: transform 0.5s ease-in-out;
+      }
+      .carousel-container.no-transition {
+        transition: none;
+      }
+      @keyframes pulse {
+        0%,
+        100% {
+          opacity: 1;
+        }
+        50% {
+          opacity: 0.5;
+        }
+      }
+      .animate-pulse {
+        animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+      }
+      .animate-pulse-delayed {
+        animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+        animation-delay: 0.5s;
+      }
+      /* Mobile-specific styles */
+      @media (max-width: 640px) {
+        .carousel-card {
+          width: 12rem; /* Reduced from 16rem */
+        }
+        .carousel-card img {
+          height: 8rem; /* Reduced from 10rem */
+        }
+        .carousel-card h3 {
+          font-size: 0.875rem; /* Smaller than 1rem */
+        }
+        .carousel-card p {
+          font-size: 0.625rem; /* Smaller than 0.75rem */
+        }
+        .carousel-card .absolute.bottom-0 {
+          padding: 0.75rem; /* Reduced padding */
+        }
+        .nav-btn {
+          width: 1.5rem; /* Smaller buttons */
+          height: 1.5rem;
+          border-width: 1px;
+        }
+        .nav-btn svg {
+          width: 0.875rem; /* Smaller icons */
+          height: 0.875rem;
+        }
+        .dot {
+          width: 0.25rem; /* Smaller dots */
+          height: 0.25rem;
+        }
+      }
+      .carousel-container {
+        transition: transform 0.5s ease-in-out;
+      }
+      @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap");
+      body {
+        font-family: "Inter", sans-serif;
+      }
+
+      .icon-placeholder {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      }
+      .icon-visa {
+        background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+      }
+      .icon-travel {
+        background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+      }
+      .icon-transport {
+        background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+      }
+      .icon-weather {
+        background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
+      }
+    </style>
+  </head>
+  <body>
+    <section class="bg-white font-sans">
+      <div class="max-w-6xl mx-auto px-4 py-10">
+        <!-- Header -->
+        <h1
+          class="text-4xl font-bold mb-8 text-left text-[#213555]"
+          data-aos="fade-up"
+          data-aos-duration="1000"
+        >
+          Inspiring
+        </h1>
+
+        <!-- Grid layout -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          <!-- Card Item -->
+          <div
+            class="bg-white rounded-xl shadow-md hover:shadow-xl overflow-hidden cursor-pointer transform transition-transform duration-300 ease-in-out hover:scale-105"
+            data-aos="fade-up"
+            data-aos-duration="1000"
+            data-aos-delay="100"
+          >
+            <img
+              class="w-full h-56 object-cover"
+              src="./image/cambodia-2322839_1280.jpg"
+              alt="KAWS HOLIDAY"
+            />
+            <div class="px-4 py-2">
+              <span
+                class="inline-block bg-[#FFE2E2] text-[#213555] text-sm font-semibold px-4 py-1 rounded-full transition-colors duration-300 hover:bg-[#FFFDEC] cursor-pointer"
+                data-aos="fade-in"
+                data-aos-duration="800"
+                data-aos-delay="200"
+              >
+                News & Update
+              </span>
+            </div>
+            <div
+              class="px-4 pb-4 text-xl font-medium text-gray-700"
+              data-aos="fade-in"
+              data-aos-duration="800"
+              data-aos-delay="300"
+            >
+              ✨Nation Musem of Cambodia✨
+            </div>
+            <div
+              class="px-4 pb-4 flex items-center text-sm text-gray-500 space-x-4"
+              data-aos="fade-in"
+              data-aos-duration="800"
+              data-aos-delay="400"
+            >
+              <div class="flex items-center space-x-1">
+                <i class="fa-solid fa-location-dot"></i>
+                <span>14 Street 2568</span>
+              </div>
+              <div class="flex items-center space-x-1">
+                <i class="fa-solid fa-eye"></i>
+                <span>20253</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card Item -->
+          <div
+            class="bg-white rounded-xl shadow-md hover:shadow-xl overflow-hidden cursor-pointer transform transition-transform duration-300 ease-in-out hover:scale-105"
+            data-aos="fade-up"
+            data-aos-duration="1000"
+            data-aos-delay="200"
+          >
+            <img
+              class="w-full h-56 object-cover"
+              src="./image/angkorwate1.jpg"
+              alt="KAWS HOLIDAY"
+            />
+            <div class="px-4 py-2">
+              <span
+                class="inline-block bg-[#FFE2E2] text-[#213555] text-sm font-semibold px-4 py-1 rounded-full transition-colors duration-300 hover:bg-[#FFFDEC] cursor-pointer"
+                data-aos="fade-in"
+                data-aos-duration="800"
+                data-aos-delay="300"
+              >
+                News & Update
+              </span>
+            </div>
+            <div
+              class="px-4 pb-4 text-xl font-medium text-gray-700"
+              data-aos="fade-in"
+              data-aos-duration="800"
+              data-aos-delay="400"
+            >
+              ✨Angkor Wat Temples✨
+            </div>
+            <div
+              class="px-4 pb-4 flex items-center text-sm text-gray-500 space-x-4"
+              data-aos="fade-in"
+              data-aos-duration="800"
+              data-aos-delay="500"
+            >
+              <div class="flex items-center space-x-1">
+                <i class="fa-solid fa-location-dot"></i>
+                <span>10 Street 2568</span>
+              </div>
+              <div class="flex items-center space-x-1">
+                <i class="fa-solid fa-eye"></i>
+                <span>15892</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card Item -->
+          <div
+            class="bg-white rounded-xl shadow-md hover:shadow-xl overflow-hidden cursor-pointer transform transition-transform duration-300 ease-in-out hover:scale-105"
+            data-aos="fade-up"
+            data-aos-duration="1000"
+            data-aos-delay="300"
+          >
+            <img
+              class="w-full h-56 object-cover"
+              src="./image/pub.jpg"
+              alt="KAWS HOLIDAY"
+            />
+            <div class="px-4 py-2">
+              <span
+                class="inline-block bg-[#FFE2E2] text-[#213555] text-sm font-semibold px-4 py-1 rounded-full transition-colors duration-300 hover:bg-[#FFFDEC] cursor-pointer"
+                data-aos="fade-in"
+                data-aos-duration="800"
+                data-aos-delay="400"
+              >
+                News & Update
+              </span>
+            </div>
+            <div
+              class="px-4 pb-4 text-xl font-medium text-gray-700"
+              data-aos="fade-in"
+              data-aos-duration="800"
+              data-aos-delay="500"
+            >
+              ✨Pub Street✨
+            </div>
+            <div
+              class="px-4 pb-4 flex items-center text-sm text-gray-500 space-x-4"
+              data-aos="fade-in"
+              data-aos-duration="800"
+              data-aos-delay="600"
+            >
+              <div class="flex items-center space-x-1">
+                <i class="fa-solid fa-location-dot"></i>
+                <span>7 Street 2568</span>
+              </div>
+              <div class="flex items-center space-x-1">
+                <i class="fa-solid fa-eye"></i>
+                <span>17777</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card Item -->
+          <div
+            class="bg-white rounded-xl shadow-md hover:shadow-xl overflow-hidden cursor-pointer transform transition-transform duration-300 ease-in-out hover:scale-105"
+            data-aos="fade-up"
+            data-aos-duration="1000"
+            data-aos-delay="400"
+          >
+            <img
+              class="w-full h-56 object-cover"
+              src="./image/ankor.jpg"
+              alt="KAWS HOLIDAY"
+            />
+            <div class="px-4 py-2">
+              <span
+                class="inline-block bg-[#FFE2E2] text-[#213555] text-sm font-semibold px-4 py-1 rounded-full transition-colors duration-300 hover:bg-[#FFFDEC] cursor-pointer"
+                data-aos="fade-in"
+                data-aos-duration="800"
+                data-aos-delay="500"
+              >
+                News & Update
+              </span>
+            </div>
+            <div
+              class="px-4 pb-4 text-xl font-medium text-gray-700"
+              data-aos="fade-in"
+              data-aos-duration="800"
+              data-aos-delay="600"
+            >
+              ✨KAWS HOLIDAY BANGKOK✨
+            </div>
+            <div
+              class="px-4 pb-4 flex items-center text-sm text-gray-500 space-x-4"
+              data-aos="fade-in"
+              data-aos-duration="800"
+              data-aos-delay="700"
+            >
+              <div class="flex items-center space-x-1">
+                <i class="fa-solid fa-location-dot"></i>
+                <span>10 Street 2568</span>
+              </div>
+              <div class="flex items-center space-x-1">
+                <i class="fa-solid fa-eye"></i>
+                <span>15892</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card Item -->
+          <div
+            class="bg-white rounded-xl shadow-md hover:shadow-xl overflow-hidden cursor-pointer transform transition-transform duration-300 ease-in-out hover:scale-105"
+            data-aos="fade-up"
+            data-aos-duration="1000"
+            data-aos-delay="500"
+          >
+            <img
+              class="w-full h-56 object-cover"
+              src="./image/hotel2.jpeg"
+              alt="KAWS HOLIDAY"
+            />
+            <div class="px-4 py-2">
+              <span
+                class="inline-block bg-[#FFE2E2] text-[#213555] text-sm font-semibold px-4 py-1 rounded-full transition-colors duration-300 hover:bg-[#FFFDEC] cursor-pointer"
+                data-aos="fade-in"
+                data-aos-duration="800"
+                data-aos-delay="600"
+              >
+                News & Update
+              </span>
+            </div>
+            <div
+              class="px-4 pb-4 text-xl font-medium text-gray-700"
+              data-aos="fade-in"
+              data-aos-duration="800"
+              data-aos-delay="700"
+            >
+              ✨Wild Restaurant✨
+            </div>
+            <div
+              class="px-4 pb-4 flex items-center text-sm text-gray-500 space-x-4"
+              data-aos="fade-in"
+              data-aos-duration="800"
+              data-aos-delay="800"
+            >
+              <div class="flex items-center space-x-1">
+                <i class="fa-solid fa-location-dot"></i>
+                <span>10 Street 2568</span>
+              </div>
+              <div class="flex items-center space-x-1">
+                <i class="fa-solid fa-eye"></i>
+                <span>15892</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card Item -->
+          <div
+            class="bg-white rounded-xl shadow-md hover:shadow-xl overflow-hidden cursor-pointer transform transition-transform duration-300 ease-in-out hover:scale-105"
+            data-aos="fade-up"
+            data-aos-duration="1000"
+            data-aos-delay="600"
+          >
+            <img
+              class="w-full h-56 object-cover"
+              src="./image/hotel1.jpg"
+              alt="KAWS HOLIDAY"
+            />
+            <div class="px-4 py-2">
+              <span
+                class="inline-block bg-[#FFE2E2] text-[#213555] text-sm font-semibold px-4 py-1 rounded-full transition-colors duration-300 hover:bg-[#FFFDEC] cursor-pointer"
+                data-aos="fade-in"
+                data-aos-duration="800"
+                data-aos-delay="700"
+              >
+                News & Update
+              </span>
+            </div>
+            <div
+              class="px-4 pb-4 text-xl font-medium text-gray-700"
+              data-aos="fade-in"
+              data-aos-duration="800"
+              data-aos-delay="800"
+            >
+              ✨Hotel Layout✨
+            </div>
+            <div
+              class="px-4 pb-4 flex items-center text-sm text-gray-500 space-x-4"
+              data-aos="fade-in"
+              data-aos-duration="800"
+              data-aos-delay="900"
+            >
+              <div class="flex items-center space-x-1">
+                <i class="fa-solid fa-location-dot"></i>
+                <span>10 Street 2568</span>
+              </div>
+              <div class="flex items-center space-x-1">
+                <i class="fa-solid fa-eye"></i>
+                <span>15892</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card Item -->
+          <div
+            class="bg-white rounded-xl shadow-md hover:shadow-xl overflow-hidden cursor-pointer transform transition-transform duration-300 ease-in-out hover:scale-105"
+            data-aos="fade-up"
+            data-aos-duration="1000"
+            data-aos-delay="700"
+          >
+            <img
+              class="w-full h-56 object-cover"
+              src="./image/hotel.webp"
+              alt="Bedroom"
+            />
+            <div class="px-4 py-2">
+              <span
+                class="inline-block bg-[#FFE2E2] text-[#213555] text-sm font-semibold px-4 py-1 rounded-full transition-colors duration-300 hover:bg-[#FFFDEC] cursor-pointer"
+                data-aos="fade-in"
+                data-aos-duration="800"
+                data-aos-delay="800"
+              >
+                News & Update
+              </span>
+            </div>
+            <div
+              class="px-4 pb-4 text-xl font-medium text-gray-700"
+              data-aos="fade-in"
+              data-aos-duration="800"
+              data-aos-delay="900"
+            >
+              ✨Hotel In Room✨
+            </div>
+            <div
+              class="px-4 pb-4 flex items-center text-sm text-gray-500 space-x-4"
+              data-aos="fade-in"
+              data-aos-duration="800"
+              data-aos-delay="1000"
+            >
+              <div class="flex items-center space-x-1">
+                <i class="fa-solid fa-location-dot"></i>
+                <span>7 Street 2568</span>
+              </div>
+              <div class="flex items-center space-x-1">
+                <i class="fa-solid fa-eye"></i>
+                <span>17777</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- AOS CSS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+
+    <!-- AOS JS -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+      AOS.init({
+        duration: 1000, // Global duration for animations
+        once: true, // Animations occur only once
+        offset: 100, // Trigger animations 100px before element is in view
+      });
+    </script>
+    <section class="bg-gradient-to-br from-gray-50 to-gray-100">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 md:px-32 lg:px-24 py-6">
+        <!-- Header -->
+        <header
+          class="text-left mb-4"
+          data-aos="fade-down"
+          data-aos-duration="800"
+        >
+          <h3
+            class="text-[32px] lg:text-[40px] lg:text-5xl font-bold bg-gradient-to-r from-amber-600 to-orange-600 bg-clip-text text-transparent mb-2"
+          >
+            Experience Khmerness
+          </h3>
+        </header>
+
+        <main id="main-content">
+          <section
+            class="grid grid-cols-2 md:grid-cols-4 grid-rows-3 h-auto gap-4"
+          >
+            <!-- Khmer Foods -->
+            <article
+              class="col-span-2 row-span-2 relative group"
+              data-aos="fade-up-right"
+              data-aos-duration="800"
+              data-aos-delay="100"
+            >
+              <a
+                href="khmer-foods.html"
+                class="block w-full h-full"
+                aria-label="Explore Khmer Foods"
+              >
+                <div
+                  class="relative w-full h-full sm:h-full rounded-2xl overflow-hidden shadow-lg"
+                >
+                  <img
+                    src="https://www.tourismthailand.org/images/home/experiences/thai-food.png.webp"
+                    alt="Traditional Khmer food"
+                    class="w-full h-full object-cover rounded-2xl transform group-hover:scale-105 transition-transform duration-500"
+                  />
+                  <div
+                    class="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent group-hover:from-black/40 transition-all duration-400"
+                  ></div>
+                  <div class="absolute bottom-4 left-4 right-4">
+                    <h2
+                      class="text-white text-xl font-bold mb-1 drop-shadow-lg"
+                    >
+                      Khmer Foods
+                    </h2>
+                  </div>
+                </div>
+              </a>
+            </article>
+
+            <!-- Temples -->
+            <article
+              class="relative group"
+              data-aos="fade-up"
+              data-aos-duration="800"
+              data-aos-delay="200"
+            >
+              <a
+                href="temples.html"
+                class="block w-full h-full"
+                aria-label="Explore Temples"
+              >
+                <div
+                  class="relative w-full h-full min-h-[90px] rounded-2xl overflow-hidden shadow-lg"
+                >
+                  <img
+                    src="https://cdn.hanoivoyage.com/uploads/Blogs/Cambodia/Visit-Cambodia/thumnail/cambodia-preah-vihear-thumbnail-01.jpg"
+                    alt="Buddhist Temple"
+                    class="w-full h-full object-cover rounded-2xl transform group-hover:scale-105 transition-transform duration-500"
+                  />
+                  <div
+                    class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent group-hover:from-black/30 transition-all duration-300"
+                  ></div>
+                  <div class="absolute bottom-2 left-2">
+                    <h3 class="text-white text-sm font-bold drop-shadow-md">
+                      Temples
+                    </h3>
+                  </div>
+                </div>
+              </a>
+            </article>
+
+            <!-- Palaces -->
+            <article
+              class="relative group"
+              data-aos="fade-up"
+              data-aos-duration="800"
+              data-aos-delay="300"
+            >
+              <a
+                href="palaces.html"
+                class="block w-full h-full"
+                aria-label="Explore Palaces"
+              >
+                <div
+                  class="relative w-full h-full min-h-[90px] rounded-2xl overflow-hidden shadow-lg"
+                >
+                  <img
+                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTkpjZErbobH2s5RHAe3LfHaEToH60mt6XLrA&s"
+                    alt="Traditional Palace"
+                    class="w-full h-full object-cover rounded-2xl transform group-hover:scale-105 transition-transform duration-500"
+                  />
+                  <div
+                    class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent group-hover:from-black/30 transition-all duration-300"
+                  ></div>
+                  <div class="absolute bottom-2 left-2">
+                    <h3 class="text-white text-sm font-bold drop-shadow-md">
+                      Palaces
+                    </h3>
+                  </div>
+                </div>
+              </a>
+            </article>
+
+            <!-- Beaches -->
+            <article
+              class="md:row-start-3 relative group"
+              data-aos="fade-up"
+              data-aos-duration="800"
+              data-aos-delay="400"
+            >
+              <a
+                href="beaches.html"
+                class="block w-full h-full"
+                aria-label="Explore Beaches"
+              >
+                <div
+                  class="relative w-full h-full min-h-[90px] rounded-2xl overflow-hidden shadow-lg"
+                >
+                  <img
+                    src="https://images.unsplash.com/photo-1537956965359-7573183d1f57?ixlib=rb-4.0.3&auto=format&fit=crop&w=2064&q=80"
+                    alt="Cambodian beach"
+                    class="w-full h-full object-cover rounded-2xl transform group-hover:scale-105 transition-transform duration-500"
+                  />
+                  <div
+                    class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent group-hover:from-black/30 transition-all duration-300"
+                  ></div>
+                  <div class="absolute bottom-2 left-2">
+                    <h3 class="text-white text-sm font-bold drop-shadow-md">
+                      Beaches
+                    </h3>
+                  </div>
+                </div>
+              </a>
+            </article>
+
+            <!-- Adventures -->
+            <article
+              class="md:row-start-3 relative group"
+              data-aos="fade-up"
+              data-aos-duration="800"
+              data-aos-delay="500"
+            >
+              <a
+                href="adventures.html"
+                class="block w-full h-full"
+                aria-label="Explore Adventures"
+              >
+                <div
+                  class="relative w-full h-full min-h-[90px] rounded-2xl overflow-hidden shadow-lg"
+                >
+                  <img
+                    src="https://images.unsplash.com/photo-1551632811-561732d1e306?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80"
+                    alt="Adventure forest"
+                    class="w-full h-full object-cover rounded-2xl transform group-hover:scale-105 transition-transform duration-500"
+                  />
+                  <div
+                    class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent group-hover:from-black/30 transition-all duration-300"
+                  ></div>
+                  <div class="absolute bottom-2 left-2">
+                    <h3 class="text-white text-sm font-bold drop-shadow-md">
+                      Adventures
+                    </h3>
+                  </div>
+                </div>
+              </a>
+            </article>
+
+            <!-- Festivals -->
+            <article
+              class="col-span-2 row-span-2 md:col-span-2 md:row-span-2 md:col-start-3 relative group"
+              data-aos="fade-up-left"
+              data-aos-duration="800"
+              data-aos-delay="100"
+            >
+              <a
+                href="festivals.html"
+                class="block w-full h-full"
+                aria-label="Explore Festivals"
+              >
+                <div
+                  class="relative w-full h-[200px] sm:h-full rounded-2xl overflow-hidden shadow-lg"
+                >
+                  <img
+                    src="https://www.tourismthailand.org/images/home/experiences/festival.png.webp"
+                    alt="Khmer Festival"
+                    class="w-full h-full object-cover rounded-2xl transform group-hover:scale-105 transition-transform duration-500"
+                  />
+                  <div
+                    class="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent group-hover:from-black/40 transition-all duration-400"
+                  ></div>
+                  <div class="absolute bottom-4 left-4 right-4">
+                    <h2
+                      class="text-white text-xl font-bold mb-1 drop-shadow-lg"
+                    >
+                      Festivals
+                    </h2>
+                  </div>
+                </div>
+              </a>
+            </article>
+          </section>
+        </main>
+
+        <section
+          class="mt-6 text-center"
+          data-aos="fade-up"
+          data-aos-duration="800"
+          data-aos-delay="600"
+        >
+          <div class="bg-white rounded-2xl shadow-lg p-6 lg:p-8">
+            <h2 class="text-2xl font-bold text-gray-800 mb-3">
+              Ready to Explore Cambodia?
+            </h2>
+            <p class="text-gray-600 mb-6 max-w-xl mx-auto text-sm">
+              Start your journey through the Kingdom of Wonder and create
+              unforgettable memories.
+            </p>
+            <button
+              class="bg-gradient-to-r from-amber-500 to-orange-500 text-white px-6 py-3 rounded-full font-semibold text-base hover:from-amber-600 hover:to-orange-600 transform hover:scale-105 transition-all duration-300 shadow-md hover:shadow-lg focus:outline-none focus:ring-3 focus:ring-amber-300"
+            >
+              Plan Your Adventure
+            </button>
+          </div>
+        </section>
+      </div>
+
+      <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" />
+      <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+      <script>
+        // Initialize AOS
+        AOS.init({
+          once: true,
+          offset: 100,
+          duration: 800,
+          easing: "ease-out-quart",
+        });
+      </script>
+    </section>
+    <!-- ============================================ -->
+
+    <section
+      class="bg-gradient-to-br from-gray-50 to-gray-100 font-sans antialiased"
+    >
+      <main class="container mx-auto px-6 py-12">
+        <div class="lg:flex lg:space-x-12 space-y-12 lg:space-y-0">
+          <!-- Left: Featured Event -->
+          <div class="w-full lg:w-1/2">
+            <a
+              href="/event/chompol-fest-2025"
+              class="relative group overflow-hidden rounded-3xl shadow-2xl featured-event block"
+              role="region"
+              aria-label="Featured Event: Chompol Fest"
+              data-aos="fade-up"
+              data-aos-duration="800"
+            >
+              <img
+                src="https://asset.cambodia.gov.kh/tourism/2023/11/photo_2023-11-16_17-33-43-723x1024.webp"
+                alt="Sea Festival 2025"
+                class="w-full h-[400px] sm:h-[500px] lg:h-[600px] object-cover image-hover"
+                loading="lazy"
+              />
+              <div class="absolute inset-0 gradient-overlay"></div>
+              <div
+                class="absolute inset-0 flex flex-col justify-end p-6 sm:p-8 text-white"
+              >
+                <div class="space-y-4">
+                  <div
+                    class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-primary/90 text-white w-fit"
+                  >
+                    <svg
+                      class="w-3 h-3 mr-1"
+                      fill="currentColor"
+                      viewBox="0 0 20 20"
+                      aria-hidden="true"
+                    >
+                      <path
+                        fill-rule="evenodd"
+                        d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z"
+                        clip-rule="evenodd"
+                      ></path>
+                    </svg>
+                    18–22 June 2025
+                  </div>
+                  <div class="space-y-1">
+                    <h1
+                      class="text-3xl sm:text-4xl lg:text-5xl font-bold leading-tight"
+                    >
+                      Chompol Fest
+                    </h1>
+                    <p class="text-xl sm:text-2xl font-semibold text-gray-100">
+                      2025
+                    </p>
+                  </div>
+                  <div
+                    class="flex items-center space-x-2 text-gray-200 text-sm sm:text-base"
+                  >
+                    <svg
+                      class="w-4 h-4"
+                      fill="currentColor"
+                      viewBox="0 0 20 20"
+                      aria-hidden="true"
+                    >
+                      <path
+                        fill-rule="evenodd"
+                        d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z"
+                        clip-rule="evenodd"
+                      ></path>
+                    </svg>
+                    <span>Kampot, Cambodia</span>
+                  </div>
+                  <span
+                    class="inline-block mt-4 bg-primary hover:bg-primary-dark text-white px-6 sm:px-8 py-2 sm:py-3 rounded-full font-semibold transition-all duration-300 hover:shadow-lg"
+                    role="button"
+                    aria-label="Get Tickets for Chompol Fest"
+                  >
+                    Get Tickets
+                  </span>
+                </div>
+              </div>
+            </a>
+          </div>
+
+          <!-- Right: Upcoming Events -->
+          <div class="w-full lg:w-1/2">
+            <!-- Header -->
+            <div class="mb-8 flex justify-between items-center">
+              <h2
+                class="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-800"
+              >
+                Upcoming Events
+              </h2>
+              <a
+                href="/events"
+                class="flex items-center text-primary hover:text-primary-dark hover:bg-primary/10 px-3 py-2 rounded-lg transition-colors text-sm sm:text-base"
+                aria-label="View All Events"
+              >
+                View All
+                <svg
+                  class="w-4 h-4 ml-1"
+                  fill="currentColor"
+                  viewBox="0 0 20 20"
+                  aria-hidden="true"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
+                    clip-rule="evenodd"
+                  ></path>
+                </svg>
+              </a>
+            </div>
+
+            <!-- Slider Container -->
+            <div
+              class="relative"
+              role="region"
+              aria-label="Upcoming Events Slider"
+            >
+              <!-- Cards Container -->
+              <div class="overflow-hidden">
+                <div id="slider" class="flex slider-container">
+                  <!-- Card 1: Featured -->
+                  <div
+                    class="w-full sm:w-1/2 lg:w-1/3 flex-shrink-0 px-2"
+                    data-aos="fade-up"
+                    data-aos-duration="800"
+                    data-aos-delay="100"
+                  >
+                    <a
+                      href="/event/chompol-fest-2025"
+                      class="card-hover block bg-white rounded-2xl ring-2 ring-primary shadow-lg overflow-hidden featured-card"
+                      role="article"
+                      aria-label="Chompol Fest 2025"
+                    >
+                      <div class="relative overflow-hidden">
+                        <img
+                          src="https://asset.cambodia.gov.kh/tourism/2023/11/photo_2023-11-16_17-33-43-723x1024.webp"
+                          alt="Chompol Fest 2025"
+                          class="w-full h-48 sm:h-64 object-cover card-image-hover"
+                          loading="lazy"
+                        />
+                        <div
+                          class="absolute inset-0 card-gradient-overlay"
+                        ></div>
+                        <div class="absolute top-3 left-3">
+                          <div
+                            class="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-primary text-white"
+                          >
+                            <svg
+                              class="w-3 h-3 mr-1 fill-current"
+                              viewBox="0 0 20 20"
+                              aria-hidden="true"
+                            >
+                              <path
+                                d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364e-16 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
+                              ></path>
+                            </svg>
+                            Featured
+                          </div>
+                        </div>
+                        <div
+                          class="absolute bottom-0 left-0 right-0 p-4 text-white"
+                        >
+                          <div
+                            class="inline-block px-2 py-1 rounded text-xs bg-white/20 mb-2"
+                          >
+                            Tran Festival
+                          </div>
+                          <h3 class="font-semibold text-sm leading-tight mb-1">
+                            Sea Festival 2025
+                          </h3>
+                          <div
+                            class="flex items-center justify-between text-xs text-gray-200"
+                          >
+                            <div class="flex items-center">
+                              <svg
+                                class="w-3 h-3 mr-1"
+                                fill="currentColor"
+                                viewBox="0 0 20 20"
+                                aria-hidden="true"
+                              >
+                                <path
+                                  fill-rule="evenodd"
+                                  d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z"
+                                  clip-rule="evenodd"
+                                ></path>
+                              </svg>
+                              Jun 18
+                            </div>
+                            <div class="flex items-center">
+                              <svg
+                                class="w-3 h-3 mr-1"
+                                fill="currentColor"
+                                viewBox="0 0 20 20"
+                                aria-hidden="true"
+                              >
+                                <path
+                                  fill-rule="evenodd"
+                                  d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z"
+                                  clip-rule="evenodd"
+                                ></path>
+                              </svg>
+                              Cambodia
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </a>
+                  </div>
+
+                  <!-- Card 2 -->
+                  <div
+                    class="w-full sm:w-1/2 lg:w-1/3 flex-shrink-0 px-2"
+                    data-aos="fade-up"
+                    data-aos-duration="800"
+                    data-aos-delay="200"
+                  >
+                    <a
+                      href="/event/khmer-festival-2025"
+                      class="card-hover block bg-white rounded-2xl shadow-md overflow-hidden"
+                      role="article"
+                      aria-label="Khmer Festival"
+                    >
+                      <div class="relative overflow-hidden">
+                        <img
+                          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ5GbTpwX9n1sBWtR_C7LwRFk39X56pljUc2iFtxNUWF6pJmipxHR4l8A1iPcnIMVGM8EY&usqp=CAU"
+                          alt="Khmer Festival"
+                          class="w-full h-48 sm:h-64 object-cover card-image-hover"
+                          loading="lazy"
+                        />
+                        <div
+                          class="absolute inset-0 card-gradient-overlay"
+                        ></div>
+                        <div
+                          class="absolute bottom-0 left-0 right-0 p-4 text-white"
+                        >
+                          <div
+                            class="inline-block px-2 py-1 rounded text-xs bg-white/20 mb-2"
+                          >
+                            Cultural Event
+                          </div>
+                          <h3 class="font-semibold text-sm leading-tight mb-1">
+                            Khmer Festival
+                          </h3>
+                          <div
+                            class="flex items-center justify-between text-xs text-gray-200"
+                          >
+                            <div class="flex items-center">
+                              <svg
+                                class="w-3 h-3 mr-1"
+                                fill="currentColor"
+                                viewBox="0 0 20 20"
+                                aria-hidden="true"
+                              >
+                                <path
+                                  fill-rule="evenodd"
+                                  d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z"
+                                  clip-rule="evenodd"
+                                ></path>
+                              </svg>
+                              Jun 19
+                            </div>
+                            <div class="flex items-center">
+                              <svg
+                                class="w-3 h-3 mr-1"
+                                fill="currentColor"
+                                viewBox="0 0 20 20"
+                                aria-hidden="true"
+                              >
+                                <path
+                                  fill-rule="evenodd"
+                                  d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z"
+                                  clip-rule="evenodd"
+                                ></path>
+                              </svg>
+                              Phnom Penh
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </a>
+                  </div>
+
+                  <!-- Card 3 -->
+                  <div
+                    class="w-full sm:w-1/2 lg:w-1/3 flex-shrink-0 px-2"
+                    data-aos="fade-up"
+                    data-aos-duration="800"
+                    data-aos-delay="300"
+                  >
+                    <a
+                      href="/event/tonle-festival-2025"
+                      class="card-hover block bg-white rounded-2xl shadow-md overflow-hidden"
+                      role="article"
+                      aria-label="Tonle Festival"
+                    >
+                      <div class="relative overflow-hidden">
+                        <img
+                          src="https://asset.cambodia.gov.kh/tourism/2024/03/photo_2024-03-06_14-02-38-865x1024.jpg"
+                          alt="Tonle Festival"
+                          class="w-full h-48 sm:h-64 object-cover card-image-hover"
+                          loading="lazy"
+                        />
+                        <div
+                          class="absolute inset-0 card-gradient-overlay"
+                        ></div>
+                        <div
+                          class="absolute bottom-0 left-0 right-0 p-4 text-white"
+                        >
+                          <div
+                            class="inline-block px-2 py-1 rounded text-xs bg-white/20 mb-2"
+                          >
+                            Tourism
+                          </div>
+                          <h3 class="font-semibold text-sm leading-tight mb-1">
+                            Tonle Festival
+                          </h3>
+                          <div
+                            class="flex items-center justify-between text-xs text-gray-200"
+                          >
+                            <div class="flex items-center">
+                              <svg
+                                class="w-3 h-3 mr-1"
+                                fill="currentColor"
+                                viewBox="0 0 20 20"
+                                aria-hidden="true"
+                              >
+                                <path
+                                  fill-rule="evenodd"
+                                  d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z"
+                                  clip-rule="evenodd"
+                                ></path>
+                              </svg>
+                              Jun 19
+                            </div>
+                            <div class="flex items-center">
+                              <svg
+                                class="w-3 h-3 mr-1"
+                                fill="currentColor"
+                                viewBox="0 0 20 20"
+                                aria-hidden="true"
+                              >
+                                <path
+                                  fill-rule="evenodd"
+                                  d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z"
+                                  clip-rule="evenodd"
+                                ></path>
+                              </svg>
+                              Bati, Takeo
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </a>
+                  </div>
+
+                  <!-- Card 4 -->
+                  <div
+                    class="w-full sm:w-1/2 lg:w-1/3 flex-shrink-0 px-2"
+                    data-aos="fade-up"
+                    data-aos-duration="800"
+                    data-aos-delay="400"
+                  >
+                    <a
+                      href="/event/angkor-festival-2025"
+                      class="card-hover block bg-white rounded-2xl shadow-md overflow-hidden"
+                      role="article"
+                      aria-label="Angkor Festival"
+                    >
+                      <div class="relative overflow-hidden">
+                        <img
+                          src="https://stc-bucket.sgp1.cdn.digitaloceanspaces.com/0001/1892/2024/12/04/469127413-1129112029221951-1946086047743839692-n.jpg"
+                          alt="Angkor Festival"
+                          class="w-full h-48 sm:h-64 object-cover card-image-hover"
+                          loading="lazy"
+                        />
+                        <div
+                          class="absolute inset-0 card-gradient-overlay"
+                        ></div>
+                        <div
+                          class="absolute bottom-0 left-0 right-0 p-4 text-white"
+                        >
+                          <div
+                            class="inline-block px-2 py-1 rounded text-xs bg-white/20 mb-2"
+                          >
+                            Art & Culture
+                          </div>
+                          <h3 class="font-semibold text-sm leading-tight mb-1">
+                            Angkor Festival
+                          </h3>
+                          <div
+                            class="flex items-center justify-between text-xs text-gray-200"
+                          >
+                            <div class="flex items-center">
+                              <svg
+                                class="w-3 h-3 mr-1"
+                                fill="currentColor"
+                                viewBox="0 0 20 20"
+                                aria-hidden="true"
+                              >
+                                <path
+                                  fill-rule="evenodd"
+                                  d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z"
+                                  clip-rule="evenodd"
+                                ></path>
+                              </svg>
+                              Jun 20
+                            </div>
+                            <div class="flex items-center">
+                              <svg
+                                class="w-3 h-3 mr-1"
+                                fill="currentColor"
+                                viewBox="0 0 20 20"
+                                aria-hidden="true"
+                              >
+                                <path
+                                  fill-rule="evenodd"
+                                  d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z"
+                                  clip-rule="evenodd"
+                                ></path>
+                              </svg>
+                              Siemreap
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </a>
+                  </div>
+
+                  <!-- Card 5 -->
+                  <div
+                    class="w-full sm:w-1/2 lg:w-1/3 flex-shrink-0 px-2"
+                    data-aos="fade-up"
+                    data-aos-duration="800"
+                    data-aos-delay="500"
+                  >
+                    <a
+                      href="/event/kleng-ack-2025"
+                      class="card-hover block bg-white rounded-2xl shadow-md overflow-hidden"
+                      role="article"
+                      aria-label="Kleng Ack"
+                    >
+                      <div class="relative overflow-hidden">
+                        <img
+                          src="https://cdn.cc-times.com/kh.cc-times.com/media/57421/large/471245565_910039464608963_5071739137653322790_n.jpg?1735186818"
+                          alt="Kleng Ack"
+                          class="w-full h-48 sm:h-64 object-cover card-image-hover"
+                          loading="lazy"
+                        />
+                        <div
+                          class="absolute inset-0 card-gradient-overlay"
+                        ></div>
+                        <div
+                          class="absolute bottom-0 left-0 right-0 p-4 text-white"
+                        >
+                          <div
+                            class="inline-block px-2 py-1 rounded text-xs bg-white/20 mb-2"
+                          >
+                            Traditional
+                          </div>
+                          <h3 class="font-semibold text-sm leading-tight mb-1">
+                            Kleng Ack
+                          </h3>
+                          <div
+                            class="flex items-center justify-between text-xs text-gray-200"
+                          >
+                            <div class="flex items-center">
+                              <svg
+                                class="w-3 h-3 mr-1"
+                                fill="currentColor"
+                                viewBox="0 0 20 20"
+                                aria-hidden="true"
+                              >
+                                <path
+                                  fill-rule="evenodd"
+                                  d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z"
+                                  clip-rule="evenodd"
+                                ></path>
+                              </svg>
+                              Jun 21
+                            </div>
+                            <div class="flex items-center">
+                              <svg
+                                class="w-3 h-3 mr-1"
+                                fill="currentColor"
+                                viewBox="0 0 20 20"
+                                aria-hidden="true"
+                              >
+                                <path
+                                  fill-rule="evenodd"
+                                  d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z"
+                                  clip-rule="evenodd"
+                                ></path>
+                              </svg>
+                              Chiang Mai
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </a>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Navigation Controls -->
+              <div class="flex items-center justify-center mt-6 space-x-4">
+                <button
+                  id="prevBtn"
+                  class="flex items-center justify-center w-10 h-10 rounded-full border border-primary/20 text-primary hover:bg-primary/10 hover:border-primary transition-colors disabled:btn-disabled"
+                  aria-label="Previous Slide"
+                >
+                  <svg
+                    class="w-5 h-5"
+                    fill="currentColor"
+                    viewBox="0 0 20 20"
+                    aria-hidden="true"
+                  >
+                    <path
+                      fill-rule="evenodd"
+                      d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z"
+                      clip-rule="evenodd"
+                    ></path>
+                  </svg>
+                </button>
+                <div
+                  class="flex space-x-2"
+                  id="indicators"
+                  role="tablist"
+                  aria-label="Slide Indicators"
+                >
+                  <button
+                    class="slide-indicator w-2 h-2 rounded-full bg-primary active"
+                    data-slide="0"
+                    role="tab"
+                    aria-selected="true"
+                    aria-label="Slide 1"
+                  ></button>
+                  <button
+                    class="slide-indicator w-2 h-2 rounded-full bg-gray-300"
+                    data-slide="1"
+                    role="tab"
+                    aria-selected="false"
+                    aria-label="Slide 2"
+                  ></button>
+                  <button
+                    class="slide-indicator w-2 h-2 rounded-full bg-gray-300"
+                    data-slide="2"
+                    role="tab"
+                    aria-selected="false"
+                    aria-label="Slide 3"
+                  ></button>
+                </div>
+                <button
+                  id="nextBtn"
+                  class="flex items-center justify-center w-10 h-10 rounded-full border border-primary/20 text-primary hover:bg-primary/10 hover:border-primary transition-colors disabled:btn-disabled"
+                  aria-label="Next Slide"
+                >
+                  <svg
+                    class="w-5 h-5"
+                    fill="currentColor"
+                    viewBox="0 0 20 20"
+                    aria-hidden="true"
+                  >
+                    <path
+                      fill-rule="evenodd"
+                      d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
+                      clip-rule="evenodd"
+                    ></path>
+                  </svg>
+                </button>
+              </div>
+            </div>
+
+            <!-- Quick Stats -->
+            <div class="mt-12 grid grid-cols-3 sm:grid-cols-3 gap-3">
+              <div
+                class="stats-card text-center"
+                data-aos="fade-up"
+                data-aos-duration="800"
+                data-aos-delay="100"
+              >
+                <div class="stats-number">50+</div>
+                <div class="stats-label">Events This Month</div>
+              </div>
+              <div
+                class="stats-card text-center"
+                data-aos="fade-up"
+                data-aos-duration="800"
+                data-aos-delay="200"
+              >
+                <div class="stats-number">10K+</div>
+                <div class="stats-label">Attendees</div>
+              </div>
+              <div
+                class="stats-card text-center"
+                data-aos="fade-up"
+                data-aos-duration="800"
+                data-aos-delay="300"
+              >
+                <div class="stats-number">25</div>
+                <div class="stats-label">Cities</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+    </section>
+    <!-- ============================================ -->
+
+    <!-- ============================================ -->
+
+    <section class="bg-gray-50 py-12">
+      <div class="container mx-auto px-4">
+        <div class="relative w-full max-w-7xl mx-auto">
+          <!-- Navigation Buttons -->
+          <button
+            id="prevBtn"
+            class="absolute left-2 top-[40%] -translate-y-1/2 z-10 bg-white/90 hover:bg-white shadow-lg rounded-full w-10 h-10 flex items-center justify-center border-2 border-pink-500 transition-colors nav-btn"
+            aria-label="Previous slide"
+          >
+            <svg
+              class="h-5 w-5 text-pink-500"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M15 19l-7-7 7-7"
+              ></path>
+            </svg>
+          </button>
+
+          <button
+            id="nextBtn"
+            class="absolute right-2 top-[40%] -translate-y-1/2 z-10 bg-white/90 hover:bg-white shadow-lg rounded-full w-10 h-10 flex items-center justify-center border-2 border-pink-500 transition-colors nav-btn"
+            aria-label="Next slide"
+          >
+            <svg
+              class="h-5 w-5 text-pink-500"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M9 5l7 7-7 7"
+              ></path>
+            </svg>
+          </button>
+
+          <!-- Carousel Container -->
+          <div class="overflow-hidden">
+            <div id="carousel" class="flex gap-4 px-4 carousel-container">
+              <!-- Cards will be dynamically generated here -->
+            </div>
+          </div>
+
+          <!-- Dots Indicator -->
+          <div class="flex justify-center mt-6 space-x-2" id="dots">
+            <!-- Dots will be dynamically generated here -->
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <script>
+      // Carousel data
+      const carouselData = [
+        {
+          id: 1,
+          title: "Kun Bokator",
+          description: "Khmer martial arts",
+          image:
+            "https://media.nationthailand.com/uploads/images/md/2023/01/kK1qsY9gAVxTzkMHQhxz.webp",
+          badge: { text: "30%", color: "bg-pink-500" },
+        },
+        {
+          id: 2,
+          title: "Online Booking",
+          description: "BOOKMEBUS",
+          subtitle: "www.BookMeBus.com",
+          image:
+            "https://assets.bookmebus.com/assets/slides/bookmebus-app-promotion-738426df0204d4cc596e6b2980f5e3b1.png",
+        },
+        {
+          id: 3,
+          title: "Khmer Festival",
+          description: "Experience the Magic",
+          image:
+            "https://rimbukmedia.wordpress.com/wp-content/uploads/2016/11/img_4167.jpg",
+        },
+        {
+          id: 4,
+          title: "Khmer Massage & Spa",
+          description: "Traditional Wellness",
+          image:
+            "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/05/38/eb/1e/feel-good-spa-emporium.jpg?w=900&h=500&s=1",
+          hasSparkles: true,
+        },
+        {
+          id: 5,
+          title: "Villa Serey",
+          description: "Privilege Visa for Long Stay",
+          image:
+            "https://cf-img.villa-finder.com/cf/m/villas/villa-serey/villa-serey-main-villa-64ab7f0e7aa3c.jpg",
+        },
+        {
+          id: 6,
+          title: "Khmer Cuisine",
+          description: "Authentic Food Experience",
+          image:
+            "https://angkorw.wordpress.com/wp-content/uploads/2014/10/embassy-logo.jpg?w=640",
+          badge: { text: "NEW", color: "bg-green-600" },
+        },
+        {
+          id: 7,
+          title: "Khmer Ceramics Centre",
+          description: "More cultural experiences",
+          image:
+            "https://pppenglish.sgp1.digitaloceanspaces.com/image/main/field/image/cambodian-actress-shin-yubin-takes-in-a-pottery-class-at-the-khmer-ceramics-centre.-facebook.jpg",
+          badge: { text: "INSPIRE", color: "bg-rose-600" },
+        },
+        {
+          id: 8,
+          title: "Island Hopping",
+          description: "Koh Rong & Koh Rong Samloem Tours",
+          image:
+            "https://images.travelandleisureasia.com/wp-content/uploads/sites/6/2024/05/13095606/cambodia-islands_0_feature.jpeg?tr=w-480,f-jpg,pr-true",
+          badge: { text: "POPULAR", color: "bg-cyan-600" },
+        },
+        {
+          id: 9,
+          title: "Cambo City Tour",
+          description: "Temples & Markets",
+          image:
+            "https://call.tours/uploads/0000/46/2024/12/07/lets-go-its-time-to-traels-1.jpg",
+          badge: { text: "CITY", color: "bg-amber-600" },
+        },
+        {
+          id: 10,
+          title: "Kun Khmer Training",
+          description: "Learn Traditional Art",
+          image:
+            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQBacpI9wUPFyphWjRF7bbhPWIcDYzvb16T0hNu18KMVJ5v9Tt_DYaMG_BOqZA28jHe9Xc&usqp=CAU",
+          badge: { text: "SPORT", color: "bg-red-600" },
+        },
+        {
+          id: 11,
+          title: "Angkor Wildlife",
+          description: "Ethical Wildlife & Aquarium Experience",
+          image: "https://cambodianess.com/uploads/images/1737686883.jpg",
+          badge: { text: "ECO", color: "bg-emerald-600" },
+        },
+        {
+          id: 12,
+          title: "Khmer Cooking Class",
+          description: "Master Khmer Flavors",
+          image:
+            "https://visitcommunities.com/wp-content/uploads/2022/04/ca6-1.jpg",
+          badge: { text: "LEARN", color: "bg-yellow-600" },
+        },
+      ];
+
+      // Carousel state
+      let currentIndex = 0;
+      let isTransitioning = false;
+      let autoScrollInterval;
+      let touchStartX = 0;
+      let touchEndX = 0;
+
+      // Dynamically calculate card width based on screen size
+      const getCardWidth = () => {
+        return window.innerWidth <= 640 ? 192 : 320; // 12rem for mobile, 20rem for desktop
+      };
+      let cardWidth = getCardWidth();
+      const visibleCards = 3;
+      const totalCards = carouselData.length;
+
+      // DOM elements
+      const carousel = document.getElementById("carousel");
+      const dotsContainer = document.getElementById("dots");
+      const prevBtn = document.getElementById("prevBtn");
+      const nextBtn = document.getElementById("nextBtn");
+
+      // Create extended data for circular scrolling
+      const extendedData = [
+        ...carouselData.slice(-visibleCards),
+        ...carouselData,
+        ...carouselData.slice(0, visibleCards),
+      ];
+
+      // Create card HTML
+      function createCardHTML(card, index) {
+        const badgeHTML = card.badge
+          ? `<div class="absolute top-3 left-3 ${card.badge.color} text-white px-2 py-1 rounded-full text-xs font-semibold z-10">
+                    ${card.badge.text}
+                </div>`
+          : "";
+
+        const sparklesHTML = card.hasSparkles
+          ? `<div class="absolute top-3 right-3 text-yellow-300 text-lg animate-pulse z-10 drop-shadow-lg">🎇</div>
+                <div class="absolute top-6 right-8 text-pink-300 text-sm animate-pulse-delayed z-10 drop-shadow-lg">🎆</div>`
+          : "";
+
+        const subtitleHTML = card.subtitle
+          ? `<p class="text-xs opacity-75 drop-shadow-md">${card.subtitle}</p>`
+          : "";
+
+        return `
+                <div class="carousel-card flex-shrink-0 ${
+                  window.innerWidth <= 640 ? "w-48" : "w-80"
+                }" data-card-id="${card.id}-${index}">
+                    <div class="rounded-xl ${
+                      window.innerWidth <= 640 ? "h-32" : "h-48"
+                    } relative overflow-hidden shadow-lg hover:shadow-xl transition-shadow cursor-pointer">
+                        <img src="${card.image}" alt="${
+          card.title
+        }" class="w-full h-full object-cover" loading="lazy">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent"></div>
+                        ${badgeHTML}
+                        ${sparklesHTML}
+                        <div class="absolute bottom-0 left-0 right-0 p-4 text-white">
+                            <div class="flex items-end justify-between">
+                                <div>
+                                    <h3 class="font-bold mb-1 drop-shadow-lg ${
+                                      window.innerWidth <= 640
+                                        ? "text-sm"
+                                        : "text-xl"
+                                    }">${card.title}</h3>
+                                    <p class="opacity-90 drop-shadow-md ${
+                                      window.innerWidth <= 640
+                                        ? "text-xs"
+                                        : "text-sm"
+                                    }">${card.description}</p>
+                                    ${subtitleHTML}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `;
+      }
+
+      // Initialize carousel
+      function initCarousel() {
+        carousel.innerHTML = extendedData
+          .map((card, index) => createCardHTML(card, index))
+          .join("");
+
+        const totalDots = Math.min(6, totalCards);
+        dotsContainer.innerHTML = Array.from(
+          { length: totalDots },
+          (_, index) =>
+            `<button class="w-2 h-2 rounded-full transition-colors ${
+              index === 0 ? "bg-purple-500" : "bg-gray-300"
+            } dot" data-index="${index}" aria-label="Go to slide ${
+              index + 1
+            }"></button>`
+        ).join("");
+
+        updateCarousel(currentIndex, false);
+      }
+
+      // Update carousel position
+      function updateCarousel(index, withTransition = true) {
+        if (isTransitioning) return;
+
+        if (withTransition) {
+          isTransitioning = true;
+          carousel.classList.remove("no-transition");
+          setTimeout(() => {
+            isTransitioning = false;
+          }, 500);
+        } else {
+          carousel.classList.add("no-transition");
+        }
+
+        const translateX = (index + visibleCards) * cardWidth;
+        carousel.style.transform = `translateX(-${translateX}px)`;
+        updateDots();
+      }
+
+      // Update dots indicator
+      function updateDots() {
+        const dots = document.querySelectorAll(".dot");
+        const normalizedIndex =
+          ((currentIndex % totalCards) + totalCards) % totalCards;
+        const totalDots = dots.length;
+        const dotsPerSection = Math.ceil(totalCards / totalDots);
+        const activeDotIndex = Math.floor(normalizedIndex / dotsPerSection);
+
+        dots.forEach((dot, index) => {
+          if (index === activeDotIndex) {
+            dot.classList.remove("bg-gray-300");
+            dot.classList.add("bg-purple-500");
+          } else {
+            dot.classList.remove("bg-purple-500");
+            dot.classList.add("bg-gray-300");
+          }
+        });
+      }
+
+      // Navigation functions
+      function nextSlide() {
+        if (isTransitioning) return;
+        const nextIndex = currentIndex + 1;
+        currentIndex = nextIndex;
+        updateCarousel(nextIndex);
+
+        if (nextIndex >= totalCards) {
+          setTimeout(() => {
+            currentIndex = 0;
+            updateCarousel(0, false);
+          }, 500);
+        }
+      }
+
+      function prevSlide() {
+        if (isTransitioning) return;
+        const prevIndex = currentIndex - 1;
+        currentIndex = prevIndex;
+        updateCarousel(prevIndex);
+
+        if (prevIndex < 0) {
+          setTimeout(() => {
+            currentIndex = totalCards - 1;
+            updateCarousel(totalCards - 1, false);
+          }, 500);
+        }
+      }
+
+      function goToSlide(index) {
+        if (isTransitioning) return;
+        currentIndex = index;
+        updateCarousel(index);
+      }
+
+      // Auto scroll functions
+      function startAutoScroll() {
+        autoScrollInterval = setInterval(nextSlide, 3000);
+      }
+
+      function stopAutoScroll() {
+        if (autoScrollInterval) {
+          clearInterval(autoScrollInterval);
+        }
+      }
+
+      // Touch support
+      function handleTouchStart(e) {
+        touchStartX = e.touches[0].clientX;
+        stopAutoScroll();
+      }
+
+      function handleTouchEnd(e) {
+        touchEndX = e.changedTouches[0].clientX;
+        const distance = touchStartX - touchEndX;
+        const isLeftSwipe = distance > 50;
+        const isRightSwipe = distance < -50;
+
+        if (isLeftSwipe) nextSlide();
+        if (isRightSwipe) prevSlide();
+        startAutoScroll();
+      }
+
+      // Event listeners
+      function setupEventListeners() {
+        nextBtn.addEventListener("click", () => {
+          nextSlide();
+          stopAutoScroll();
+          startAutoScroll();
+        });
+
+        prevBtn.addEventListener("click", () => {
+          prevSlide();
+          stopAutoScroll();
+          startAutoScroll();
+        });
+
+        dotsContainer.addEventListener("click", (e) => {
+          if (e.target.classList.contains("dot")) {
+            const index = parseInt(e.target.dataset.index);
+            const totalDots = document.querySelectorAll(".dot").length;
+            const dotsPerSection = Math.ceil(totalCards / totalDots);
+            const targetIndex = Math.min(
+              index * dotsPerSection,
+              totalCards - 1
+            );
+            goToSlide(targetIndex);
+            stopAutoScroll();
+            startAutoScroll();
+          }
+        });
+
+        carousel.addEventListener("touchstart", handleTouchStart, {
+          passive: true,
+        });
+        carousel.addEventListener("touchend", handleTouchEnd, {
+          passive: true,
+        });
+
+        document.addEventListener("keydown", (e) => {
+          if (e.key === "ArrowLeft") {
+            prevSlide();
+            stopAutoScroll();
+            startAutoScroll();
+          } else if (e.key === "ArrowRight") {
+            nextSlide();
+            stopAutoScroll();
+            startAutoScroll();
+          }
+        });
+
+        carousel.addEventListener("mouseenter", stopAutoScroll);
+        carousel.addEventListener("mouseleave", startAutoScroll);
+
+        window.addEventListener("resize", () => {
+          cardWidth = getCardWidth();
+          updateCarousel(currentIndex, false);
+        });
+      }
+
+      // Initialize everything
+      document.addEventListener("DOMContentLoaded", () => {
+        initCarousel();
+        setupEventListeners();
+        startAutoScroll();
+      });
+    </script>
+
+    <!-- ============================================ -->
+    <section class="bg-pink-50 py-10 px-4 sm:px-6 lg:px-8">
+      <div class="max-w-6xl mx-auto">
+        <!-- Section Header -->
+        <div class="text-center mb-12">
+          <h2 class="text-[24px] font-bold text-gray-900 mb-3">
+            Travel Services
+          </h2>
+          <p class="text-[14px] text-gray-600 max-w-2xl mx-auto">
+            Everything you need for your perfect trip to Cambodia
+          </p>
+        </div>
+
+        <!-- Navigation Grid -->
+        <div
+          class="grid grid-cols-2 md:grid-cols-4 ml-16 mr-16 gap-2 lg:gap-10"
+        >
+          <!-- Visa & Passport -->
+          <a
+            href="/visa-passport"
+            class="flex flex-col items-center text-center group cursor-pointer p-4 transition-all duration-300"
+          >
+            <div
+              class="mb-2 transform transition-transform group-hover:scale-110 duration-300"
+            >
+              <img
+                src="https://api.tourismthailand.org/asset/home/plan_your_trip/Visa.svg"
+                alt="Visa and Passport icon"
+                class="w-14 h-14 object-contain"
+              />
+            </div>
+            <h3
+              class="text-gray-800 font-semibold text-[16px] group-hover:text-gray-900 transition-colors duration-300"
+            >
+              Visa & Passport
+            </h3>
+          </a>
+
+          <!-- Travel To Cambodia -->
+          <a
+            href="/travel-cambodia"
+            class="flex flex-col items-center text-center group cursor-pointer p-4 transition-all duration-300"
+          >
+            <div
+              class="mb-2 transform transition-transform group-hover:scale-110 duration-300"
+            >
+              <img
+                src="https://api.tourismthailand.org/asset/home/plan_your_trip/Travel.svg"
+                alt="Travel to Cambodia icon"
+                class="w-14 h-14 object-contain"
+              />
+            </div>
+            <h3
+              class="text-gray-800 font-semibold text-[16px] group-hover:text-gray-900 transition-colors duration-300"
+            >
+              Travel To Cambodia
+            </h3>
+          </a>
+
+          <!-- Getting Around -->
+          <a
+            href="/getting-around"
+            class="flex flex-col items-center text-center group cursor-pointer p-4 transition-all duration-300"
+          >
+            <div
+              class="mb-2 transform transition-transform group-hover:scale-110 duration-300"
+            >
+              <img
+                src="https://api.tourismthailand.org/asset/home/plan_your_trip/Train.svg"
+                alt="Getting Around icon"
+                class="w-14 h-14 object-contain"
+              />
+            </div>
+            <h3
+              class="text-gray-800 font-semibold text-[16px] group-hover:text-gray-900 transition-colors duration-300"
+            >
+              Getting Around
+            </h3>
+          </a>
+
+          <!-- Weather -->
+          <a
+            href="/weather"
+            class="flex flex-col items-center text-center group cursor-pointer p-4 transition-all duration-300"
+          >
+            <div
+              class="mb-2 transform transition-transform group-hover:scale-110 duration-300"
+            >
+              <img
+                src="https://api.tourismthailand.org/asset/home/plan_your_trip/Weather.svg"
+                alt="Weather icon"
+                class="w-14 h-14 object-contain"
+              />
+            </div>
+            <h3
+              class="text-gray-800 font-semibold text-[16px] group-hover:text-gray-900 transition-colors duration-300"
+            >
+              Weather
+            </h3>
+          </a>
+        </div>
+      </div>
+    </section>
+    <script>
+      let currentIndex = 0;
+      const cardWidth = 320; // 320px (w-80 + gap)
+      const visibleCards = Math.floor(window.innerWidth / cardWidth);
+      const totalCards = 12;
+      const maxIndex = Math.max(0, totalCards - visibleCards);
+
+      const carousel = document.getElementById("carousel");
+      const dots = document.querySelectorAll(".dot");
+      const prevBtn = document.getElementById("prevBtn");
+      const nextBtn = document.getElementById("nextBtn");
+
+      let autoScrollInterval;
+
+      function updateCarousel() {
+        const translateX = currentIndex * cardWidth;
+        carousel.style.transform = `translateX(-${translateX}px)`;
+
+        // Update dots based on scroll position
+        const dotIndex = Math.floor(
+          currentIndex / Math.max(1, Math.floor(totalCards / dots.length))
+        );
+        dots.forEach((dot, index) => {
+          if (index === Math.min(dotIndex, dots.length - 1)) {
+            dot.classList.remove("bg-gray-300");
+            dot.classList.add("bg-purple-500");
+          } else {
+            dot.classList.remove("bg-purple-500");
+            dot.classList.add("bg-gray-300");
+          }
+        });
+
+        // Update button states
+        prevBtn.style.opacity = currentIndex === 0 ? "0.5" : "1";
+        nextBtn.style.opacity = currentIndex >= maxIndex ? "0.5" : "1";
+      }
+
+      function nextSlide() {
+        if (currentIndex < maxIndex) {
+          currentIndex++;
+        } else {
+          currentIndex = 0; // Loop back to beginning
+        }
+        updateCarousel();
+      }
+
+      function prevSlide() {
+        if (currentIndex > 0) {
+          currentIndex--;
+        } else {
+          currentIndex = maxIndex; // Loop to end
+        }
+        updateCarousel();
+      }
+
+      function startAutoScroll() {
+        autoScrollInterval = setInterval(() => {
+          nextSlide();
+        }, 3000); // Auto-scroll every 3 seconds
+      }
+
+      function stopAutoScroll() {
+        clearInterval(autoScrollInterval);
+      }
+
+      // Event listeners
+      nextBtn.addEventListener("click", () => {
+        nextSlide();
+        // Restart auto-scroll timer
+        stopAutoScroll();
+        startAutoScroll();
+      });
+
+      prevBtn.addEventListener("click", () => {
+        prevSlide();
+        // Restart auto-scroll timer
+        stopAutoScroll();
+        startAutoScroll();
+      });
+
+      // Dot navigation
+      dots.forEach((dot, index) => {
+        dot.addEventListener("click", () => {
+          currentIndex = Math.min(
+            index * Math.floor(totalCards / dots.length),
+            maxIndex
+          );
+          updateCarousel();
+          // Restart auto-scroll timer
+          stopAutoScroll();
+          startAutoScroll();
+        });
+      });
+
+      // Touch/swipe support for mobile
+      let startX = 0;
+      let endX = 0;
+
+      carousel.addEventListener("touchstart", (e) => {
+        startX = e.touches[0].clientX;
+        stopAutoScroll();
+      });
+
+      carousel.addEventListener("touchend", (e) => {
+        endX = e.changedTouches[0].clientX;
+        handleSwipe();
+        startAutoScroll();
+      });
+
+      function handleSwipe() {
+        const swipeThreshold = 50;
+        const diff = startX - endX;
+
+        if (Math.abs(diff) > swipeThreshold) {
+          if (diff > 0) {
+            nextSlide();
+          } else {
+            prevSlide();
+          }
+        }
+      }
+
+      // Responsive handling
+      window.addEventListener("resize", () => {
+        updateCarousel();
+      });
+
+      // Initialize
+      updateCarousel();
+      startAutoScroll();
+    </script>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+      // Initialize AOS
+      AOS.init({
+        once: true,
+        offset: 100,
+        duration: 800,
+        easing: "ease-out-quart",
+      });
+
+      class EventSlider {
+        constructor() {
+          this.currentSlide = 0;
+          this.totalCards = 5;
+          this.slider = document.getElementById("slider");
+          this.prevBtn = document.getElementById("prevBtn");
+          this.nextBtn = document.getElementById("nextBtn");
+          this.indicators = document.querySelectorAll(".slide-indicator");
+          this.sliderContainer = document.querySelector(".relative");
+          this.autoPlayInterval = null;
+          this.startX = 0;
+          this.isDragging = false;
+
+          this.cardsPerView = this.getCardsPerView();
+          this.maxSlide = Math.max(0, this.totalCards - this.cardsPerView);
+
+          this.init();
+        }
+
+        getCardsPerView() {
+          if (window.innerWidth < 640) return 1;
+          if (window.innerWidth < 1024) return 2;
+          return 3;
+        }
+
+        updateSlider() {
+          const translateX = -(this.currentSlide * (100 / this.cardsPerView));
+          this.slider.style.transform = `translateX(${translateX}%)`;
+          this.prevBtn.disabled = this.currentSlide === 0;
+          this.nextBtn.disabled = this.currentSlide >= this.maxSlide;
+          this.indicators.forEach((indicator, index) => {
+            indicator.classList.toggle("active", index === this.currentSlide);
+            indicator.classList.toggle(
+              "bg-primary",
+              index === this.currentSlide
+            );
+            indicator.classList.toggle(
+              "bg-gray-300",
+              index !== this.currentSlide
+            );
+            indicator.setAttribute(
+              "aria-selected",
+              index === this.currentSlide
+            );
+          });
+        }
+
+        nextSlide() {
+          if (this.currentSlide < this.maxSlide) {
+            this.currentSlide++;
+            this.updateSlider();
+          }
+        }
+
+        prevSlide() {
+          if (this.currentSlide > 0) {
+            this.currentSlide--;
+            this.updateSlider();
+          }
+        }
+
+        goToSlide(slideIndex) {
+          if (slideIndex >= 0 && slideIndex <= this.maxSlide) {
+            this.currentSlide = slideIndex;
+            this.updateSlider();
+          }
+        }
+
+        startAutoPlay() {
+          this.autoPlayInterval = setInterval(() => {
+            this.currentSlide =
+              this.currentSlide >= this.maxSlide ? 0 : this.currentSlide + 1;
+            this.updateSlider();
+          }, 5000);
+        }
+
+        stopAutoPlay() {
+          clearInterval(this.autoPlayInterval);
+        }
+
+        handleTouchStart(e) {
+          this.startX = e.touches[0].clientX;
+          this.isDragging = true;
+          this.stopAutoPlay();
+        }
+
+        handleTouchMove(e) {
+          if (!this.isDragging) return;
+          e.preventDefault();
+        }
+
+        handleTouchEnd(e) {
+          if (!this.isDragging) return;
+          const endX = e.changedTouches[0].clientX;
+          const diffX = this.startX - endX;
+          if (Math.abs(diffX) > 50) {
+            diffX > 0 ? this.nextSlide() : this.prevSlide();
+          }
+          this.isDragging = false;
+          this.startAutoPlay();
+        }
+
+        handleResize() {
+          const newCardsPerView = this.getCardsPerView();
+          if (newCardsPerView !== this.cardsPerView) {
+            this.cardsPerView = newCardsPerView;
+            this.maxSlide = Math.max(0, this.totalCards - this.cardsPerView);
+            this.currentSlide = Math.min(this.currentSlide, this.maxSlide);
+            this.updateSlider();
+          }
+        }
+
+        init() {
+          this.prevBtn.addEventListener("click", () => this.prevSlide());
+          this.nextBtn.addEventListener("click", () => this.nextSlide());
+          this.indicators.forEach((indicator, index) => {
+            indicator.addEventListener("click", () => this.goToSlide(index));
+          });
+          this.sliderContainer.addEventListener("mouseenter", () =>
+            this.stopAutoPlay()
+          );
+          this.sliderContainer.addEventListener("mouseleave", () =>
+            this.startAutoPlay()
+          );
+          this.slider.addEventListener("touchstart", (e) =>
+            this.handleTouchStart(e)
+          );
+          this.slider.addEventListener("touchmove", (e) =>
+            this.handleTouchMove(e)
+          );
+          this.slider.addEventListener("touchend", (e) =>
+            this.handleTouchEnd(e)
+          );
+          document.addEventListener("keydown", (e) => {
+            if (e.key === "ArrowLeft") this.prevSlide();
+            if (e.key === "ArrowRight") this.nextSlide();
+          });
+          window.addEventListener("resize", () => this.handleResize());
+          this.startAutoPlay();
+          this.updateSlider();
+        }
+      }
+
+      new EventSlider();
+    </script>
+  </body>
+</html>
