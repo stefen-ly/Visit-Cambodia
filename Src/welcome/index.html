@@ -5,48 +5,412 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pride Festival Carousel</title>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.1/flowbite.min.js"></script>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.1/flowbite.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/preline@2.0.3/dist/preline.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/preline@2.0.3/dist/preline.min.css">
+    <style>
+        /* Custom 3D transforms and transitions */
+        
+        .slide-3d-center {
+            transform: scale(1) translateZ(0) rotateY(0deg);
+            transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .slide-3d-left {
+            transform: scale(0.75) translateZ(-50px) rotateY(15deg);
+            transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .slide-3d-right {
+            transform: scale(0.75) translateZ(-50px) rotateY(-15deg);
+            transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .perspective-1000 {
+            perspective: 1000px;
+        }
+        
+        .backdrop-blur-10 {
+            backdrop-filter: blur(10px);
+        }
+        /* Mobile-specific adjustments */
+        
+        @media (max-width: 640px) {
+            .slide-3d-left {
+                transform: scale(0.8) translateZ(-30px) rotateY(10deg);
+            }
+            .slide-3d-right {
+                transform: scale(0.8) translateZ(-30px) rotateY(-10deg);
+            }
+        }
+        /* Touch feedback */
+        
+        .carousel-nav-btn:active {
+            transform: scale(0.95);
+        }
+        /* Swipe indicator */
+        
+        .swipe-indicator {
+            opacity: 0;
+            animation: fadeInOut 3s infinite;
+        }
+        
+        @keyframes fadeInOut {
+            0%,
+            100% {
+                opacity: 0;
+            }
+            50% {
+                opacity: 0.6;
+            }
+        }
+    </style>
 </head>
 
-<body>
-    <div class="carousel-container">
-        <!-- Main content area with title and details -->
-        <div class="content-area">
-            <h1 class="event-title">Highlight Events</h1>
-            <p class="event-name text-transition" id="eventName">Khmer New Year</p>
-            <p class="event-date text-transition" id="eventDate">13/14/15 or 14/15/16 April</p>
-            <!-- Updated: Made the button dynamic to use current slide -->
-            <button class="view-more-btn" onclick="handleViewMore()">View More</button>
-            <div id="detailedContent" class="hidden"></div>
-        </div>
+<body class="bg-gray-50">
+    <!-- Carousel container - not full screen -->
+    <div class="bg-gradient-to-br from-pink-100 via-pink-200 to-pink-400 py-8 px-4 sm:px-6 lg:px-8">
+        <!-- Content wrapper -->
+        <div class="w-full max-w-6xl mx-auto">
+            <div class="flex flex-col lg:flex-row items-center gap-6 lg:gap-12">
 
-        <!-- Carousel area on the right -->
-        <div class="carousel-area">
-            <div class="slides-wrapper">
-                <!-- Left navigation button -->
-                <button class="nav-button left" id="prevBtn">
-                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
-                    </svg>
-                </button>
+                <!-- Main content area -->
+                <div class="flex-1 text-center lg:text-left w-full lg:max-w-md">
+                    <h1 class="text-2xl sm:text-3xl lg:text-4xl font-bold text-pink-600 mb-3 tracking-tight">
+                        Highlight Events
+                    </h1>
+                    <p class="text-base sm:text-lg lg:text-xl font-semibold text-gray-700 mb-2 transition-opacity duration-300" id="eventName">
+                        Khmer New Year
+                    </p>
+                    <p class="text-sm sm:text-base lg:text-lg text-gray-600 mb-4 lg:mb-6 font-medium transition-opacity duration-300" id="eventDate">
+                        April 13-14-15 or 14-15-16 Every Years
+                    </p>
 
-                <!-- Slides container -->
-                <div class="flex items-center" id="slidesContainer">
-                    <!-- Slides will be dynamically generated here -->
+                    <!-- View More button -->
+                    <button type="button" class="py-2.5 px-5 sm:py-3 sm:px-6 lg:py-4 lg:px-8 inline-flex items-center gap-x-2 text-sm sm:text-base font-semibold rounded-full border border-transparent bg-pink-600 text-white hover:bg-pink-700 focus:outline-none focus:ring-2 focus:ring-pink-500 focus:ring-offset-2 transition-all duration-300 transform hover:-translate-y-1 hover:shadow-lg hover:shadow-pink-500/25"
+                        onclick="handleViewMore()">
+                        View More
+                        <svg class="flex-shrink-0 w-4 h-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="m9 18 6-6-6-6"/>
+                        </svg>
+                    </button>
                 </div>
 
-                <!-- Right navigation button -->
-                <button class="nav-button right" id="nextBtn">
-                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
-                    </svg>
-                </button>
+                <!-- Carousel area -->
+                <div class="flex-1 relative w-full max-w-xl lg:max-w-2xl">
+                    <!-- Swipe hint for mobile -->
+                    <div class="absolute top-2 left-1/2 transform -translate-x-1/2 z-30 swipe-indicator block sm:hidden">
+                        <div class="bg-white/80 backdrop-blur-sm rounded-full px-3 py-1 text-xs text-gray-600 font-medium">
+                            👈 Swipe to navigate 👉
+                        </div>
+                    </div>
+
+                    <div class="relative flex items-center justify-center perspective-1000">
+                        <!-- Left navigation button - responsive positioning -->
+                        <button type="button" class="carousel-nav-btn absolute left-2 sm:left-4 lg:left-8 z-20 top-1/2 -translate-y-1/2 w-8 h-8 sm:w-10 sm:h-10 lg:w-12 lg:h-12 inline-flex justify-center items-center text-sm font-medium rounded-full border border-gray-200 bg-white/95 text-gray-800 shadow-sm hover:bg-white hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-gray-300 transition-all duration-300 hover:scale-105 backdrop-blur-10 touch-manipulation"
+                            id="prevBtn">
+                            <svg class="flex-shrink-0 w-3 h-3 sm:w-4 sm:h-4 lg:w-5 lg:h-5" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="m15 18-6-6 6-6"/>
+                            </svg>
+                            <span class="sr-only">Previous</span>
+                        </button>
+
+                        <!-- Slides container - improved touch area -->
+                        <div class="flex items-center justify-center mx-10 sm:mx-12 lg:mx-16 touch-pan-x" id="slidesContainer">
+                            <!-- Slides will be dynamically generated here -->
+                        </div>
+
+                        <!-- Right navigation button - responsive positioning -->
+                        <button type="button" class="carousel-nav-btn absolute right-0 sm:right-2 lg:right-0 z-20 top-1/2 -translate-y-1/2 w-8 h-8 sm:w-10 sm:h-10 lg:w-12 lg:h-12 inline-flex justify-center items-center text-sm font-medium rounded-full border border-gray-200 bg-white/95 text-gray-800 shadow-sm hover:bg-white hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-gray-300 transition-all duration-300 hover:scale-105 backdrop-blur-10 touch-manipulation"
+                            id="nextBtn">
+                            <svg class="flex-shrink-0 w-3 h-3 sm:w-4 sm:h-4 lg:w-5 lg:h-5" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="m9 18 6-6-6-6"/>
+                            </svg>
+                            <span class="sr-only">Next</span>
+                        </button>
+                    </div>
+
+                    <!-- Dots indicator for mobile -->
+                    <div class="flex justify-center mt-4 space-x-2 sm:hidden" id="dotsContainer">
+                        <!-- Dots will be generated here -->
+                    </div>
+                </div>
             </div>
         </div>
     </div>
-    <script src="script.js"></script>
+
+    <script>
+        // Sample data for carousel slides
+        const carouselData = [{
+            id: 1,
+            title: "Highlight Events",
+            name: "Khmer New Year",
+            date: "April 13-14-15 or 14-15-16 Every Years",
+            image: "https://i.pinimg.com/736x/f9/00/f3/f900f309f362a91b344384ba87a1d86e.jpg"
+        }, {
+            id: 2,
+            title: "Cultural Celebration",
+            name: "Angkor Wat Equinox",
+            date: "March 21st or 23rd Every Years",
+            image: "https://i.pinimg.com/736x/65/0c/0b/650c0bbf2aeb53e8290b30763ed04bea.jpg"
+        }, {
+            id: 3,
+            title: "Music & Arts",
+            name: "CAMBODIA NATIONAL CULTURE DAY",
+            date: "March 3rd Every Years",
+            image: "https://i.pinimg.com/736x/54/71/dd/5471dd7852b2eceb243eaf8bb24aa429.jpg"
+        }, {
+            id: 4,
+            title: "Community Gathering",
+            name: "Pchum Ben Festival",
+            date: "October Every Years",
+            image: "https://i.pinimg.com/736x/0f/62/53/0f62531d4f4e6d8d825ad61352e711c3.jpg"
+        }, {
+            id: 5,
+            title: "Youth Festival",
+            name: "Khmer Water Festival",
+            date: "November Every Years",
+            image: "https://i.pinimg.com/736x/31/f9/d4/31f9d443e660b9ce9aded6ee6b0c3011.jpg"
+        }
+            ];
+
+        // Current slide index tracker
+        let currentSlideIndex = 0;
+
+        // DOM element references
+        const slidesContainer = document.getElementById('slidesContainer');
+        const eventName = document.getElementById('eventName');
+        const eventDate = document.getElementById('eventDate');
+        const prevBtn = document.getElementById('prevBtn');
+        const nextBtn = document.getElementById('nextBtn');
+        const dotsContainer = document.getElementById('dotsContainer');
+
+        // Function to create HTML for a single slide - responsive sizes
+        function createSlideElement(data, className = '') {
+            const slideDiv = document.createElement('div');
+            slideDiv.className = `relative cursor-pointer group ${className}`;
+
+            // Responsive slide dimensions
+            let slideClasses = 'w-40 h-56 sm:w-48 sm:h-64 md:w-56 md:h-80 lg:w-64 lg:h-96 rounded-lg sm:rounded-xl overflow-hidden bg-white shadow-lg';
+            let imageClasses = 'w-full h-full object-cover transition-transform duration-500 group-hover:scale-105';
+            let opacityClasses = '';
+            let blurClasses = '';
+            let zIndexClasses = '';
+
+            if (className.includes('center')) {
+                slideClasses += ' shadow-xl sm:shadow-2xl shadow-black/20';
+                zIndexClasses = 'z-10';
+                opacityClasses = 'opacity-100';
+                slideDiv.classList.add('slide-3d-center');
+            } else if (className.includes('left')) {
+                opacityClasses = 'opacity-40 sm:opacity-50';
+                blurClasses = 'blur-sm';
+                zIndexClasses = 'z-5';
+                slideClasses += ' -mr-8 sm:-mr-12 md:-mr-16 lg:-mr-20';
+                slideDiv.classList.add('slide-3d-left');
+            } else if (className.includes('right')) {
+                opacityClasses = 'opacity-40 sm:opacity-50';
+                blurClasses = 'blur-sm';
+                zIndexClasses = 'z-5';
+                slideClasses += ' -ml-8 sm:-ml-12 md:-ml-16 lg:-mr-20';
+                slideDiv.classList.add('slide-3d-right');
+            }
+
+            slideDiv.className += ` ${slideClasses} ${opacityClasses} ${zIndexClasses}`;
+
+            slideDiv.innerHTML = `
+                <img src="${data.image}" alt="${data.name}" class="${imageClasses} ${blurClasses}">
+            `;
+            return slideDiv;
+        }
+
+        // Function to create dots indicator
+        function createDots() {
+            dotsContainer.innerHTML = '';
+            carouselData.forEach((_, index) => {
+                const dot = document.createElement('button');
+                dot.className = `w-2 h-2 rounded-full transition-all duration-300 ${
+                    index === currentSlideIndex 
+                        ? 'bg-pink-600 w-6' 
+                        : 'bg-white/60 hover:bg-white/80'
+                }`;
+                dot.addEventListener('click', () => {
+                    currentSlideIndex = index;
+                    renderSlides();
+                });
+                dotsContainer.appendChild(dot);
+            });
+        }
+
+        // Function to update the text content based on current slide
+        function updateEventDetails() {
+            const currentEvent = carouselData[currentSlideIndex];
+
+            // Smooth transition effect for text changes
+            eventName.style.opacity = '0';
+            eventDate.style.opacity = '0';
+
+            setTimeout(() => {
+                eventName.textContent = currentEvent.name;
+                eventDate.textContent = currentEvent.date;
+
+                eventName.style.opacity = '1';
+                eventDate.style.opacity = '1';
+            }, 200);
+        }
+
+        // Function to render all visible slides
+        function renderSlides() {
+            slidesContainer.innerHTML = '';
+
+            const totalSlides = carouselData.length;
+            const prevIndex = (currentSlideIndex - 1 + totalSlides) % totalSlides;
+            const nextIndex = (currentSlideIndex + 1) % totalSlides;
+
+            // Create and append slides
+            const prevSlide = createSlideElement(carouselData[prevIndex], 'side-slide left');
+            slidesContainer.appendChild(prevSlide);
+
+            const currentSlide = createSlideElement(carouselData[currentSlideIndex], 'center-slide center');
+            slidesContainer.appendChild(currentSlide);
+
+            const nextSlide = createSlideElement(carouselData[nextIndex], 'side-slide right');
+            slidesContainer.appendChild(nextSlide);
+
+            updateEventDetails();
+            createDots();
+        }
+
+        // Navigation functions
+        function nextSlide() {
+            currentSlideIndex = (currentSlideIndex + 1) % carouselData.length;
+            renderSlides();
+        }
+
+        function prevSlide() {
+            currentSlideIndex = (currentSlideIndex - 1 + carouselData.length) % carouselData.length;
+            renderSlides();
+        }
+
+        // Event listeners for buttons
+        nextBtn.addEventListener('click', nextSlide);
+        prevBtn.addEventListener('click', prevSlide);
+
+        // Keyboard navigation
+        document.addEventListener('keydown', (event) => {
+            if (event.key === 'ArrowLeft') {
+                prevSlide();
+            } else if (event.key === 'ArrowRight') {
+                nextSlide();
+            }
+        });
+
+        // Enhanced touch/swipe support
+        let touchStartX = 0;
+        let touchEndX = 0;
+        let touchStartY = 0;
+        let touchEndY = 0;
+        let isSwipeInProgress = false;
+
+        // Prevent default touch behaviors during swipe
+        slidesContainer.addEventListener('touchstart', (event) => {
+            touchStartX = event.touches[0].clientX;
+            touchStartY = event.touches[0].clientY;
+            isSwipeInProgress = false;
+        }, {
+            passive: true
+        });
+
+        slidesContainer.addEventListener('touchmove', (event) => {
+            if (!isSwipeInProgress) {
+                const touchCurrentX = event.touches[0].clientX;
+                const touchCurrentY = event.touches[0].clientY;
+                const deltaX = Math.abs(touchCurrentX - touchStartX);
+                const deltaY = Math.abs(touchCurrentY - touchStartY);
+
+                // If horizontal swipe is dominant, prevent vertical scroll
+                if (deltaX > deltaY && deltaX > 10) {
+                    event.preventDefault();
+                    isSwipeInProgress = true;
+                }
+            }
+        }, {
+            passive: false
+        });
+
+        slidesContainer.addEventListener('touchend', (event) => {
+            touchEndX = event.changedTouches[0].clientX;
+            touchEndY = event.changedTouches[0].clientY;
+            handleSwipe();
+        }, {
+            passive: true
+        });
+
+        function handleSwipe() {
+            const swipeThreshold = 50;
+            const swipeDistance = touchEndX - touchStartX;
+            const verticalDistance = Math.abs(touchEndY - touchStartY);
+
+            // Only process horizontal swipes
+            if (Math.abs(swipeDistance) > swipeThreshold && verticalDistance < 100) {
+                if (swipeDistance > 0) {
+                    prevSlide();
+                } else {
+                    nextSlide();
+                }
+            }
+        }
+
+        // Auto-play functionality
+        let autoPlayInterval;
+
+        function startAutoPlay() {
+            autoPlayInterval = setInterval(nextSlide, 5000);
+        }
+
+        function stopAutoPlay() {
+            clearInterval(autoPlayInterval);
+        }
+
+        // Pause auto-play on hover and touch
+        const carouselContainer = document.querySelector('.bg-gradient-to-br');
+        carouselContainer.addEventListener('mouseenter', stopAutoPlay);
+        carouselContainer.addEventListener('mouseleave', startAutoPlay);
+        carouselContainer.addEventListener('touchstart', stopAutoPlay);
+        carouselContainer.addEventListener('touchend', () => {
+            setTimeout(startAutoPlay, 3000); // Resume after 3 seconds
+        });
+
+        // Initialize the carousel
+        function initCarousel() {
+            renderSlides();
+            startAutoPlay();
+        }
+
+        // FIXED: View More function - now properly navigates to detail page
+        function handleViewMore() {
+            const currentEventId = carouselData[currentSlideIndex].id;
+
+            // Option 1: If both files are in same directory
+            // window.location.href = `detail.html?event=${currentEventId}`;
+
+            // Option 2: For demonstration, create a new window with the detail page
+            // Replace 'detail.html' with your actual detail page filename
+            const detailUrl = `view/index.html?event=${currentEventId}`;
+
+            // You can either:
+            // 1. Navigate to the detail page in the same window:
+            window.location.href = detailUrl;
+
+            // 2. Or open in a new tab/window:
+            // window.open(detailUrl, '_blank');
+
+            console.log('Navigating to event details for ID:', currentEventId);
+        }
+
+        // Start when page loads
+        document.addEventListener('DOMContentLoaded', initCarousel);
+    </script>
 </body>
 
 </html>
