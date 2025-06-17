@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>detailcard</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="./output.css">
+    
+</head>
+
+<body class="bg-white dark:bg-gray-900 text-gray-800 dark:text-white">
+    <!-- Include this script at the end of body or in head -->
+    <script>
+        function toggleMenu() {
+            const menu = document.getElementById("mobile-menu");
+            menu.classList.toggle("hidden");
+        }
+    </script>
+
+    <nav class="bg-white dark:bg-gray-900 border-b border-gray-200 dark:border-gray-700 px-4 md:px-[60px] py-3">
+        <div class="flex items-center justify-between">
+            <!-- Logo -->
+            <div class="flex items-center">
+                <a href="./masonrySections.html">
+                <img src="https://www.cambodiaembassyuk.org/wp-content/uploads/2023/04/Visit-Cambodia-Year-2023-11.jpg"
+                    alt="Logo" class="h-10 w-auto" /></a>
+            </div>
+
+            <!-- Hamburger (visible on small screens) -->
+            <button class="md:hidden text-gray-800 dark:text-white focus:outline-none" onclick="toggleMenu()">
+                <svg class="h-6 w-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+                </svg>
+            </button>
+
+            <!-- Navigation Items (desktop) -->
+            <div class="hidden md:flex items-center space-x-4 text-sm font-medium">
+                <a href="#" class="font-bold text-gray-800 dark:text-gray-200">Redeem</a>
+
+                <select
+                    class="bg-transparent text-gray-800 dark:text-gray-200 focus:outline-none border-none appearance-none">
+                    <option selected disabled>Destinations</option>
+                    <option>Bangkok</option>
+                    <option>Chiang Mai</option>
+                    <option>Phuket</option>
+                </select>
+
+                <select
+                    class="bg-transparent text-gray-800 dark:text-gray-200 focus:outline-none border-none appearance-none">
+                    <option selected disabled>Experiences</option>
+                    <option>Culture</option>
+                    <option>Nature</option>
+                    <option>Food</option>
+                </select>
+
+                <select
+                    class="bg-transparent text-gray-800 dark:text-gray-200 focus:outline-none border-none appearance-none">
+                    <option selected disabled>Plan Your Trip</option>
+                    <option>Visa Info</option>
+                    <option>Transportation</option>
+                    <option>Tips</option>
+                </select>
+
+                <div class="hidden sm:block border-l border-gray-300 dark:border-gray-600 h-6"></div>
+
+                <select class="bg-transparent text-blue-600 focus:outline-none border-none appearance-none">
+                    <option selected disabled>International</option>
+                    <option>English</option>
+                    <option>ខ្មែរ</option>
+                </select>
+            </div>
+        </div>
+
+        <!-- Mobile Menu (dropdown) -->
+        <div id="mobile-menu" class="mt-4 space-y-2 md:hidden hidden text-sm font-medium">
+            <a href="#" class="block font-bold text-gray-800 dark:text-gray-200">Redeem</a>
+
+            <select class="w-full bg-transparent text-gray-800 dark:text-gray-200 focus:outline-none border-b">
+                <option selected disabled>Destinations</option>
+                <option>Bangkok</option>
+                <option>Chiang Mai</option>
+                <option>Phuket</option>
+            </select>
+
+            <select class="w-full bg-transparent text-gray-800 dark:text-gray-200 focus:outline-none border-b">
+                <option selected disabled>Experiences</option>
+                <option>Culture</option>
+                <option>Nature</option>
+                <option>Food</option>
+            </select>
+
+            <select class="w-full bg-transparent text-gray-800 dark:text-gray-200 focus:outline-none border-b">
+                <option selected disabled>Plan Your Trip</option>
+                <option>Visa Info</option>
+                <option>Transportation</option>
+                <option>Tips</option>
+            </select>
+
+            <div class="border-t border-gray-300 dark:border-gray-600"></div>
+
+            <span class="block text-gray-800 dark:text-gray-200">
+                Accessibility: <span class="ml-1 font-bold text-blue-600">OFF</span>
+            </span>
+
+            <select class="w-full bg-transparent text-blue-600 focus:outline-none border-b">
+                <option selected disabled>International</option>
+                <option>English</option>
+                <option>ខ្មែរ</option>
+            </select>
+        </div>
+    </nav>
+
+    <!-- banner -->
+    <section class="w-full">
+        <img class="w-full object-cover h-[250px] sm:h-[350px] md:h-[500px] lg:h-[650px]"
+            src="https://www.wendywutours.co.nz/resource/upload/746/banner-angkor-wat.jpg" alt="angkor-wat" />
+    </section>
+
+    <!-- Breadcrumb -->
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-12">
+        <div class="flex items-center space-x-2 text-gray-800 text-sm dark:text-gray-300">
+            <a href="./masonrySections.html" class="hover:underline font-medium">Home</a>
+            <span class="text-gray-500">&gt;</span>
+            <a href="#" class="hover:underline font-medium">Destinations</a>
+        </div>
+
+        <!-- Heading -->
+        <div class="mt-6 text-4xl sm:text-5xl md:text-6xl font-semibold text-blue-900 dark:text-gray-200">
+            Phnom Penh
+        </div>
+    </div>
+
+
+    <main class="max-w-4xl mx-auto px-4 py-10" id="intro">
+        <section class="mb-12">
+            <article class="dark:bg-gray-800 p-6">
+                <h2 id="highlights" class="text-2xl font-bold text-blue-900 dark:text-yellow-400 mb-2">Highlights</h2>
+                <div class="w-16 h-1 bg-yellow-400 mb-4"></div>
+                <ul class="list-disc list-inside space-y-2 text-sm md:text-base">
+                    <li class=" dark:text-gray-200">Wat Phra Kaew</li>
+                    <li class=" dark:text-gray-200">Wat Ratchanadda</li>
+                    <li class=" dark:text-gray-200">Wat Pho</li>
+                    <li class=" dark:text-gray-200">Golden Mountain</li>
+                    <li class="text-gray-800 dark:text-gray-200">Chatuchak Weekend Market</li>
+                </ul>
+            </article>
+        </section>
+
+        <section class="text-justify space-y-6">
+            <p>
+                An increasing number of tourists visiting Bangkok each year has proven that Bangkok is always a popular
+                city for tourists.
+            </p>
+            <p>
+                For major tourist attractions in Bangkok, most of them are historical or religious sites such as
+                temples. There is beautiful architecture, wall painting, and historical significance, such as Wat Phra
+                Sri Rattanasamaram (Phra Kaew), Wat Pho Chetuphon Wimon Mangkalaram, Wat Arun Ratchawararam, Wat Sra
+                Ket, and Golden Mountain.
+            </p>
+            <p>
+                Other notable sites include Wat Ratchanadda, Wat Traimit, Wat Benchamabophit, Wat Bowonniwet Vihara
+                Suthasan, and Wat Thep Wararam.
+            </p>
+            <p>
+                There are also many places to relax like palaces, museums, parks, and markets such as Chatuchak Weekend
+                Market, Sampeng Market, Yaowarat, and Phahurat Night Market, as well as upscale shopping areas.
+            </p>
+        </section>
+    </main>
+    <section class="max-w-6xl mx-auto px-4 py-8">
+        <h2 class="text-2xl md:text-3xl font-bold text-blue-900 mb-8 dark:text-gray-300">Explore Phnom penh</h2>
+
+        <div class="flex flex-wrap  gap-4">
+            <!-- Active Button -->
+            <button class="px-4 py-2 rounded-full bg-blue-900 text-pink-500 font-semibold shadow-sm">
+                See &amp; Do
+            </button>
+
+            <!-- Inactive Buttons -->
+            <button
+                class="px-4 py-2 rounded-full border-2 border-blue-900 text-blue-900 font-semibold hover:bg-blue-100">
+                Shop
+            </button>
+
+            <button
+                class="px-4 py-2 rounded-full border-2 border-blue-900 text-blue-900 font-semibold hover:bg-blue-100">
+                Food
+            </button>
+
+            <button
+                class="px-4 py-2 rounded-full border-2 border-blue-900 text-blue-900 font-semibold hover:bg-blue-100">
+                Stay
+            </button>
+
+            <button
+                class="px-4 py-2 rounded-full border-2 border-blue-900 text-blue-900 font-semibold hover:bg-blue-100">
+                Festival &amp; Event
+            </button>
+            <button
+                class="px-4 py-2 rounded-full border-2 border-blue-900 text-blue-900 font-semibold hover:bg-blue-100">
+                Spa &amp; Wellness
+            </button>
+
+            <button
+                class="px-4 py-2 rounded-full border-2 border-blue-900 text-blue-900 font-semibold hover:bg-blue-100 ">
+                Tour Agent
+            </button>
+
+            <button
+                class="px-4 py-2 rounded-full border-2 border-blue-900 text-blue-900 font-semibold hover:bg-blue-100 ">
+                Recreational &amp; Entertainment
+            </button>
+
+            <button class="px-4 py-2 rounded-full border-2 border-blue-900 text-blue-900 font-semibold hover:bg-blue-1">
+                Transportation
+            </button>
+        </div>
+        <div class="grid grid-cols-2 md:grid-cols-3 gap-6 mt-[50px]">
+
+            <!-- Card Item -->
+            <div class="bg-white rounded-lg shadow hover:shadow-md transition overflow-hidden">
+                <img src="https://media.timeout.com/images/105658195/image.jpg" alt="Train Night Market Ratchada"
+                    class="w-full h-40 md:h-60 object-cover" />
+                <div class="p-4">
+                    <h3 class="text-lg font-medium text-blue-900 mb-4">Train Night Market Ratchada</h3>
+                    <p class="text-sm text-gray-600 flex items-center">
+                        <i class="fa-solid fa-location-dot pr-2"></i>
+                        Phnom Penh
+                    </p>
+                </div>
+            </div>
+
+
+            <!-- Duplicate this card and change content -->
+            <div class="bg-white rounded-lg shadow hover:shadow-md transition overflow-hidden">
+                <img src="https://media.timeout.com/images/105658195/image.jpg" alt="Train Night Market Ratchada"
+                    class="w-full h-40 md:h-60 object-cover" />
+                <div class="p-4">
+                    <h3 class="text-lg font-medium text-blue-900 mb-4">Train Night Market Ratchada</h3>
+                    <p class="text-sm text-gray-600 flex items-center">
+                        <i class="fa-solid fa-location-dot pr-2"></i>
+                        Phnom Penh
+                    </p>
+                </div>
+            </div>
+
+            <!-- Duplicate this card and change content -->
+            <div class="bg-white rounded-lg shadow hover:shadow-md transition overflow-hidden">
+                <img src="https://media.timeout.com/images/105658195/image.jpg" alt="Train Night Market Ratchada"
+                    class="w-full h-40 md:h-60 object-cover" />
+                <div class="p-4">
+                    <h3 class="text-lg font-medium text-blue-900 mb-4">Train Night Market Ratchada</h3>
+                    <p class="text-sm text-gray-600 flex items-center">
+                        <i class="fa-solid fa-location-dot pr-2"></i>
+                        Phnom Penh
+                    </p>
+                </div>
+            </div>
+
+            <div class="bg-white rounded-lg shadow hover:shadow-md transition overflow-hidden">
+                <img src="https://media.timeout.com/images/105658195/image.jpg" alt="Train Night Market Ratchada"
+                    class="w-full h-40 md:h-60 object-cover" />
+                <div class="p-4">
+                    <h3 class="text-lg font-medium text-blue-900 mb-4">Train Night Market Ratchada</h3>
+                    <p class="text-sm text-gray-600 flex items-center">
+                        <i class="fa-solid fa-location-dot pr-2"></i>
+                        Phnom Penh
+                    </p>
+                </div>
+            </div>
+            <div class="bg-white rounded-lg shadow hover:shadow-md transition overflow-hidden">
+                <img src="https://media.timeout.com/images/105658195/image.jpg" alt="Train Night Market Ratchada"
+                    class="w-full h-40 md:h-60 object-cover" />
+                <div class="p-4">
+                    <h3 class="text-lg font-medium text-blue-900 mb-4">Train Night Market Ratchada</h3>
+                    <p class="text-sm text-gray-600 flex items-center">
+                        <i class="fa-solid fa-location-dot pr-2"></i>
+                        Phnom Penh
+                    </p>
+                </div>
+            </div>
+            <div class="bg-white rounded-lg shadow hover:shadow-md transition overflow-hidden">
+                <img src="https://media.timeout.com/images/105658195/image.jpg" alt="Train Night Market Ratchada"
+                    class="w-full h-40 md:h-60 object-cover" />
+                <div class="p-4">
+                    <h3 class="text-lg font-medium text-blue-900 mb-4">Train Night Market Ratchada</h3>
+                    <p class="text-sm text-gray-600 flex items-center">
+                        <i class="fa-solid fa-location-dot pr-2"></i>
+                        Phnom Penh
+                    </p>
+                </div>
+            </div>
+
+
+
+
+            <!-- Add more cards as needed... -->
+        </div>
+        <div class="flex justify-end">
+            <div>
+
+                <button
+                    class="mt-[20px] px-7 py-2 rounded-lg text-blue-900 font-bold hover:border-white text-[15px] border border-blue-900">
+                    <a href="#">See all</a></button>
+    </section>
+    <!-- footer -->
+    <footer class="bg-gray-100 text-gray-800 text-sm px-6 pt-12 pb-6 dark:bg-gray-800 dark:text-gray-200">
+
+        <div class="block md:hidden space-y-4">
+            <div>
+                <button class="w-full text-left font-bold mb-2 flex justify-between items-center"
+                    onclick="toggleFooter(this)">
+                    Top Destinations
+                    <svg class="w-4 h-4 transition-transform transform text-gray-400 dark:text-gray-500" fill="none"
+                        stroke="currentColor" viewBox="0 0 24 24">
+                        <path d="M9 5l7 7-7 7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                </button>
+                <div class="hidden">
+                    <hr class="border-t-2 border-gray-300 w-full mb-1 dark:border-gray-700">
+                    <ul class="space-y-1">
+                        <li>Bangkok</li>
+                        <li>Chiang Mai</li>
+                        <li>Phuket</li>
+                        <li>Chon Buri</li>
+                        <li>Ubon Ratchathani</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div>
+                <button class="w-full text-left font-bold mb-2 flex justify-between items-center"
+                    onclick="toggleFooter(this)">
+                    Destinations
+                    <svg class="w-4 h-4 transition-transform transform text-gray-400 dark:text-gray-500" fill="none"
+                        stroke="currentColor" viewBox="0 0 24 24">
+                        <path d="M9 5l7 7-7 7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                </button>
+                <div class="hidden">
+                    <hr class="border-t-2 border-gray-300 w-full mb-1 dark:border-gray-700">
+                    <ul class="space-y-1">
+                        <li>See & Do</li>
+                        <li>Food</li>
+                        <li>Shop</li>
+                        <li>Spa & Wellness</li>
+                        <li>Recreational & Entertainment</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div>
+                <button class="w-full text-left font-bold mb-2 flex justify-between items-center"
+                    onclick="toggleFooter(this)">
+                    Regions of Thailand
+                    <svg class="w-4 h-4 transition-transform transform text-gray-400 dark:text-gray-500" fill="none"
+                        stroke="currentColor" viewBox="0 0 24 24">
+                        <path d="M9 5l7 7-7 7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                </button>
+                <div class="hidden">
+                    <hr class="border-t-2 border-gray-300 w-full mb-1 dark:border-gray-700">
+                    <ul class="space-y-1">
+                        <li>North</li>
+                        <li>Central</li>
+                        <li>East</li>
+                        <li>North East</li>
+                        <li>South</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div>
+                <button class="w-full text-left font-bold mb-2 flex justify-between items-center"
+                    onclick="toggleFooter(this)">
+                    Experiences
+                    <svg class="w-4 h-4 transition-transform transform text-gray-400 dark:text-gray-500" fill="none"
+                        stroke="currentColor" viewBox="0 0 24 24">
+                        <path d="M9 5l7 7-7 7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                </button>
+                <div class="hidden">
+                    <hr class="border-t-2 border-gray-300 w-full mb-1 dark:border-gray-700">
+                    <ul class="space-y-1">
+                        <li>History / Religion / Museum</li>
+                        <li>Nature & Outdoor</li>
+                        <li>Events & Festivals</li>
+                        <li>Food / Shopping / Entertainment</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div>
+                <button class="w-full text-left font-bold mb-2 flex justify-between items-center"
+                    onclick="toggleFooter(this)">
+                    Helpful Links
+                    <svg class="w-4 h-4 transition-transform transform text-gray-400 dark:text-gray-500" fill="none"
+                        stroke="currentColor" viewBox="0 0 24 24">
+                        <path d="M9 5l7 7-7 7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                </button>
+                <div class="hidden">
+                    <hr class="border-t-2 border-gray-300 w-full mb-1 dark:border-gray-700">
+                    <ul class="space-y-1">
+                        <li>Business Partner</li>
+                        <li>Media & Press</li>
+                        <li>About TAT</li>
+                        <li>Request Inquiry</li>
+                        <li>Feedback</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div>
+                <button class="w-full text-left font-bold mb-2 flex justify-between items-center"
+                    onclick="toggleFooter(this)">
+                    Promotions
+                    <svg class="w-4 h-4 transition-transform transform text-gray-400 dark:text-gray-500" fill="none"
+                        stroke="currentColor" viewBox="0 0 24 24">
+                        <path d="M9 5l7 7-7 7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                </button>
+                <div class="hidden">
+                    <hr class="border-t-2 border-gray-300 w-full mb-1 dark:border-gray-700">
+                    <ul class="space-y-1">
+                        <li>Trip Planner</li>
+                        <li>Tour Agent</li>
+                        <li>Stays</li>
+                        <li>Cambodia</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div>
+                <button class="w-full text-left font-bold mb-2 flex justify-between items-center"
+                    onclick="toggleFooter(this)">
+                    Personal Data Protection
+                    <svg class="w-4 h-4 transition-transform transform text-gray-400 dark:text-gray-500" fill="none"
+                        stroke="currentColor" viewBox="0 0 24 24">
+                        <path d="M9 5l7 7-7 7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                </button>
+                <div class="hidden">
+                    <hr class="border-t-2 border-gray-300 w-full mb-1 dark:border-gray-700">
+                    <ul class="space-y-1">
+                        <li>Privacy Notice</li>
+                        <li>Data Subject Request</li>
+                        <li>Data Breach Complaint</li>
+                        <li>Contact DPA</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div>
+                <button class="w-full text-left font-bold mb-2 flex justify-between items-center"
+                    onclick="toggleFooter(this)">
+                    Contact Us
+                    <svg class="w-4 h-4 transition-transform transform text-gray-400 dark:text-gray-500" fill="none"
+                        stroke="currentColor" viewBox="0 0 24 24">
+                        <path d="M9 5l7 7-7 7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                </button>
+                <div class="hidden">
+                    <hr class="border-t-2 border-gray-300 w-full mb-1 dark:border-gray-700">
+                    <ul class="space-y-1">
+                        <li>Phone number: +885 964 735 981</li>
+                        <li>Telegram: +885 854 620 66</li>
+                        <li>Facebook page: Visit Cambodia</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="hidden md:grid max-w-7xl mx-auto grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-8">
+            <div>
+                <h3 class="font-bold mb-2">Top Destinations</h3>
+                <hr class="border-t-2 border-gray-300 w-full dark:border-gray-700">
+                <ul class="space-y-1">
+                    <li>Bangkok</li>
+                    <li>Chiang Mai</li>
+                    <li>Phuket</li>
+                    <li>Chon Buri</li>
+                    <li>Ubon Ratchathani</li>
+                </ul>
+            </div>
+            <div>
+                <h3 class="font-bold mb-2">Destinations</h3>
+                <hr class="border-t-2 border-gray-300 w-full dark:border-gray-700">
+                <ul class="space-y-1">
+                    <li>See & Do</li>
+                    <li>Food</li>
+                    <li>Shop</li>
+                    <li>Spa & Wellness</li>
+                    <li>Recreational & Entertainment</li>
+                </ul>
+            </div>
+            <div>
+                <h3 class="font-bold mb-2">Regions of Thailand</h3>
+                <hr class="border-t-2 border-gray-300 w-full dark:border-gray-700">
+                <ul class="space-y-1">
+                    <li>North</li>
+                    <li>Central</li>
+                    <li>East</li>
+                    <li>North East</li>
+                    <li>
+                    <li>South</li>
+                </ul>
+            </div>
+            <div>
+                <h3 class="font-bold mb-2">Experiences</h3>
+                <hr class="border-t-2 border-gray-300 w-full dark:border-gray-700">
+                <ul class="space-y-1">
+                    <li>History / Religion / Museum</li>
+                    <li>Nature & Outdoor</li>
+                    <li>Events & Festivals</li>
+                    <li>Food / Shopping / Entertainment</li>
+                </ul>
+            </div>
+            <div>
+                <h3 class="font-bold mb-2">Helpful Links</h3>
+                <hr class="border-t-2 border-gray-300 w-full dark:border-gray-700">
+                <ul class="space-y-1">
+                    <li>Business Partner</li>
+                    <li>Media & Press</li>
+                    <li>About TAT</li>
+                    <li>Request Inquiry</li>
+                    <li>Feedback</li>
+                </ul>
+            </div>
+            <div>
+                <h3 class="font-bold mb-2">Promotions</h3>
+                <hr class="border-t-2 border-gray-300 w-full dark:border-gray-700">
+                <ul class="space-y-1">
+                    <li>Trip Planner</li>
+                    <li>Tour Agent</li>
+                    <li>Stays</li>
+                    <li>Cambodia</li>
+                </ul>
+            </div>
+            <div>
+                <h3 class="font-bold mb-2">Personal Data Protection</h3>
+                <hr class="border-t-2 border-gray-300 w-full dark:border-gray-700">
+                <ul class="space-y-1">
+                    <li>Privacy Notice</li>
+                    <li>Data Subject Request</li>
+                    <li>Data Breach Complaint</li>
+                    <li>Contact DPA</li>
+                </ul>
+            </div>
+            <div>
+                <h3 class="font-bold mb-2">Contact Us</h3>
+                <hr class="border-t-2 border-gray-300 w-full dark:border-gray-700">
+                <ul class="space-y-1">
+                    <li>Phone number: +885 964 735 981</li>
+                    <li>Telegram: +885 854 620 66</li>
+                    <li>Facebook page: Visit Cambodia</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="my-8 border-t border-gray-300 w-full dark:border-gray-700"></div>
+
+        <div
+            class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-gray-600 dark:text-gray-400">
+            <div class="flex items-center gap-3">
+                <img src="https://www.cambodiaembassyuk.org/wp-content/uploads/2023/04/Visit-Cambodia-Year-2023-11.jpg"
+                    alt="Logo" class="h-10 w-auto">
+                <span>
+                    Tourism Authority of Cambodia<br>
+                    1600 Phetchaburi Road, Makkasan, Ratchathevi, Phnom Penh
+                </span>
+            </div>
+
+            <div class="flex items-center gap-4">
+                <a href="#" aria-label="Telegram"
+                    class="text-gray-500 hover:text-gray-800 dark:text-gray-400 dark:hover:text-gray-100"><i
+                        class="fab fa-telegram"></i></a>
+                <a href="#" aria-label="Facebook"
+                    class="text-gray-500 hover:text-gray-800 dark:text-gray-400 dark:hover:text-gray-100"><i
+                        class="fab fa-facebook"></i></a>
+                <a href="#" aria-label="YouTube"
+                    class="text-gray-500 hover:text-gray-800 dark:text-gray-400 dark:hover:text-gray-100"><i
+                        class="fab fa-youtube"></i></a>
+            </div>
+        </div>
+    </footer>
+
+</body>
+
+</html>

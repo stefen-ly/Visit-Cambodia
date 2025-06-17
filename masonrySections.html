@@ -41,6 +41,79 @@
         },
       };
     </script>
+    <style>
+      .gradient-text {
+        background: linear-gradient(135deg, #f97316, #ec4899);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+    
+      .backdrop-blur {
+        backdrop-filter: blur(8px);
+      }
+    
+      .dropdown-menu {
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(-10px);
+        transition: all 0.3s ease;
+      }
+    
+      .dropdown:hover .dropdown-menu {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+      }
+    
+      .scroll-indicator {
+        animation: bounce 2s infinite;
+      }
+    
+      @keyframes bounce {
+    
+        0%,
+        20%,
+        50%,
+        80%,
+        100% {
+          transform: translateY(0);
+        }
+    
+        40% {
+          transform: translateY(-10px);
+        }
+    
+        60% {
+          transform: translateY(-5px);
+        }
+      }
+    
+      .mobile-menu {
+        transform: translateX(100%);
+        transition: transform 0.3s ease;
+      }
+    
+      .mobile-menu.active {
+        transform: translateX(0);
+      }
+    
+      .stats-counter {
+        animation: fadeInUp 1s ease 0.5s both;
+      }
+    
+      @keyframes fadeInUp {
+        from {
+          opacity: 0;
+          transform: translateY(30px);
+        }
+    
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+    </style>
 
     <style>
       :root {
@@ -240,6 +313,404 @@
     </style>
   </head>
   <body>
+    <!-- Navbar -->
+    <header class="sticky top-0 z-50 w-full border-b bg-white/95 backdrop-blur supports-[backdrop-filter]:bg-white/60">
+      <nav class="container mx-auto flex h-16 items-center justify-between px-4">
+          <!-- Logo -->
+          <a href="./masonrySections.html" class="flex items-center space-x-2">
+              <img src="https://theangkorguide.net/images/logo.png" alt="The Angkor Guide" class="h-10 w-auto">
+          </a>
+
+          <!-- Desktop Navigation -->
+          <div class="hidden lg:flex items-center space-x-1">
+              <!-- Search -->
+              <a href="./search.html" class="flex items-center space-x-2 px-4 py-2 text-sm font-medium rounded-md hover:bg-gray-100 transition-colors">
+                  <i class="fas fa-search"></i>
+                  <span>Search</span>
+              </a>
+
+              <!-- Destinations Dropdown -->
+              <div class="dropdown relative">
+                  <button class="flex items-center space-x-1 px-4 py-2 text-sm font-medium rounded-md hover:bg-gray-100 transition-colors">
+                      <span>Destinations</span>
+                      <i class="fas fa-chevron-down text-xs"></i>
+                  </button>
+                  <div class="dropdown-menu absolute top-full left-0 mt-2 w-[600px] bg-white rounded-lg shadow-xl border p-6">
+                      <div class="grid grid-cols-2 gap-8">
+                          <div>
+                              <div class="flex items-center space-x-2 p-4 bg-gradient-to-br from-orange-50 to-pink-50 rounded-lg mb-4">
+                                  <i class="fas fa-map-marker-alt text-orange-500"></i>
+                                  <div>
+                                      <h3 class="font-semibold text-gray-900">Explore Cambodia</h3>
+                                      <p class="text-sm text-gray-600">Discover the beauty and culture</p>
+                                  </div>
+                              </div>
+                              <h4 class="font-semibold text-gray-900 mb-3">Top Destinations</h4>
+                              <div class="space-y-2">
+                                  <a href="/destinations/phnom-penh" class="block p-2 rounded hover:bg-gray-50 transition-colors">
+                                      <span class="text-sm font-medium">Phnom Penh</span>
+                                  </a>
+                                  <a href="/destinations/siem-reap" class="block p-2 rounded hover:bg-gray-50 transition-colors">
+                                      <span class="text-sm font-medium">Siem Reap</span>
+                                  </a>
+                                  <a href="/destinations/kompot" class="block p-2 rounded hover:bg-gray-50 transition-colors">
+                                      <span class="text-sm font-medium">Kompot</span>
+                                  </a>
+                                  <a href="/destinations/ratanakiri" class="block p-2 rounded hover:bg-gray-50 transition-colors">
+                                      <span class="text-sm font-medium">Ratanakiri</span>
+                                  </a>
+                                  <a href="/destinations/koh-kong" class="block p-2 rounded hover:bg-gray-50 transition-colors">
+                                      <span class="text-sm font-medium">Koh Kong</span>
+                                  </a>
+                              </div>
+                          </div>
+                          <div>
+                              <h4 class="font-semibold text-gray-900 mb-3">By Region</h4>
+                              <div class="grid grid-cols-2 gap-2">
+                                  <a href="/regions/north" class="block p-2 rounded hover:bg-gray-50 transition-colors">
+                                      <span class="text-sm">North</span>
+                                  </a>
+                                  <a href="/regions/central" class="block p-2 rounded hover:bg-gray-50 transition-colors">
+                                      <span class="text-sm">Central</span>
+                                  </a>
+                                  <a href="/regions/east" class="block p-2 rounded hover:bg-gray-50 transition-colors">
+                                      <span class="text-sm">East</span>
+                                  </a>
+                                  <a href="/regions/west" class="block p-2 rounded hover:bg-gray-50 transition-colors">
+                                      <span class="text-sm">West</span>
+                                  </a>
+                                  <a href="/regions/south" class="block p-2 rounded hover:bg-gray-50 transition-colors">
+                                      <span class="text-sm">South</span>
+                                  </a>
+                                  <a href="/regions/northeast" class="block p-2 rounded hover:bg-gray-50 transition-colors">
+                                      <span class="text-sm">North East</span>
+                                  </a>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+
+              <!-- Plan Your Trip Dropdown -->
+              <div class="dropdown relative">
+                  <button class="flex items-center space-x-1 px-4 py-2 text-sm font-medium rounded-md hover:bg-gray-100 transition-colors">
+                      <span>Plan Your Trip</span>
+                      <i class="fas fa-chevron-down text-xs"></i>
+                  </button>
+                  <div class="dropdown-menu absolute top-full left-0 mt-2 w-[500px] bg-white rounded-lg shadow-xl border p-6">
+                      <div class="grid grid-cols-2 gap-6">
+                          <div>
+                              <h4 class="font-semibold text-gray-900 mb-3">Planning Tools</h4>
+                              <div class="space-y-2">
+                                  <a href="/promotions" class="flex items-center space-x-2 p-2 rounded hover:bg-gray-50 transition-colors">
+                                      <i class="fas fa-star text-orange-500"></i>
+                                      <span class="text-sm">Promotions</span>
+                                  </a>
+                                  <a href="/trip-planner" class="flex items-center space-x-2 p-2 rounded hover:bg-gray-50 transition-colors">
+                                      <i class="fas fa-calendar text-orange-500"></i>
+                                      <span class="text-sm">Trip Planner</span>
+                                  </a>
+                                  <a href="/tour-agents" class="flex items-center space-x-2 p-2 rounded hover:bg-gray-50 transition-colors">
+                                      <i class="fas fa-users text-orange-500"></i>
+                                      <span class="text-sm">Tour Agents</span>
+                                  </a>
+                                  <a href="/stays" class="flex items-center space-x-2 p-2 rounded hover:bg-gray-50 transition-colors">
+                                      <i class="fas fa-bed text-orange-500"></i>
+                                      <span class="text-sm">Stays</span>
+                                  </a>
+                              </div>
+                          </div>
+                          <div>
+                              <h4 class="font-semibold text-gray-900 mb-3">Travel Info</h4>
+                              <div class="space-y-2">
+                                  <a href="/travel-info/visa" class="block p-2 rounded hover:bg-gray-50 transition-colors">
+                                      <span class="text-sm">Passports & Visa</span>
+                                  </a>
+                                  <a href="/travel-info/currency" class="block p-2 rounded hover:bg-gray-50 transition-colors">
+                                      <span class="text-sm">Cambodia Currency</span>
+                                  </a>
+                                  <a href="/travel-info/emergency" class="block p-2 rounded hover:bg-gray-50 transition-colors">
+                                      <span class="text-sm">In An Emergency</span>
+                                  </a>
+                                  <a href="/travel-info/customs" class="block p-2 rounded hover:bg-gray-50 transition-colors">
+                                      <span class="text-sm">Customs & Duty</span>
+                                  </a>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+
+              <!-- Experience Dropdown -->
+              <div class="dropdown relative">
+                  <button class="flex items-center space-x-1 px-4 py-2 text-sm font-medium rounded-md hover:bg-gray-100 transition-colors">
+                      <span>Experience</span>
+                      <i class="fas fa-chevron-down text-xs"></i>
+                  </button>
+                  <div class="dropdown-menu absolute top-full left-0 mt-2 w-[400px] bg-white rounded-lg shadow-xl border p-6">
+                      <h4 class="font-semibold text-gray-900 mb-3">What to Do</h4>
+                      <div class="grid grid-cols-2 gap-2">
+                          <a href="/see-do" class="block p-2 rounded hover:bg-gray-50 transition-colors">
+                              <span class="text-sm">See & Do</span>
+                          </a>
+                          <a href="/shopping" class="block p-2 rounded hover:bg-gray-50 transition-colors">
+                              <span class="text-sm">Shopping</span>
+                          </a>
+                          <a href="/food-drink" class="block p-2 rounded hover:bg-gray-50 transition-colors">
+                              <span class="text-sm">Food & Drink</span>
+                          </a>
+                          <a href="/events" class="block p-2 rounded hover:bg-gray-50 transition-colors">
+                              <span class="text-sm">Events & Festivals</span>
+                          </a>
+                          <a href="/entertainment" class="block p-2 rounded hover:bg-gray-50 transition-colors">
+                              <span class="text-sm">Entertainment</span>
+                          </a>
+                          <a href="/nature" class="block p-2 rounded hover:bg-gray-50 transition-colors">
+                              <span class="text-sm">Nature & Outdoor</span>
+                          </a>
+                      </div>
+                  </div>
+              </div>
+
+              <!-- About Us -->
+              <a href="./aboutus.html" class="px-4 py-2 text-sm font-medium rounded-md hover:bg-gray-100 transition-colors">
+                  About Us
+              </a>
+          </div>
+
+          <!-- CTA Button -->
+          <div class="hidden lg:block">
+              <button class="px-6 py-2 bg-gradient-to-r from-orange-500 to-pink-600 text-white rounded-lg hover:from-orange-600 hover:to-pink-700 transition-all duration-300 font-medium">
+                  Redeem
+              </button>
+          </div>
+
+          <!-- Mobile Menu Button -->
+          <button id="mobile-menu-btn" class="lg:hidden p-2 rounded-md hover:bg-gray-100 transition-colors">
+              <i class="fas fa-bars text-xl"></i>
+          </button>
+      </nav>
+
+      <!-- Mobile Menu -->
+      <div id="mobile-menu" class="mobile-menu fixed top-0 right-0 h-full w-80 bg-white shadow-xl z-50 lg:hidden">
+          <div class="p-6">
+              <div class="flex justify-between items-center mb-6">
+                  <h3 class="text-lg font-semibold">Menu</h3>
+                  <button id="mobile-menu-close" class="p-2 rounded-md hover:bg-gray-100">
+                      <i class="fas fa-times"></i>
+                  </button>
+              </div>
+              
+              <nav class="space-y-4">
+                  <a href="/search" class="flex items-center space-x-3 p-3 rounded-lg hover:bg-gray-50 transition-colors">
+                      <i class="fas fa-search text-orange-500"></i>
+                      <span class="font-medium">Search</span>
+                  </a>
+                  
+                  <div class="space-y-2">
+                      <h4 class="font-semibold text-gray-900">Destinations</h4>
+                      <div class="pl-4 space-y-1">
+                          <a href="/destinations/phnom-penh" class="block p-2 text-sm text-gray-600 hover:text-gray-900">Phnom Penh</a>
+                          <a href="/destinations/siem-reap" class="block p-2 text-sm text-gray-600 hover:text-gray-900">Siem Reap</a>
+                          <a href="/destinations/kompot" class="block p-2 text-sm text-gray-600 hover:text-gray-900">Kompot</a>
+                      </div>
+                  </div>
+                  
+                  <div class="space-y-2">
+                      <h4 class="font-semibold text-gray-900">Plan Your Trip</h4>
+                      <div class="pl-4 space-y-1">
+                          <a href="/trip-planner" class="block p-2 text-sm text-gray-600 hover:text-gray-900">Trip Planner</a>
+                          <a href="/promotions" class="block p-2 text-sm text-gray-600 hover:text-gray-900">Promotions</a>
+                          <a href="/stays" class="block p-2 text-sm text-gray-600 hover:text-gray-900">Stays</a>
+                      </div>
+                  </div>
+                  
+                  <div class="space-y-2">
+                      <h4 class="font-semibold text-gray-900">Experience</h4>
+                      <div class="pl-4 space-y-1">
+                          <a href="/see-do" class="block p-2 text-sm text-gray-600 hover:text-gray-900">See & Do</a>
+                          <a href="/food-drink" class="block p-2 text-sm text-gray-600 hover:text-gray-900">Food & Drink</a>
+                          <a href="/events" class="block p-2 text-sm text-gray-600 hover:text-gray-900">Events</a>
+                      </div>
+                  </div>
+                  
+                  <a href="/about" class="block p-3 font-medium">About Us</a>
+                  
+                  <button class="w-full mt-6 px-6 py-3 bg-gradient-to-r from-orange-500 to-pink-600 text-white rounded-lg font-medium">
+                      Redeem
+                  </button>
+              </nav>
+          </div>
+      </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="relative h-screen w-full overflow-hidden">
+      <!-- Background Video -->
+      <video id="hero-video" autoplay muted loop playsinline class="absolute inset-0 h-full w-full object-cover">
+          <source src="https://dmc.tatdataapi.io/assets/8b4d1335-75a6-43b4-9a93-2d81df7e8f8e.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+      </video>
+
+      <!-- Overlay -->
+      <div class="absolute inset-0 bg-black/40"></div>
+
+      <!-- Content -->
+      <div class="relative z-10 flex h-full items-center justify-center">
+          <div class="container mx-auto px-4 text-center text-white">
+              <div class="mx-auto max-w-4xl space-y-8">
+                  <!-- Main Heading -->
+                  <div class="space-y-4">
+                      <h1 class="text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl lg:text-7xl">
+                          Discover the Magic of
+                          <span class="block gradient-text">Cambodia</span>
+                      </h1>
+                      <p class="mx-auto max-w-2xl text-lg text-gray-200 sm:text-xl md:text-2xl">
+                          Explore ancient temples, vibrant culture, and breathtaking landscapes. Your unforgettable journey through the Kingdom of Wonder starts here.
+                      </p>
+                  </div>
+
+                  </div>
+
+                  <!-- Action Buttons -->
+                  <div class="flex flex-col gap-4 sm:flex-row sm:justify-center">
+                      <button class="px-8 py-3 bg-white text-black hover:bg-gray-100 rounded-lg font-medium transition-colors">
+                          Plan Your Trip
+                      </button>
+                      <button class="px-8 py-3 border-2 border-white text-white hover:bg-white hover:text-black rounded-lg font-medium transition-all duration-300">
+                          Explore Destinations
+                      </button>
+                  </div>
+
+                  <!-- Quick Stats -->
+                  <div class="grid grid-cols-2 gap-8 pt-8 sm:grid-cols-4 stats-counter">
+                      <div class="text-center">
+                          <div class="text-2xl font-bold sm:text-3xl">25+</div>
+                          <div class="text-sm text-gray-300">Provinces</div>
+                      </div>
+                      <div class="text-center">
+                          <div class="text-2xl font-bold sm:text-3xl">1000+</div>
+                          <div class="text-sm text-gray-300">Attractions</div>
+                      </div>
+                      <div class="text-center">
+                          <div class="text-2xl font-bold sm:text-3xl">50+</div>
+                          <div class="text-sm text-gray-300">Experiences</div>
+                      </div>
+                      <div class="text-center">
+                          <div class="text-2xl font-bold sm:text-3xl">24/7</div>
+                          <div class="text-sm text-gray-300">Support</div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+
+      <!-- Video Controls -->
+      <button id="video-toggle" class="absolute bottom-8 right-8 z-20 rounded-full bg-white/20 p-3 text-white backdrop-blur transition-all hover:bg-white/30">
+          <i id="video-icon" class="fas fa-pause"></i>
+      </button>
+
+      <!-- Scroll Indicator -->
+      <div class="absolute bottom-8 left-1/2 z-20 transform -translate-x-1/2 scroll-indicator">
+          <div class="flex flex-col items-center space-y-2 text-white">
+              <span class="text-sm">Scroll to explore</span>
+              <div class="h-6 w-4 rounded-full border-2 border-white">
+                  <div class="mx-auto mt-1 h-2 w-1 animate-pulse rounded-full bg-white"></div>
+              </div>
+          </div>
+      </div>
+  </section>
+
+  <!-- Mobile Menu Overlay -->
+  <div id="mobile-overlay" class="fixed inset-0 bg-black/50 z-40 hidden lg:hidden"></div>
+
+    <!-- Detination -->
+     <div class="flex justify-center mt-[20px] text-[34px] font-bold">Destination by Region</div>
+    <nav class="w-full max-w-4xl mx-auto mt-6 rounded-3xl shadow-md bg-white dark:bg-gray-800">
+      <div class="flex justify-center flex-wrap space-x-4 sm:space-x-8 px-4 py-3">
+        <a href="#" class="text-gray-600 dark:text-gray-300 hover:text-pink-500">North</a>
+        <a href="#" class="text-pink-600 font-semibold border-b-2 border-pink-600">Central</a>
+        <a href="#" class="text-gray-600 dark:text-gray-300 hover:text-pink-500">South</a>
+        <a href="#" class="text-gray-600 dark:text-gray-300 hover:text-pink-500">East</a>
+        <a href="#" class="text-gray-600 dark:text-gray-300 hover:text-pink-500">North East</a>
+        <a href="#" class="text-gray-600 dark:text-gray-300 hover:text-pink-500">West</a>
+      </div>
+    </nav>
+    
+    <!-- Main Section -->
+    <section class="max-w-7xl mx-auto px-4 py-12 flex flex-col lg:flex-row gap-12">
+      <!-- Map -->
+      <div class="flex-1 flex justify-center">
+        <div class="relative max-w-md w-full">
+          <img
+            src="https://static.vecteezy.com/system/resources/previews/014/342/245/non_2x/doodle-freehand-drawing-of-cambodia-map-free-png.png"
+            alt="Map of Thailand" class="w-full rounded-xl shadow-md" />
+          <div class="absolute top-[30%] left-[46%]">
+            <div class="w-4 h-4 bg-yellow-500 rounded-full shadow-md"></div>
+          </div>
+        </div>
+      </div>
+    
+      <!-- Text -->
+      <div class="flex-1">
+        <h2 class="text-yellow-400 text-5xl font-bold mb-6">Central</h2>
+        <p class="text-lg leading-relaxed text-gray-700 dark:text-gray-200">
+          Central Thailand is mainly plains and is a huge area of rice farming and agriculture.
+          The Chao Phraya River is very important to Thailand’s history. Interesting places to visit are ancient
+          historical temples, Bang Pa-in Royal Palace and Bang Sai Royal Fol.
+        </p>
+      </div>
+    </section>
+    
+    <!-- Province Cards Section -->
+    <section class="px-4 pb-12">
+      <div class="flex justify-center">
+        <div class="grid grid-cols2 md:grid-cols-3 gap-4 ">
+    
+          <!-- Angkor Wat -->
+          <div class="w-[260px] h-[350px] rounded-2xl overflow-hidden shadow-lg relative">
+            <a href="./detailcard.html">
+              <img
+                src="https://www.adventureworld.com/media/0s1j1eh1/cambodia-angkor-wat.jpg?center=0.5%2C0.5&format=webp&mode=crop&width=1200&height=1200&quality=80"
+                alt="Angkor wat" class="w-full h-full object-cover transition-transform duration-300 hover:scale-110" />
+              <div class="absolute bottom-0 w-full bg-black/40 text-white text-xl font-bold px-4 py-3 backdrop-blur-sm">
+                ប្រាសាទអង្គវត្ត
+              </div>
+            </a>
+          </div>
+    
+          <!-- Bayon -->
+          <div class="w-[260px] h-[350px] rounded-2xl overflow-hidden shadow-lg relative">
+            <a href="./detailcard.html">
+              <img src="https://visitlocaltravel.com/blog/wp-content/uploads/2023/12/Boyon-Temple-the-Smilling-Face.webp"
+                alt="Bayon Temple" class="w-full h-full object-cover transition-transform duration-300 hover:scale-110" />
+              <div class="absolute bottom-0 w-full bg-black/40 text-white text-xl font-bold px-4 py-3 backdrop-blur-sm">
+                ប្រាសាទបាយ័ន
+              </div>
+            </a>
+          </div>
+    
+          <!-- Preah Vihear -->
+          <div class="w-[260px] h-[350px] rounded-2xl overflow-hidden shadow-lg relative">
+            <a href="./detailcard.html">
+              <img
+                src="https://huunghivietnamcampuchia.thoidai.com.vn/stores/news_dataimages/huunghivietnamcampuchia-thoidai-com-vn/072019/07/14/fn-2018-07-15-16-02-44-020210111134208.0533400.jpg"
+                alt="Preah Vihear" class="w-full h-full object-cover transition-transform duration-300 hover:scale-110" />
+              <div class="absolute bottom-0 w-full bg-black/40 text-white text-xl font-bold px-4 py-3 backdrop-blur-sm">
+                ប្រាសាទព្រះវិហារ
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="h-full flex items-center justify-center mt-[20px]">
+        <a href="./viewmore.html"
+          class="inline-block text-pink-600 border-2 border-pink-600 rounded-full px-6 py-2 hover:bg-pink-600 hover:text-white transition duration-300">
+          View More
+        </a>
+        </div>
+      </section>
+
     <section class="bg-white font-sans">
       <div class="max-w-6xl mx-auto px-4 py-10">
         <!-- Header -->
@@ -1989,6 +2460,280 @@
         </div>
       </div>
     </section>
+    <!-- Footer -->
+    <footer class="bg-gray-100 text-gray-800 text-sm px-6 pt-12 pb-6 dark:bg-gray-800 dark:text-gray-200">
+    
+      <div class="block md:hidden space-y-4">
+        <div>
+          <button class="w-full text-left font-bold mb-2 flex justify-between items-center" onclick="toggleFooter(this)">
+            Top Destinations
+            <svg class="w-4 h-4 transition-transform transform text-gray-400 dark:text-gray-500" fill="none"
+              stroke="currentColor" viewBox="0 0 24 24">
+              <path d="M9 5l7 7-7 7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+          </button>
+          <div class="hidden">
+            <hr class="border-t-2 border-gray-300 w-full mb-1 dark:border-gray-700">
+            <ul class="space-y-1">
+              <li>Bangkok</li>
+              <li>Chiang Mai</li>
+              <li>Phuket</li>
+              <li>Chon Buri</li>
+              <li>Ubon Ratchathani</li>
+            </ul>
+          </div>
+        </div>
+    
+        <div>
+          <button class="w-full text-left font-bold mb-2 flex justify-between items-center" onclick="toggleFooter(this)">
+            Destinations
+            <svg class="w-4 h-4 transition-transform transform text-gray-400 dark:text-gray-500" fill="none"
+              stroke="currentColor" viewBox="0 0 24 24">
+              <path d="M9 5l7 7-7 7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+          </button>
+          <div class="hidden">
+            <hr class="border-t-2 border-gray-300 w-full mb-1 dark:border-gray-700">
+            <ul class="space-y-1">
+              <li>See & Do</li>
+              <li>Food</li>
+              <li>Shop</li>
+              <li>Spa & Wellness</li>
+              <li>Recreational & Entertainment</li>
+            </ul>
+          </div>
+        </div>
+    
+        <div>
+          <button class="w-full text-left font-bold mb-2 flex justify-between items-center" onclick="toggleFooter(this)">
+            Regions of Thailand
+            <svg class="w-4 h-4 transition-transform transform text-gray-400 dark:text-gray-500" fill="none"
+              stroke="currentColor" viewBox="0 0 24 24">
+              <path d="M9 5l7 7-7 7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+          </button>
+          <div class="hidden">
+            <hr class="border-t-2 border-gray-300 w-full mb-1 dark:border-gray-700">
+            <ul class="space-y-1">
+              <li>North</li>
+              <li>Central</li>
+              <li>East</li>
+              <li>North East</li>
+              <li>South</li>
+            </ul>
+          </div>
+        </div>
+    
+        <div>
+          <button class="w-full text-left font-bold mb-2 flex justify-between items-center" onclick="toggleFooter(this)">
+            Experiences
+            <svg class="w-4 h-4 transition-transform transform text-gray-400 dark:text-gray-500" fill="none"
+              stroke="currentColor" viewBox="0 0 24 24">
+              <path d="M9 5l7 7-7 7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+          </button>
+          <div class="hidden">
+            <hr class="border-t-2 border-gray-300 w-full mb-1 dark:border-gray-700">
+            <ul class="space-y-1">
+              <li>History / Religion / Museum</li>
+              <li>Nature & Outdoor</li>
+              <li>Events & Festivals</li>
+              <li>Food / Shopping / Entertainment</li>
+            </ul>
+          </div>
+        </div>
+    
+        <div>
+          <button class="w-full text-left font-bold mb-2 flex justify-between items-center" onclick="toggleFooter(this)">
+            Helpful Links
+            <svg class="w-4 h-4 transition-transform transform text-gray-400 dark:text-gray-500" fill="none"
+              stroke="currentColor" viewBox="0 0 24 24">
+              <path d="M9 5l7 7-7 7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+          </button>
+          <div class="hidden">
+            <hr class="border-t-2 border-gray-300 w-full mb-1 dark:border-gray-700">
+            <ul class="space-y-1">
+              <li>Business Partner</li>
+              <li>Media & Press</li>
+              <li>About TAT</li>
+              <li>Request Inquiry</li>
+              <li>Feedback</li>
+            </ul>
+          </div>
+        </div>
+    
+        <div>
+          <button class="w-full text-left font-bold mb-2 flex justify-between items-center" onclick="toggleFooter(this)">
+            Promotions
+            <svg class="w-4 h-4 transition-transform transform text-gray-400 dark:text-gray-500" fill="none"
+              stroke="currentColor" viewBox="0 0 24 24">
+              <path d="M9 5l7 7-7 7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+          </button>
+          <div class="hidden">
+            <hr class="border-t-2 border-gray-300 w-full mb-1 dark:border-gray-700">
+            <ul class="space-y-1">
+              <li>Trip Planner</li>
+              <li>Tour Agent</li>
+              <li>Stays</li>
+              <li>Cambodia</li>
+            </ul>
+          </div>
+        </div>
+    
+        <div>
+          <button class="w-full text-left font-bold mb-2 flex justify-between items-center" onclick="toggleFooter(this)">
+            Personal Data Protection
+            <svg class="w-4 h-4 transition-transform transform text-gray-400 dark:text-gray-500" fill="none"
+              stroke="currentColor" viewBox="0 0 24 24">
+              <path d="M9 5l7 7-7 7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+          </button>
+          <div class="hidden">
+            <hr class="border-t-2 border-gray-300 w-full mb-1 dark:border-gray-700">
+            <ul class="space-y-1">
+              <li>Privacy Notice</li>
+              <li>Data Subject Request</li>
+              <li>Data Breach Complaint</li>
+              <li>Contact DPA</li>
+            </ul>
+          </div>
+        </div>
+    
+        <div>
+          <button class="w-full text-left font-bold mb-2 flex justify-between items-center" onclick="toggleFooter(this)">
+            Contact Us
+            <svg class="w-4 h-4 transition-transform transform text-gray-400 dark:text-gray-500" fill="none"
+              stroke="currentColor" viewBox="0 0 24 24">
+              <path d="M9 5l7 7-7 7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+          </button>
+          <div class="hidden">
+            <hr class="border-t-2 border-gray-300 w-full mb-1 dark:border-gray-700">
+            <ul class="space-y-1">
+              <li>Phone number: +885 964 735 981</li>
+              <li>Telegram: +885 854 620 66</li>
+              <li>Facebook page: Visit Cambodia</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    
+      <div class="hidden md:grid max-w-7xl mx-auto grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-8">
+        <div>
+          <h3 class="font-bold mb-2">Top Destinations</h3>
+          <hr class="border-t-2 border-gray-300 w-full dark:border-gray-700">
+          <ul class="space-y-1">
+            <li>Bangkok</li>
+            <li>Chiang Mai</li>
+            <li>Phuket</li>
+            <li>Chon Buri</li>
+            <li>Ubon Ratchathani</li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="font-bold mb-2">Destinations</h3>
+          <hr class="border-t-2 border-gray-300 w-full dark:border-gray-700">
+          <ul class="space-y-1">
+            <li>See & Do</li>
+            <li>Food</li>
+            <li>Shop</li>
+            <li>Spa & Wellness</li>
+            <li>Recreational & Entertainment</li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="font-bold mb-2">Regions of Thailand</h3>
+          <hr class="border-t-2 border-gray-300 w-full dark:border-gray-700">
+          <ul class="space-y-1">
+            <li>North</li>
+            <li>Central</li>
+            <li>East</li>
+            <li>North East</li>
+            <li>
+            <li>South</li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="font-bold mb-2">Experiences</h3>
+          <hr class="border-t-2 border-gray-300 w-full dark:border-gray-700">
+          <ul class="space-y-1">
+            <li>History / Religion / Museum</li>
+            <li>Nature & Outdoor</li>
+            <li>Events & Festivals</li>
+            <li>Food / Shopping / Entertainment</li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="font-bold mb-2">Helpful Links</h3>
+          <hr class="border-t-2 border-gray-300 w-full dark:border-gray-700">
+          <ul class="space-y-1">
+            <li>Business Partner</li>
+            <li>Media & Press</li>
+            <li>About TAT</li>
+            <li>Request Inquiry</li>
+            <li>Feedback</li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="font-bold mb-2">Promotions</h3>
+          <hr class="border-t-2 border-gray-300 w-full dark:border-gray-700">
+          <ul class="space-y-1">
+            <li>Trip Planner</li>
+            <li>Tour Agent</li>
+            <li>Stays</li>
+            <li>Cambodia</li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="font-bold mb-2">Personal Data Protection</h3>
+          <hr class="border-t-2 border-gray-300 w-full dark:border-gray-700">
+          <ul class="space-y-1">
+            <li>Privacy Notice</li>
+            <li>Data Subject Request</li>
+            <li>Data Breach Complaint</li>
+            <li>Contact DPA</li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="font-bold mb-2">Contact Us</h3>
+          <hr class="border-t-2 border-gray-300 w-full dark:border-gray-700">
+          <ul class="space-y-1">
+            <li>Phone number: +885 964 735 981</li>
+            <li>Telegram: +885 854 620 66</li>
+            <li>Facebook page: Visit Cambodia</li>
+          </ul>
+        </div>
+      </div>
+    
+      <div class="my-8 border-t border-gray-300 w-full dark:border-gray-700"></div>
+    
+      <div
+        class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-gray-600 dark:text-gray-400">
+        <div class="flex items-center gap-3">
+          <img src="https://www.cambodiaembassyuk.org/wp-content/uploads/2023/04/Visit-Cambodia-Year-2023-11.jpg" alt="Logo"
+            class="h-10 w-auto">
+          <span>
+            Tourism Authority of Cambodia<br>
+            1600 Phetchaburi Road, Makkasan, Ratchathevi, Phnom Penh
+          </span>
+        </div>
+    
+        <div class="flex items-center gap-4">
+          <a href="#" aria-label="Telegram"
+            class="text-gray-500 hover:text-gray-800 dark:text-gray-400 dark:hover:text-gray-100"><i
+              class="fab fa-telegram"></i></a>
+          <a href="#" aria-label="Facebook"
+            class="text-gray-500 hover:text-gray-800 dark:text-gray-400 dark:hover:text-gray-100"><i
+              class="fab fa-facebook"></i></a>
+          <a href="#" aria-label="YouTube"
+            class="text-gray-500 hover:text-gray-800 dark:text-gray-400 dark:hover:text-gray-100"><i
+              class="fab fa-youtube"></i></a>
+        </div>
+      </div>
+    </footer>
+
     <script>
       let currentIndex = 0;
       const cardWidth = 320; // 320px (w-80 + gap)
@@ -2275,6 +3020,60 @@
       }
 
       new EventSlider();
+      // Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileMenuClose = document.getElementById('mobile-menu-close');
+        const mobileOverlay = document.getElementById('mobile-overlay');
+
+        function openMobileMenu() {
+          mobileMenu.classList.add('active');
+          mobileOverlay.classList.remove('hidden');
+          document.body.style.overflow = 'hidden';
+        }
+
+        function closeMobileMenu() {
+          mobileMenu.classList.remove('active');
+          mobileOverlay.classList.add('hidden');
+          document.body.style.overflow = '';
+        }
+
+        mobileMenuBtn.addEventListener('click', openMobileMenu);
+        mobileMenuClose.addEventListener('click', closeMobileMenu);
+        mobileOverlay.addEventListener('click', closeMobileMenu);
+
+        // Video Toggle
+        const videoToggle = document.getElementById('video-toggle');
+        const video = document.getElementById('hero-video');
+        const videoIcon = document.getElementById('video-icon');
+        let isPlaying = true;
+
+        videoToggle.addEventListener('click', () => {
+          if (isPlaying) {
+            video.pause();
+            videoIcon.className = 'fas fa-play';
+          } else {
+            video.play();
+            videoIcon.className = 'fas fa-pause';
+          }
+          isPlaying = !isPlaying;
+        });
+
+        // Close mobile menu when clicking on links
+        document.querySelectorAll('#mobile-menu a').forEach(link => {
+          link.addEventListener('click', closeMobileMenu);
+        });
+
+        // Close dropdowns when clicking outside
+        document.addEventListener('click', (e) => {
+          if (!e.target.closest('.dropdown')) {
+            document.querySelectorAll('.dropdown-menu').forEach(menu => {
+              menu.style.opacity = '0';
+              menu.style.visibility = 'hidden';
+              menu.style.transform = 'translateY(-10px)';
+            });
+          }
+        });
     </script>
   </body>
 </html>

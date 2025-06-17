@@ -1,0 +1,768 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search - The Angkor Guide</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: "#ff4f5f",
+                        secondary: "#f97316",
+                    },
+                    animation: {
+                        'fade-in': 'fadeIn 0.5s ease-in-out',
+                        'slide-down': 'slideDown 0.3s ease-out',
+                        'bounce-slow': 'bounce 2s infinite',
+                    },
+                    keyframes: {
+                        fadeIn: {
+                            '0%': { opacity: '0', transform: 'translateY(10px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' }
+                        },
+                        slideDown: {
+                            '0%': { opacity: '0', transform: 'translateY(-10px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' }
+                        }
+                    }
+                },
+            },
+        };
+    </script>
+    <style>
+        .dropdown-menu {
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(10px);
+            transition: all 0.3s ease;
+            pointer-events: none;
+        }
+
+        .dropdown:hover .dropdown-menu {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+            pointer-events: auto;
+        }
+
+        .mobile-menu {
+            transform: translateX(100%);
+            transition: transform 0.3s ease;
+        }
+
+        .mobile-menu.active {
+            transform: translateX(0);
+        }
+
+        .filter-button.active {
+            background: linear-gradient(135deg, #ff4f5f, #f97316);
+            color: white;
+            transform: scale(1.05);
+        }
+
+        .search-results {
+            animation: fadeIn 0.5s ease-in-out;
+        }
+
+        /* .hero-overlay {
+            background: linear-gradient(135deg, rgba(255, 79, 95, 0.8), rgba(249, 115, 22, 0.6));
+        } */
+
+        @keyframes pulse-ring {
+            0% {
+                transform: scale(0.33);
+            }
+
+            40%,
+            50% {
+                opacity: 1;
+            }
+
+            100% {
+                opacity: 0;
+                transform: scale(1.2);
+            }
+        }
+
+        .pulse-ring {
+            animation: pulse-ring 2s cubic-bezier(0.455, 0.03, 0.515, 0.955) infinite;
+        }
+    </style>
+</head>
+
+<body class="bg-gray-50 font-sans">
+    <!-- Navigation Header -->
+    <header
+        class="sticky top-0 z-50 w-full bg-white/95 backdrop-blur supports-[backdrop-filter]:bg-white/60 shadow-lg border-b border-gray-100">
+        <nav class="container mx-auto flex h-16 items-center justify-between px-4 lg:px-6">
+            <!-- Logo -->
+            <a href="/" class="flex items-center space-x-3 group">
+                <div
+                    class="w-12 h-12 bg-gradient-to-br from-pink-500 to-orange-500 rounded-xl flex items-center justify-center text-white font-bold text-lg group-hover:scale-105 transition-transform shadow-lg">
+                    AG
+                </div>
+                <span
+                    class="hidden sm:block text-xl font-bold bg-gradient-to-r from-pink-500 to-orange-500 bg-clip-text text-transparent">
+                    The Angkor Guide
+                </span>
+            </a>
+
+            <!-- Desktop Navigation -->
+            <div class="hidden lg:flex items-center space-x-1">
+                <!-- Search Link -->
+                <a href="/search"
+                    class="flex items-center space-x-2 px-4 py-2 text-sm font-medium rounded-lg bg-pink-50 text-pink-600 border border-pink-200">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                    </svg>
+                    <span>Search</span>
+                </a>
+
+                <!-- Destinations Dropdown -->
+                <div class="dropdown relative">
+                    <button
+                        class="flex items-center space-x-1 px-4 py-2 text-sm font-medium rounded-lg hover:bg-gray-100 transition-colors">
+                        <span>Destinations</span>
+                        <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7">
+                            </path>
+                        </svg>
+                    </button>
+                    <div
+                        class="dropdown-menu absolute top-full left-0 mt-2 w-[600px] bg-white rounded-xl shadow-2xl border border-gray-100 p-6">
+                        <div class="grid grid-cols-3 gap-6">
+                            <div>
+                                <h4 class="font-semibold text-pink-600 mb-4 flex items-center">
+                                    <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z">
+                                        </path>
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                                    </svg>
+                                    Top Destinations
+                                </h4>
+                                <div class="space-y-2">
+                                    <a href="#"
+                                        class="block p-2 rounded-lg hover:bg-pink-50 transition-colors text-gray-700 hover:text-pink-600">Phnom
+                                        Penh</a>
+                                    <a href="#"
+                                        class="block p-2 rounded-lg hover:bg-pink-50 transition-colors text-gray-700 hover:text-pink-600">Siem
+                                        Reap</a>
+                                    <a href="#"
+                                        class="block p-2 rounded-lg hover:bg-pink-50 transition-colors text-gray-700 hover:text-pink-600">Kompot</a>
+                                    <a href="#"
+                                        class="block p-2 rounded-lg hover:bg-pink-50 transition-colors text-gray-700 hover:text-pink-600">Ratanakiri</a>
+                                    <a href="#"
+                                        class="block p-2 rounded-lg hover:bg-pink-50 transition-colors text-gray-700 hover:text-pink-600">Koh
+                                        Kong</a>
+                                </div>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-pink-600 mb-4">By Region</h4>
+                                <div class="space-y-2">
+                                    <a href="#"
+                                        class="block p-2 rounded-lg hover:bg-pink-50 transition-colors text-gray-700 hover:text-pink-600">North</a>
+                                    <a href="#"
+                                        class="block p-2 rounded-lg hover:bg-pink-50 transition-colors text-gray-700 hover:text-pink-600">Central</a>
+                                    <a href="#"
+                                        class="block p-2 rounded-lg hover:bg-pink-50 transition-colors text-gray-700 hover:text-pink-600">East</a>
+                                    <a href="#"
+                                        class="block p-2 rounded-lg hover:bg-pink-50 transition-colors text-gray-700 hover:text-pink-600">West</a>
+                                    <a href="#"
+                                        class="block p-2 rounded-lg hover:bg-pink-50 transition-colors text-gray-700 hover:text-pink-600">South</a>
+                                    <a href="#"
+                                        class="block p-2 rounded-lg hover:bg-pink-50 transition-colors text-gray-700 hover:text-pink-600">Northeast</a>
+                                </div>
+                            </div>
+                            <div class="flex items-center justify-center">
+                                <div
+                                    class="w-32 h-32 bg-gradient-to-br from-pink-100 to-orange-100 rounded-xl flex items-center justify-center">
+                                    <svg class="w-16 h-16 text-pink-400" fill="none" stroke="currentColor"
+                                        viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1"
+                                            d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7">
+                                        </path>
+                                    </svg>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Plan Your Trip Dropdown -->
+                <div class="dropdown relative">
+                    <button
+                        class="flex items-center space-x-1 px-4 py-2 text-sm font-medium rounded-lg hover:bg-gray-100 transition-colors">
+                        <span>Plan Your Trip</span>
+                        <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7">
+                            </path>
+                        </svg>
+                    </button>
+                    <div
+                        class="dropdown-menu absolute top-full left-0 mt-2 w-[500px] bg-white rounded-xl shadow-2xl border border-gray-100 p-6">
+                        <div class="grid grid-cols-2 gap-6">
+                            <div>
+                                <h4 class="font-semibold text-pink-600 mb-4">Planning Tools</h4>
+                                <div class="space-y-2">
+                                    <a href="#"
+                                        class="flex items-center space-x-2 p-2 rounded-lg hover:bg-pink-50 transition-colors text-gray-700 hover:text-pink-600">
+                                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z">
+                                            </path>
+                                        </svg>
+                                        <span>Promotions</span>
+                                    </a>
+                                    <a href="#"
+                                        class="flex items-center space-x-2 p-2 rounded-lg hover:bg-pink-50 transition-colors text-gray-700 hover:text-pink-600">
+                                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z">
+                                            </path>
+                                        </svg>
+                                        <span>Trip Planner</span>
+                                    </a>
+                                    <a href="#"
+                                        class="flex items-center space-x-2 p-2 rounded-lg hover:bg-pink-50 transition-colors text-gray-700 hover:text-pink-600">
+                                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z">
+                                            </path>
+                                        </svg>
+                                        <span>Tour Agents</span>
+                                    </a>
+                                    <a href="#"
+                                        class="flex items-center space-x-2 p-2 rounded-lg hover:bg-pink-50 transition-colors text-gray-700 hover:text-pink-600">
+                                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2H5a2 2 0 00-2-2z">
+                                            </path>
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                d="M8 7V5a2 2 0 012-2h4a2 2 0 012 2v2m-6 4h4"></path>
+                                        </svg>
+                                        <span>Stays</span>
+                                    </a>
+                                </div>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-pink-600 mb-4">Travel Info</h4>
+                                <div class="space-y-2">
+                                    <a href="#"
+                                        class="block p-2 rounded-lg hover:bg-pink-50 transition-colors text-gray-700 hover:text-pink-600">Passports
+                                        & Visa</a>
+                                    <a href="#"
+                                        class="block p-2 rounded-lg hover:bg-pink-50 transition-colors text-gray-700 hover:text-pink-600">Cambodia
+                                        Currency</a>
+                                    <a href="#"
+                                        class="block p-2 rounded-lg hover:bg-pink-50 transition-colors text-gray-700 hover:text-pink-600">In
+                                        An Emergency</a>
+                                    <a href="#"
+                                        class="block p-2 rounded-lg hover:bg-pink-50 transition-colors text-gray-700 hover:text-pink-600">Customs
+                                        & Duty</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Experience Dropdown -->
+                <div class="dropdown relative">
+                    <button
+                        class="flex items-center space-x-1 px-4 py-2 text-sm font-medium rounded-lg hover:bg-gray-100 transition-colors">
+                        <span>Experience</span>
+                        <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7">
+                            </path>
+                        </svg>
+                    </button>
+                    <div
+                        class="dropdown-menu absolute top-full left-0 mt-2 w-[400px] bg-white rounded-xl shadow-2xl border border-gray-100 p-6">
+                        <h4 class="font-semibold text-pink-600 mb-4">What to Do</h4>
+                        <div class="grid grid-cols-2 gap-2">
+                            <a href="#"
+                                class="block p-2 rounded-lg hover:bg-pink-50 transition-colors text-gray-700 hover:text-pink-600">See
+                                & Do</a>
+                            <a href="#"
+                                class="block p-2 rounded-lg hover:bg-pink-50 transition-colors text-gray-700 hover:text-pink-600">Shopping</a>
+                            <a href="#"
+                                class="block p-2 rounded-lg hover:bg-pink-50 transition-colors text-gray-700 hover:text-pink-600">Food
+                                & Drink</a>
+                            <a href="#"
+                                class="block p-2 rounded-lg hover:bg-pink-50 transition-colors text-gray-700 hover:text-pink-600">Events
+                                & Festivals</a>
+                            <a href="#"
+                                class="block p-2 rounded-lg hover:bg-pink-50 transition-colors text-gray-700 hover:text-pink-600">Entertainment</a>
+                            <a href="#"
+                                class="block p-2 rounded-lg hover:bg-pink-50 transition-colors text-gray-700 hover:text-pink-600">Nature
+                                & Outdoor</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- About Us -->
+                <a href="./aboutus.html" class="px-4 py-2 text-sm font-medium rounded-lg hover:bg-gray-100 transition-colors">
+                    About Us
+                </a>
+            </div>
+
+            <!-- CTA Button -->
+            <div class="hidden lg:block">
+                <button
+                    class="px-6 py-2.5 bg-gradient-to-r from-pink-500 to-orange-500 text-white rounded-lg hover:from-pink-600 hover:to-orange-600 transition-all duration-300 font-medium shadow-lg hover:shadow-xl transform hover:scale-105">
+                    Redeem
+                </button>
+            </div>
+
+            <!-- Mobile Menu Button -->
+            <button id="mobile-menu-btn" class="lg:hidden p-2 rounded-lg hover:bg-gray-100 transition-colors"
+                aria-label="Open mobile menu">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16">
+                    </path>
+                </svg>
+            </button>
+        </nav>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu"
+            class="mobile-menu fixed top-0 right-0 h-full w-80 bg-white shadow-2xl z-50 lg:hidden overflow-y-auto">
+            <div class="p-6">
+                <div class="flex justify-between items-center mb-8">
+                    <h3 class="text-xl font-bold text-gray-900">Menu</h3>
+                    <button id="mobile-menu-close" class="p-2 rounded-lg hover:bg-gray-100 transition-colors"
+                        aria-label="Close mobile menu">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M6 18L18 6M6 6l12 12"></path>
+                        </svg>
+                    </button>
+                </div>
+
+                <nav class="space-y-6">
+                    <a href="/search"
+                        class="flex items-center space-x-3 p-4 rounded-xl bg-pink-50 text-pink-600 border border-pink-200">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                        </svg>
+                        <span class="font-medium">Search</span>
+                    </a>
+
+                    <div class="space-y-3">
+                        <h4 class="font-semibold text-gray-900 text-lg">Destinations</h4>
+                        <div class="pl-4 space-y-2">
+                            <a href="#" class="block p-2 text-gray-600 hover:text-gray-900 transition-colors">Phnom
+                                Penh</a>
+                            <a href="#" class="block p-2 text-gray-600 hover:text-gray-900 transition-colors">Siem
+                                Reap</a>
+                            <a href="#" class="block p-2 text-gray-600 hover:text-gray-900 transition-colors">Kompot</a>
+                        </div>
+                    </div>
+
+                    <div class="space-y-3">
+                        <h4 class="font-semibold text-gray-900 text-lg">Plan Your Trip</h4>
+                        <div class="pl-4 space-y-2">
+                            <a href="#" class="block p-2 text-gray-600 hover:text-gray-900 transition-colors">Trip
+                                Planner</a>
+                            <a href="#"
+                                class="block p-2 text-gray-600 hover:text-gray-900 transition-colors">Promotions</a>
+                            <a href="#" class="block p-2 text-gray-600 hover:text-gray-900 transition-colors">Stays</a>
+                        </div>
+                    </div>
+
+                    <a href="/about"
+                        class="block p-4 font-medium text-gray-900 hover:bg-gray-50 rounded-xl transition-colors">About
+                        Us</a>
+
+                    <button
+                        class="w-full mt-8 px-6 py-3 bg-gradient-to-r from-pink-500 to-orange-500 text-white rounded-xl font-medium shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300">
+                        Redeem
+                    </button>
+                </nav>
+            </div>
+        </div>
+
+        <!-- Mobile Menu Overlay -->
+        <div id="mobile-overlay" class="fixed inset-0 bg-black/50 z-40 hidden lg:hidden"></div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="relative h-[500px] overflow-hidden">
+        <img src="https://d37rmf1ynyg9aw.cloudfront.net/fit-in/1280x1280/data/v4/destinations/160af03f-fd62-4c45-a33f-d7b2167a0c01/resources/5138.jpg"
+            alt="Angkor Wat Temple" class="w-full h-full object-cover">
+        <div class="hero-overlay absolute inset-0"></div>
+        <div class="absolute inset-0 flex items-center justify-center">
+            <div class="text-center text-white px-4">
+                <h1 class="text-5xl md:text-6xl font-bold mb-4 animate-fade-in">
+                    Discover Cambodia
+                </h1>
+                <p class="text-xl md:text-2xl mb-8 animate-fade-in opacity-90">
+                    Search and explore the wonders of the Kingdom
+                </p>
+                <div class="relative">
+                    <div class="absolute inset-0 pulse-ring bg-white rounded-full opacity-20"></div>
+                    <button onclick="document.getElementById('search-section').scrollIntoView({behavior: 'smooth'})"
+                        class="relative bg-white text-pink-600 px-8 py-4 rounded-full font-semibold text-lg shadow-xl hover:shadow-2xl transform hover:scale-105 transition-all duration-300">
+                        Start Searching
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Search Section -->
+    <section id="search-section" class="max-w-6xl mx-auto px-4 py-16">
+        <div class="bg-white rounded-2xl shadow-2xl p-8 border border-gray-100">
+            <!-- Search Input -->
+            <div class="mb-8">
+                <label for="search-input" class="block text-gray-800 text-xl font-bold mb-4">
+                    What are you looking for?
+                </label>
+                <div class="relative">
+                    <div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
+                        <svg class="w-6 h-6 text-pink-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                        </svg>
+                    </div>
+                    <input id="search-input" type="text" placeholder="Search destinations, attractions, restaurants..."
+                        class="w-full pl-12 pr-4 py-4 text-lg border-2 border-pink-200 rounded-xl focus:border-pink-500 focus:ring-4 focus:ring-pink-100 outline-none transition-all duration-300" />
+                </div>
+            </div>
+
+            <!-- Filter Categories -->
+            <div class="mb-8">
+                <h3 class="text-xl font-bold text-gray-800 mb-6">Filter by Category</h3>
+                <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3">
+                    <button
+                        class="filter-button active px-4 py-3 rounded-xl border-2 border-pink-200 text-pink-600 font-medium hover:border-pink-400 transition-all duration-300 transform hover:scale-105"
+                        data-filter="all">
+                        All
+                    </button>
+                    <button
+                        class="filter-button px-4 py-3 rounded-xl border-2 border-gray-200 text-gray-600 font-medium hover:border-pink-400 hover:text-pink-600 transition-all duration-300 transform hover:scale-105"
+                        data-filter="accommodation">
+                        Hotels
+                    </button>
+                    <button
+                        class="filter-button px-4 py-3 rounded-xl border-2 border-gray-200 text-gray-600 font-medium hover:border-pink-400 hover:text-pink-600 transition-all duration-300 transform hover:scale-105"
+                        data-filter="attraction">
+                        Attractions
+                    </button>
+                    <button
+                        class="filter-button px-4 py-3 rounded-xl border-2 border-gray-200 text-gray-600 font-medium hover:border-pink-400 hover:text-pink-600 transition-all duration-300 transform hover:scale-105"
+                        data-filter="restaurant">
+                        Restaurants
+                    </button>
+                    <button
+                        class="filter-button px-4 py-3 rounded-xl border-2 border-gray-200 text-gray-600 font-medium hover:border-pink-400 hover:text-pink-600 transition-all duration-300 transform hover:scale-105"
+                        data-filter="shop">
+                        Shopping
+                    </button>
+                    <button
+                        class="filter-button px-4 py-3 rounded-xl border-2 border-gray-200 text-gray-600 font-medium hover:border-pink-400 hover:text-pink-600 transition-all duration-300 transform hover:scale-105"
+                        data-filter="tour">
+                        Tours
+                    </button>
+                    <button
+                        class="filter-button px-4 py-3 rounded-xl border-2 border-gray-200 text-gray-600 font-medium hover:border-pink-400 hover:text-pink-600 transition-all duration-300 transform hover:scale-105"
+                        data-filter="transport">
+                        Transport
+                    </button>
+                    <button
+                        class="filter-button px-4 py-3 rounded-xl border-2 border-gray-200 text-gray-600 font-medium hover:border-pink-400 hover:text-pink-600 transition-all duration-300 transform hover:scale-105"
+                        data-filter="spa">
+                        Spa & Wellness
+                    </button>
+                    <button
+                        class="filter-button px-4 py-3 rounded-xl border-2 border-gray-200 text-gray-600 font-medium hover:border-pink-400 hover:text-pink-600 transition-all duration-300 transform hover:scale-105"
+                        data-filter="entertainment">
+                        Entertainment
+                    </button>
+                    <button
+                        class="filter-button px-4 py-3 rounded-xl border-2 border-gray-200 text-gray-600 font-medium hover:border-pink-400 hover:text-pink-600 transition-all duration-300 transform hover:scale-105"
+                        data-filter="events">
+                        Events
+                    </button>
+                </div>
+            </div>
+
+            <!-- Action Buttons -->
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <button id="clear-btn"
+                    class="px-8 py-3 border-2 border-pink-500 text-pink-600 rounded-xl font-semibold hover:bg-pink-50 transition-all duration-300 transform hover:scale-105">
+                    Clear Filters
+                </button>
+                <button id="search-btn"
+                    class="px-8 py-3 bg-gradient-to-r from-pink-500 to-orange-500 text-white rounded-xl font-semibold shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300">
+                    Search Now
+                </button>
+            </div>
+        </div>
+
+        <!-- Search Results -->
+        <div id="search-results" class="mt-12 hidden">
+            <div class="flex items-center justify-between mb-6">
+                <h2 class="text-2xl font-bold text-gray-800">Search Results</h2>
+                <span class="text-gray-600" id="results-count">0 results found</span>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="results-container">
+                <!-- Results will be populated here -->
+            </div>
+        </div>
+
+        <!-- Popular Destinations -->
+        <div class="mt-16">
+            <h2 class="text-3xl font-bold text-gray-800 mb-8 text-center">Popular Destinations</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div
+                    class="group bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
+                    <div class="relative h-48 overflow-hidden">
+                        <img src="https://www.asiakingtravel.com/cuploads/files/Angkor_Wat_Temple.jpg" alt="Angkor Wat"
+                            class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
+                        <div class="absolute bottom-4 left-4 text-white">
+                            <h3 class="text-xl font-bold">Angkor Wat</h3>
+                            <p class="text-sm opacity-90">Siem Reap</p>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <p class="text-gray-600 mb-4">Ancient temple complex and UNESCO World Heritage site</p>
+                        <button class="text-pink-600 font-semibold hover:text-pink-700 transition-colors">
+                            Learn More →
+                        </button>
+                    </div>
+                </div>
+
+                <div
+                    class="group bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
+                    <div class="relative h-48 overflow-hidden">
+                        <img src="https://www.novotelphnompenhbkk1.com/wp-content/uploads/sites/53/2023/08/royal-palace.jpg"
+                            alt="Royal Palace"
+                            class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
+                        <div class="absolute bottom-4 left-4 text-white">
+                            <h3 class="text-xl font-bold">Royal Palace</h3>
+                            <p class="text-sm opacity-90">Phnom Penh</p>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <p class="text-gray-600 mb-4">Stunning royal residence with traditional Khmer architecture</p>
+                        <button class="text-pink-600 font-semibold hover:text-pink-700 transition-colors">
+                            Learn More →
+                        </button>
+                    </div>
+                </div>
+
+                <div
+                    class="group bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
+                    <div class="relative h-48 overflow-hidden">
+                        <img src="https://cdn.shortpixel.ai/spai/w_1003+q_lossy+ret_img+to_webp/angkortimes.com/wp-content/uploads/2024/06/Boko-Kampot.jpg"
+                            alt="Bokor National Park"
+                            class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
+                        <div class="absolute bottom-4 left-4 text-white">
+                            <h3 class="text-xl font-bold">Bokor National Park</h3>
+                            <p class="text-sm opacity-90">Kampot</p>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <p class="text-gray-600 mb-4">Mountain retreat with cool climate and scenic views</p>
+                        <button class="text-pink-600 font-semibold hover:text-pink-700 transition-colors">
+                            Learn More →
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileMenuClose = document.getElementById('mobile-menu-close');
+        const mobileOverlay = document.getElementById('mobile-overlay');
+
+        function openMobileMenu() {
+            mobileMenu.classList.add('active');
+            mobileOverlay.classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeMobileMenu() {
+            mobileMenu.classList.remove('active');
+            mobileOverlay.classList.add('hidden');
+            document.body.style.overflow = '';
+        }
+
+        mobileMenuBtn.addEventListener('click', openMobileMenu);
+        mobileMenuClose.addEventListener('click', closeMobileMenu);
+        mobileOverlay.addEventListener('click', closeMobileMenu);
+
+        // Filter Buttons
+        const filterButtons = document.querySelectorAll('.filter-button');
+        let activeFilter = 'all';
+
+        filterButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                // Remove active class from all buttons
+                filterButtons.forEach(btn => btn.classList.remove('active'));
+                // Add active class to clicked button
+                button.classList.add('active');
+                activeFilter = button.dataset.filter;
+            });
+        });
+
+        // Search Functionality
+        const searchBtn = document.getElementById('search-btn');
+        const clearBtn = document.getElementById('clear-btn');
+        const searchInput = document.getElementById('search-input');
+        const searchResults = document.getElementById('search-results');
+        const resultsContainer = document.getElementById('results-container');
+        const resultsCount = document.getElementById('results-count');
+
+        // Sample data for demonstration
+        const sampleResults = [
+            {
+                title: "Angkor Wat Temple",
+                category: "attraction",
+                location: "Siem Reap",
+                description: "Ancient temple complex and UNESCO World Heritage site",
+                image: "https://images.unsplash.com/photo-1539650116574-75c0c6d73f6e?w=300&h=200&fit=crop"
+            },
+            {
+                title: "Royal Palace",
+                category: "attraction",
+                location: "Phnom Penh",
+                description: "Stunning royal residence with traditional Khmer architecture",
+                image: "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=300&h=200&fit=crop"
+            },
+            {
+                title: "Raffles Hotel Le Royal",
+                category: "accommodation",
+                location: "Phnom Penh",
+                description: "Luxury hotel in the heart of the capital",
+                image: "https://images.unsplash.com/photo-1566073771259-6a8506099945?w=300&h=200&fit=crop"
+            },
+            {
+                title: "Malis Restaurant",
+                category: "restaurant",
+                location: "Phnom Penh",
+                description: "Fine dining Cambodian cuisine",
+                image: "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=300&h=200&fit=crop"
+            },
+            {
+                title: "Central Market",
+                category: "shop",
+                location: "Phnom Penh",
+                description: "Historic market with local goods and souvenirs",
+                image: "https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=300&h=200&fit=crop"
+            },
+            {
+                title: "Sunset Cruise",
+                category: "tour",
+                location: "Mekong River",
+                description: "Romantic evening cruise along the Mekong",
+                image: "https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=300&h=200&fit=crop"
+            }
+        ];
+
+        function performSearch() {
+            const query = searchInput.value.toLowerCase();
+            let filteredResults = sampleResults;
+
+            // Filter by category
+            if (activeFilter !== 'all') {
+                filteredResults = filteredResults.filter(item => item.category === activeFilter);
+            }
+
+            // Filter by search query
+            if (query) {
+                filteredResults = filteredResults.filter(item =>
+                    item.title.toLowerCase().includes(query) ||
+                    item.location.toLowerCase().includes(query) ||
+                    item.description.toLowerCase().includes(query)
+                );
+            }
+
+            displayResults(filteredResults);
+        }
+
+        function displayResults(results) {
+            searchResults.classList.remove('hidden');
+            resultsCount.textContent = `${results.length} result${results.length !== 1 ? 's' : ''} found`;
+
+            resultsContainer.innerHTML = results.map(item => `
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+                    <div class="relative h-48 overflow-hidden">
+                        <img src="${item.image}" alt="${item.title}" class="w-full h-full object-cover">
+                        <div class="absolute top-4 right-4">
+                            <span class="bg-pink-500 text-white px-3 py-1 rounded-full text-sm font-medium capitalize">
+                                ${item.category}
+                            </span>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-800 mb-2">${item.title}</h3>
+                        <p class="text-pink-600 font-medium mb-2">${item.location}</p>
+                        <p class="text-gray-600 mb-4">${item.description}</p>
+                        <button class="w-full bg-gradient-to-r from-pink-500 to-orange-500 text-white py-2 rounded-lg font-medium hover:from-pink-600 hover:to-orange-600 transition-all duration-300">
+                            View Details
+                        </button>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        searchBtn.addEventListener('click', performSearch);
+        searchInput.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') {
+                performSearch();
+            }
+        });
+
+        clearBtn.addEventListener('click', () => {
+            searchInput.value = '';
+            filterButtons.forEach(btn => btn.classList.remove('active'));
+            filterButtons[0].classList.add('active');
+            activeFilter = 'all';
+            searchResults.classList.add('hidden');
+        });
+
+        // Close dropdowns when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!e.target.closest('.dropdown')) {
+                document.querySelectorAll('.dropdown-menu').forEach(menu => {
+                    menu.style.opacity = '0';
+                    menu.style.visibility = 'hidden';
+                    menu.style.transform = 'translateY(10px)';
+                });
+            }
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>
