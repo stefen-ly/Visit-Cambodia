@@ -1,0 +1,1691 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Angkor Guide - Discover Cambodia</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'pink': {
+                            500: '#ec4899',
+                            600: '#db2777'
+                        }
+                    },
+                    animation: {
+                        'fade-in': 'fadeIn 0.3s ease-out',
+                        'slide-down': 'slideDown 0.3s ease-out',
+                        'slide-up': 'slideUp 0.3s ease-out',
+                        'scale-in': 'scaleIn 0.2s ease-out',
+                    },
+                    keyframes: {
+                        fadeIn: {
+                            '0%': { opacity: '0' },
+                            '100%': { opacity: '1' }
+                        },
+                        slideDown: {
+                            '0%': { opacity: '0', transform: 'translateY(-10px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' }
+                        },
+                        slideUp: {
+                            '0%': { opacity: '0', transform: 'translateY(10px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' }
+                        },
+                        scaleIn: {
+                            '0%': { opacity: '0', transform: 'scale(0.95)' },
+                            '100%': { opacity: '1', transform: 'scale(1)' }
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .backdrop-blur {
+            backdrop-filter: blur(8px);
+        }
+        
+        /* Glass Navigation Effect */
+        .nav-glass {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .nav-glass .nav-item {
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .nav-glass .nav-item:hover {
+            background: rgba(236, 72, 153, 0.2);
+            border-color: rgba(236, 72, 153, 0.3);
+            backdrop-filter: blur(10px);
+        }
+        
+        .nav-glass .nav-item span,
+        .nav-glass .nav-item svg {
+            color: rgba(255, 255, 255, 0.9);
+        }
+        
+        .nav-glass .nav-item:hover span,
+        .nav-glass .nav-item:hover svg {
+            color: white;
+        }
+        
+        /* Enhanced Dropdown Styles - Centered */
+        .dropdown-content {
+            opacity: 0;
+            visibility: hidden;
+            transform: translateX(-50%) translateY(-10px) scale(0.95);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            pointer-events: none;
+            left: 50%;
+            top: 100%;
+            margin-top: 8px;
+        }
+
+        .dropdown:hover .dropdown-content,
+        .dropdown.active .dropdown-content {
+            opacity: 1;
+            visibility: visible;
+            transform: translateX(-50%) translateY(0) scale(1);
+            pointer-events: auto;
+        }
+        
+        /* Glass effect for dropdowns when nav is glass */
+        .nav-glass .dropdown-content {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+        
+        .dropdown-item {
+            transition: all 0.2s ease;
+        }
+        
+        .dropdown-item:hover {
+            background-color: rgba(236, 72, 153, 0.1);
+            transform: translateX(4px);
+        }
+        
+        .dropdown-item:hover .item-title {
+            color: #ec4899;
+        }
+        
+        .dropdown-item:hover .item-icon {
+            color: #ec4899;
+            transform: scale(1.1);
+        }
+        
+        /* Mobile Menu Improvements */
+        .mobile-menu {
+            transform: translateX(100%);
+            transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .mobile-menu.active {
+            transform: translateX(0);
+        }
+        
+        .mobile-menu-item {
+            transition: all 0.2s ease;
+        }
+        
+        .mobile-menu-item:hover {
+            background-color: rgba(236, 72, 153, 0.1);
+            transform: translateX(8px);
+        }
+        
+        /* Hero Section - Responsive Heights */
+        .hero-section {
+            height: 100vh; /* Full height on desktop */
+        }
+        
+        /* Mobile hero adjustments */
+        @media (max-width: 768px) {
+            .hero-section {
+                height: 60vh; /* Smaller height on mobile */
+                min-height: 400px; /* Minimum height to ensure content fits */
+            }
+        }
+        
+        /* Small mobile screens */
+        @media (max-width: 480px) {
+            .hero-section {
+                height: 50vh;
+                min-height: 350px;
+            }
+        }
+        
+        .hero-overlay {
+            background: linear-gradient(135deg, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.3) 100%);
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .fade-in-up {
+            animation: fadeInUp 1s ease-out;
+        }
+        
+        .fade-in-up-delay {
+            animation: fadeInUp 1s ease-out 0.3s both;
+        }
+        
+        .fade-in-up-delay-2 {
+            animation: fadeInUp 1s ease-out 0.6s both;
+        }
+        
+        /* Feature Cards */
+        .feature-card {
+            transition: all 0.3s ease;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-8px);
+        }
+        
+        .feature-icon {
+            transition: all 0.3s ease;
+        }
+        
+        .feature-card:hover .feature-icon {
+            transform: scale(1.1) rotate(5deg);
+        }
+        
+        /* Improved Navigation Menu */
+        .nav-item {
+            position: relative;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .nav-item:hover {
+            background-color: rgba(236, 72, 153, 0.1);
+        }
+        
+        .nav-item::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 50%;
+            width: 0;
+            height: 2px;
+            background-color: #ec4899;
+            transition: all 0.3s ease;
+            transform: translateX(-50%);
+        }
+        
+        .nav-item:hover::after {
+            width: 80%;
+        }
+        
+        /* Default header state */
+        .header-default {
+            background-color: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(8px);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        /* Loading Animation */
+        .loading-dot {
+            animation: loading 1.4s infinite ease-in-out both;
+        }
+        
+        .loading-dot:nth-child(1) { animation-delay: -0.32s; }
+        .loading-dot:nth-child(2) { animation-delay: -0.16s; }
+        
+        @keyframes loading {
+            0%, 80%, 100% { transform: scale(0); }
+            40% { transform: scale(1); }
+        }
+
+        /* Logo transition for glass effect */
+        .nav-glass .logo-img {
+            filter: brightness(0) invert(1);
+            transition: filter 0.3s ease;
+        }
+
+        .header-default .logo-img {
+            filter: none;
+            transition: filter 0.3s ease;
+        }
+        
+        /* Mobile menu button glass effect */
+        .nav-glass .mobile-button {
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .nav-glass .mobile-button svg {
+            color: white;
+        }
+        
+        .nav-glass .mobile-button:hover {
+            background: rgba(236, 72, 153, 0.2);
+            border-color: rgba(236, 72, 153, 0.3);
+        }
+    </style>
+</head>
+<body class="bg-white">
+<!-- Header -->
+    <header id="header" class="sticky top-0 z-50 w-full border-b header-default">
+        <div class="container mx-auto flex h-16 items-center justify-between px-4 max-w-7xl">
+            <!-- Logo -->
+            <a href="/" class="flex items-center space-x-2 transition-transform hover:scale-105">
+                <img src="https://theangkorguide.net/images/logo.png" alt="The Angkor Guide" class="h-10 w-auto logo-img transition-all duration-300">
+            </a>
+
+            <!-- Desktop Navigation -->
+            <nav class="hidden lg:flex items-center justify-center space-x-2">
+                <!-- Search -->
+                <a href="./search.html" class="nav-item flex items-center space-x-2 px-4 py-2 rounded-lg transition-all duration-200">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                    </svg>
+                    <span class="font-medium">Search</span>
+                </a>
+
+                <!-- Destinations Dropdown -->
+                <div class="dropdown relative">
+                    <button class="nav-item flex items-center space-x-2 px-4 py-2 rounded-lg transition-all duration-200">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                        </svg>
+                        <span class="font-medium">Destinations</span>
+                        <svg class="w-4 h-4 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                        </svg>
+                    </button>
+                    <div class="dropdown-content absolute w-[800px] bg-white rounded-xl shadow-2xl border border-gray-100 p-6">
+                        <div class="grid md:grid-cols-3 gap-6">
+                            <div class="space-y-4">
+                                <h3 class="text-lg font-bold text-pink-500 flex items-center">
+                                    <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3l14 9-14 9V3z"></path>
+                                    </svg>
+                                    Top Destinations
+                                </h3>
+                                <div class="space-y-2">
+                                    <a href="#" class="dropdown-item flex items-start space-x-3 p-3 rounded-lg">
+                                        <svg class="item-icon w-5 h-5 text-gray-600 mt-0.5 flex-shrink-0 transition-all duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path>
+                                        </svg>
+                                        <div>
+                                            <div class="item-title font-semibold text-gray-800 transition-colors duration-200">Phnom Penh</div>
+                                            <div class="text-sm text-gray-500">Capital city with rich history</div>
+                                        </div>
+                                    </a>
+                                    <a href="#" class="dropdown-item flex items-start space-x-3 p-3 rounded-lg">
+                                        <svg class="item-icon w-5 h-5 text-gray-600 mt-0.5 flex-shrink-0 transition-all duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z"></path>
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 13a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                                        </svg>
+                                        <div>
+                                            <div class="item-title font-semibold text-gray-800 transition-colors duration-200">Siem Reap</div>
+                                            <div class="text-sm text-gray-500">Gateway to Angkor Wat</div>
+                                        </div>
+                                    </a>
+                                    <a href="#" class="dropdown-item flex items-start space-x-3 p-3 rounded-lg">
+                                        <svg class="item-icon w-5 h-5 text-gray-600 mt-0.5 flex-shrink-0 transition-all duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path>
+                                        </svg>
+                                        <div>
+                                            <div class="item-title font-semibold text-gray-800 transition-colors duration-200">Kompot</div>
+                                            <div class="text-sm text-gray-500">Coastal charm and pepper farms</div>
+                                        </div>
+                                    </a>
+                                    <a href="#" class="dropdown-item flex items-start space-x-3 p-3 rounded-lg">
+                                        <svg class="item-icon w-5 h-5 text-gray-600 mt-0.5 flex-shrink-0 transition-all duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"></path>
+                                        </svg>
+                                        <div>
+                                            <div class="item-title font-semibold text-gray-800 transition-colors duration-200">Ratanakiri</div>
+                                            <div class="text-sm text-gray-500">Wild landscapes and waterfalls</div>
+                                        </div>
+                                    </a>
+                                    <a href="#" class="dropdown-item flex items-start space-x-3 p-3 rounded-lg">
+                                        <svg class="item-icon w-5 h-5 text-gray-600 mt-0.5 flex-shrink-0 transition-all duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064"></path>
+                                        </svg>
+                                        <div>
+                                            <div class="item-title font-semibold text-gray-800 transition-colors duration-200">Koh Kong</div>
+                                            <div class="text-sm text-gray-500">Pristine beaches and islands</div>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="space-y-4">
+                                <h3 class="text-lg font-bold text-pink-500 flex items-center">
+                                    <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7"></path>
+                                    </svg>
+                                    By Region
+                                </h3>
+                                <div class="space-y-2">
+                                    <a href="#" class="dropdown-item flex items-start space-x-3 p-3 rounded-lg">
+                                        <div class="h-2 w-2 rounded-full bg-pink-500 mt-2 flex-shrink-0"></div>
+                                        <div>
+                                            <div class="item-title font-semibold text-gray-800 transition-colors duration-200">All Regions</div>
+                                            <div class="text-sm text-gray-500">Explore everywhere</div>
+                                        </div>
+                                    </a>
+                                    <a href="#" class="dropdown-item flex items-start space-x-3 p-3 rounded-lg">
+                                        <div class="h-2 w-2 rounded-full bg-pink-500 mt-2 flex-shrink-0"></div>
+                                        <div>
+                                            <div class="item-title font-semibold text-gray-800 transition-colors duration-200">North</div>
+                                            <div class="text-sm text-gray-500">Mountains and temples</div>
+                                        </div>
+                                    </a>
+                                    <a href="#" class="dropdown-item flex items-start space-x-3 p-3 rounded-lg">
+                                        <div class="h-2 w-2 rounded-full bg-pink-500 mt-2 flex-shrink-0"></div>
+                                        <div>
+                                            <div class="item-title font-semibold text-gray-800 transition-colors duration-200">Central</div>
+                                            <div class="text-sm text-gray-500">Heart of Cambodia</div>
+                                        </div>
+                                    </a>
+                                    <a href="#" class="dropdown-item flex items-start space-x-3 p-3 rounded-lg">
+                                        <div class="h-2 w-2 rounded-full bg-pink-500 mt-2 flex-shrink-0"></div>
+                                        <div>
+                                            <div class="item-title font-semibold text-gray-800 transition-colors duration-200">East</div>
+                                            <div class="text-sm text-gray-500">Rural landscapes</div>
+                                        </div>
+                                    </a>
+                                    <a href="#" class="dropdown-item flex items-start space-x-3 p-3 rounded-lg">
+                                        <div class="h-2 w-2 rounded-full bg-pink-500 mt-2 flex-shrink-0"></div>
+                                        <div>
+                                            <div class="item-title font-semibold text-gray-800 transition-colors duration-200">South</div>
+                                            <div class="text-sm text-gray-500">Coastal regions</div>
+                                        </div>
+                                    </a>
+                                    <a href="#" class="dropdown-item flex items-start space-x-3 p-3 rounded-lg">
+                                        <div class="h-2 w-2 rounded-full bg-pink-500 mt-2 flex-shrink-0"></div>
+                                        <div>
+                                            <div class="item-title font-semibold text-gray-800 transition-colors duration-200">West</div>
+                                            <div class="text-sm text-gray-500">Border adventures</div>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="flex items-center justify-center-safe">
+                                <div class="relative group">
+                                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/47/Cambodia_provinces_en.svg/960px-Cambodia_provinces_en.svg.png" 
+                                         alt="Cambodia Map" class="w-[600px] h-auto object-cover transition-transform duration-300">
+                                    <div class="absolute inset-0 bg-gradient-to-t from-pink-500/20 to-transparent rounded-xl opacity-0 transition-opacity duration-300"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Plan Your Trip Dropdown -->
+                <div class="dropdown relative">
+                    <button class="nav-item flex items-center space-x-2 px-4 py-2 rounded-lg transition-all duration-200">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+                        </svg>
+                        <span class="font-medium">Plan Your Trip</span>
+                        <svg class="w-4 h-4 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                        </svg>
+                    </button>
+                    <div class="dropdown-content absolute w-[800px] bg-white rounded-xl shadow-2xl border border-gray-100 p-6">
+                        <div class="grid md:grid-cols-3 gap-6">
+                            <div class="space-y-4">
+                                <h3 class="text-lg font-bold text-pink-500 flex items-center">
+                                    <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path>
+                                    </svg>
+                                    Planning Tools
+                                </h3>
+                                <div class="space-y-2">
+                                    <a href="#" class="dropdown-item flex items-start space-x-3 p-3 rounded-lg">
+                                        <svg class="item-icon w-5 h-5 text-gray-600 mt-0.5 flex-shrink-0 transition-all duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path>
+                                        </svg>
+                                        <div>
+                                            <div class="item-title font-semibold text-gray-800 transition-colors duration-200">Promotion</div>
+                                            <div class="text-sm text-gray-500">Special deals and offers</div>
+                                        </div>
+                                    </a>
+                                    <a href="#" class="dropdown-item flex items-start space-x-3 p-3 rounded-lg">
+                                        <svg class="item-icon w-5 h-5 text-gray-600 mt-0.5 flex-shrink-0 transition-all duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+                                        </svg>
+                                        <div>
+                                            <div class="item-title font-semibold text-gray-800 transition-colors duration-200">Trip Planner</div>
+                                            <div class="text-sm text-gray-500">Plan your perfect itinerary</div>
+                                        </div>
+                                    </a>
+                                    <a href="#" class="dropdown-item flex items-start space-x-3 p-3 rounded-lg">
+                                        <svg class="item-icon w-5 h-5 text-gray-600 mt-0.5 flex-shrink-0 transition-all duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"></path>
+                                        </svg>
+                                        <div>
+                                            <div class="item-title font-semibold text-gray-800 transition-colors duration-200">Tour Agents</div>
+                                            <div class="text-sm text-gray-500">Professional tour services</div>
+                                        </div>
+                                    </a>
+                                    <a href="#" class="dropdown-item flex items-start space-x-3 p-3 rounded-lg">
+                                        <svg class="item-icon w-5 h-5 text-gray-600 mt-0.5 flex-shrink-0 transition-all duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path>
+                                        </svg>
+                                        <div>
+                                            <div class="item-title font-semibold text-gray-800 transition-colors duration-200">Stays</div>
+                                            <div class="text-sm text-gray-500">Hotels and accommodations</div>
+                                        </div>
+                                    </a>
+                                    <a href="#" class="dropdown-item flex items-start space-x-3 p-3 rounded-lg">
+                                        <svg class="item-icon w-5 h-5 text-gray-600 mt-0.5 flex-shrink-0 transition-all duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064"></path>
+                                        </svg>
+                                        <div>
+                                            <div class="item-title font-semibold text-gray-800 transition-colors duration-200">Around Cambodia</div>
+                                            <div class="text-sm text-gray-500">Explore neighboring countries</div>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="space-y-4">
+                                <h3 class="text-lg font-bold text-pink-500 flex items-center">
+                                    <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                    </svg>
+                                    Travel Information
+                                </h3>
+                                <div class="space-y-2">
+                                    <a href="#" class="dropdown-item flex items-start space-x-3 p-3 rounded-lg">
+                                        <svg class="item-icon w-5 h-5 text-gray-600 mt-0.5 flex-shrink-0 transition-all duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"></path>
+                                        </svg>
+                                        <div>
+                                            <div class="item-title font-semibold text-gray-800 transition-colors duration-200">Getting to Cambodia</div>
+                                            <div class="text-sm text-gray-500">Flights and transportation</div>
+                                        </div>
+                                    </a>
+                                    <a href="#" class="dropdown-item flex items-start space-x-3 p-3 rounded-lg">
+                                        <svg class="item-icon w-5 h-5 text-gray-600 mt-0.5 flex-shrink-0 transition-all duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+                                        </svg>
+                                        <div>
+                                            <div class="item-title font-semibold text-gray-800 transition-colors duration-200">Passports & Visa</div>
+                                            <div class="text-sm text-gray-500">Entry requirements</div>
+                                        </div>
+                                    </a>
+                                    <a href="#" class="dropdown-item flex items-start space-x-3 p-3 rounded-lg">
+                                        <svg class="item-icon w-5 h-5 text-gray-600 mt-0.5 flex-shrink-0 transition-all duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v10a2 2 0 002 2h8a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"></path>
+                                        </svg>
+                                        <div>
+                                            <div class="item-title font-semibold text-gray-800 transition-colors duration-200">Customs & Duty</div>
+                                            <div class="text-sm text-gray-500">What you need to know</div>
+                                        </div>
+                                    </a>
+                                    <a href="#" class="dropdown-item flex items-start space-x-3 p-3 rounded-lg">
+                                        <svg class="item-icon w-5 h-5 text-gray-600 mt-0.5 flex-shrink-0 transition-all duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1"></path>
+                                        </svg>
+                                        <div>
+                                            <div class="item-title font-semibold text-gray-800 transition-colors duration-200">Cambodia Currency</div>
+                                            <div class="text-sm text-gray-500">Money and payments</div>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="flex items-center justify-center-safe">
+                                <div class="relative group">
+                                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/47/Cambodia_provinces_en.svg/960px-Cambodia_provinces_en.svg.png" 
+                                         alt="Cambodia Map" class="w-[600px] h-auto object-cover transition-transform duration-300">
+                                    <div class="absolute inset-0 bg-gradient-to-t from-pink-500/20 to-transparent rounded-xl opacity-0 transition-opacity duration-300"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Experience Dropdown -->
+                <div class="dropdown relative">
+                    <button class="nav-item flex items-center space-x-2 px-4 py-2 rounded-lg transition-all duration-200">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.828 14.828a4 4 0 01-5.656 0M9 10h1m4 0h1m-6 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                        </svg>
+                        <span class="font-medium">Experience</span>
+                        <svg class="w-4 h-4 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                        </svg>
+                    </button>
+                    <div class="dropdown-content absolute w-[800px] bg-white rounded-xl shadow-2xl border border-gray-100 p-6">
+                        <div class="grid md:grid-cols-3 gap-6">
+                            <div class="space-y-4">
+                                <h3 class="text-lg font-bold text-pink-500 flex items-center">
+                                    <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"></path>
+                                    </svg>
+                                    What to Do
+                                </h3>
+                                <div class="space-y-2">
+                                    <a href="#" class="dropdown-item flex items-start space-x-3 p-3 rounded-lg">
+                                        <svg class="item-icon w-5 h-5 text-gray-600 mt-0.5 flex-shrink-0 transition-all duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z"></path>
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 13a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                                        </svg>
+                                        <div>
+                                            <div class="item-title font-semibold text-gray-800 transition-colors duration-200">See & Do</div>
+                                            <div class="text-sm text-gray-500">Top attractions and activities</div>
+                                        </div>
+                                    </a>
+                                    <a href="#" class="dropdown-item flex items-start space-x-3 p-3 rounded-lg">
+                                        <svg class="item-icon w-5 h-5 text-gray-600 mt-0.5 flex-shrink-0 transition-all duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M8 11v6a2 2 0 002 2h4a2 2 0 002-2v-6M8 11h8"></path>
+                                        </svg>
+                                        <div>
+                                            <div class="item-title font-semibold text-gray-800 transition-colors duration-200">Shopping</div>
+                                            <div class="text-sm text-gray-500">Markets and souvenirs</div>
+                                        </div>
+                                    </a>
+                                    <a href="#" class="dropdown-item flex items-start space-x-3 p-3 rounded-lg">
+                                        <svg class="item-icon w-5 h-5 text-gray-600 mt-0.5 flex-shrink-0 transition-all duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4m0 0L7 13m0 0l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17M17 13v4a2 2 0 01-2 2H9a2 2 0 01-2-2v-4m8 0V9a2 2 0 00-2-2H9a2 2 0 00-2 2v4.01"></path>
+                                        </svg>
+                                        <div>
+                                            <div class="item-title font-semibold text-gray-800 transition-colors duration-200">Food & Drink</div>
+                                            <div class="text-sm text-gray-500">Culinary adventures</div>
+                                        </div>
+                                    </a>
+                                    <a href="#" class="dropdown-item flex items-start space-x-3 p-3 rounded-lg">
+                                        <svg class="item-icon w-5 h-5 text-gray-600 mt-0.5 flex-shrink-0 transition-all duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+                                        </svg>
+                                        <div>
+                                            <div class="item-title font-semibold text-gray-800 transition-colors duration-200">Events & Festival</div>
+                                            <div class="text-sm text-gray-500">Cultural celebrations</div>
+                                        </div>
+                                    </a>
+                                    <a href="#" class="dropdown-item flex items-start space-x-3 p-3 rounded-lg">
+                                        <svg class="item-icon w-5 h-5 text-gray-600 mt-0.5 flex-shrink-0 transition-all duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.828 14.828a4 4 0 01-5.656 0M9 10h1m4 0h1m-6 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                        </svg>
+                                        <div>
+                                            <div class="item-title font-semibold text-gray-800 transition-colors duration-200">Entertainment</div>
+                                            <div class="text-sm text-gray-500">Nightlife and shows</div>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="space-y-4">
+                                <h3 class="text-lg font-bold text-pink-500 flex items-center">
+                                    <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 7h.01M7 3h5c.512 0 1.024.195 1.414.586l7 7a2 2 0 010 2.828l-7 7a2 2 0 01-2.828 0l-7-7A1.994 1.994 0 013 12V7a4 4 0 014-4z"></path>
+                                    </svg>
+                                    By Category
+                                </h3>
+                                <div class="space-y-2">
+                                    <a href="#" class="dropdown-item flex items-start space-x-3 p-3 rounded-lg">
+                                        <div class="h-2 w-2 rounded-full bg-pink-500 mt-2 flex-shrink-0"></div>
+                                        <div>
+                                            <div class="item-title font-semibold text-gray-800 transition-colors duration-200">History / Religion / Museum</div>
+                                            <div class="text-sm text-gray-500">Cultural heritage sites</div>
+                                        </div>
+                                    </a>
+                                    <a href="#" class="dropdown-item flex items-start space-x-3 p-3 rounded-lg">
+                                        <div class="h-2 w-2 rounded-full bg-pink-500 mt-2 flex-shrink-0"></div>
+                                        <div>
+                                            <div class="item-title font-semibold text-gray-800 transition-colors duration-200">Nature & Outdoor</div>
+                                            <div class="text-sm text-gray-500">Natural wonders</div>
+                                        </div>
+                                    </a>
+                                    <a href="#" class="dropdown-item flex items-start space-x-3 p-3 rounded-lg">
+                                        <div class="h-2 w-2 rounded-full bg-pink-500 mt-2 flex-shrink-0"></div>
+                                        <div>
+                                            <div class="item-title font-semibold text-gray-800 transition-colors duration-200">Events & Festival</div>
+                                            <div class="text-sm text-gray-500">Cultural celebrations</div>
+                                        </div>
+                                    </a>
+                                    <a href="#" class="dropdown-item flex items-start space-x-3 p-3 rounded-lg">
+                                        <div class="h-2 w-2 rounded-full bg-pink-500 mt-2 flex-shrink-0"></div>
+                                        <div>
+                                            <div class="item-title font-semibold text-gray-800 transition-colors duration-200">Foods</div>
+                                            <div class="text-sm text-gray-500">Local cuisine</div>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="flex items-center justify-center-safe">
+                                <div class="relative group">
+                                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/47/Cambodia_provinces_en.svg/960px-Cambodia_provinces_en.svg.png" 
+                                         alt="Cambodia Map" class="w-[600px] h-auto object-cover transition-transform duration-300">
+                                    <div class="absolute inset-0 bg-gradient-to-t from-pink-500/20 to-transparent rounded-xl opacity-0 transition-opacity duration-300"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- About Us -->
+                <a href="/about" class="nav-item flex items-center space-x-2 px-4 py-2 rounded-lg transition-all duration-200">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                    </svg>
+                    <span class="font-medium">About Us</span>
+                </a>
+            </nav>
+
+            <!-- Mobile Menu Button -->
+            <div class="flex items-center space-x-2 lg:hidden">
+                <a href="/search" class="p-2 rounded-lg hover:bg-gray-100 transition-colors mobile-button">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                    </svg>
+                </a>
+                <button id="mobile-menu-button" class="p-2 rounded-lg hover:bg-gray-100 transition-colors mobile-button">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </header>
+
+<!-- Mobile Menu -->
+    <div id="mobile-menu" class="mobile-menu fixed top-0 right-0 h-full w-80 bg-white shadow-2xl z-50 lg:hidden">
+        <div class="p-6">
+            <div class="flex justify-between items-center mb-8">
+                <h2 class="text-xl font-bold text-gray-800">Menu</h2>
+                <button id="close-mobile-menu" class="p-2 rounded-lg hover:bg-gray-100 transition-colors">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                    </svg>
+                </button>
+            </div>
+            <nav class="space-y-2">
+                <a href="./search.html" class="mobile-menu-item flex items-center space-x-3 p-4 rounded-lg hover:bg-gray-50">
+                    <svg class="w-5 h-5 text-pink-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                    </svg>
+                    <span class="font-medium">Search</span>
+                </a>
+                <a href="/destinations" class="mobile-menu-item flex items-center justify-between p-4 rounded-lg hover:bg-gray-50">
+                    <div class="flex items-center space-x-3">
+                        <svg class="w-5 h-5 text-pink-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
+                        </svg>
+                        <span class="font-medium">Destinations</span>
+                    </div>
+                    <svg class="w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                    </svg>
+                </a>
+                <a href="/plan" class="mobile-menu-item flex items-center justify-between p-4 rounded-lg hover:bg-gray-50">
+                    <div class="flex items-center space-x-3">
+                        <svg class="w-5 h-5 text-pink-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+                        </svg>
+                        <span class="font-medium">Plan Your Trip</span>
+                    </div>
+                    <svg class="w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                    </svg>
+                </a>
+                <a href="/experience" class="mobile-menu-item flex items-center justify-between p-4 rounded-lg hover:bg-gray-50">
+                    <div class="flex items-center space-x-3">
+                        <svg class="w-5 h-5 text-pink-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.828 14.828a4 4 0 01-5.656 0M9 10h1m4 0h1m-6 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                        </svg>
+                        <span class="font-medium">Experience</span>
+                    </div>
+                    <svg class="w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                    </svg>
+                </a>
+                <a href="/about" class="mobile-menu-item flex items-center space-x-3 p-4 rounded-lg hover:bg-gray-50">
+                    <svg class="w-5 h-5 text-pink-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                    </svg>
+                    <span class="font-medium">About Us</span>
+                </a>
+            </nav>
+        </div>
+    </div>
+
+<!-- Mobile Menu Overlay -->
+    <div id="mobile-menu-overlay" class="fixed inset-0 bg-black bg-opacity-50 z-40 hidden lg:hidden transition-opacity duration-300"></div>
+
+    
+    <!-- banner -->
+         <script>
+      function toggleMenu() {
+        const menu = document.getElementById("mobile-menu");
+        menu.classList.toggle("hidden");
+      }
+    </script>
+
+    <!-- banner -->
+    <section class="w-full">
+      <img
+        class="w-full object-cover h-[250px] sm:h-[350px] md:h-[500px] lg:h-[650px]"
+        src="https://cdn.prod.website-files.com/668e691ae6c76f4aeef741f0/66fe38b64794ac1be4037336_Siem%20Reap%20Banner.jpg"
+        alt="angkor-wat"
+      />
+    </section>
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-12">
+      <div
+        class="flex items-center space-x-2 text-gray-800 text-sm dark:text-gray-300"
+      >
+        <a href="#" class="hover:underline font-medium">Home</a>
+        <span class="text-gray-500">&gt;</span>
+        <a href="#" class="hover:underline font-medium">Destinations</a>
+        <span class="text-gray-500">&gt;</span>
+        <a href="#" class="hover:underline font-medium text-pink-600"
+          >Siemreap</a
+        >
+      </div>
+    </div>
+    <div class="flex justify-center px-4 mt-12">
+      <p
+        class="max-w-3xl text-base text-justify font-semibold text-gray-800 dark:text-gray-200 leading-relaxed sm:text-lg md:text-[17px]"
+      >
+        Siem Reap is a charming province in northwestern Cambodia, known as the
+        gateway to the world-famous Angkor Wat temple complex. The region is
+        mainly flat and surrounded by rice fields, small villages, and
+        traditional Khmer countryside. The Siem Reap River runs through the
+        town, adding to its scenic charm. Key attractions include the Angkor
+        Archaeological Park, which houses majestic temples like Angkor Wat,
+        Bayon, and Ta Prohm. Other interesting places to visit are the Angkor
+        National Museum, the Cambodian Cultural Village, and the floating
+        villages on Tonle Sap Lake. If you enjoy shopping and local culture,
+        Siem Reap offers bustling markets such as the Old Market (Phsar Chas),
+        Angkor Night Market, and Made in Cambodia Market. You can also enjoy
+        boat tours on Tonle Sap Lake and traditional Apsara dance performances
+        in the evening.
+      </p>
+    </div>
+
+    <!-- Detail -->
+    <section
+      class="min-h-screen flex flex-col lg:flex-row items-center justify-center gap-12 px-6 py-12"
+    >
+      <!-- Left: Map Image -->
+      <div class="w-[300px] md:w-[500px] lg:w-[600px] flex justify-center">
+        <img
+          src="../img/seimreap.png"
+          alt="Thailand Map with Bangkok Highlighted"
+          class="max-w-full h-auto"
+        />
+      </div>
+
+      <!-- Right: Info Section -->
+      <div class="w-full lg:w-1/2 max-w-xl">
+        <h2 class="text-3xl font-bold text-[#183D6C] mb-2">Angkor Wat</h2>
+        <div class="w-20 h-1 bg-yellow-400 mb-4"></div>
+        <div class="rounded-lg shadow-md overflow-hidden mb-4">
+          <img
+            src="https://upload.wikimedia.org/wikipedia/commons/d/d4/20171126_Angkor_Wat_4712_DxO.jpg"
+            alt="Bangkok City"
+            class="w-full h-auto"
+          />
+        </div>
+        <p class="text-justify text-[15px] leading-relaxed mb-4">
+          Angkor Wat is the most iconic and awe-inspiring temple complex in
+          Cambodia and one of the largest religious monuments in the world.
+          Located just outside of Siem Reap, it was originally built in the
+          early 12th century by King Suryavarman II as a Hindu temple dedicated
+          to the god Vishnu. Later, it transformed into a Buddhist temple, which
+          it remains today.
+        </p>
+        <div class="flex justify-end">
+          <button
+            class="bg-[#183D6C] text-white px-5 py-2 rounded shadow hover:bg-[#0f2b4d] transition"
+          >
+            More →
+          </button>
+        </div>
+      </div>
+    </section>
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-12">
+      <!-- Heading -->
+      <div
+        class="mt-6 text-[40px] sm:text-[20] md:text-[40px] font-semibold text-blue-900 dark:text-gray-200"
+      >
+        Explore Siemreap
+      </div>
+
+      <!-- Card -->
+      <div class="max-w-7xl w-full flex justify-center items-center mt-[40px]">
+        <div class="grid grid-cols-2 sm:grid-cols-3 gap-6">
+          <!-- Card 1 -->
+          <div
+            class="bg-white dark:bg-gray-800 rounded-lg shadow-md overflow-hidden"
+          >
+            <img
+              src="https://visitlocaltravel.com/blog/wp-content/uploads/2023/12/Ta-Phrom-Temple.jpg"
+              alt=""
+              class="w-full h-48 object-cover"
+            />
+            <div class="p-4">
+              <h2 class="text-lg font-semibold mb-1">
+                Brasat Ta Prom
+              </h2>
+              <p
+                class="flex items-center text-sm text-gray-600 dark:text-gray-300"
+              >
+                <svg
+                  class="w-4 h-4 mr-1"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M12 11c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z"
+                  />
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"
+                  />
+                </svg>
+                Brasat Taprom
+              </p>
+            </div>
+          </div>
+
+          <!-- Card 2 -->
+          <div
+            class="bg-white dark:bg-gray-800 rounded-lg shadow-md overflow-hidden"
+          >
+            <img
+              src="https://www.angkorenterprise.gov.kh/upload/images/1546938113316.jpg"
+              alt=""
+              class="w-full h-48 object-cover"
+            />
+            <div class="p-4">
+              <h2 class="text-lg font-semibold mb-1">Brasat Bayon</h2>
+              <p
+                class="flex items-center text-sm text-gray-600 dark:text-gray-300"
+              >
+                <svg
+                  class="w-4 h-4 mr-1"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M12 11c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z"
+                  />
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"
+                  />
+                </svg>
+                Brasat Bayon
+              </p>
+            </div>
+          </div>
+
+          <!-- Card 3 -->
+          <div
+            class="bg-white dark:bg-gray-800 rounded-lg shadow-md overflow-hidden"
+          >
+            <img
+              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSLbQ97MIwg4C_z_9zI5qb2wMAQXLexGLdzP-o64MyZy2isPvtsSrlMU_CtVn0c3IXhtXw&usqp=CAU"
+              alt=""
+              class="w-full h-48 object-cover"
+            />
+            <div class="p-4">
+              <h2 class="text-lg font-semibold mb-1">Brasat Koh Ker</h2>
+              <p
+                class="flex items-center text-sm text-gray-600 dark:text-gray-300"
+              >
+                <svg
+                  class="w-4 h-4 mr-1"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M12 11c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z"
+                  />
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"
+                  />
+                </svg>
+                Siem reap
+              </p>
+            </div>
+          </div>
+
+          <!-- Card 4 -->
+          <div
+            class="bg-white dark:bg-gray-800 rounded-lg shadow-md overflow-hidden"
+          >
+            <img
+              src="https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/11/ca/fb/ed.jpg"
+              alt=""
+              class="w-full h-48 object-cover"
+            />
+            <div class="p-4">
+              <h2 class="text-lg font-semibold mb-1">Kompong Phluk</h2>
+              <p
+                class="flex items-center text-sm text-gray-600 dark:text-gray-300"
+              >
+                <svg
+                  class="w-4 h-4 mr-1"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M12 11c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z"
+                  />
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"
+                  />
+                </svg>
+                Preas vihea
+              </p>
+            </div>
+          </div>
+
+          <!-- Card 5 -->
+          <div
+            class="bg-white dark:bg-gray-800 rounded-lg shadow-md overflow-hidden"
+          >
+            <img
+              src="https://res.klook.com/images/fl_lossy.progressive,q_65/c_fill,w_4032,h_3024/w_80,x_15,y_15,g_south_west,l_Klook_water_br_trans_yhcmh3/activities/x7brg0j8sg2efiq8kgi0/SiemReapNightMarketTour-Klook.jpg"
+              alt=""
+              class="w-full h-48 object-cover"
+            />
+            <div class="p-4">
+              <h2 class="text-lg font-semibold mb-1">
+                Pub Street
+              </h2>
+              <p
+                class="flex items-center text-sm text-gray-600 dark:text-gray-300"
+              >
+                <svg
+                  class="w-4 h-4 mr-1"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M12 11c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z"
+                  />
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"
+                  />
+                </svg>
+                Seimreap
+              </p>
+            </div>
+          </div>
+
+          <!-- Card 6 -->
+          <div
+            class="bg-white dark:bg-gray-800 rounded-lg shadow-md overflow-hidden"
+          >
+            <img
+              src="https://www.vietvisiontravel.com/wp-content/uploads/2018/05/Mysterious-Beauty-of-National-Parks-Kulen-Mountains-Cambodia.jpg"
+              alt=""
+              class="w-full h-48 object-cover"
+            />
+            <div class="p-4">
+              <h2 class="text-lg font-semibold mb-1">
+                National Parks Kulen Mountains
+              </h2>
+              <p
+                class="flex items-center text-sm text-gray-600 dark:text-gray-300"
+              >
+                <svg
+                  class="w-4 h-4 mr-1"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M12 11c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z"
+                  />
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"
+                  />
+                </svg>
+                Seimreap
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+<!-- Section ================== -->
+    <section
+      class="bg-gray-100 text-gray-800 dark:bg-gray-900 dark:text-gray-100 mt-4"
+    >
+      <footer
+        class="bg-gray-100 text-gray-800 text-sm px-6 pt-12 pb-6 dark:bg-gray-800 dark:text-gray-200"
+      >
+        <div class="block md:hidden space-y-4">
+          <div>
+            <button
+              class="w-full text-left font-bold mb-2 flex justify-between items-center"
+              onclick="toggleFooter(this)"
+            >
+              Top Destinations
+              <svg
+                class="w-4 h-4 transition-transform transform text-gray-400 dark:text-gray-500"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M9 5l7 7-7 7"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </button>
+            <div class="hidden">
+              <hr
+                class="border-t-2 border-gray-300 w-full mb-1 dark:border-gray-700"
+              />
+              <ul class="space-y-1">
+                <li>Phnom Penh</li>
+                <li>Siem Reap</li>
+                <li>Kompot</li>
+                <li>Mondulkiri</li>
+                <li>Preah Vihear</li>
+              </ul>
+            </div>
+          </div>
+
+          <div>
+            <button
+              class="w-full text-left font-bold mb-2 flex justify-between items-center"
+              onclick="toggleFooter(this)"
+            >
+              Destinations
+              <svg
+                class="w-4 h-4 transition-transform transform text-gray-400 dark:text-gray-500"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M9 5l7 7-7 7"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </button>
+            <div class="hidden">
+              <hr
+                class="border-t-2 border-gray-300 w-full mb-1 dark:border-gray-700"
+              />
+              <ul class="space-y-1">
+                <li>See & Do</li>
+                <li>Food</li>
+                <li>Shop</li>
+                <li>Spa & Wellness</li>
+                <li>Recreational & Entertainment</li>
+              </ul>
+            </div>
+          </div>
+
+          <div>
+            <button
+              class="w-full text-left font-bold mb-2 flex justify-between items-center"
+              onclick="toggleFooter(this)"
+            >
+              Regions of Thailand
+              <svg
+                class="w-4 h-4 transition-transform transform text-gray-400 dark:text-gray-500"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M9 5l7 7-7 7"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </button>
+            <div class="hidden">
+              <hr
+                class="border-t-2 border-gray-300 w-full mb-1 dark:border-gray-700"
+              />
+              <ul class="space-y-1">
+                <li>North</li>
+                <li>Central</li>
+                <li>East</li>
+                <li>North East</li>
+                <li>South</li>
+              </ul>
+            </div>
+          </div>
+
+          <div>
+            <button
+              class="w-full text-left font-bold mb-2 flex justify-between items-center"
+              onclick="toggleFooter(this)"
+            >
+              Experiences
+              <svg
+                class="w-4 h-4 transition-transform transform text-gray-400 dark:text-gray-500"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M9 5l7 7-7 7"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </button>
+            <div class="hidden">
+              <hr
+                class="border-t-2 border-gray-300 w-full mb-1 dark:border-gray-700"
+              />
+              <ul class="space-y-1">
+                <li>History / Religion / Museum</li>
+                <li>Nature & Outdoor</li>
+                <li>Events & Festivals</li>
+                <li>Food / Shopping / Entertainment</li>
+              </ul>
+            </div>
+          </div>
+
+          <div>
+            <button
+              class="w-full text-left font-bold mb-2 flex justify-between items-center"
+              onclick="toggleFooter(this)"
+            >
+              Helpful Links
+              <svg
+                class="w-4 h-4 transition-transform transform text-gray-400 dark:text-gray-500"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M9 5l7 7-7 7"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </button>
+            <div class="hidden">
+              <hr
+                class="border-t-2 border-gray-300 w-full mb-1 dark:border-gray-700"
+              />
+              <ul class="space-y-1">
+                <li>Business Partner</li>
+                <li>Media & Press</li>
+                <li>About TAT</li>
+                <li>Request Inquiry</li>
+                <li>Feedback</li>
+              </ul>
+            </div>
+          </div>
+
+          <div>
+            <button
+              class="w-full text-left font-bold mb-2 flex justify-between items-center"
+              onclick="toggleFooter(this)"
+            >
+              Promotions
+              <svg
+                class="w-4 h-4 transition-transform transform text-gray-400 dark:text-gray-500"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M9 5l7 7-7 7"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </button>
+            <div class="hidden">
+              <hr
+                class="border-t-2 border-gray-300 w-full mb-1 dark:border-gray-700"
+              />
+              <ul class="space-y-1">
+                <li>Trip Planner</li>
+                <li>Tour Agent</li>
+                <li>Stays</li>
+                <li>Cambodia</li>
+              </ul>
+            </div>
+          </div>
+
+          <div>
+            <button
+              class="w-full text-left font-bold mb-2 flex justify-between items-center"
+              onclick="toggleFooter(this)"
+            >
+              Personal Data Protection
+              <svg
+                class="w-4 h-4 transition-transform transform text-gray-400 dark:text-gray-500"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M9 5l7 7-7 7"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </button>
+            <div class="hidden">
+              <hr
+                class="border-t-2 border-gray-300 w-full mb-1 dark:border-gray-700"
+              />
+              <ul class="space-y-1">
+                <li>Privacy Notice</li>
+                <li>Data Subject Request</li>
+                <li>Data Breach Complaint</li>
+                <li>Contact DPA</li>
+              </ul>
+            </div>
+          </div>
+
+          <div>
+            <button
+              class="w-full text-left font-bold mb-2 flex justify-between items-center"
+              onclick="toggleFooter(this)"
+            >
+              Contact Us
+              <svg
+                class="w-4 h-4 transition-transform transform text-gray-400 dark:text-gray-500"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M9 5l7 7-7 7"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </button>
+            <div class="hidden">
+              <hr
+                class="border-t-2 border-gray-300 w-full mb-1 dark:border-gray-700"
+              />
+              <ul class="space-y-1">
+                <li>Phone number: +885 964 735 981</li>
+                <li>Telegram: +885 854 620 66</li>
+                <li>Facebook page: Visit Cambodia</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div
+          class="hidden md:grid max-w-7xl mx-auto grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-8"
+        >
+          <div>
+            <h3 class="font-bold mb-2">Top Destinations</h3>
+            <hr
+              class="border-t-2 border-gray-300 w-full dark:border-gray-700"
+            />
+            <ul class="space-y-1">
+              <li>Phnom Penh</li>
+              <li>Siem Reap</li>
+              <li>Kompot</li>
+              <li>Mondulkiri</li>
+              <li>Preah Vihear</li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="font-bold mb-2">Destinations</h3>
+            <hr
+              class="border-t-2 border-gray-300 w-full dark:border-gray-700"
+            />
+            <ul class="space-y-1">
+              <li>See & Do</li>
+              <li>Food</li>
+              <li>Shop</li>
+              <li>Spa & Wellness</li>
+              <li>Recreational & Entertainment</li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="font-bold mb-2">Regions of Thailand</h3>
+            <hr
+              class="border-t-2 border-gray-300 w-full dark:border-gray-700"
+            />
+            <ul class="space-y-1">
+              <li>North</li>
+              <li>Central</li>
+              <li>East</li>
+              <li>North East</li>
+              <li></li>
+              <li>South</li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="font-bold mb-2">Experiences</h3>
+            <hr
+              class="border-t-2 border-gray-300 w-full dark:border-gray-700"
+            />
+            <ul class="space-y-1">
+              <li>History / Religion / Museum</li>
+              <li>Nature & Outdoor</li>
+              <li>Events & Festivals</li>
+              <li>Food / Shopping / Entertainment</li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="font-bold mb-2">Helpful Links</h3>
+            <hr
+              class="border-t-2 border-gray-300 w-full dark:border-gray-700"
+            />
+            <ul class="space-y-1">
+              <li>Business Partner</li>
+              <li>Media & Press</li>
+              <li>About TAT</li>
+              <li>Request Inquiry</li>
+              <li>Feedback</li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="font-bold mb-2">Promotions</h3>
+            <hr
+              class="border-t-2 border-gray-300 w-full dark:border-gray-700"
+            />
+            <ul class="space-y-1">
+              <li>Trip Planner</li>
+              <li>Tour Agent</li>
+              <li>Stays</li>
+              <li>Cambodia</li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="font-bold mb-2">Personal Data Protection</h3>
+            <hr
+              class="border-t-2 border-gray-300 w-full dark:border-gray-700"
+            />
+            <ul class="space-y-1">
+              <li>Privacy Notice</li>
+              <li>Data Subject Request</li>
+              <li>Data Breach Complaint</li>
+              <li>Contact DPA</li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="font-bold mb-2">Contact Us</h3>
+            <hr
+              class="border-t-2 border-gray-300 w-full dark:border-gray-700"
+            />
+            <ul class="space-y-1">
+              <li>Phone number: +885 964 735 981</li>
+              <li>Telegram: +885 854 620 66</li>
+              <li>Facebook page: Visit Cambodia</li>
+            </ul>
+          </div>
+        </div>
+
+        <div
+          class="my-8 border-t border-gray-300 w-full dark:border-gray-700"
+        ></div>
+
+        <div
+          class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-gray-600 dark:text-gray-400"
+        >
+          <div class="flex items-center gap-3">
+            <img
+              src="https://www.cambodiaembassyuk.org/wp-content/uploads/2023/04/Visit-Cambodia-Year-2023-11.jpg"
+              alt="Logo"
+              class="h-10 w-auto"
+            />
+            <span>
+              Tourism Authority of Cambodia<br />
+              1600 Phetchaburi Road, Makkasan, Ratchathevi, Phnom Penh
+            </span>
+          </div>
+
+          <div class="flex items-center gap-4">
+            <a
+              href="#"
+              aria-label="Telegram"
+              class="text-gray-500 hover:text-gray-800 dark:text-gray-400 dark:hover:text-gray-100"
+              ><i class="fab fa-telegram"></i
+            ></a>
+            <a
+              href="#"
+              aria-label="Facebook"
+              class="text-gray-500 hover:text-gray-800 dark:text-gray-400 dark:hover:text-gray-100"
+              ><i class="fab fa-facebook"></i
+            ></a>
+            <a
+              href="#"
+              aria-label="YouTube"
+              class="text-gray-500 hover:text-gray-800 dark:text-gray-400 dark:hover:text-gray-100"
+              ><i class="fab fa-youtube"></i
+            ></a>
+          </div>
+        </div>
+      </footer>
+    </section>
+     <script>
+      function toggleFooter(btn) {
+        const content = btn.nextElementSibling;
+        content.classList.toggle("hidden");
+        const svg = btn.querySelector("svg");
+        svg.classList.toggle("rotate-90");
+      }
+    </script>
+     
+    
+<!-- Nav bav Script -->
+    <script>
+        // Enhanced Mobile menu functionality
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const closeMobileMenu = document.getElementById('close-mobile-menu');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileMenuOverlay = document.getElementById('mobile-menu-overlay');
+        const header = document.getElementById('header');
+
+        function openMobileMenu() {
+            mobileMenu.classList.add('active');
+            mobileMenuOverlay.classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeMobileMenuFunc() {
+            mobileMenu.classList.remove('active');
+            mobileMenuOverlay.classList.add('hidden');
+            document.body.style.overflow = 'auto';
+        }
+
+        mobileMenuButton.addEventListener('click', openMobileMenu);
+        closeMobileMenu.addEventListener('click', closeMobileMenuFunc);
+        mobileMenuOverlay.addEventListener('click', closeMobileMenuFunc);
+
+        // Close mobile menu when clicking on a link
+        const mobileMenuLinks = mobileMenu.querySelectorAll('a');
+        mobileMenuLinks.forEach(link => {
+            link.addEventListener('click', closeMobileMenuFunc);
+        });
+
+        // Close mobile menu on escape key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape' && mobileMenu.classList.contains('active')) {
+                closeMobileMenuFunc();
+            }
+        });
+
+        // Enhanced scroll effects with glass navigation
+        window.addEventListener('scroll', function() {
+            if (window.scrollY > 100) {
+                header.classList.remove('header-default');
+                header.classList.add('nav-glass');
+            } else {
+                header.classList.remove('nav-glass');
+                header.classList.add('header-default');
+            }
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Enhanced dropdown functionality
+        const dropdowns = document.querySelectorAll('.dropdown');
+        
+        dropdowns.forEach(dropdown => {
+            const button = dropdown.querySelector('button');
+            const content = dropdown.querySelector('.dropdown-content');
+            let timeout;
+
+            dropdown.addEventListener('mouseenter', () => {
+                clearTimeout(timeout);
+                dropdown.classList.add('active');
+            });
+
+            dropdown.addEventListener('mouseleave', () => {
+                timeout = setTimeout(() => {
+                    dropdown.classList.remove('active');
+                }, 150);
+            });
+
+            // Keyboard navigation
+            button.addEventListener('keydown', (e) => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    dropdown.classList.toggle('active');
+                }
+                if (e.key === 'Escape') {
+                    dropdown.classList.remove('active');
+                    button.focus();
+                }
+            });
+        });
+
+        // Close dropdowns when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!e.target.closest('.dropdown')) {
+                dropdowns.forEach(dropdown => {
+                    dropdown.classList.remove('active');
+                });
+            }
+        });
+
+        // Parallax effect for hero section
+        window.addEventListener('scroll', function() {
+            const scrolled = window.pageYOffset;
+            const video = document.querySelector('video');
+            if (video && scrolled < window.innerHeight) {
+                video.style.transform = `translateY(${scrolled * 0.3}px)`;
+            }
+        });
+
+        // Intersection Observer for animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe feature cards for animation
+        document.querySelectorAll('.feature-card').forEach(card => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(30px)';
+            card.style.transition = 'all 0.6s ease';
+            observer.observe(card);
+        });
+
+        // Loading animation for images
+        document.querySelectorAll('img').forEach(img => {
+            img.addEventListener('load', function() {
+                this.style.opacity = '1';
+            });
+        });
+
+        // Enhanced button interactions
+        document.querySelectorAll('a, button').forEach(element => {
+            element.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-1px)';
+            });
+            
+            element.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0)';
+            });
+        });
+    </script>
+</body>
+</html>
