@@ -12,7 +12,7 @@
       content="Cambodia, travel, culture, food, temples, beaches, adventures"
     />
 
-    <title>Experience Khmerness - Discover Authentic Cambodia</title>
+    <title>Home</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
       tailwind.config = {
@@ -221,8 +221,25 @@
         animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
         animation-delay: 0.5s;
       }
+
       /* Mobile-specific styles */
+      @media (max-width:310px){
+        .stats-card .stats-label {
+        font-size: 8px;
+        color: #4b5563;
+        margin-top: 0.5rem;
+      }
+            .stats-card .stats-number {
+        font-size: 12px;
+        font-weight: 700;
+        background: linear-gradient(45deg, var(--primary), var(--primary-dark));
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+      }
+      }
       @media (max-width: 640px) {
+      
         .carousel-card {
           width: 12rem; /* Reduced from 16rem */
         }
@@ -596,9 +613,9 @@
           class="flex items-center space-x-2 transition-transform hover:scale-105"
         >
           <img
-            src="https://theangkorguide.net/images/logo.png"
+            src="./img/logo.png"
             alt="The Angkor Guide"
-            class="h-10 w-auto logo-img transition-all duration-300"
+            class="h-16 w-auto logo-img transition-all duration-300"
           />
         </a>
 
@@ -687,7 +704,7 @@
                   </h3>
                   <div class="space-y-2">
                     <a
-                      href="#"
+                      href="./src/phnompenh.html"
                       class="dropdown-item flex items-start space-x-3 p-3 rounded-lg"
                     >
                       <svg
@@ -1467,7 +1484,7 @@
                       </div>
                     </a>
                     <a
-                      href="#"
+                      href="./src/events.html"
                       class="dropdown-item flex items-start space-x-3 p-3 rounded-lg"
                     >
                       <svg
@@ -1577,7 +1594,7 @@
                       </div>
                     </a>
                     <a
-                      href="#"
+                      href="./src/events.html"
                       class="dropdown-item flex items-start space-x-3 p-3 rounded-lg"
                     >
                       <div
@@ -3429,7 +3446,7 @@
                 data-aos-delay="100"
               >
                 <div class="stats-number">50+</div>
-                <div class="stats-label">Events This Month</div>
+                <div class="stats-label">Events</div>
               </div>
               <div
                 class="stats-card text-center"
@@ -4620,9 +4637,9 @@
         >
           <div class="flex items-center gap-3">
             <img
-              src="https://www.cambodiaembassyuk.org/wp-content/uploads/2023/04/Visit-Cambodia-Year-2023-11.jpg"
+              src="./img/logo.png"
               alt="Logo"
-              class="h-10 w-auto"
+              class="h-16 w-auto"
             />
             <span>
               Tourism Authority of Cambodia<br />

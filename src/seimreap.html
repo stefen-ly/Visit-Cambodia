@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>The Angkor Guide - Discover Cambodia</title>
     <script src="https://cdn.tailwindcss.com"></script>
+      <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <script>
         tailwind.config = {
             theme: {
@@ -289,7 +290,7 @@
         <div class="container mx-auto flex h-16 items-center justify-between px-4 max-w-7xl">
             <!-- Logo -->
             <a href="/" class="flex items-center space-x-2 transition-transform hover:scale-105">
-                <img src="https://theangkorguide.net/images/logo.png" alt="The Angkor Guide" class="h-10 w-auto logo-img transition-all duration-300">
+                <img src="../img/logo.png" alt="The Angkor Guide" class="h-16 w-auto logo-img transition-all duration-300">
             </a>
 
             <!-- Desktop Navigation -->
@@ -324,7 +325,7 @@
                                     Top Destinations
                                 </h3>
                                 <div class="space-y-2">
-                                    <a href="#" class="dropdown-item flex items-start space-x-3 p-3 rounded-lg">
+                                    <a href="./phnompenh.html" class="dropdown-item flex items-start space-x-3 p-3 rounded-lg">
                                         <svg class="item-icon w-5 h-5 text-gray-600 mt-0.5 flex-shrink-0 transition-all duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path>
                                         </svg>
@@ -797,308 +798,162 @@
         >
       </div>
     </div>
-    <div class="flex justify-center px-4 mt-12">
-      <p
-        class="max-w-3xl text-base text-justify font-semibold text-gray-800 dark:text-gray-200 leading-relaxed sm:text-lg md:text-[17px]"
-      >
-        Siem Reap is a charming province in northwestern Cambodia, known as the
-        gateway to the world-famous Angkor Wat temple complex. The region is
-        mainly flat and surrounded by rice fields, small villages, and
-        traditional Khmer countryside. The Siem Reap River runs through the
-        town, adding to its scenic charm. Key attractions include the Angkor
-        Archaeological Park, which houses majestic temples like Angkor Wat,
-        Bayon, and Ta Prohm. Other interesting places to visit are the Angkor
-        National Museum, the Cambodian Cultural Village, and the floating
-        villages on Tonle Sap Lake. If you enjoy shopping and local culture,
-        Siem Reap offers bustling markets such as the Old Market (Phsar Chas),
-        Angkor Night Market, and Made in Cambodia Market. You can also enjoy
-        boat tours on Tonle Sap Lake and traditional Apsara dance performances
-        in the evening.
+  <div class="flex justify-center px-4 mt-12" data-aos="fade-up" data-aos-duration="1000">
+    <p class="max-w-3xl text-base text-justify font-semibold text-gray-800 dark:text-gray-200 leading-relaxed sm:text-lg md:text-[17px]">
+      Siem Reap is a charming province in northwestern Cambodia, known as the
+      gateway to the world-famous Angkor Wat temple complex. The region is
+      mainly flat and surrounded by rice fields, small villages, and
+      traditional Khmer countryside. The Siem Reap River runs through the
+      town, adding to its scenic charm. Key attractions include the Angkor
+      Archaeological Park, which houses majestic temples like Angkor Wat,
+      Bayon, and Ta Prohm. Other interesting places to visit are the Angkor
+      National Museum, the Cambodian Cultural Village, and the floating
+      villages on Tonle Sap Lake. If you enjoy shopping and local culture,
+      Siem Reap offers bustling markets such as the Old Market (Phsar Chas),
+      Angkor Night Market, and Made in Cambodia Market. You can also enjoy
+      boat tours on Tonle Sap Lake and traditional Apsara dance performances
+      in the evening.
+    </p>
+  </div>
+
+  <!-- Detail -->
+  <section class="min-h-screen flex flex-col lg:flex-row items-center justify-center gap-12 px-6 py-12">
+    <!-- Left: Map Image -->
+    <div class="w-[300px] md:w-[500px] lg:w-[600px] flex justify-center" data-aos="fade-right" data-aos-duration="1000" data-aos-delay="200">
+      <img src="../img/seimreap.png" alt="Thailand Map with Bangkok Highlighted" class="max-w-full h-auto" />
+    </div>
+
+    <!-- Right: Info Section -->
+    <div class="w-full lg:w-1/2 max-w-xl" data-aos="fade-left" data-aos-duration="1000" data-aos-delay="200">
+      <h2 class="text-3xl font-bold text-[#183D6C] mb-2">Angkor Wat</h2>
+      <div class="w-20 h-1 bg-yellow-400 mb-4"></div>
+      <div class="rounded-lg shadow-md overflow-hidden mb-4">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/d/d4/20171126_Angkor_Wat_4712_DxO.jpg" alt="Bangkok City" class="w-full h-auto" />
+      </div>
+      <p class="text-justify text-[15px] leading-relaxed mb-4">
+        Angkor Wat is the most iconic and awe-inspiring temple complex in
+        Cambodia and one of the largest religious monuments in the world.
+        Located just outside of Siem Reap, it was originally built in the
+        early 12th century by King Suryavarman II as a Hindu temple dedicated
+        to the god Vishnu. Later, it transformed into a Buddhist temple, which
+        it remains today.
       </p>
+      <div class="flex justify-end">
+        <button class="bg-[#183D6C] text-white px-5 py-2 rounded shadow hover:bg-[#0f2b4d] transition">
+          More →
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-12">
+    <!-- Heading -->
+    <div class="mt-6 text-[40px] sm:text-[20] md:text-[40px] font-semibold text-blue-900 dark:text-gray-200" data-aos="fade-up" data-aos-duration="1000">
+      Explore Siemreap
     </div>
 
-    <!-- Detail -->
-    <section
-      class="min-h-screen flex flex-col lg:flex-row items-center justify-center gap-12 px-6 py-12"
-    >
-      <!-- Left: Map Image -->
-      <div class="w-[300px] md:w-[500px] lg:w-[600px] flex justify-center">
-        <img
-          src="../img/seimreap.png"
-          alt="Thailand Map with Bangkok Highlighted"
-          class="max-w-full h-auto"
-        />
-      </div>
-
-      <!-- Right: Info Section -->
-      <div class="w-full lg:w-1/2 max-w-xl">
-        <h2 class="text-3xl font-bold text-[#183D6C] mb-2">Angkor Wat</h2>
-        <div class="w-20 h-1 bg-yellow-400 mb-4"></div>
-        <div class="rounded-lg shadow-md overflow-hidden mb-4">
-          <img
-            src="https://upload.wikimedia.org/wikipedia/commons/d/d4/20171126_Angkor_Wat_4712_DxO.jpg"
-            alt="Bangkok City"
-            class="w-full h-auto"
-          />
+    <!-- Card -->
+    <div class="max-w-7xl w-full flex justify-center items-center mt-[40px]">
+      <div class="grid grid-cols-2 sm:grid-cols-3 gap-6">
+        <!-- Card 1 -->
+        <div class="bg-white dark:bg-gray-800 rounded-lg shadow-md overflow-hidden" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="100">
+          <img src="https://visitlocaltravel.com/blog/wp-content/uploads/2023/12/Ta-Phrom-Temple.jpg" alt="" class="w-full h-48 object-cover" />
+          <div class="p-4">
+            <h2 class="text-lg font-semibold mb-1">Brasat Ta Prom</h2>
+            <p class="flex items-center text-sm text-gray-600 dark:text-gray-300">
+              <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M12 11c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z" />
+                <path stroke-linecap="round" stroke-linejoin="round" d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z" />
+              </svg>
+              Brasat Taprom
+            </p>
+          </div>
         </div>
-        <p class="text-justify text-[15px] leading-relaxed mb-4">
-          Angkor Wat is the most iconic and awe-inspiring temple complex in
-          Cambodia and one of the largest religious monuments in the world.
-          Located just outside of Siem Reap, it was originally built in the
-          early 12th century by King Suryavarman II as a Hindu temple dedicated
-          to the god Vishnu. Later, it transformed into a Buddhist temple, which
-          it remains today.
-        </p>
-        <div class="flex justify-end">
-          <button
-            class="bg-[#183D6C] text-white px-5 py-2 rounded shadow hover:bg-[#0f2b4d] transition"
-          >
-            More →
-          </button>
+
+        <!-- Card 2 -->
+        <div class="bg-white dark:bg-gray-800 rounded-lg shadow-md overflow-hidden" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">
+          <img src="https://www.angkorenterprise.gov.kh/upload/images/1546938113316.jpg" alt="" class="w-full h-48 object-cover" />
+          <div class="p-4">
+            <h2 class="text-lg font-semibold mb-1">Brasat Bayon</h2>
+            <p class="flex items-center text-sm text-gray-600 dark:text-gray-300">
+              <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M12 11c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z" />
+                <path stroke-linecap="round" stroke-linejoin="round" d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z" />
+              </svg>
+              Brasat Bayon
+            </p>
+          </div>
         </div>
-      </div>
-    </section>
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-12">
-      <!-- Heading -->
-      <div
-        class="mt-6 text-[40px] sm:text-[20] md:text-[40px] font-semibold text-blue-900 dark:text-gray-200"
-      >
-        Explore Siemreap
-      </div>
 
-      <!-- Card -->
-      <div class="max-w-7xl w-full flex justify-center items-center mt-[40px]">
-        <div class="grid grid-cols-2 sm:grid-cols-3 gap-6">
-          <!-- Card 1 -->
-          <div
-            class="bg-white dark:bg-gray-800 rounded-lg shadow-md overflow-hidden"
-          >
-            <img
-              src="https://visitlocaltravel.com/blog/wp-content/uploads/2023/12/Ta-Phrom-Temple.jpg"
-              alt=""
-              class="w-full h-48 object-cover"
-            />
-            <div class="p-4">
-              <h2 class="text-lg font-semibold mb-1">
-                Brasat Ta Prom
-              </h2>
-              <p
-                class="flex items-center text-sm text-gray-600 dark:text-gray-300"
-              >
-                <svg
-                  class="w-4 h-4 mr-1"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    d="M12 11c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z"
-                  />
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"
-                  />
-                </svg>
-                Brasat Taprom
-              </p>
-            </div>
+        <!-- Card 3 -->
+        <div class="bg-white dark:bg-gray-800 rounded-lg shadow-md overflow-hidden" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="300">
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSLbQ97MIwg4C_z_9zI5qb2wMAQXLexGLdzP-o64MyZy2isPvtsSrlMU_CtVn0c3IXhtXw&usqp=CAU" alt="" class="w-full h-48 object-cover" />
+          <div class="p-4">
+            <h2 class="text-lg font-semibold mb-1">Brasat Koh Ker</h2>
+            <p class="flex items-center text-sm text-gray-600 dark:text-gray-300">
+              <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M12 11c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z" />
+                <path stroke-linecap="round" stroke-linejoin="round" d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z" />
+              </svg>
+              Siem reap
+            </p>
           </div>
+        </div>
 
-          <!-- Card 2 -->
-          <div
-            class="bg-white dark:bg-gray-800 rounded-lg shadow-md overflow-hidden"
-          >
-            <img
-              src="https://www.angkorenterprise.gov.kh/upload/images/1546938113316.jpg"
-              alt=""
-              class="w-full h-48 object-cover"
-            />
-            <div class="p-4">
-              <h2 class="text-lg font-semibold mb-1">Brasat Bayon</h2>
-              <p
-                class="flex items-center text-sm text-gray-600 dark:text-gray-300"
-              >
-                <svg
-                  class="w-4 h-4 mr-1"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    d="M12 11c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z"
-                  />
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"
-                  />
-                </svg>
-                Brasat Bayon
-              </p>
-            </div>
+        <!-- Card 4 -->
+        <div class="bg-white dark:bg-gray-800 rounded-lg shadow-md overflow-hidden" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="100">
+          <img src="https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/11/ca/fb/ed.jpg" alt="" class="w-full h-48 object-cover" />
+          <div class="p-4">
+            <h2 class="text-lg font-semibold mb-1">Kompong Phluk</h2>
+            <p class="flex items-center text-sm text-gray-600 dark:text-gray-300">
+              <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M12 11c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z" />
+                <path stroke-linecap="round" stroke-linejoin="round" d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z" />
+              </svg>
+              Preas vihea
+            </p>
           </div>
+        </div>
 
-          <!-- Card 3 -->
-          <div
-            class="bg-white dark:bg-gray-800 rounded-lg shadow-md overflow-hidden"
-          >
-            <img
-              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSLbQ97MIwg4C_z_9zI5qb2wMAQXLexGLdzP-o64MyZy2isPvtsSrlMU_CtVn0c3IXhtXw&usqp=CAU"
-              alt=""
-              class="w-full h-48 object-cover"
-            />
-            <div class="p-4">
-              <h2 class="text-lg font-semibold mb-1">Brasat Koh Ker</h2>
-              <p
-                class="flex items-center text-sm text-gray-600 dark:text-gray-300"
-              >
-                <svg
-                  class="w-4 h-4 mr-1"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    d="M12 11c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z"
-                  />
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"
-                  />
-                </svg>
-                Siem reap
-              </p>
-            </div>
+        <!-- Card 5 -->
+        <div class="bg-white dark:bg-gray-800 rounded-lg shadow-md overflow-hidden" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">
+          <img src="https://res.klook.com/images/fl_lossy.progressive,q_65/c_fill,w_4032,h_3024/w_80,x_15,y_15,g_south_west,l_Klook_water_br_trans_yhcmh3/activities/x7brg0j8sg2efiq8kgi0/SiemReapNightMarketTour-Klook.jpg" alt="" class="w-full h-48 object-cover" />
+          <div class="p-4">
+            <h2 class="text-lg font-semibold mb-1">Pub Street</h2>
+            <p class="flex items-center text-sm text-gray-600 dark:text-gray-300">
+              <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M12 11c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z" />
+                <path stroke-linecap="round" stroke-linejoin="round" d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z" />
+              </svg>
+              Seimreap
+            </p>
           </div>
+        </div>
 
-          <!-- Card 4 -->
-          <div
-            class="bg-white dark:bg-gray-800 rounded-lg shadow-md overflow-hidden"
-          >
-            <img
-              src="https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/11/ca/fb/ed.jpg"
-              alt=""
-              class="w-full h-48 object-cover"
-            />
-            <div class="p-4">
-              <h2 class="text-lg font-semibold mb-1">Kompong Phluk</h2>
-              <p
-                class="flex items-center text-sm text-gray-600 dark:text-gray-300"
-              >
-                <svg
-                  class="w-4 h-4 mr-1"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    d="M12 11c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z"
-                  />
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"
-                  />
-                </svg>
-                Preas vihea
-              </p>
-            </div>
-          </div>
-
-          <!-- Card 5 -->
-          <div
-            class="bg-white dark:bg-gray-800 rounded-lg shadow-md overflow-hidden"
-          >
-            <img
-              src="https://res.klook.com/images/fl_lossy.progressive,q_65/c_fill,w_4032,h_3024/w_80,x_15,y_15,g_south_west,l_Klook_water_br_trans_yhcmh3/activities/x7brg0j8sg2efiq8kgi0/SiemReapNightMarketTour-Klook.jpg"
-              alt=""
-              class="w-full h-48 object-cover"
-            />
-            <div class="p-4">
-              <h2 class="text-lg font-semibold mb-1">
-                Pub Street
-              </h2>
-              <p
-                class="flex items-center text-sm text-gray-600 dark:text-gray-300"
-              >
-                <svg
-                  class="w-4 h-4 mr-1"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    d="M12 11c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z"
-                  />
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"
-                  />
-                </svg>
-                Seimreap
-              </p>
-            </div>
-          </div>
-
-          <!-- Card 6 -->
-          <div
-            class="bg-white dark:bg-gray-800 rounded-lg shadow-md overflow-hidden"
-          >
-            <img
-              src="https://www.vietvisiontravel.com/wp-content/uploads/2018/05/Mysterious-Beauty-of-National-Parks-Kulen-Mountains-Cambodia.jpg"
-              alt=""
-              class="w-full h-48 object-cover"
-            />
-            <div class="p-4">
-              <h2 class="text-lg font-semibold mb-1">
-                National Parks Kulen Mountains
-              </h2>
-              <p
-                class="flex items-center text-sm text-gray-600 dark:text-gray-300"
-              >
-                <svg
-                  class="w-4 h-4 mr-1"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    d="M12 11c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z"
-                  />
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"
-                  />
-                </svg>
-                Seimreap
-              </p>
-            </div>
+        <!-- Card 6 -->
+        <div class="bg-white dark:bg-gray-800 rounded-lg shadow-md overflow-hidden" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="300">
+          <img src="https://www.vietvisiontravel.com/wp-content/uploads/2018/05/Mysterious-Beauty-of-National-Parks-Kulen-Mountains-Cambodia.jpg" alt="" class="w-full h-48 object-cover" />
+          <div class="p-4">
+            <h2 class="text-lg font-semibold mb-1">National Parks Kulen Mountains</h2>
+            <p class="flex items-center text-sm text-gray-600 dark:text-gray-300">
+              <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M12 11c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z" />
+                <path stroke-linecap="round" stroke-linejoin="round" d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z" />
+              </svg>
+              Seimreap
+            </p>
           </div>
         </div>
       </div>
     </div>
+  </div>
+
+  <!-- AOS JS CDN -->
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    // Initialize AOS
+    AOS.init();
+  </script>
 
 <!-- Section ================== -->
     <section
@@ -1490,9 +1345,9 @@
         >
           <div class="flex items-center gap-3">
             <img
-              src="https://www.cambodiaembassyuk.org/wp-content/uploads/2023/04/Visit-Cambodia-Year-2023-11.jpg"
+              src="../img/logo.png"
               alt="Logo"
-              class="h-10 w-auto"
+              class="h-16 w-auto"
             />
             <span>
               Tourism Authority of Cambodia<br />
