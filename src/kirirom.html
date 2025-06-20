@@ -1,0 +1,665 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kirirom</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="./output.css">
+
+</head>
+
+<body class="bg-white dark:bg-gray-900 text-gray-800 dark:text-white">
+    <!-- Include this script at the end of body or in head -->
+    <script>
+        function toggleMenu() {
+            const menu = document.getElementById("mobile-menu");
+            menu.classList.toggle("hidden");
+        }
+    </script>
+
+    <nav class="bg-white dark:bg-gray-900 border-b border-gray-200 dark:border-gray-700 px-4 md:px-[60px] py-3">
+        <div class="flex items-center justify-between">
+            <!-- Logo -->
+            <div class="flex items-center">
+                <a href="../index.html">
+                    <img src="../image/logo.png"
+                        alt="Logo" class="h-10 w-auto" /></a>
+            </div>
+
+            <!-- Hamburger (visible on small screens) -->
+            <button class="md:hidden text-gray-800 dark:text-white focus:outline-none" onclick="toggleMenu()">
+                <svg class="h-6 w-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+                </svg>
+            </button>
+
+            <!-- Navigation Items (desktop) -->
+            <div class="hidden md:flex items-center space-x-4 text-sm font-medium">
+                <a href="#" class="font-bold text-gray-800 dark:text-gray-200">Redeem</a>
+
+                <select
+                    class="bg-transparent text-gray-800 dark:text-gray-200 focus:outline-none border-none appearance-none">
+                    <option selected disabled>Destinations</option>
+                    <option>Siem reap</option>
+                    <option>Phnom penh</option>
+                    <option>Kirirom</option>
+                </select>
+
+                <select
+                    class="bg-transparent text-gray-800 dark:text-gray-200 focus:outline-none border-none appearance-none">
+                    <option selected disabled>Experiences</option>
+                    <option>Culture</option>
+                    <option>Nature</option>
+                    <option>Food</option>
+                </select>
+
+                <select
+                    class="bg-transparent text-gray-800 dark:text-gray-200 focus:outline-none border-none appearance-none">
+                    <option selected disabled>Plan Your Trip</option>
+                    <option>Visa Info</option>
+                    <option>Transportation</option>
+                    <option>Tips</option>
+                </select>
+
+                <div class="hidden sm:block border-l border-gray-300 dark:border-gray-600 h-6"></div>
+
+                <select class="bg-transparent text-blue-600 focus:outline-none border-none appearance-none">
+                    <option selected disabled>International</option>
+                    <option>English</option>
+                    <option>ខ្មែរ</option>
+                </select>
+            </div>
+        </div>
+
+        <!-- Mobile Menu (dropdown) -->
+        <div id="mobile-menu" class="mt-4 space-y-2 md:hidden hidden text-sm font-medium">
+            <a href="#" class="block font-bold text-gray-800 dark:text-gray-200">Redeem</a>
+
+            <select class="w-full bg-transparent text-gray-800 dark:text-gray-200 focus:outline-none border-b">
+                <option selected disabled>Destinations</option>
+                <option>Siem reap</option>
+                <option>Phnom penh</option>
+                <option>Kirirom</option>
+            </select>
+
+            <select class="w-full bg-transparent text-gray-800 dark:text-gray-200 focus:outline-none border-b">
+                <option selected disabled>Experiences</option>
+                <option>Culture</option>
+                <option>Nature</option>
+                <option>Food</option>
+            </select>
+
+            <select class="w-full bg-transparent text-gray-800 dark:text-gray-200 focus:outline-none border-b">
+                <option selected disabled>Plan Your Trip</option>
+                <option>Visa Info</option>
+                <option>Transportation</option>
+                <option>Tips</option>
+            </select>
+
+            <div class="border-t border-gray-300 dark:border-gray-600"></div>
+
+            <span class="block text-gray-800 dark:text-gray-200">
+                Accessibility: <span class="ml-1 font-bold text-blue-600">OFF</span>
+            </span>
+
+            <select class="w-full bg-transparent text-blue-600 focus:outline-none border-b">
+                <option selected disabled>International</option>
+                <option>English</option>
+                <option>ខ្មែរ</option>
+            </select>
+        </div>
+    </nav>
+
+    <!-- banner -->
+    <section class="w-full">
+        <img class="w-full object-cover h-[250px] sm:h-[350px] md:h-[500px] lg:h-[650px]"
+            src="https://www.asiakingtravel.com/images/thumbs/2024/04/11383/kirirom-national-park-banner_1900x700xcrop.webp" alt="angkor-wat" />
+    </section>
+
+    <!-- Breadcrumb -->
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-12">
+        <div class="flex items-center space-x-2 text-gray-800 text-sm dark:text-gray-300">
+            <a href="../index.html" class="hover:underline font-medium">Home</a>
+            <span class="text-gray-500">&gt;</span>
+            <a href="#" class="hover:underline font-medium">Destinations</a>
+        </div>
+
+        <!-- Heading -->
+        <div class="mt-6 text-4xl sm:text-5xl md:text-6xl font-semibold text-blue-900 dark:text-gray-200">
+           kirirom
+        </div>
+    </div>
+
+
+    <main class="max-w-4xl mx-auto px-4 py-10" id="intro">
+        <section class="mb-12">
+            <article class="dark:bg-gray-800 p-6 rounded-lg">
+                <h2 class="text-2xl font-bold text-blue-900 dark:text-yellow-400 mb-2">
+                    Kirirom National Park – Kampong Speu
+                </h2>
+                <div class="w-16 h-1 bg-yellow-400 mb-4"></div>
+                <ul class="list-disc list-inside space-y-2 text-sm md:text-base">
+                    <li class="dark:text-gray-200">Pine forests, cool climate, and mountain trails</li>
+                    <li class="dark:text-gray-200">Scenic viewpoints, waterfalls, and picnic spots</li>
+                    <li class="dark:text-gray-200">Ideal for hiking, camping, and birdwatching</li>
+                    <li class="dark:text-gray-200">Eco-resorts and adventure experiences available</li>
+                    <li class="text-gray-800 dark:text-gray-200">Escape from the heat and bustle of Phnom Penh</li>
+                </ul>
+            </article>
+        </section>
+    
+        <!-- Banner -->
+        <section class="w-full">
+            <img class="w-full object-cover h-[250px] sm:h-[350px] md:h-[500px] lg:h-[650px]"
+                src="https://cf.bstatic.com/xdata/images/hotel/max1024x768/479139513.jpg?k=be45667c6c3bb11a9e38061fb73e6a29172b61b1c009c9c216ecb9de66fde2e1&o=&hp=1" alt="Kirirom National Park" />
+        </section>
+    
+        <!-- Breadcrumb -->
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-12">
+            <div class="flex items-center space-x-2 text-gray-800 text-sm dark:text-gray-300">
+                <a href="#" class="hover:underline font-medium">Home</a>
+                <span class="text-gray-500">&gt;</span>
+                <a href="#" class="hover:underline font-medium">Destinations</a>
+            </div>
+    
+            <!-- Heading -->
+            <div class="mt-6 text-4xl sm:text-5xl md:text-6xl font-semibold text-blue-900 dark:text-gray-200">
+                Kirirom National Park
+            </div>
+        </div>
+    
+        <!-- Main Content -->
+        <main class="max-w-4xl mx-auto px-4 py-10" id="intro">
+            <section class="mb-12">
+                <article class="dark:bg-gray-800 p-6 rounded-lg shadow">
+                    <h2 id="highlights" class="text-2xl font-bold text-blue-900 dark:text-yellow-400 mb-2">Highlights</h2>
+                    <div class="w-16 h-1 bg-yellow-400 mb-4"></div>
+                    <ul class="list-disc list-inside space-y-2 text-sm md:text-base">
+                        <li class="dark:text-gray-200">Refreshing pine forest trails with panoramic views</li>
+                        <li class="dark:text-gray-200">Chambok ecotourism site with waterfalls and rural experiences</li>
+                        <li class="dark:text-gray-200">Mountain biking and camping opportunities</li>
+                        <li class="dark:text-gray-200">Cooler temperatures year-round – perfect escape from city heat</li>
+                        <li class="text-gray-800 dark:text-gray-200">Less crowded than major tourist destinations</li>
+                    </ul>
+                </article>
+            </section>
+    
+            <section class="text-justify space-y-6 text-gray-800 dark:text-gray-200">
+                <p>
+                    Located in Kampong Speu province, Kirirom National Park is Cambodia’s first officially designated
+                    national park, offering a serene natural retreat from the urban rush of Phnom Penh.
+                    It's well known for its pine forests, scenic mountain vistas, and refreshing climate.
+                </p>
+    
+                <p>
+                    The name “Kirirom” means “Happy Mountain” in Khmer, and it lives up to that name with peaceful picnic
+                    areas, walking trails, and fresh air. Unlike the typical tropical lowlands, Kirirom features highland
+                    forest ecosystems with tall pines — unique for Cambodia.
+                </p>
+    
+                <p>
+                    One of the main attractions is the <strong class="text-blue-900 dark:text-yellow-300">Chambok
+                        Community-Based Ecotourism</strong> site. Here, visitors can explore waterfalls, hike through the
+                    forest, and learn from local villagers about sustainable living practices.
+                </p>
+    
+                <p>
+                    Adventurous travelers enjoy hiking and mountain biking across the park's trails, some of which lead to
+                    remote viewpoints and hidden waterfalls. Birdwatching is also popular, with various native species
+                    inhabiting the area.
+                </p>
+    
+                <p>
+                    For those seeking to stay overnight, Kirirom offers both camping grounds and eco-resorts, making it
+                    ideal for a weekend getaway. Visitors can enjoy starry nights, outdoor fires, and the tranquil sounds of
+                    nature.
+                </p>
+    
+                <p>
+                    The best time to visit is during the cooler season from November to February, though it's open
+                    year-round. Just a two-hour drive from Phnom Penh, Kirirom is easily accessible and remains one of
+                    Cambodia’s best-kept nature secrets.
+                </p>
+    
+                <p>
+                    Whether you’re a hiker, a photographer, or just someone needing a breath of fresh air, Kirirom National
+                    Park provides a perfect blend of scenic beauty, cultural immersion, and peaceful escape.
+                </p>
+            </section>
+        </main>
+    </main>
+      
+
+    </main>
+    <section class="max-w-6xl mx-auto px-4 py-8">
+        <h2 class="text-2xl md:text-3xl font-bold text-blue-900 mb-8 dark:text-gray-300">Explore Siem reap</h2>
+
+        <div class="flex flex-wrap gap-4">
+            <!-- Active Button -->
+            <button class="px-4 py-2 rounded-full bg-blue-900 text-pink-500 dark:text-yellow-300 font-semibold shadow-sm">
+                See &amp; Do
+            </button>
+        
+            <!-- Inactive Buttons -->
+            <button
+                class="px-4 py-2 rounded-full border-2 border-gray-300 text-gray-500 dark:border-gray-500 dark:text-gray-300 font-semibold hover:bg-gray-100 dark:hover:bg-gray-700 transition">
+                Shop
+            </button>
+        
+            <button
+                class="px-4 py-2 rounded-full border-2 border-gray-300 text-gray-500 dark:border-gray-500 dark:text-gray-300 font-semibold hover:bg-gray-100 dark:hover:bg-gray-700 transition">
+                Food
+            </button>
+        
+            <button
+                class="px-4 py-2 rounded-full border-2 border-gray-300 text-gray-500 dark:border-gray-500 dark:text-gray-300 font-semibold hover:bg-gray-100 dark:hover:bg-gray-700 transition">
+                Stay
+            </button>
+        
+            <button
+                class="px-4 py-2 rounded-full border-2 border-gray-300 text-gray-500 dark:border-gray-500 dark:text-gray-300 font-semibold hover:bg-gray-100 dark:hover:bg-gray-700 transition">
+                Festival &amp; Event
+            </button>
+        
+            <button
+                class="px-4 py-2 rounded-full border-2 border-gray-300 text-gray-500 dark:border-gray-500 dark:text-gray-300 font-semibold hover:bg-gray-100 dark:hover:bg-gray-700 transition">
+                Spa &amp; Wellness
+            </button>
+        
+            <button
+                class="px-4 py-2 rounded-full border-2 border-gray-300 text-gray-500 dark:border-gray-500 dark:text-gray-300 font-semibold hover:bg-gray-100 dark:hover:bg-gray-700 transition">
+                Tour Agent
+            </button>
+        
+            <button
+                class="px-4 py-2 rounded-full border-2 border-gray-300 text-gray-500 dark:border-gray-500 dark:text-gray-300 font-semibold hover:bg-gray-100 dark:hover:bg-gray-700 transition">
+                Recreational &amp; Entertainment
+            </button>
+        
+            <button
+                class="px-4 py-2 rounded-full border-2 border-gray-300 text-gray-500 dark:border-gray-500 dark:text-gray-300 font-semibold hover:bg-gray-100 dark:hover:bg-gray-700 transition">
+                Transportation
+            </button>
+        </div>
+          
+        <div class="grid grid-cols-2 md:grid-cols-3 gap-6 mt-[50px]">
+
+            <!-- Card Item -->
+            <div class="bg-white dark:bg-gray-300 rounded-lg shadow hover:shadow-md transition overflow-hidden">
+                <img src="https://images.squarespace-cdn.com/content/v1/5a504002be42d6a0e15d4885/1516443856329-EHZUB5RBDG1TLNZLWFTI/download+%2858%29.jpeg?format=1500w"
+                    alt="Train Night Market Ratchada" class="w-full h-40 md:h-60 object-cover" />
+                <div class="p-4">
+                    <h3 class="text-lg font-medium text-blue-900 mb-4">Pub Street</h3>
+                    <p class="text-sm text-gray-600 flex items-center">
+                        <i class="fa-solid fa-location-dot pr-2"></i>
+                        Siem reap
+                    </p>
+                </div>
+            </div>
+
+
+            <!-- Duplicate this card and change content -->
+            <div class="bg-white dark:bg-gray-300 rounded-lg shadow hover:shadow-md transition overflow-hidden">
+                <img src="https://www.mondomulia.com/wp-content/uploads/2020/03/Sunrise-Angkor-Wat-Siem-Riep-Cambodia-2.jpg"
+                    alt="Train Night Market Ratchada" class="w-full h-40 md:h-60 object-cover" />
+                <div class="p-4">
+                    <h3 class="text-lg font-medium text-blue-900 mb-4">Angkor Wat Temple</h3>
+                    <p class="text-sm text-gray-600 flex items-center">
+                        <i class="fa-solid fa-location-dot pr-2"></i>
+                        Siem reap
+                    </p>
+                </div>
+            </div>
+
+            <!-- Duplicate this card and change content -->
+            <div class="bg-white dark:bg-gray-300 rounded-lg shadow hover:shadow-md transition overflow-hidden">
+                <img src="https://pbs.twimg.com/media/CXDqR9xVAAEVUJI.jpg:large" alt="Train Night Market Ratchada"
+                    class="w-full h-40 md:h-60 object-cover" />
+                <div class="p-4">
+                    <h3 class="text-lg font-medium text-blue-900 mb-4">Phnom Bakheng</h3>
+                    <p class="text-sm text-gray-600 flex items-center">
+                        <i class="fa-solid fa-location-dot pr-2"></i>
+                        Siem reap
+                    </p>
+                </div>
+            </div>
+
+            <div class="bg-white dark:bg-gray-300 rounded-lg shadow hover:shadow-md transition overflow-hidden">
+                <img src="https://www.treelinehotels.com/wp-content/uploads/2019/03/main-slide-03-1500x1000.jpg"
+                    alt="Train Night Market Ratchada" class="w-full h-40 md:h-60 object-cover" />
+                <div class="p-4">
+                    <h3 class="text-lg font-medium text-blue-900 mb-4">Hotel in Siem Reap</h3>
+                    <p class="text-sm text-gray-600 flex items-center">
+                        <i class="fa-solid fa-location-dot pr-2"></i>
+                        Siem reap
+                    </p>
+                </div>
+            </div>
+            <div class="bg-white dark:bg-gray-300 rounded-lg shadow hover:shadow-md transition overflow-hidden">
+                <img src="https://images.squarespace-cdn.com/content/v1/58e59a92bf629a0d7c03d2c0/1511114105394-5URM5ZQB7DLL89CBXAHY/The+Forest+and+Temple+Mix+at+Preah+Khan?format=2500w"
+                    alt="Train Night Market Ratchada" class="w-full h-40 md:h-60 object-cover" />
+                <div class="p-4">
+                    <h3 class="text-lg font-medium text-blue-900 mb-4">Preah Khan Temple</h3>
+                    <p class="text-sm text-gray-600 flex items-center">
+                        <i class="fa-solid fa-location-dot pr-2"></i>
+                        Siem reap
+                    </p>
+                </div>
+            </div>
+            <div class="bg-white dark:bg-gray-300 rounded-lg shadow hover:shadow-md transition overflow-hidden">
+                <img src="https://images.squarespace-cdn.com/content/v1/58e59a92bf629a0d7c03d2c0/1511113539109-KSXQ2PX9R78V8X9WSLJ4/Looking+Up+At+Pre+Rup?format=2500w"
+                    alt="Train Night Market Ratchada" class="w-full h-40 md:h-60 object-cover" />
+                <div class="p-4">
+                    <h3 class="text-lg font-medium text-blue-900 mb-4">Ta Prohm Temple</h3>
+                    <p class="text-sm text-gray-600 flex items-center">
+                        <i class="fa-solid fa-location-dot pr-2"></i>
+                        Takeo
+                    </p>
+                </div>
+            </div>
+
+
+
+
+            <!-- Add more cards as needed... -->
+        </div>
+        <div class="flex justify-end">
+            <div>
+
+                <button
+                    class="mt-[20px] px-7 py-2 rounded-lg text-blue-900 font-bold hover:border-white text-[15px] border border-blue-900">
+                    <a href="#">See all</a></button>
+    </section>
+    <!-- footer -->
+    <footer class="bg-gray-100 text-gray-800 text-sm px-6 pt-12 pb-6 dark:bg-gray-800 dark:text-gray-200">
+    
+        <div class="block md:hidden space-y-4">
+            <div>
+                <button class="w-full text-left font-bold mb-2 flex justify-between items-center"
+                    onclick="toggleFooter(this)">
+                    Top Destinations
+                    <svg class="w-4 h-4 transition-transform transform text-gray-400 dark:text-gray-500" fill="none"
+                        stroke="currentColor" viewBox="0 0 24 24">
+                        <path d="M9 5l7 7-7 7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                </button>
+                <div class="hidden">
+                    <hr class="border-t-2 border-gray-300 w-full mb-1 dark:border-gray-700">
+                    <ul class="space-y-1">
+                        <li>Siem reap</li>
+                        <li>Phnom penh</li>
+                        <li>Kirimrom</li>
+                    </ul>
+                </div>
+            </div>
+    
+            <div>
+                <button class="w-full text-left font-bold mb-2 flex justify-between items-center"
+                    onclick="toggleFooter(this)">
+                    Destinations
+                    <svg class="w-4 h-4 transition-transform transform text-gray-400 dark:text-gray-500" fill="none"
+                        stroke="currentColor" viewBox="0 0 24 24">
+                        <path d="M9 5l7 7-7 7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                </button>
+                <div class="hidden">
+                    <hr class="border-t-2 border-gray-300 w-full mb-1 dark:border-gray-700">
+                    <ul class="space-y-1">
+                        <li>See & Do</li>
+                        <li>Food</li>
+                        <li>Shop</li>
+                        <li>Spa & Wellness</li>
+                        <li>Recreational & Entertainment</li>
+                    </ul>
+                </div>
+            </div>
+    
+            <div>
+                <button class="w-full text-left font-bold mb-2 flex justify-between items-center"
+                    onclick="toggleFooter(this)">
+                    Regions of Thailand
+                    <svg class="w-4 h-4 transition-transform transform text-gray-400 dark:text-gray-500" fill="none"
+                        stroke="currentColor" viewBox="0 0 24 24">
+                        <path d="M9 5l7 7-7 7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                </button>
+                <div class="hidden">
+                    <hr class="border-t-2 border-gray-300 w-full mb-1 dark:border-gray-700">
+                    <ul class="space-y-1">
+                        <li>North</li>
+                        <li>Central</li>
+                        <li>East</li>
+                        <li>North East</li>
+                        <li>South</li>
+                    </ul>
+                </div>
+            </div>
+    
+            <div>
+                <button class="w-full text-left font-bold mb-2 flex justify-between items-center"
+                    onclick="toggleFooter(this)">
+                    Experiences
+                    <svg class="w-4 h-4 transition-transform transform text-gray-400 dark:text-gray-500" fill="none"
+                        stroke="currentColor" viewBox="0 0 24 24">
+                        <path d="M9 5l7 7-7 7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                </button>
+                <div class="hidden">
+                    <hr class="border-t-2 border-gray-300 w-full mb-1 dark:border-gray-700">
+                    <ul class="space-y-1">
+                        <li>History / Religion / Museum</li>
+                        <li>Nature & Outdoor</li>
+                        <li>Events & Festivals</li>
+                        <li>Food / Shopping / Entertainment</li>
+                    </ul>
+                </div>
+            </div>
+    
+            <div>
+                <button class="w-full text-left font-bold mb-2 flex justify-between items-center"
+                    onclick="toggleFooter(this)">
+                    Helpful Links
+                    <svg class="w-4 h-4 transition-transform transform text-gray-400 dark:text-gray-500" fill="none"
+                        stroke="currentColor" viewBox="0 0 24 24">
+                        <path d="M9 5l7 7-7 7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                </button>
+                <div class="hidden">
+                    <hr class="border-t-2 border-gray-300 w-full mb-1 dark:border-gray-700">
+                    <ul class="space-y-1">
+                        <li>Business Partner</li>
+                        <li>Media & Press</li>
+                        <li>About TAT</li>
+                        <li>Request Inquiry</li>
+                        <li>Feedback</li>
+                    </ul>
+                </div>
+            </div>
+    
+            <div>
+                <button class="w-full text-left font-bold mb-2 flex justify-between items-center"
+                    onclick="toggleFooter(this)">
+                    Promotions
+                    <svg class="w-4 h-4 transition-transform transform text-gray-400 dark:text-gray-500" fill="none"
+                        stroke="currentColor" viewBox="0 0 24 24">
+                        <path d="M9 5l7 7-7 7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                </button>
+                <div class="hidden">
+                    <hr class="border-t-2 border-gray-300 w-full mb-1 dark:border-gray-700">
+                    <ul class="space-y-1">
+                        <li>Trip Planner</li>
+                        <li>Tour Agent</li>
+                        <li>Stays</li>
+                        <li>Cambodia</li>
+                    </ul>
+                </div>
+            </div>
+    
+            <div>
+                <button class="w-full text-left font-bold mb-2 flex justify-between items-center"
+                    onclick="toggleFooter(this)">
+                    Personal Data Protection
+                    <svg class="w-4 h-4 transition-transform transform text-gray-400 dark:text-gray-500" fill="none"
+                        stroke="currentColor" viewBox="0 0 24 24">
+                        <path d="M9 5l7 7-7 7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                </button>
+                <div class="hidden">
+                    <hr class="border-t-2 border-gray-300 w-full mb-1 dark:border-gray-700">
+                    <ul class="space-y-1">
+                        <li>Privacy Notice</li>
+                        <li>Data Subject Request</li>
+                        <li>Data Breach Complaint</li>
+                        <li>Contact DPA</li>
+                    </ul>
+                </div>
+            </div>
+    
+            <div>
+                <button class="w-full text-left font-bold mb-2 flex justify-between items-center"
+                    onclick="toggleFooter(this)">
+                    Contact Us
+                    <svg class="w-4 h-4 transition-transform transform text-gray-400 dark:text-gray-500" fill="none"
+                        stroke="currentColor" viewBox="0 0 24 24">
+                        <path d="M9 5l7 7-7 7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                </button>
+                <div class="hidden">
+                    <hr class="border-t-2 border-gray-300 w-full mb-1 dark:border-gray-700">
+                    <ul class="space-y-1">
+                        <li>Phone number: +885 964 735 981</li>
+                        <li>Telegram: +885 854 620 66</li>
+                        <li>Facebook page: Visit Cambodia</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    
+        <div class="hidden md:grid max-w-7xl mx-auto grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-8">
+            <div>
+                <h3 class="font-bold mb-2">Top Destinations</h3>
+                <hr class="border-t-2 border-gray-300 w-full dark:border-gray-700">
+                <ul class="space-y-1">
+                    <li>Siem reap</li>
+                    <li>Phnom penh</li>
+                    <li>Kirirom</li>
+                </ul>
+            </div>
+            <div>
+                <h3 class="font-bold mb-2">Destinations</h3>
+                <hr class="border-t-2 border-gray-300 w-full dark:border-gray-700">
+                <ul class="space-y-1">
+                    <li>See & Do</li>
+                    <li>Food</li>
+                    <li>Shop</li>
+                    <li>Spa & Wellness</li>
+                    <li>Recreational & Entertainment</li>
+                </ul>
+            </div>
+            <div>
+                <h3 class="font-bold mb-2">Regions of Thailand</h3>
+                <hr class="border-t-2 border-gray-300 w-full dark:border-gray-700">
+                <ul class="space-y-1">
+                    <li>North</li>
+                    <li>Central</li>
+                    <li>East</li>
+                    <li>North East</li>
+                    <li>
+                    <li>South</li>
+                </ul>
+            </div>
+            <div>
+                <h3 class="font-bold mb-2">Experiences</h3>
+                <hr class="border-t-2 border-gray-300 w-full dark:border-gray-700">
+                <ul class="space-y-1">
+                    <li>History / Religion / Museum</li>
+                    <li>Nature & Outdoor</li>
+                    <li>Events & Festivals</li>
+                    <li>Food / Shopping / Entertainment</li>
+                </ul>
+            </div>
+            <div>
+                <h3 class="font-bold mb-2">Helpful Links</h3>
+                <hr class="border-t-2 border-gray-300 w-full dark:border-gray-700">
+                <ul class="space-y-1">
+                    <li>Business Partner</li>
+                    <li>Media & Press</li>
+                    <li>About TAT</li>
+                    <li>Request Inquiry</li>
+                    <li>Feedback</li>
+                </ul>
+            </div>
+            <div>
+                <h3 class="font-bold mb-2">Promotions</h3>
+                <hr class="border-t-2 border-gray-300 w-full dark:border-gray-700">
+                <ul class="space-y-1">
+                    <li>Trip Planner</li>
+                    <li>Tour Agent</li>
+                    <li>Stays</li>
+                    <li>Cambodia</li>
+                </ul>
+            </div>
+            <div>
+                <h3 class="font-bold mb-2">Personal Data Protection</h3>
+                <hr class="border-t-2 border-gray-300 w-full dark:border-gray-700">
+                <ul class="space-y-1">
+                    <li>Privacy Notice</li>
+                    <li>Data Subject Request</li>
+                    <li>Data Breach Complaint</li>
+                    <li>Contact DPA</li>
+                </ul>
+            </div>
+            <div>
+                <h3 class="font-bold mb-2">Contact Us</h3>
+                <hr class="border-t-2 border-gray-300 w-full dark:border-gray-700">
+                <ul class="space-y-1">
+                    <li>Phone number: +885 964 735 981</li>
+                    <li>Telegram: +885 854 620 66</li>
+                    <li>Facebook page: Visit Cambodia</li>
+                </ul>
+            </div>
+        </div>
+    
+        <div class="my-8 border-t border-gray-300 w-full dark:border-gray-700"></div>
+    
+        <div
+            class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-gray-600 dark:text-gray-400">
+            <div class="flex items-center gap-3">
+                <img src="../image/logo.png"
+                    alt="Logo" class="h-10 w-auto">
+                <span>
+                    Tourism Authority of Cambodia<br>
+                    1600 Phetchaburi Road, Makkasan, Ratchathevi, Phnom Penh
+                </span>
+            </div>
+    
+            <div class="flex items-center gap-4">
+                <a href="#" aria-label="Telegram"
+                    class="text-gray-500 hover:text-gray-800 dark:text-gray-400 dark:hover:text-gray-100"><i
+                        class="fab fa-telegram"></i></a>
+                <a href="#" aria-label="Facebook"
+                    class="text-gray-500 hover:text-gray-800 dark:text-gray-400 dark:hover:text-gray-100"><i
+                        class="fab fa-facebook"></i></a>
+                <a href="#" aria-label="YouTube"
+                    class="text-gray-500 hover:text-gray-800 dark:text-gray-400 dark:hover:text-gray-100"><i
+                        class="fab fa-youtube"></i></a>
+            </div>
+        </div>
+    </footer>
+    
+    <script>
+        function toggleFooter(btn) {
+            const content = btn.nextElementSibling;
+            content.classList.toggle('hidden');
+            const svg = btn.querySelector('svg');
+            svg.classList.toggle('rotate-90');
+        }
+    </script>
+
+
+</body>
+
+</html>
