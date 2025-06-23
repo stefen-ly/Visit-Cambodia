@@ -1,0 +1,5131 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Discover the authentic beauty of Cambodia through food, temples, palaces, beaches, adventures, and festivals"
+    />
+    <meta
+      name="keywords"
+      content="Cambodia, travel, culture, food, temples, beaches, adventures"
+    />
+
+    <title>Home</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            animation: {
+              "fade-in": "fadeIn 0.5s ease-in-out",
+              "slide-up": "slideUp 0.6s ease-out",
+              "scale-in": "scaleIn 0.4s ease-out",
+            },
+            keyframes: {
+              fadeIn: {
+                "0%": { opacity: "0" },
+                "100%": { opacity: "1" },
+              },
+              slideUp: {
+                "0%": { transform: "translateY(20px)", opacity: "0" },
+                "100%": { transform: "translateY(0)", opacity: "1" },
+              },
+              scaleIn: {
+                "0%": { transform: "scale(0.95)", opacity: "0" },
+                "100%": { transform: "scale(1)", opacity: "1" },
+              },
+            },
+          },
+        },
+      };
+    </script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              pink: {
+                500: "#ec4899",
+                600: "#db2777",
+              },
+            },
+            animation: {
+              "fade-in": "fadeIn 0.3s ease-out",
+              "slide-down": "slideDown 0.3s ease-out",
+              "slide-up": "slideUp 0.3s ease-out",
+              "scale-in": "scaleIn 0.2s ease-out",
+            },
+            keyframes: {
+              fadeIn: {
+                "0%": { opacity: "0" },
+                "100%": { opacity: "1" },
+              },
+              slideDown: {
+                "0%": { opacity: "0", transform: "translateY(-10px)" },
+                "100%": { opacity: "1", transform: "translateY(0)" },
+              },
+              slideUp: {
+                "0%": { opacity: "0", transform: "translateY(10px)" },
+                "100%": { opacity: "1", transform: "translateY(0)" },
+              },
+              scaleIn: {
+                "0%": { opacity: "0", transform: "scale(0.95)" },
+                "100%": { opacity: "1", transform: "scale(1)" },
+              },
+            },
+          },
+        },
+      };
+    </script>
+
+    <style>
+      :root {
+        --primary: #ec4899;
+        --primary-dark: #be185d;
+        --gradient-bg: linear-gradient(
+          to bottom,
+          rgba(0, 0, 0, 0.8),
+          transparent
+        );
+        --card-gradient: linear-gradient(
+          to top,
+          rgba(0, 0, 0, 0.7),
+          transparent
+        );
+        --glass-bg: rgba(255, 255, 255, 0.15);
+        --glass-border: rgba(255, 255, 255, 0.3);
+        --glass-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+      }
+
+      .slider-container {
+        transition: transform 0.5s ease-in-out;
+      }
+
+      .card-hover {
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+
+      .card-hover:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+      }
+
+      .featured-card {
+        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+      }
+
+      .image-hover {
+        transition: transform 0.7s ease;
+      }
+
+      .image-hover:hover {
+        transform: scale(1.05);
+      }
+
+      .card-image-hover {
+        transition: transform 0.5s ease;
+      }
+
+      .card-hover:hover .card-image-hover {
+        transform: scale(1.1);
+      }
+
+      .slide-indicator {
+        transition: all 0.3s ease;
+      }
+
+      .slide-indicator.active {
+        width: 1.5rem;
+        background-color: var(--primary);
+      }
+
+      .btn-disabled {
+        opacity: 0.5;
+        cursor: not-allowed;
+      }
+
+      .stats-card {
+        transition: box-shadow 0.3s ease, transform 0.3s ease,
+          background-color 0.3s ease;
+        background: var(--glass-bg);
+        backdrop-filter: blur(12px);
+        border: 1px solid var(--glass-border);
+        border-radius: 1rem;
+        padding: 1.5rem;
+      }
+
+      .stats-card:hover {
+        box-shadow: var(--glass-shadow);
+        transform: translateY(-6px);
+        background: rgba(255, 255, 255, 0.2);
+      }
+
+      .stats-card .stats-number {
+        font-size: 2rem;
+        font-weight: 700;
+        background: linear-gradient(45deg, var(--primary), var(--primary-dark));
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+      }
+
+      .stats-card .stats-label {
+        font-size: 0.875rem;
+        color: #4b5563;
+        margin-top: 0.5rem;
+      }
+
+      .scrollbar-hide {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+      }
+
+      .scrollbar-hide::-webkit-scrollbar {
+        display: none;
+      }
+
+      .gradient-overlay {
+        background: var(--gradient-bg);
+      }
+
+      .card-gradient-overlay {
+        background: var(--card-gradient);
+      }
+
+      [role="button"]:focus-visible,
+      button:focus-visible {
+        outline: 2px solid var(--primary);
+        outline-offset: 2px;
+      }
+      .carousel-container {
+        transition: transform 0.5s ease-in-out;
+      }
+      .carousel-container.no-transition {
+        transition: none;
+      }
+      @keyframes pulse {
+        0%,
+        100% {
+          opacity: 1;
+        }
+        50% {
+          opacity: 0.5;
+        }
+      }
+      .animate-pulse {
+        animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+      }
+      .animate-pulse-delayed {
+        animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+        animation-delay: 0.5s;
+      }
+
+      /* Mobile-specific styles */
+      @media (max-width:310px){
+        .stats-card .stats-label {
+        font-size: 8px;
+        color: #4b5563;
+        margin-top: 0.5rem;
+      }
+            .stats-card .stats-number {
+        font-size: 12px;
+        font-weight: 700;
+        background: linear-gradient(45deg, var(--primary), var(--primary-dark));
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+      }
+      }
+      @media (max-width: 640px) {
+      
+        .carousel-card {
+          width: 12rem; /* Reduced from 16rem */
+        }
+        .carousel-card img {
+          height: 8rem; /* Reduced from 10rem */
+        }
+        .carousel-card h3 {
+          font-size: 0.875rem; /* Smaller than 1rem */
+        }
+        .carousel-card p {
+          font-size: 0.625rem; /* Smaller than 0.75rem */
+        }
+        .carousel-card .absolute.bottom-0 {
+          padding: 0.75rem; /* Reduced padding */
+        }
+        .nav-btn {
+          width: 1.5rem; /* Smaller buttons */
+          height: 1.5rem;
+          border-width: 1px;
+        }
+        .nav-btn svg {
+          width: 0.875rem; /* Smaller icons */
+          height: 0.875rem;
+        }
+        .dot {
+          width: 0.25rem; /* Smaller dots */
+          height: 0.25rem;
+        }
+      }
+      .carousel-container {
+        transition: transform 0.5s ease-in-out;
+      }
+      @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap");
+      body {
+        font-family: "Inter", sans-serif;
+      }
+
+      .icon-placeholder {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      }
+      .icon-visa {
+        background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+      }
+      .icon-travel {
+        background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+      }
+      .icon-transport {
+        background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+      }
+      .icon-weather {
+        background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
+      }
+
+      .backdrop-blur {
+        backdrop-filter: blur(8px);
+      }
+
+      /* Glass Navigation Effect */
+      .nav-glass {
+        background: rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+
+      .nav-glass .nav-item {
+        background: rgba(255, 255, 255, 0.1);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+      }
+
+      .nav-glass .nav-item:hover {
+        background: rgba(236, 72, 153, 0.2);
+        border-color: rgba(236, 72, 153, 0.3);
+        backdrop-filter: blur(10px);
+      }
+
+      .nav-glass .nav-item span,
+      .nav-glass .nav-item svg {
+        color: rgba(255, 255, 255, 0.9);
+      }
+
+      .nav-glass .nav-item:hover span,
+      .nav-glass .nav-item:hover svg {
+        color: white;
+      }
+
+      /* Enhanced Dropdown Styles - Centered */
+      .dropdown-content {
+        opacity: 0;
+        visibility: hidden;
+        transform: translateX(-50%) translateY(-10px) scale(0.95);
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        pointer-events: none;
+        left: 50%;
+        top: 100%;
+        margin-top: 8px;
+      }
+
+      .dropdown:hover .dropdown-content,
+      .dropdown.active .dropdown-content {
+        opacity: 1;
+        visibility: visible;
+        transform: translateX(-50%) translateY(0) scale(1);
+        pointer-events: auto;
+      }
+
+      /* Glass effect for dropdowns when nav is glass */
+      .nav-glass .dropdown-content {
+        background: rgba(255, 255, 255, 0.95);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        border: 1px solid rgba(255, 255, 255, 0.3);
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+      }
+
+      .dropdown-item {
+        transition: all 0.2s ease;
+      }
+
+      .dropdown-item:hover {
+        background-color: rgba(236, 72, 153, 0.1);
+        transform: translateX(4px);
+      }
+
+      .dropdown-item:hover .item-title {
+        color: #ec4899;
+      }
+
+      .dropdown-item:hover .item-icon {
+        color: #ec4899;
+        transform: scale(1.1);
+      }
+
+      /* Mobile Menu Improvements */
+      .mobile-menu {
+        transform: translateX(100%);
+        transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+
+      .mobile-menu.active {
+        transform: translateX(0);
+      }
+
+      .mobile-menu-item {
+        transition: all 0.2s ease;
+      }
+
+      .mobile-menu-item:hover {
+        background-color: rgba(236, 72, 153, 0.1);
+        transform: translateX(8px);
+      }
+
+      /* Hero Section - Responsive Heights */
+      .hero-section {
+        height: 100vh; /* Full height on desktop */
+      }
+
+      /* Mobile hero adjustments */
+      @media (max-width: 768px) {
+        .hero-section {
+          height: 60vh; /* Smaller height on mobile */
+          min-height: 400px; /* Minimum height to ensure content fits */
+        }
+      }
+
+      /* Small mobile screens */
+      @media (max-width: 480px) {
+        .hero-section {
+          height: 50vh;
+          min-height: 350px;
+        }
+      }
+
+      .hero-overlay {
+        background: linear-gradient(
+          135deg,
+          rgba(0, 0, 0, 0.6) 0%,
+          rgba(0, 0, 0, 0.3) 100%
+        );
+      }
+
+      @keyframes fadeInUp {
+        from {
+          opacity: 0;
+          transform: translateY(30px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .fade-in-up {
+        animation: fadeInUp 1s ease-out;
+      }
+
+      .fade-in-up-delay {
+        animation: fadeInUp 1s ease-out 0.3s both;
+      }
+
+      .fade-in-up-delay-2 {
+        animation: fadeInUp 1s ease-out 0.6s both;
+      }
+
+      /* Feature Cards */
+      .feature-card {
+        transition: all 0.3s ease;
+      }
+
+      .feature-card:hover {
+        transform: translateY(-8px);
+      }
+
+      .feature-icon {
+        transition: all 0.3s ease;
+      }
+
+      .feature-card:hover .feature-icon {
+        transform: scale(1.1) rotate(5deg);
+      }
+
+      /* Improved Navigation Menu */
+      .nav-item {
+        position: relative;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+
+      .nav-item:hover {
+        background-color: rgba(236, 72, 153, 0.1);
+      }
+
+      .nav-item::after {
+        content: "";
+        position: absolute;
+        bottom: -2px;
+        left: 50%;
+        width: 0;
+        height: 2px;
+        background-color: #ec4899;
+        transition: all 0.3s ease;
+        transform: translateX(-50%);
+      }
+
+      .nav-item:hover::after {
+        width: 80%;
+      }
+
+      /* Default header state */
+      .header-default {
+        background-color: rgba(255, 255, 255, 0.95);
+        backdrop-filter: blur(8px);
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+
+      /* Loading Animation */
+      .loading-dot {
+        animation: loading 1.4s infinite ease-in-out both;
+      }
+
+      .loading-dot:nth-child(1) {
+        animation-delay: -0.32s;
+      }
+      .loading-dot:nth-child(2) {
+        animation-delay: -0.16s;
+      }
+
+      @keyframes loading {
+        0%,
+        80%,
+        100% {
+          transform: scale(0);
+        }
+        40% {
+          transform: scale(1);
+        }
+      }
+
+      /* Logo transition for glass effect */
+      .nav-glass .logo-img {
+        filter: brightness(0) invert(1);
+        transition: filter 0.3s ease;
+      }
+
+      .header-default .logo-img {
+        filter: none;
+        transition: filter 0.3s ease;
+      }
+
+      /* Mobile menu button glass effect */
+      .nav-glass .mobile-button {
+        background: rgba(255, 255, 255, 0.1);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+      }
+
+      .nav-glass .mobile-button svg {
+        color: white;
+      }
+
+      .nav-glass .mobile-button:hover {
+        background: rgba(236, 72, 153, 0.2);
+        border-color: rgba(236, 72, 153, 0.3);
+      }
+
+      .carousel-container {
+        @apply bg-gradient-to-br from-pink-100 via-pink-200 to-pink-400 py-8 px-4 sm:px-6 lg:px-8;
+      }
+
+      .slide-3d1-center {
+        @apply transform scale-100 translate-z-0 rotate-y-0 transition-all duration-600 ease-cubic-bezier;
+      }
+
+      .slide-3d1-left {
+        @apply transform scale-75 -translate-z-50 rotate-y-15 transition-all duration-600 ease-cubic-bezier;
+      }
+
+      .slide-3d1-right {
+        @apply transform scale-75 -translate-z-50 -rotate-y-15 transition-all duration-600 ease-cubic-bezier;
+      }
+
+      .perspective-1000 {
+        @apply perspective-[1000px];
+      }
+
+      .backdrop-blur-10 {
+        @apply backdrop-blur-[10px];
+      }
+
+      @media (max-width: 640px) {
+        .slide-3d1-left {
+          @apply transform scale-80 -translate-z-30 rotate-y-10;
+        }
+
+        .slide-3d1-right {
+          @apply transform scale-80 -translate-z-30 -rotate-y-10;
+        }
+      }
+
+      .carousel-nav-btn:active {
+        @apply transform scale-95;
+      }
+
+      .swipe-indicator {
+        @apply opacity-0 animate-fadeInOut;
+      }
+
+      @keyframes fadeInOut {
+        0%,
+        100% {
+          opacity: 0;
+        }
+        50% {
+          opacity: 0.6;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Header -->
+    <header
+      id="header"
+      class="sticky top-0 z-50 w-full border-b header-default"
+    >
+      <div
+        class="container mx-auto flex h-16 items-center justify-between px-4 max-w-7xl"
+      >
+        <!-- Logo -->
+        <a
+          href="./index.html"
+          class="flex items-center space-x-2 transition-transform hover:scale-105"
+        >
+          <img
+            src="./img/logo.png"
+            alt="The Angkor Guide"
+            class="h-16 w-auto logo-img transition-all duration-300"
+          />
+        </a>
+
+        <!-- Desktop Navigation -->
+        <nav class="hidden lg:flex items-center justify-center space-x-2">
+          <!-- Search -->
+          <a
+            href="./src/search.html"
+            class="nav-item flex items-center space-x-2 px-4 py-2 rounded-lg transition-all duration-200"
+          >
+            <svg
+              class="w-4 h-4"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+              ></path>
+            </svg>
+            <span class="font-medium">Search</span>
+          </a>
+
+          <!-- Destinations Dropdown -->
+          <div class="dropdown relative">
+            <button
+              class="nav-item flex items-center space-x-2 px-4 py-2 rounded-lg transition-all duration-200"
+            >
+              <svg
+                class="w-4 h-4"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
+                ></path>
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
+                ></path>
+              </svg>
+              <span class="font-medium">Destinations</span>
+              <svg
+                class="w-4 h-4 transition-transform duration-200"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M19 9l-7 7-7-7"
+                ></path>
+              </svg>
+            </button>
+            <div
+              class="dropdown-content absolute w-[800px] bg-white rounded-xl shadow-2xl border border-gray-100 p-6"
+            >
+              <div class="grid md:grid-cols-3 gap-6">
+                <div class="space-y-4">
+                  <h3 class="text-lg font-bold text-pink-500 flex items-center">
+                    <svg
+                      class="w-5 h-5 mr-2"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M5 3l14 9-14 9V3z"
+                      ></path>
+                    </svg>
+                    Top Destinations
+                  </h3>
+                  <div class="space-y-2">
+                    <a
+                      href="./src/phnompenh.html"
+                      class="dropdown-item flex items-start space-x-3 p-3 rounded-lg"
+                    >
+                      <svg
+                        class="item-icon w-5 h-5 text-gray-600 mt-0.5 flex-shrink-0 transition-all duration-200"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          stroke-width="2"
+                          d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"
+                        ></path>
+                      </svg>
+                      <div>
+                        <div
+                          class="item-title font-semibold text-gray-800 transition-colors duration-200"
+                        >
+                          Phnom Penh
+                        </div>
+                        <div class="text-sm text-gray-500">
+                          Capital city with rich history
+                        </div>
+                      </div>
+                    </a>
+                    <a
+                      href="./src/seimreap.html"
+                      class="dropdown-item flex items-start space-x-3 p-3 rounded-lg"
+                    >
+                      <svg
+                        class="item-icon w-5 h-5 text-gray-600 mt-0.5 flex-shrink-0 transition-all duration-200"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          stroke-width="2"
+                          d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z"
+                        ></path>
+                        <path
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          stroke-width="2"
+                          d="M15 13a3 3 0 11-6 0 3 3 0 016 0z"
+                        ></path>
+                      </svg>
+                      <div>
+                        <div
+                          class="item-title font-semibold text-gray-800 transition-colors duration-200"
+                        >
+                          Siem Reap
+                        </div>
+                        <div class="text-sm text-gray-500">
+                          Gateway to Angkor Wat
+                        </div>
+                      </div>
+                    </a>
+                    <a
+                      href="#"
+                      class="dropdown-item flex items-start space-x-3 p-3 rounded-lg"
+                    >
+                      <svg
+                        class="item-icon w-5 h-5 text-gray-600 mt-0.5 flex-shrink-0 transition-all duration-200"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          stroke-width="2"
+                          d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"
+                        ></path>
+                      </svg>
+                      <div>
+                        <div
+                          class="item-title font-semibold text-gray-800 transition-colors duration-200"
+                        >
+                          Kompot
+                        </div>
+                        <div class="text-sm text-gray-500">
+                          Coastal charm and pepper farms
+                        </div>
+                      </div>
+                    </a>
+                    <a
+                      href="#"
+                      class="dropdown-item flex items-start space-x-3 p-3 rounded-lg"
+                    >
+                      <svg
+                        class="item-icon w-5 h-5 text-gray-600 mt-0.5 flex-shrink-0 transition-all duration-200"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          stroke-width="2"
+                          d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"
+                        ></path>
+                      </svg>
+                      <div>
+                        <div
+                          class="item-title font-semibold text-gray-800 transition-colors duration-200"
+                        >
+                          Ratanakiri
+                        </div>
+                        <div class="text-sm text-gray-500">
+                          Wild landscapes and waterfalls
+                        </div>
+                      </div>
+                    </a>
+                    <a
+                      href="#"
+                      class="dropdown-item flex items-start space-x-3 p-3 rounded-lg"
+                    >
+                      <svg
+                        class="item-icon w-5 h-5 text-gray-600 mt-0.5 flex-shrink-0 transition-all duration-200"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          stroke-width="2"
+                          d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064"
+                        ></path>
+                      </svg>
+                      <div>
+                        <div
+                          class="item-title font-semibold text-gray-800 transition-colors duration-200"
+                        >
+                          Koh Kong
+                        </div>
+                        <div class="text-sm text-gray-500">
+                          Pristine beaches and islands
+                        </div>
+                      </div>
+                    </a>
+                  </div>
+                </div>
+                <div class="space-y-4">
+                  <h3 class="text-lg font-bold text-pink-500 flex items-center">
+                    <svg
+                      class="w-5 h-5 mr-2"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7"
+                      ></path>
+                    </svg>
+                    By Region
+                  </h3>
+                  <div class="space-y-2">
+                    <a
+                      href="#"
+                      class="dropdown-item flex items-start space-x-3 p-3 rounded-lg"
+                    >
+                      <div
+                        class="h-2 w-2 rounded-full bg-pink-500 mt-2 flex-shrink-0"
+                      ></div>
+                      <div>
+                        <div
+                          class="item-title font-semibold text-gray-800 transition-colors duration-200"
+                        >
+                          All Regions
+                        </div>
+                        <div class="text-sm text-gray-500">
+                          Explore everywhere
+                        </div>
+                      </div>
+                    </a>
+                    <a
+                      href="#"
+                      class="dropdown-item flex items-start space-x-3 p-3 rounded-lg"
+                    >
+                      <div
+                        class="h-2 w-2 rounded-full bg-pink-500 mt-2 flex-shrink-0"
+                      ></div>
+                      <div>
+                        <div
+                          class="item-title font-semibold text-gray-800 transition-colors duration-200"
+                        >
+                          North
+                        </div>
+                        <div class="text-sm text-gray-500">
+                          Mountains and temples
+                        </div>
+                      </div>
+                    </a>
+                    <a
+                      href="#"
+                      class="dropdown-item flex items-start space-x-3 p-3 rounded-lg"
+                    >
+                      <div
+                        class="h-2 w-2 rounded-full bg-pink-500 mt-2 flex-shrink-0"
+                      ></div>
+                      <div>
+                        <div
+                          class="item-title font-semibold text-gray-800 transition-colors duration-200"
+                        >
+                          Central
+                        </div>
+                        <div class="text-sm text-gray-500">
+                          Heart of Cambodia
+                        </div>
+                      </div>
+                    </a>
+                    <a
+                      href="#"
+                      class="dropdown-item flex items-start space-x-3 p-3 rounded-lg"
+                    >
+                      <div
+                        class="h-2 w-2 rounded-full bg-pink-500 mt-2 flex-shrink-0"
+                      ></div>
+                      <div>
+                        <div
+                          class="item-title font-semibold text-gray-800 transition-colors duration-200"
+                        >
+                          East
+                        </div>
+                        <div class="text-sm text-gray-500">
+                          Rural landscapes
+                        </div>
+                      </div>
+                    </a>
+                    <a
+                      href="#"
+                      class="dropdown-item flex items-start space-x-3 p-3 rounded-lg"
+                    >
+                      <div
+                        class="h-2 w-2 rounded-full bg-pink-500 mt-2 flex-shrink-0"
+                      ></div>
+                      <div>
+                        <div
+                          class="item-title font-semibold text-gray-800 transition-colors duration-200"
+                        >
+                          South
+                        </div>
+                        <div class="text-sm text-gray-500">Coastal regions</div>
+                      </div>
+                    </a>
+                    <a
+                      href="#"
+                      class="dropdown-item flex items-start space-x-3 p-3 rounded-lg"
+                    >
+                      <div
+                        class="h-2 w-2 rounded-full bg-pink-500 mt-2 flex-shrink-0"
+                      ></div>
+                      <div>
+                        <div
+                          class="item-title font-semibold text-gray-800 transition-colors duration-200"
+                        >
+                          West
+                        </div>
+                        <div class="text-sm text-gray-500">
+                          Border adventures
+                        </div>
+                      </div>
+                    </a>
+                  </div>
+                </div>
+                <div class="flex items-center justify-center">
+                  <div class="relative group">
+                    <img
+                      src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/47/Cambodia_provinces_en.svg/960px-Cambodia_provinces_en.svg.png"
+                      alt="Travel Planning"
+                      class="w-[600px] h-auto object-cover transition-transform duration-300"
+                    />
+                    <div
+                      class="absolute inset-0 bg-gradient-to-t from-pink-500/20 to-transparent rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                    ></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Plan Your Trip Dropdown -->
+          <div class="dropdown relative">
+            <button
+              class="nav-item flex items-center space-x-2 px-4 py-2 rounded-lg transition-all duration-200"
+            >
+              <svg
+                class="w-4 h-4"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
+                ></path>
+              </svg>
+              <span class="font-medium">Plan Your Trip</span>
+              <svg
+                class="w-4 h-4 transition-transform duration-200"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M19 9l-7 7-7-7"
+                ></path>
+              </svg>
+            </button>
+            <div
+              class="dropdown-content absolute w-[800px] bg-white rounded-xl shadow-2xl border border-gray-100 p-6"
+            >
+              <div class="grid md:grid-cols-3 gap-6">
+                <div class="space-y-4">
+                  <h3 class="text-lg font-bold text-pink-500 flex items-center">
+                    <svg
+                      class="w-5 h-5 mr-2"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"
+                      ></path>
+                    </svg>
+                    Planning Tools
+                  </h3>
+                  <div class="space-y-2">
+                    <a
+                      href="#"
+                      class="dropdown-item flex items-start space-x-3 p-3 rounded-lg"
+                    >
+                      <svg
+                        class="item-icon w-5 h-5 text-gray-600 mt-0.5 flex-shrink-0 transition-all duration-200"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          stroke-width="2"
+                          d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"
+                        ></path>
+                      </svg>
+                      <div>
+                        <div
+                          class="item-title font-semibold text-gray-800 transition-colors duration-200"
+                        >
+                          Promotion
+                        </div>
+                        <div class="text-sm text-gray-500">
+                          Special deals and offers
+                        </div>
+                      </div>
+                    </a>
+                    <a
+                      href="#"
+                      class="dropdown-item flex items-start space-x-3 p-3 rounded-lg"
+                    >
+                      <svg
+                        class="item-icon w-5 h-5 text-gray-600 mt-0.5 flex-shrink-0 transition-all duration-200"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          stroke-width="2"
+                          d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
+                        ></path>
+                      </svg>
+                      <div>
+                        <div
+                          class="item-title font-semibold text-gray-800 transition-colors duration-200"
+                        >
+                          Trip Planner
+                        </div>
+                        <div class="text-sm text-gray-500">
+                          Plan your perfect itinerary
+                        </div>
+                      </div>
+                    </a>
+                    <a
+                      href="#"
+                      class="dropdown-item flex items-start space-x-3 p-3 rounded-lg"
+                    >
+                      <svg
+                        class="item-icon w-5 h-5 text-gray-600 mt-0.5 flex-shrink-0 transition-all duration-200"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          stroke-width="2"
+                          d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"
+                        ></path>
+                      </svg>
+                      <div>
+                        <div
+                          class="item-title font-semibold text-gray-800 transition-colors duration-200"
+                        >
+                          Tour Agents
+                        </div>
+                        <div class="text-sm text-gray-500">
+                          Professional tour services
+                        </div>
+                      </div>
+                    </a>
+                    <a
+                      href="#"
+                      class="dropdown-item flex items-start space-x-3 p-3 rounded-lg"
+                    >
+                      <svg
+                        class="item-icon w-5 h-5 text-gray-600 mt-0.5 flex-shrink-0 transition-all duration-200"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          stroke-width="2"
+                          d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"
+                        ></path>
+                      </svg>
+                      <div>
+                        <div
+                          class="item-title font-semibold text-gray-800 transition-colors duration-200"
+                        >
+                          Stays
+                        </div>
+                        <div class="text-sm text-gray-500">
+                          Hotels and accommodations
+                        </div>
+                      </div>
+                    </a>
+                    <a
+                      href="#"
+                      class="dropdown-item flex items-start space-x-3 p-3 rounded-lg"
+                    >
+                      <svg
+                        class="item-icon w-5 h-5 text-gray-600 mt-0.5 flex-shrink-0 transition-all duration-200"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          stroke-width="2"
+                          d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064"
+                        ></path>
+                      </svg>
+                      <div>
+                        <div
+                          class="item-title font-semibold text-gray-800 transition-colors duration-200"
+                        >
+                          Around Cambodia
+                        </div>
+                        <div class="text-sm text-gray-500">
+                          Explore neighboring countries
+                        </div>
+                      </div>
+                    </a>
+                  </div>
+                </div>
+                <div class="space-y-4">
+                  <h3 class="text-lg font-bold text-pink-500 flex items-center">
+                    <svg
+                      class="w-5 h-5 mr-2"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+                      ></path>
+                    </svg>
+                    Travel Information
+                  </h3>
+                  <div class="space-y-2">
+                    <a
+                      href="#"
+                      class="dropdown-item flex items-start space-x-3 p-3 rounded-lg"
+                    >
+                      <svg
+                        class="item-icon w-5 h-5 text-gray-600 mt-0.5 flex-shrink-0 transition-all duration-200"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          stroke-width="2"
+                          d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"
+                        ></path>
+                      </svg>
+                      <div>
+                        <div
+                          class="item-title font-semibold text-gray-800 transition-colors duration-200"
+                        >
+                          Getting to Cambodia
+                        </div>
+                        <div class="text-sm text-gray-500">
+                          Flights and transportation
+                        </div>
+                      </div>
+                    </a>
+                    <a
+                      href="#"
+                      class="dropdown-item flex items-start space-x-3 p-3 rounded-lg"
+                    >
+                      <svg
+                        class="item-icon w-5 h-5 text-gray-600 mt-0.5 flex-shrink-0 transition-all duration-200"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          stroke-width="2"
+                          d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
+                        ></path>
+                      </svg>
+                      <div>
+                        <div
+                          class="item-title font-semibold text-gray-800 transition-colors duration-200"
+                        >
+                          Passports & Visa
+                        </div>
+                        <div class="text-sm text-gray-500">
+                          Entry requirements
+                        </div>
+                      </div>
+                    </a>
+                    <a
+                      href="#"
+                      class="dropdown-item flex items-start space-x-3 p-3 rounded-lg"
+                    >
+                      <svg
+                        class="item-icon w-5 h-5 text-gray-600 mt-0.5 flex-shrink-0 transition-all duration-200"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          stroke-width="2"
+                          d="M9 5H7a2 2 0 00-2 2v10a2 2 0 002 2h8a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"
+                        ></path>
+                      </svg>
+                      <div>
+                        <div
+                          class="item-title font-semibold text-gray-800 transition-colors duration-200"
+                        >
+                          Customs & Duty
+                        </div>
+                        <div class="text-sm text-gray-500">
+                          What you need to know
+                        </div>
+                      </div>
+                    </a>
+                    <a
+                      href="#"
+                      class="dropdown-item flex items-start space-x-3 p-3 rounded-lg"
+                    >
+                      <svg
+                        class="item-icon w-5 h-5 text-gray-600 mt-0.5 flex-shrink-0 transition-all duration-200"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          stroke-width="2"
+                          d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1"
+                        ></path>
+                      </svg>
+                      <div>
+                        <div
+                          class="item-title font-semibold text-gray-800 transition-colors duration-200"
+                        >
+                          Cambodia Currency
+                        </div>
+                        <div class="text-sm text-gray-500">
+                          Money and payments
+                        </div>
+                      </div>
+                    </a>
+                  </div>
+                </div>
+                <div class="flex items-center justify-center">
+                  <div class="relative group">
+                    <img
+                      src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/47/Cambodia_provinces_en.svg/960px-Cambodia_provinces_en.svg.png"
+                      alt="Travel Planning"
+                      class="w-[600px] h-auto object-cover transition-transform duration-300"
+                    />
+                    <div
+                      class="absolute inset-0 bg-gradient-to-t from-pink-500/20 to-transparent rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                    ></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Experience Dropdown -->
+          <div class="dropdown relative">
+            <button
+              class="nav-item flex items-center space-x-2 px-4 py-2 rounded-lg transition-all duration-200"
+            >
+              <svg
+                class="w-4 h-4"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M14.828 14.828a4 4 0 01-5.656 0M9 10h1m4 0h1m-6 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+                ></path>
+              </svg>
+              <span class="font-medium">Experience</span>
+              <svg
+                class="w-4 h-4 transition-transform duration-200"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M19 9l-7 7-7-7"
+                ></path>
+              </svg>
+            </button>
+            <div
+              class="dropdown-content absolute w-[800px] bg-white rounded-xl shadow-2xl border border-gray-100 p-6"
+            >
+              <div class="grid md:grid-cols-3 gap-6">
+                <div class="space-y-4">
+                  <h3 class="text-lg font-bold text-pink-500 flex items-center">
+                    <svg
+                      class="w-5 h-5 mr-2"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"
+                      ></path>
+                    </svg>
+                    What to Do
+                  </h3>
+                  <div class="space-y-2">
+                    <a
+                      href="#"
+                      class="dropdown-item flex items-start space-x-3 p-3 rounded-lg"
+                    >
+                      <svg
+                        class="item-icon w-5 h-5 text-gray-600 mt-0.5 flex-shrink-0 transition-all duration-200"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          stroke-width="2"
+                          d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z"
+                        ></path>
+                        <path
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          stroke-width="2"
+                          d="M15 13a3 3 0 11-6 0 3 3 0 016 0z"
+                        ></path>
+                      </svg>
+                      <div>
+                        <div
+                          class="item-title font-semibold text-gray-800 transition-colors duration-200"
+                        >
+                          See & Do
+                        </div>
+                        <div class="text-sm text-gray-500">
+                          Top attractions and activities
+                        </div>
+                      </div>
+                    </a>
+                    <a
+                      href="./Src/shopping.html"
+                      class="dropdown-item flex items-start space-x-3 p-3 rounded-lg"
+                    >
+                      <svg
+                        class="item-icon w-5 h-5 text-gray-600 mt-0.5 flex-shrink-0 transition-all duration-200"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          stroke-width="2"
+                          d="M16 11V7a4 4 0 00-8 0v4M8 11v6a2 2 0 002 2h4a2 2 0 002-2v-6M8 11h8"
+                        ></path>
+                      </svg>
+                      <div>
+                        <div
+                          class="item-title font-semibold text-gray-800 transition-colors duration-200"
+                        >
+                          Shopping
+                        </div>
+                        <div class="text-sm text-gray-500">
+                          Markets and souvenirs
+                        </div>
+                      </div>
+                    </a>
+                    <a
+                      href="./Src/see&do.html"
+                      class="dropdown-item flex items-start space-x-3 p-3 rounded-lg"
+                    >
+                      <svg
+                        class="item-icon w-5 h-5 text-gray-600 mt-0.5 flex-shrink-0 transition-all duration-200"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          stroke-width="2"
+                          d="M3 3h2l.4 2M7 13h10l4-8H5.4m0 0L7 13m0 0l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17M17 13v4a2 2 0 01-2 2H9a2 2 0 01-2-2v-4m8 0V9a2 2 0 00-2-2H9a2 2 0 00-2 2v4.01"
+                        ></path>
+                      </svg>
+                      <div>
+                        <div
+                          class="item-title font-semibold text-gray-800 transition-colors duration-200"
+                        >
+                          Food & Drink
+                        </div>
+                        <div class="text-sm text-gray-500">
+                          Culinary adventures
+                        </div>
+                      </div>
+                    </a>
+                    <a
+                      href="./src/events.html"
+                      class="dropdown-item flex items-start space-x-3 p-3 rounded-lg"
+                    >
+                      <svg
+                        class="item-icon w-5 h-5 text-gray-600 mt-0.5 flex-shrink-0 transition-all duration-200"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          stroke-width="2"
+                          d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
+                        ></path>
+                      </svg>
+                      <div>
+                        <div
+                          class="item-title font-semibold text-gray-800 transition-colors duration-200"
+                        >
+                          Events & Festival
+                        </div>
+                        <div class="text-sm text-gray-500">
+                          Cultural celebrations
+                        </div>
+                      </div>
+                    </a>
+                    <a
+                      href="#"
+                      class="dropdown-item flex items-start space-x-3 p-3 rounded-lg"
+                    >
+                      <svg
+                        class="item-icon w-5 h-5 text-gray-600 mt-0.5 flex-shrink-0 transition-all duration-200"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          stroke-width="2"
+                          d="M14.828 14.828a4 4 0 01-5.656 0M9 10h1m4 0h1m-6 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+                        ></path>
+                      </svg>
+                      <div>
+                        <div
+                          class="item-title font-semibold text-gray-800 transition-colors duration-200"
+                        >
+                          Entertainment
+                        </div>
+                        <div class="text-sm text-gray-500">
+                          Nightlife and shows
+                        </div>
+                      </div>
+                    </a>
+                  </div>
+                </div>
+                <div class="space-y-4">
+                  <h3 class="text-lg font-bold text-pink-500 flex items-center">
+                    <svg
+                      class="w-5 h-5 mr-2"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M7 7h.01M7 3h5c.512 0 1.024.195 1.414.586l7 7a2 2 0 010 2.828l-7 7a2 2 0 01-2.828 0l-7-7A1.994 1.994 0 013 12V7a4 4 0 014-4z"
+                      ></path>
+                    </svg>
+                    By Category
+                  </h3>
+                  <div class="space-y-2">
+                    <a
+                      href="#"
+                      class="dropdown-item flex items-start space-x-3 p-3 rounded-lg"
+                    >
+                      <div
+                        class="h-2 w-2 rounded-full bg-pink-500 mt-2 flex-shrink-0"
+                      ></div>
+                      <div>
+                        <div
+                          class="item-title font-semibold text-gray-800 transition-colors duration-200"
+                        >
+                          History / Religion / Museum
+                        </div>
+                        <div class="text-sm text-gray-500">
+                          Cultural heritage sites
+                        </div>
+                      </div>
+                    </a>
+                    <a
+                      href="#"
+                      class="dropdown-item flex items-start space-x-3 p-3 rounded-lg"
+                    >
+                      <div
+                        class="h-2 w-2 rounded-full bg-pink-500 mt-2 flex-shrink-0"
+                      ></div>
+                      <div>
+                        <div
+                          class="item-title font-semibold text-gray-800 transition-colors duration-200"
+                        >
+                          Nature & Outdoor
+                        </div>
+                        <div class="text-sm text-gray-500">Natural wonders</div>
+                      </div>
+                    </a>
+                    <a
+                      href="./src/events.html"
+                      class="dropdown-item flex items-start space-x-3 p-3 rounded-lg"
+                    >
+                      <div
+                        class="h-2 w-2 rounded-full bg-pink-500 mt-2 flex-shrink-0"
+                      ></div>
+                      <div>
+                        <div
+                          class="item-title font-semibold text-gray-800 transition-colors duration-200"
+                        >
+                          Events & Festival
+                        </div>
+                        <div class="text-sm text-gray-500">
+                          Cultural celebrations
+                        </div>
+                      </div>
+                    </a>
+                    <a
+                      href="./src/see&do.html"
+                      class="dropdown-item flex items-start space-x-3 p-3 rounded-lg"
+                    >
+                      <div
+                        class="h-2 w-2 rounded-full bg-pink-500 mt-2 flex-shrink-0"
+                      ></div>
+                      <div>
+                        <div
+                          class="item-title font-semibold text-gray-800 transition-colors duration-200"
+                        >
+                          Foods
+                        </div>
+                        <div class="text-sm text-gray-500">Local cuisine</div>
+                      </div>
+                    </a>
+                  </div>
+                </div>
+                <div class="flex items-center justify-center">
+                  <div class="relative group">
+                    <img
+                      src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/47/Cambodia_provinces_en.svg/960px-Cambodia_provinces_en.svg.png"
+                      alt="Cambodia Map"
+                      class="w-[600px] h-auto object-cover transition-transform duration-300"
+                    />
+                    <div
+                      class="absolute inset-0 bg-gradient-to-t from-pink-500/20 to-transparent rounded-xl opacity-0 transition-opacity duration-300"
+                    ></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- About Us -->
+          <a
+            href="#"
+            class="nav-item flex items-center space-x-2 px-4 py-2 rounded-lg transition-all duration-200"
+          >
+            <svg
+              class="w-4 h-4"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+              ></path>
+            </svg>
+            <span class="font-medium">About Us</span>
+          </a>
+        </nav>
+
+        <!-- Mobile Menu Button -->
+        <div class="flex items-center space-x-2 lg:hidden">
+          <a
+            href="./src/search.html"
+            class="p-2 rounded-lg hover:bg-gray-100 transition-colors mobile-button"
+          >
+            <svg
+              class="w-5 h-5"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+              ></path>
+            </svg>
+          </a>
+          <button
+            id="mobile-menu-button"
+            class="p-2 rounded-lg hover:bg-gray-100 transition-colors mobile-button"
+          >
+            <svg
+              class="w-5 h-5"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M4 6h16M4 12h16M4 18h16"
+              ></path>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <!-- Mobile Menu -->
+    <div
+      id="mobile-menu"
+      class="mobile-menu fixed top-0 right-0 h-full w-80 bg-white shadow-2xl z-50 lg:hidden"
+    >
+      <div class="p-6">
+        <div class="flex justify-between items-center mb-8">
+          <h2 class="text-xl font-bold text-gray-800">Menu</h2>
+          <button
+            id="close-mobile-menu"
+            class="p-2 rounded-lg hover:bg-gray-100 transition-colors"
+          >
+            <svg
+              class="w-5 h-5"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M6 18L18 6M6 6l12 12"
+              ></path>
+            </svg>
+          </button>
+        </div>
+        <nav class="space-y-2">
+          <a
+            href="./src/search.html"
+            class="mobile-menu-item flex items-center space-x-3 p-4 rounded-lg hover:bg-gray-50"
+          >
+            <svg
+              class="w-5 h-5 text-pink-500"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+              ></path>
+            </svg>
+            <span class="font-medium">Search</span>
+          </a>
+          <a
+            href="#"
+            class="mobile-menu-item flex items-center justify-between p-4 rounded-lg hover:bg-gray-50"
+          >
+            <div class="flex items-center space-x-3">
+              <svg
+                class="w-5 h-5 text-pink-500"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
+                ></path>
+              </svg>
+              <span class="font-medium">Destinations</span>
+            </div>
+            <svg
+              class="w-4 h-4 text-gray-400"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M9 5l7 7-7 7"
+              ></path>
+            </svg>
+          </a>
+          <a
+            href="#"
+            class="mobile-menu-item flex items-center justify-between p-4 rounded-lg hover:bg-gray-50"
+          >
+            <div class="flex items-center space-x-3">
+              <svg
+                class="w-5 h-5 text-pink-500"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
+                ></path>
+              </svg>
+              <span class="font-medium">Plan Your Trip</span>
+            </div>
+            <svg
+              class="w-4 h-4 text-gray-400"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M9 5l7 7-7 7"
+              ></path>
+            </svg>
+          </a>
+          <a
+            href="#"
+            class="mobile-menu-item flex items-center justify-between p-4 rounded-lg hover:bg-gray-50"
+          >
+            <div class="flex items-center space-x-3">
+              <svg
+                class="w-5 h-5 text-pink-500"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M14.828 14.828a4 4 0 01-5.656 0M9 10h1m4 0h1m-6 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+                ></path>
+              </svg>
+              <span class="font-medium">Experience</span>
+            </div>
+            <svg
+              class="w-4 h-4 text-gray-400"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M9 5l7 7-7 7"
+              ></path>
+            </svg>
+          </a>
+          <a
+            href="#"
+            class="mobile-menu-item flex items-center space-x-3 p-4 rounded-lg hover:bg-gray-50"
+          >
+            <svg
+              class="w-5 h-5 text-pink-500"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+              ></path>
+            </svg>
+            <span class="font-medium">About Us</span>
+          </a>
+        </nav>
+      </div>
+    </div>
+
+    <!-- Mobile Menu Overlay -->
+    <div
+      id="mobile-menu-overlay"
+      class="fixed inset-0 bg-black bg-opacity-50 z-40 hidden lg:hidden transition-opacity duration-300"
+    ></div>
+
+    <!-- Hero Section - Mobile Responsive -->
+    <section
+      class="hero-section relative w-full overflow-hidden flex items-center justify-center"
+    >
+      <video
+        autoplay
+        muted
+        loop
+        playsinline
+        class="absolute inset-0 h-full w-full object-cover"
+      >
+        <source
+          src="https://dmc.tatdataapi.io/assets/8b4d1335-75a6-43b4-9a93-2d81df7e8f8e.mp4"
+          type="video/mp4"
+        />
+        Your browser does not support the video tag.
+      </video>
+
+      <!-- Enhanced Overlay -->
+      <div class="hero-overlay absolute inset-0"></div>
+
+      <!-- Content -->
+      <div
+        class="relative z-10 text-center text-white fade-in-up px-4 max-w-4xl mx-auto"
+      >
+        <h1
+          class="mb-4 md:mb-6 text-3xl md:text-4xl lg:text-6xl xl:text-7xl font-bold leading-tight"
+        >
+          Discover Cambodia
+        </h1>
+        <p
+          class="fade-in-up-delay mb-6 md:mb-8 text-base md:text-lg lg:text-xl xl:text-2xl leading-relaxed max-w-3xl mx-auto opacity-90"
+        >
+          Experience the wonder of ancient temples, vibrant culture, and
+          breathtaking landscapes
+        </p>
+        <div
+          class="fade-in-up-delay-2 flex flex-col sm:flex-row gap-3 md:gap-4 justify-center items-center"
+        >
+          <a
+            href="#"
+            class="group inline-flex items-center justify-center px-6 md:px-8 py-3 md:py-4 text-sm md:text-base font-semibold rounded-xl text-white bg-pink-500 hover:bg-pink-600 transition-all duration-300 transform hover:scale-105 hover:shadow-2xl"
+          >
+            <span>Start Planning Your Journey</span>
+            <svg
+              class="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform duration-200"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M9 5l7 7-7 7"
+              ></path>
+            </svg>
+          </a>
+          <a
+            href="#"
+            class="group inline-flex items-center justify-center px-6 md:px-8 py-3 md:py-4 text-sm md:text-base font-semibold rounded-xl text-white border-2 border-white hover:bg-white hover:text-gray-900 transition-all duration-300 transform hover:scale-105 hover:shadow-2xl"
+          >
+            <span>Explore Destinations</span>
+            <svg
+              class="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform duration-200"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M9 5l7 7-7 7"
+              ></path>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- destination=========== -->
+    <section
+      class="bg-[#ffffff] text-gray-800 font-sans dark:bg-gray-900 dark:text-white transition-colors duration-300"
+    >
+      <section>
+        <!-- Navigation Tabs -->
+        <nav
+          class="w-full max-w-4xl mx-auto mt-6 rounded-3xl shadow-md bg-white dark:bg-gray-800"
+          data-aos="fade-down"
+          data-aos-duration="1000"
+        >
+          <div
+            class="flex justify-center flex-wrap space-x-4 sm:space-x-8 px-4 py-3"
+          >
+            <a
+              href="#"
+              class="text-gray-600 dark:text-gray-300 hover:text-pink-500"
+              data-aos="fade-up"
+              data-aos-delay="100"
+              >North</a
+            >
+            <a
+              href="#"
+              class="text-pink-600 font-semibold border-b-2 border-pink-600"
+              data-aos="fade-up"
+              data-aos-delay="200"
+              >Central</a
+            >
+            <a
+              href="#"
+              class="text-gray-600 dark:text-gray-300 hover:text-pink-500"
+              data-aos="fade-up"
+              data-aos-delay="300"
+              >South</a
+            >
+            <a
+              href="#"
+              class="text-gray-600 dark:text-gray-300 hover:text-pink-500"
+              data-aos="fade-up"
+              data-aos-delay="400"
+              >East</a
+            >
+            <a
+              href="#"
+              class="text-gray-600 dark:text-gray-300 hover:text-pink-500"
+              data-aos="fade-up"
+              data-aos-delay="500"
+              >North East</a
+            >
+            <a
+              href="#"
+              class="text-gray-600 dark:text-gray-300 hover:text-pink-500"
+              data-aos="fade-up"
+              data-aos-delay="600"
+              >West</a
+            >
+          </div>
+        </nav>
+
+        <!-- Main Section -->
+        <section
+          class="max-w-7xl mx-auto px-4 py-12 flex flex-col lg:flex-row gap-12"
+        >
+          <!-- Map -->
+          <div
+            class="flex-1 flex justify-center"
+            data-aos="fade-right"
+            data-aos-duration="1200"
+          >
+            <div class="relative max-w-md w-full">
+              <img
+                src="./img/map.png"
+                alt="Map of Thailand"
+                class="w-full rounded-xl bg-none"
+              />
+              <div class="absolute top-[30%] left-[46%]">
+                <div
+                  class="w-4 h-4 bg-yellow-500 rounded-full shadow-md"
+                  data-aos="zoom-in"
+                  data-aos-delay="200"
+                ></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Text -->
+          <div class="flex-1" data-aos="fade-left" data-aos-duration="1200">
+            <h2 class="text-yellow-400 text-5xl font-bold mb-6">Central</h2>
+            <p class="text-lg leading-relaxed text-gray-700 dark:text-gray-200">
+              Central Cambodia is mainly plains and is a huge area of rice
+              farming and agriculture. The Chao Phraya River is very important
+              to Cambodia's history. Interesting places to visit are ancient
+              historical temples, Siliver Pagoda Royal Palace.
+            </p>
+          </div>
+        </section>
+
+<!-- Province Cards Section -->
+<section class="px-4 pb-12">
+  <div class="flex justify-center">
+    <div class="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 gap-6">
+      <!-- Card Template -->
+      <div class="w-full max-w-[260px] h-[350px] rounded-2xl overflow-hidden shadow-lg relative mx-auto"
+        data-aos="fade-up" data-aos-delay="100" data-aos-duration="800" data-aos-easing="ease-in-out">
+        <a href="./src/floatingVillage.html">
+          <img
+            src="https://rderealphotos.com/wp-content/uploads/2020/09/74c17407-8f2e-4782-ba5f-6d2da96cd2d8.jpg?w=1024"
+            alt="Angkor Wat" class="w-full h-full object-cover transition-transform duration-300 hover:scale-110" />
+          <div
+            class="absolute bottom-0 w-full bg-black/50 dark:bg-white/10 text-white text-xl font-bold px-4 py-3 backdrop-blur-sm">
+            Floating Village
+          </div>
+        </a>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="w-full max-w-[260px] h-[350px] rounded-2xl overflow-hidden shadow-lg relative mx-auto"
+        data-aos="fade-up" data-aos-delay="200" data-aos-duration="800" data-aos-easing="ease-in-out">
+        <a href="./src/kirirom.html">
+          <img
+            src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/19/c6/09/95/our-last-experience-on.jpg?w=700&h=-1&s=1"
+            alt="Bayon Temple" class="w-full h-full object-cover transition-transform duration-300 hover:scale-110" />
+          <div
+            class="absolute bottom-0 w-full bg-black/50 dark:bg-white/10 text-white text-xl font-bold px-4 py-3 backdrop-blur-sm">
+            Kirirom
+          </div>
+        </a>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="w-full max-w-[260px] h-[350px] rounded-2xl overflow-hidden shadow-lg relative mx-auto"
+        data-aos="fade-up" data-aos-delay="300" data-aos-duration="800" data-aos-easing="ease-in-out">
+        <a href="#">
+          <img src="https://kampatour.com/pic/blog/images/Kampong-Thom-4.jpg" alt="Preah Vihear"
+            class="w-full h-full object-cover transition-transform duration-300 hover:scale-110" />
+          <div
+            class="absolute bottom-0 w-full bg-black/50 dark:bg-white/10 text-white text-xl font-bold px-4 py-3 backdrop-blur-sm">
+            Phnom Santuk
+          </div>
+        </a>
+      </div>
+
+      <!-- Card 4 -->
+      <div class="w-full max-w-[260px] h-[350px] rounded-2xl overflow-hidden shadow-lg relative mx-auto"
+        data-aos="fade-up" data-aos-delay="400" data-aos-duration="800" data-aos-easing="ease-in-out">
+        <a href="#">
+          <img src="https://global.kirirom.studio/wp-content/uploads/2021/03/kirirom.jpg" alt="kirirom"
+            class="w-full h-full object-cover transition-transform duration-300 hover:scale-110" />
+          <div
+            class="absolute bottom-0 w-full bg-black/50 dark:bg-white/10 text-white text-xl font-bold px-4 py-3 backdrop-blur-sm">
+            Kirirom Nature Land
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+  <div class="h-full flex items-center justify-center mt-[20px]"
+    data-aos="fade-up" data-aos-delay="500" data-aos-duration="800" data-aos-easing="ease-in-out">
+    <a href="#"
+      class="inline-block text-pink-600 border-2 border-pink-600 rounded-full px-6 py-2 hover:bg-pink-600 hover:text-white transition duration-300">
+      View More
+    </a>
+  </div>
+</section>
+
+      </section>
+    </section>
+
+    <!-- highlight event -->
+
+    <!-- Section 1 -->
+    <section class="bg-pink-300 pt-10 pb-10">
+      <div class="carousel-container">
+        <div class="w-full max-w-6xl mx-auto">
+          <div class="flex flex-col lg:flex-row items-center gap-6 lg:gap-12">
+            <div class="flex-1 text-center lg:text-left w-full lg:max-w-md">
+              <h1
+                class="text-2xl sm:text-3xl lg:text-4xl font-bold text-pink-600 mb-3 tracking-tight"
+              >
+                Highlight Events
+              </h1>
+              <p
+                class="text-base sm:text-lg lg:text-xl font-semibold text-gray-800 mb-2 transition-opacity duration-300"
+                id="eventName"
+              >
+                Khmer New Year
+              </p>
+              <p
+                class="text-sm sm:text-base lg:text-lg text-gray-700 mb-4 lg:mb-6 font-medium transition-opacity duration-300"
+                id="eventDate"
+              >
+                April 13-14-15 or 14-15-16 Every Years
+              </p>
+              <button
+                type="button"
+                class="py-2.5 px-5 sm:py-3 sm:px-6 lg:py-4 lg:px-8 inline-flex items-center gap-x-2 text-sm sm:text-base font-semibold rounded-full border border-transparent bg-pink-600 text-white hover:bg-pink-700 focus:outline-none focus:ring-2 focus:ring-pink-500 focus:ring-offset-2 transition-all duration-300 transform hover:-translate-y-1 hover:shadow-lg hover:shadow-pink-500/25"
+                onclick="handleViewMore()"
+                aria-label="View more details about the event"
+              >
+                View More
+                <svg
+                  class="flex-shrink-0 w-4 h-4"
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path d="m9 18 6-6-6-6" />
+                </svg>
+              </button>
+            </div>
+            <div class="flex-1 relative w-full max-w-xl lg:max-w-2xl">
+              <div
+                class="relative flex items-center justify-center perspective-1000"
+                role="region"
+                aria-label="Event carousel"
+              >
+                <button
+                  type="button"
+                  class="carousel-nav-btn absolute left-2 sm:left-4 lg:left-8 z-20 top-1/2 -translate-y-1/2 w-8 h-8 sm:w-10 sm:h-10 lg:w-12 lg:h-12 inline-flex justify-center items-center text-sm font-medium rounded-full border border-gray-200 bg-white/95 text-gray-800 shadow-sm hover:bg-white hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-gray-300 transition-all duration-300 hover:scale-105 backdrop-blur-10 touch-manipulation"
+                  id="prevBtn1"
+                  aria-label="Previous slide"
+                >
+                  <svg
+                    class="flex-shrink-0 w-3 h-3 sm:w-4 sm:h-4 lg:w-5 lg:h-5"
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <path d="m15 18-6-6 6-6" />
+                  </svg>
+                </button>
+                <div
+                  class="flex items-center justify-center mx-10 sm:mx-12 lg:mx-16 touch-pan-x"
+                  id="slidesContainer"
+                >
+                  <!-- Slides will be dynamically generated here -->
+                </div>
+                <button
+                  type="button"
+                  class="carousel-nav-btn absolute right-0 sm:right-2 lg:right-0 z-20 top-1/2 -translate-y-1/2 w-8 h-8 sm:w-10 sm:h-10 lg:w-12 lg:h-12 inline-flex justify-center items-center text-sm font-medium rounded-full border border-gray-200 bg-white/95 text-gray-800 shadow-sm hover:bg-white hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-gray-300 transition-all duration-300 hover:scale-105 backdrop-blur-10 touch-manipulation"
+                  id="nextBtn1"
+                  aria-label="Next slide"
+                >
+                  <svg
+                    class="flex-shrink-0 w-3 h-3 sm:w-4 sm:h-4 lg:w-5 lg:h-5"
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <path d="m9 18 6-6-6-6" />
+                  </svg>
+                </button>
+              </div>
+              <div
+                class="flex justify-center mt-4 space-x-2 sm:hidden"
+                id="dotsContainer1"
+                role="tablist"
+              >
+                <!-- Dots will be generated here -->
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!--======== Inspiration date  -->
+    <section class="bg-gray-50 font-sans min-h-screen py-12">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <!-- Header -->
+        <h1
+          class="text-[32px] lg:text-[40px] lg:text-5xl font-extrabold mb-10 text-left text-gray-800 tracking-tight"
+          data-aos="fade-up"
+          data-aos-duration="1000"
+        >
+          Inspiring Destinations
+        </h1>
+
+        <!-- Grid layout -->
+        <div
+          class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8"
+        >
+          <!-- Card Item -->
+          <div
+            class="bg-white rounded-2xl shadow-lg hover:shadow-2xl overflow-hidden cursor-pointer transform transition-all duration-300 ease-in-out hover:-translate-y-1"
+            data-aos="fade-up"
+            data-aos-duration="1000"
+            data-aos-delay="100"
+          >
+            <img
+              class="w-full h-60 object-cover"
+              src="./image/cambodia-2322839_1280.jpg"
+              alt="National Museum of Cambodia"
+            />
+            <div class="p-6">
+              <span
+                class="inline-block bg-rose-100 text-gray-800 text-sm font-semibold px-4 py-1.5 rounded-full transition-colors duration-300 hover:bg-amber-100"
+                data-aos="fade-in"
+                data-aos-duration="800"
+                data-aos-delay="200"
+              >
+                News & Update
+              </span>
+              <div
+                class="mt-4 text-xl font-semibold text-gray-800"
+                data-aos="fade-in"
+                data-aos-duration="800"
+                data-aos-delay="300"
+              >
+                ✨ National Museum of Cambodia ✨
+              </div>
+              <div
+                class="mt-3 flex items-center text-sm text-gray-500 space-x-6"
+                data-aos="fade-in"
+                data-aos-duration="800"
+                data-aos-delay="400"
+              >
+                <div class="flex items-center space-x-2">
+                  <i class="fa-solid fa-location-dot text-rose-500"></i>
+                  <span>14 Street 2568</span>
+                </div>
+                <div class="flex items-center space-x-2">
+                  <i class="fa-solid fa-eye text-rose-500"></i>
+                  <span>20,253</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card Item -->
+          <div
+            class="bg-white rounded-2xl shadow-lg hover:shadow-2xl overflow-hidden cursor-pointer transform transition-all duration-300 ease-in-out hover:-translate-y-1"
+            data-aos="fade-up"
+            data-aos-duration="1000"
+            data-aos-delay="200"
+          >
+            <img
+              class="w-full h-60 object-cover"
+              src="./image/angkorwate1.jpg"
+              alt="Angkor Wat Temples"
+            />
+            <div class="p-6">
+              <span
+                class="inline-block bg-rose-100 text-gray-800 text-sm font-semibold px-4 py-1.5 rounded-full transition-colors duration-300 hover:bg-amber-100"
+                data-aos="fade-in"
+                data-aos-duration="800"
+                data-aos-delay="300"
+              >
+                News & Update
+              </span>
+              <div
+                class="mt-4 text-xl font-semibold text-gray-800"
+                data-aos="fade-in"
+                data-aos-duration="800"
+                data-aos-delay="400"
+              >
+                ✨ Angkor Wat Temples ✨
+              </div>
+              <div
+                class="mt-3 flex items-center text-sm text-gray-500 space-x-6"
+                data-aos="fade-in"
+                data-aos-duration="800"
+                data-aos-delay="500"
+              >
+                <div class="flex items-center space-x-2">
+                  <i class="fa-solid fa-location-dot text-rose-500"></i>
+                  <span>10 Street 2568</span>
+                </div>
+                <div class="flex items-center space-x-2">
+                  <i class="fa-solid fa-eye text-rose-500"></i>
+                  <span>15,892</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card Item -->
+          <div
+            class="bg-white rounded-2xl shadow-lg hover:shadow-2xl overflow-hidden cursor-pointer transform transition-all duration-300 ease-in-out hover:-translate-y-1"
+            data-aos="fade-up"
+            data-aos-duration="1000"
+            data-aos-delay="300"
+          >
+            <img
+              class="w-full h-60 object-cover"
+              src="./image/pub.jpg"
+              alt="Pub Street"
+            />
+            <div class="p-6">
+              <span
+                class="inline-block bg-rose-100 text-gray-800 text-sm font-semibold px-4 py-1.5 rounded-full transition-colors duration-300 hover:bg-amber-100"
+                data-aos="fade-in"
+                data-aos-duration="800"
+                data-aos-delay="400"
+              >
+                News & Update
+              </span>
+              <div
+                class="mt-4 text-xl font-semibold text-gray-800"
+                data-aos="fade-in"
+                data-aos-duration="800"
+                data-aos-delay="500"
+              >
+                ✨ Pub Street ✨
+              </div>
+              <div
+                class="mt-3 flex items-center text-sm text-gray-500 space-x-6"
+                data-aos="fade-in"
+                data-aos-duration="800"
+                data-aos-delay="600"
+              >
+                <div class="flex items-center space-x-2">
+                  <i class="fa-solid fa-location-dot text-rose-500"></i>
+                  <span>7 Street 2568</span>
+                </div>
+                <div class="flex items-center space-x-2">
+                  <i class="fa-solid fa-eye text-rose-500"></i>
+                  <span>17,777</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card Item -->
+          <div
+            class="bg-white rounded-2xl shadow-lg hover:shadow-2xl overflow-hidden cursor-pointer transform transition-all duration-300 ease-in-out hover:-translate-y-1"
+            data-aos="fade-up"
+            data-aos-duration="1000"
+            data-aos-delay="400"
+          >
+            <img
+              class="w-full h-60 object-cover"
+              src="./image/ankor.jpg"
+              alt="KAWS HOLIDAY BANGKOK"
+            />
+            <div class="p-6">
+              <span
+                class="inline-block bg-rose-100 text-gray-800 text-sm font-semibold px-4 py-1.5 rounded-full transition-colors duration-300 hover:bg-amber-100"
+                data-aos="fade-in"
+                data-aos-duration="800"
+                data-aos-delay="500"
+              >
+                News & Update
+              </span>
+              <div
+                class="mt-4 text-xl font-semibold text-gray-800"
+                data-aos="fade-in"
+                data-aos-duration="800"
+                data-aos-delay="600"
+              >
+                ✨ KAWS HOLIDAY BANGKOK ✨
+              </div>
+              <div
+                class="mt-3 flex items-center text-sm text-gray-500 space-x-6"
+                data-aos="fade-in"
+                data-aos-duration="800"
+                data-aos-delay="700"
+              >
+                <div class="flex items-center space-x-2">
+                  <i class="fa-solid fa-location-dot text-rose-500"></i>
+                  <span>10 Street 2568</span>
+                </div>
+                <div class="flex items-center space-x-2">
+                  <i class="fa-solid fa-eye text-rose-500"></i>
+                  <span>15,892</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card Item -->
+          <div
+            class="bg-white rounded-2xl shadow-lg hover:shadow-2xl overflow-hidden cursor-pointer transform transition-all duration-300 ease-in-out hover:-translate-y-1"
+            data-aos="fade-up"
+            data-aos-duration="1000"
+            data-aos-delay="500"
+          >
+            <img
+              class="w-full h-60 object-cover"
+              src="./image/hotel2.jpeg"
+              alt="Wild Restaurant"
+            />
+            <div class="p-6">
+              <span
+                class="inline-block bg-rose-100 text-gray-800 text-sm font-semibold px-4 py-1.5 rounded-full transition-colors duration-300 hover:bg-amber-100"
+                data-aos="fade-in"
+                data-aos-duration="800"
+                data-aos-delay="600"
+              >
+                News & Update
+              </span>
+              <div
+                class="mt-4 text-xl font-semibold text-gray-800"
+                data-aos="fade-in"
+                data-aos-duration="800"
+                data-aos-delay="700"
+              >
+                ✨ Wild Restaurant ✨
+              </div>
+              <div
+                class="mt-3 flex items-center text-sm text-gray-500 space-x-6"
+                data-aos="fade-in"
+                data-aos-duration="800"
+                data-aos-delay="800"
+              >
+                <div class="flex items-center space-x-2">
+                  <i class="fa-solid fa-location-dot text-rose-500"></i>
+                  <span>10 Street 2568</span>
+                </div>
+                <div class="flex items-center space-x-2">
+                  <i class="fa-solid fa-eye text-rose-500"></i>
+                  <span>15,892</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card Item -->
+          <div
+            class="bg-white rounded-2xl shadow-lg hover:shadow-2xl overflow-hidden cursor-pointer transform transition-all duration-300 ease-in-out hover:-translate-y-1"
+            data-aos="fade-up"
+            data-aos-duration="1000"
+            data-aos-delay="600"
+          >
+            <img
+              class="w-full h-60 object-cover"
+              src="./image/hotel1.jpg"
+              alt="Hotel Layout"
+            />
+            <div class="p-6">
+              <span
+                class="inline-block bg-rose-100 text-gray-800 text-sm font-semibold px-4 py-1.5 rounded-full transition-colors duration-300 hover:bg-amber-100"
+                data-aos="fade-in"
+                data-aos-duration="800"
+                data-aos-delay="700"
+              >
+                News & Update
+              </span>
+              <div
+                class="mt-4 text-xl font-semibold text-gray-800"
+                data-aos="fade-in"
+                data-aos-duration="800"
+                data-aos-delay="800"
+              >
+                ✨ Hotel Layout ✨
+              </div>
+              <div
+                class="mt-3 flex items-center text-sm text-gray-500 space-x-6"
+                data-aos="fade-in"
+                data-aos-duration="800"
+                data-aos-delay="900"
+              >
+                <div class="flex items-center space-x-2">
+                  <i class="fa-solid fa-location-dot text-rose-500"></i>
+                  <span>10 Street 2568</span>
+                </div>
+                <div class="flex items-center space-x-2">
+                  <i class="fa-solid fa-eye text-rose-500"></i>
+                  <span>15,892</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card Item -->
+          <div
+            class="bg-white rounded-2xl shadow-lg hover:shadow-2xl overflow-hidden cursor-pointer transform transition-all duration-300 ease-in-out hover:-translate-y-1"
+            data-aos="fade-up"
+            data-aos-duration="1000"
+            data-aos-delay="700"
+          >
+            <img
+              class="w-full h-60 object-cover"
+              src="./image/hotel.webp"
+              alt="Hotel In Room"
+            />
+            <div class="p-6">
+              <span
+                class="inline-block bg-rose-100 text-gray-800 text-sm font-semibold px-4 py-1.5 rounded-full transition-colors duration-300 hover:bg-amber-100"
+                data-aos="fade-in"
+                data-aos-duration="800"
+                data-aos-delay="800"
+              >
+                News & Update
+              </span>
+              <div
+                class="mt-4 text-xl font-semibold text-gray-800"
+                data-aos="fade-in"
+                data-aos-duration="800"
+                data-aos-delay="900"
+              >
+                ✨ Hotel In Room ✨
+              </div>
+              <div
+                class="mt-3 flex items-center text-sm text-gray-500 space-x-6"
+                data-aos="fade-in"
+                data-aos-duration="800"
+                data-aos-delay="1000"
+              >
+                <div class="flex items-center space-x-2">
+                  <i class="fa-solid fa-location-dot text-rose-500"></i>
+                  <span>7 Street 2568</span>
+                </div>
+                <div class="flex items-center space-x-2">
+                  <i class="fa-solid fa-eye text-rose-500"></i>
+                  <span>17,777</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- AOS CSS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+
+    <!-- AOS JS -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+      AOS.init({
+        duration: 1000, // Global duration for animations
+        once: true, // Animations occur only once
+        offset: 100, // Trigger animations 100px before element is in view
+      });
+    </script>
+    <section class="bg-gradient-to-br from-gray-50 to-gray-100">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 md:px-32 lg:px-24 py-6">
+        <!-- Header -->
+        <header
+          class="text-left mb-4"
+          data-aos="fade-down"
+          data-aos-duration="800"
+        >
+          <h3
+            class="text-[32px] lg:text-[40px] lg:text-5xl font-bold bg-gradient-to-r from-gray-800 to-gray-800 bg-clip-text text-transparent mb-2"
+          >
+            Experience Khmerness
+          </h3>
+        </header>
+
+        <main id="main-content">
+          <section
+            class="grid grid-cols-2 md:grid-cols-4 grid-rows-3 h-auto gap-4"
+          >
+            <!-- Khmer Foods -->
+            <article
+              class="col-span-2 row-span-2 relative group"
+              data-aos="fade-up-right"
+              data-aos-duration="800"
+              data-aos-delay="100"
+            >
+              <a
+                href="./src/see&do.html"
+                class="block w-full h-full"
+                aria-label="Explore Khmer Foods"
+              >
+                <div
+                  class="relative w-full h-full sm:h-full rounded-2xl overflow-hidden shadow-lg"
+                >
+                  <img
+                    src="https://www.tourismthailand.org/images/home/experiences/thai-food.png.webp"
+                    alt="Traditional Khmer food"
+                    class="w-full h-full object-cover rounded-2xl transform group-hover:scale-105 transition-transform duration-500"
+                  />
+                  <div
+                    class="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent group-hover:from-black/40 transition-all duration-400"
+                  ></div>
+                  <div class="absolute bottom-4 left-4 right-4">
+                    <h2
+                      class="text-white text-xl font-bold mb-1 drop-shadow-lg"
+                    >
+                      Khmer Foods
+                    </h2>
+                  </div>
+                </div>
+              </a>
+            </article>
+
+            <!-- Temples -->
+            <article
+              class="relative group"
+              data-aos="fade-up"
+              data-aos-duration="800"
+              data-aos-delay="200"
+            >
+              <a
+                href="temples.html"
+                class="block w-full h-full"
+                aria-label="Explore Temples"
+              >
+                <div
+                  class="relative w-full h-full min-h-[90px] rounded-2xl overflow-hidden shadow-lg"
+                >
+                  <img
+                    src="https://ucarecdn.com/ea7e5840-a3a7-43b6-a9ca-314ce60bd7e0/-/crop/4240x2387/0,223/-/preview/"
+                    alt="Buddhist Temple"
+                    class="w-full h-full object-cover rounded-2xl transform group-hover:scale-105 transition-transform duration-500"
+                  />
+                  <div
+                    class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent group-hover:from-black/30 transition-all duration-300"
+                  ></div>
+                  <div class="absolute bottom-2 left-2">
+                    <h3 class="text-white text-sm font-bold drop-shadow-md">
+                      Temples
+                    </h3>
+                  </div>
+                </div>
+              </a>
+            </article>
+
+            <!-- Palaces -->
+            <article
+              class="relative group"
+              data-aos="fade-up"
+              data-aos-duration="800"
+              data-aos-delay="300"
+            >
+              <a
+                href="palaces.html"
+                class="block w-full h-full"
+                aria-label="Explore Palaces"
+              >
+                <div
+                  class="relative w-full h-full min-h-[90px] rounded-2xl overflow-hidden shadow-lg"
+                >
+                  <img
+                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTkpjZErbobH2s5RHAe3LfHaEToH60mt6XLrA&s"
+                    alt="Traditional Palace"
+                    class="w-full h-full object-cover rounded-2xl transform group-hover:scale-105 transition-transform duration-500"
+                  />
+                  <div
+                    class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent group-hover:from-black/30 transition-all duration-300"
+                  ></div>
+                  <div class="absolute bottom-2 left-2">
+                    <h3 class="text-white text-sm font-bold drop-shadow-md">
+                      Palaces
+                    </h3>
+                  </div>
+                </div>
+              </a>
+            </article>
+
+            <!-- Beaches -->
+            <article
+              class="md:row-start-3 relative group"
+              data-aos="fade-up"
+              data-aos-duration="800"
+              data-aos-delay="400"
+            >
+              <a
+                href="beaches.html"
+                class="block w-full h-full"
+                aria-label="Explore Beaches"
+              >
+                <div
+                  class="relative w-full h-full min-h-[90px] rounded-2xl overflow-hidden shadow-lg"
+                >
+                  <img
+                    src="https://images.unsplash.com/photo-1537956965359-7573183d1f57?ixlib=rb-4.0.3&auto=format&fit=crop&w=2064&q=80"
+                    alt="Cambodian beach"
+                    class="w-full h-full object-cover rounded-2xl transform group-hover:scale-105 transition-transform duration-500"
+                  />
+                  <div
+                    class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent group-hover:from-black/30 transition-all duration-300"
+                  ></div>
+                  <div class="absolute bottom-2 left-2">
+                    <h3 class="text-white text-sm font-bold drop-shadow-md">
+                      Beaches
+                    </h3>
+                  </div>
+                </div>
+              </a>
+            </article>
+
+            <!-- Adventures -->
+            <article
+              class="md:row-start-3 relative group"
+              data-aos="fade-up"
+              data-aos-duration="800"
+              data-aos-delay="500"
+            >
+              <a
+                href="adventures.html"
+                class="block w-full h-full"
+                aria-label="Explore Adventures"
+              >
+                <div
+                  class="relative w-full h-full min-h-[90px] rounded-2xl overflow-hidden shadow-lg"
+                >
+                  <img
+                    src="https://images.unsplash.com/photo-1551632811-561732d1e306?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80"
+                    alt="Adventure forest"
+                    class="w-full h-full object-cover rounded-2xl transform group-hover:scale-105 transition-transform duration-500"
+                  />
+                  <div
+                    class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent group-hover:from-black/30 transition-all duration-300"
+                  ></div>
+                  <div class="absolute bottom-2 left-2">
+                    <h3 class="text-white text-sm font-bold drop-shadow-md">
+                      Adventures
+                    </h3>
+                  </div>
+                </div>
+              </a>
+            </article>
+
+            <!-- Festivals -->
+            <article
+              class="col-span-2 row-span-2 md:col-span-2 md:row-span-2 md:col-start-3 relative group"
+              data-aos="fade-up-left"
+              data-aos-duration="800"
+              data-aos-delay="100"
+            >
+              <a
+                href="festivals.html"
+                class="block w-full h-full"
+                aria-label="Explore Festivals"
+              >
+                <div
+                  class="relative w-full h-[200px] sm:h-full rounded-2xl overflow-hidden shadow-lg"
+                >
+                  <img
+                    src="https://www.tourismthailand.org/images/home/experiences/festival.png.webp"
+                    alt="Khmer Festival"
+                    class="w-full h-full object-cover rounded-2xl transform group-hover:scale-105 transition-transform duration-500"
+                  />
+                  <div
+                    class="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent group-hover:from-black/40 transition-all duration-400"
+                  ></div>
+                  <div class="absolute bottom-4 left-4 right-4">
+                    <h2
+                      class="text-white text-xl font-bold mb-1 drop-shadow-lg"
+                    >
+                      Festivals
+                    </h2>
+                  </div>
+                </div>
+              </a>
+            </article>
+          </section>
+        </main>
+
+        <section
+          class="mt-6 text-center"
+          data-aos="fade-up"
+          data-aos-duration="800"
+          data-aos-delay="600"
+        >
+          <div class="bg-white rounded-2xl shadow-lg p-6 lg:p-8">
+            <h2 class="text-2xl font-bold text-gray-800 mb-3">
+              Ready to Explore Cambodia?
+            </h2>
+            <p class="text-gray-600 mb-6 max-w-xl mx-auto text-sm">
+              Start your journey through the Kingdom of Wonder and create
+              unforgettable memories.
+            </p>
+            <button
+              class="bg-gradient-to-r from-amber-500 to-orange-500 text-white px-6 py-3 rounded-full font-semibold text-base hover:from-amber-600 hover:to-orange-600 transform hover:scale-105 transition-all duration-300 shadow-md hover:shadow-lg focus:outline-none focus:ring-3 focus:ring-amber-300"
+            >
+              Plan Your Adventure
+            </button>
+          </div>
+        </section>
+      </div>
+
+      <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" />
+      <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+      <script>
+        // Initialize AOS
+        AOS.init({
+          once: true,
+          offset: 100,
+          duration: 800,
+          easing: "ease-out-quart",
+        });
+      </script>
+    </section>
+    <!-- ============================================ -->
+
+    <section
+      class="bg-gradient-to-br from-gray-50 to-gray-100 font-sans antialiased"
+    >
+      <main class="container mx-auto px-6 py-12">
+        <div class="lg:flex lg:space-x-12 space-y-12 lg:space-y-0">
+          <!-- Left: Featured Event -->
+          <div class="w-full lg:w-1/2">
+            <a
+              href="/event/chompol-fest-2025"
+              class="relative group overflow-hidden rounded-3xl shadow-2xl featured-event block"
+              role="region"
+              aria-label="Featured Event: Chompol Fest"
+              data-aos="fade-up"
+              data-aos-duration="800"
+            >
+              <img
+                src="https://asset.cambodia.gov.kh/tourism/2023/11/photo_2023-11-16_17-33-43-723x1024.webp"
+                alt="Sea Festival 2025"
+                class="w-full h-[400px] sm:h-[500px] lg:h-[600px] object-cover image-hover"
+                loading="lazy"
+              />
+              <div class="absolute inset-0 gradient-overlay"></div>
+              <div
+                class="absolute inset-0 flex flex-col justify-end p-6 sm:p-8 text-white"
+              >
+                <div class="space-y-4">
+                  <div
+                    class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-primary/90 text-white w-fit"
+                  >
+                    <svg
+                      class="w-3 h-3 mr-1"
+                      fill="currentColor"
+                      viewBox="0 0 20 20"
+                      aria-hidden="true"
+                    >
+                      <path
+                        fill-rule="evenodd"
+                        d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z"
+                        clip-rule="evenodd"
+                      ></path>
+                    </svg>
+                    18–22 June 2025
+                  </div>
+                  <div class="space-y-1">
+                    <h1
+                      class="text-3xl sm:text-4xl lg:text-5xl font-bold leading-tight"
+                    >
+                      Chompol Fest
+                    </h1>
+                    <p class="text-xl sm:text-2xl font-semibold text-gray-100">
+                      2025
+                    </p>
+                  </div>
+                  <div
+                    class="flex items-center space-x-2 text-gray-200 text-sm sm:text-base"
+                  >
+                    <svg
+                      class="w-4 h-4"
+                      fill="currentColor"
+                      viewBox="0 0 20 20"
+                      aria-hidden="true"
+                    >
+                      <path
+                        fill-rule="evenodd"
+                        d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z"
+                        clip-rule="evenodd"
+                      ></path>
+                    </svg>
+                    <span>Kampot, Cambodia</span>
+                  </div>
+                  <span
+                    class="inline-block mt-4 bg-primary hover:bg-primary-dark text-white px-6 sm:px-8 py-2 sm:py-3 rounded-full font-semibold transition-all duration-300 hover:shadow-lg"
+                    role="button"
+                    aria-label="Get Tickets for Chompol Fest"
+                  >
+                    Get Tickets
+                  </span>
+                </div>
+              </div>
+            </a>
+          </div>
+
+          <!-- Right: Upcoming Events -->
+          <div class="w-full lg:w-1/2">
+            <!-- Header -->
+            <div class="mb-8 flex justify-between items-center">
+              <h2
+                class="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-800"
+              >
+                Upcoming Events
+              </h2>
+              <a
+                href="/events"
+                class="flex items-center text-primary hover:text-primary-dark hover:bg-primary/10 px-3 py-2 rounded-lg transition-colors text-sm sm:text-base"
+                aria-label="View All Events"
+              >
+                View All
+                <svg
+                  class="w-4 h-4 ml-1"
+                  fill="currentColor"
+                  viewBox="0 0 20 20"
+                  aria-hidden="true"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
+                    clip-rule="evenodd"
+                  ></path>
+                </svg>
+              </a>
+            </div>
+
+            <!-- Slider Container -->
+            <div
+              class="relative"
+              role="region"
+              aria-label="Upcoming Events Slider"
+            >
+              <!-- Cards Container -->
+              <div class="overflow-hidden">
+                <div id="slider" class="flex slider-container">
+                  <!-- Card 1: Featured -->
+                  <div
+                    class="w-full sm:w-1/2 lg:w-1/3 flex-shrink-0 px-2"
+                    data-aos="fade-up"
+                    data-aos-duration="800"
+                    data-aos-delay="100"
+                  >
+                    <a
+                      href="/event/chompol-fest-2025"
+                      class="card-hover block bg-white rounded-2xl ring-2 ring-primary shadow-lg overflow-hidden featured-card"
+                      role="article"
+                      aria-label="Chompol Fest 2025"
+                    >
+                      <div class="relative overflow-hidden">
+                        <img
+                          src="https://asset.cambodia.gov.kh/tourism/2023/11/photo_2023-11-16_17-33-43-723x1024.webp"
+                          alt="Chompol Fest 2025"
+                          class="w-full h-48 sm:h-64 object-cover card-image-hover"
+                          loading="lazy"
+                        />
+                        <div
+                          class="absolute inset-0 card-gradient-overlay"
+                        ></div>
+                        <div class="absolute top-3 left-3">
+                          <div
+                            class="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-primary text-white"
+                          >
+                            <svg
+                              class="w-3 h-3 mr-1 fill-current"
+                              viewBox="0 0 20 20"
+                              aria-hidden="true"
+                            >
+                              <path
+                                d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364e-16 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
+                              ></path>
+                            </svg>
+                            Featured
+                          </div>
+                        </div>
+                        <div
+                          class="absolute bottom-0 left-0 right-0 p-4 text-white"
+                        >
+                          <div
+                            class="inline-block px-2 py-1 rounded text-xs bg-white/20 mb-2"
+                          >
+                            Tran Festival
+                          </div>
+                          <h3 class="font-semibold text-sm leading-tight mb-1">
+                            Sea Festival 2025
+                          </h3>
+                          <div
+                            class="flex items-center justify-between text-xs text-gray-200"
+                          >
+                            <div class="flex items-center">
+                              <svg
+                                class="w-3 h-3 mr-1"
+                                fill="currentColor"
+                                viewBox="0 0 20 20"
+                                aria-hidden="true"
+                              >
+                                <path
+                                  fill-rule="evenodd"
+                                  d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z"
+                                  clip-rule="evenodd"
+                                ></path>
+                              </svg>
+                              Jun 18
+                            </div>
+                            <div class="flex items-center">
+                              <svg
+                                class="w-3 h-3 mr-1"
+                                fill="currentColor"
+                                viewBox="0 0 20 20"
+                                aria-hidden="true"
+                              >
+                                <path
+                                  fill-rule="evenodd"
+                                  d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z"
+                                  clip-rule="evenodd"
+                                ></path>
+                              </svg>
+                              Cambodia
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </a>
+                  </div>
+
+                  <!-- Card 2 -->
+                  <div
+                    class="w-full sm:w-1/2 lg:w-1/3 flex-shrink-0 px-2"
+                    data-aos="fade-up"
+                    data-aos-duration="800"
+                    data-aos-delay="200"
+                  >
+                    <a
+                      href="/event/khmer-festival-2025"
+                      class="card-hover block bg-white rounded-2xl shadow-md overflow-hidden"
+                      role="article"
+                      aria-label="Khmer Festival"
+                    >
+                      <div class="relative overflow-hidden">
+                        <img
+                          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ5GbTpwX9n1sBWtR_C7LwRFk39X56pljUc2iFtxNUWF6pJmipxHR4l8A1iPcnIMVGM8EY&usqp=CAU"
+                          alt="Khmer Festival"
+                          class="w-full h-48 sm:h-64 object-cover card-image-hover"
+                          loading="lazy"
+                        />
+                        <div
+                          class="absolute inset-0 card-gradient-overlay"
+                        ></div>
+                        <div
+                          class="absolute bottom-0 left-0 right-0 p-4 text-white"
+                        >
+                          <div
+                            class="inline-block px-2 py-1 rounded text-xs bg-white/20 mb-2"
+                          >
+                            Cultural Event
+                          </div>
+                          <h3 class="font-semibold text-sm leading-tight mb-1">
+                            Khmer Festival
+                          </h3>
+                          <div
+                            class="flex items-center justify-between text-xs text-gray-200"
+                          >
+                            <div class="flex items-center">
+                              <svg
+                                class="w-3 h-3 mr-1"
+                                fill="currentColor"
+                                viewBox="0 0 20 20"
+                                aria-hidden="true"
+                              >
+                                <path
+                                  fill-rule="evenodd"
+                                  d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z"
+                                  clip-rule="evenodd"
+                                ></path>
+                              </svg>
+                              Jun 19
+                            </div>
+                            <div class="flex items-center">
+                              <svg
+                                class="w-3 h-3 mr-1"
+                                fill="currentColor"
+                                viewBox="0 0 20 20"
+                                aria-hidden="true"
+                              >
+                                <path
+                                  fill-rule="evenodd"
+                                  d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z"
+                                  clip-rule="evenodd"
+                                ></path>
+                              </svg>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </a>
+                  </div>
+
+                  <!-- Card 3 -->
+                  <div
+                    class="w-full sm:w-1/2 lg:w-1/3 flex-shrink-0 px-2"
+                    data-aos="fade-up"
+                    data-aos-duration="800"
+                    data-aos-delay="300"
+                  >
+                    <a
+                      href="/event/tonle-festival-2025"
+                      class="card-hover block bg-white rounded-2xl shadow-md overflow-hidden"
+                      role="article"
+                      aria-label="Tonle Festival"
+                    >
+                      <div class="relative overflow-hidden">
+                        <img
+                          src="https://asset.cambodia.gov.kh/tourism/2024/03/photo_2024-03-06_14-02-38-865x1024.jpg"
+                          alt="Tonle Festival"
+                          class="w-full h-48 sm:h-64 object-cover card-image-hover"
+                          loading="lazy"
+                        />
+                        <div
+                          class="absolute inset-0 card-gradient-overlay"
+                        ></div>
+                        <div
+                          class="absolute bottom-0 left-0 right-0 p-4 text-white"
+                        >
+                          <div
+                            class="inline-block px-2 py-1 rounded text-xs bg-white/20 mb-2"
+                          >
+                            Tourism
+                          </div>
+                          <h3 class="font-semibold text-sm leading-tight mb-1">
+                            Tonle Festival
+                          </h3>
+                          <div
+                            class="flex items-center justify-between text-xs text-gray-200"
+                          >
+                            <div class="flex items-center">
+                              <svg
+                                class="w-3 h-3 mr-1"
+                                fill="currentColor"
+                                viewBox="0 0 20 20"
+                                aria-hidden="true"
+                              >
+                                <path
+                                  fill-rule="evenodd"
+                                  d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z"
+                                  clip-rule="evenodd"
+                                ></path>
+                              </svg>
+                              Jun 19
+                            </div>
+                            <div class="flex items-center">
+                              <svg
+                                class="w-3 h-3 mr-1"
+                                fill="currentColor"
+                                viewBox="0 0 20 20"
+                                aria-hidden="true"
+                              >
+                                <path
+                                  fill-rule="evenodd"
+                                  d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z"
+                                  clip-rule="evenodd"
+                                ></path>
+                              </svg>
+                              Bati, Takeo
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </a>
+                  </div>
+
+                  <!-- Card 4 -->
+                  <div
+                    class="w-full sm:w-1/2 lg:w-1/3 flex-shrink-0 px-2"
+                    data-aos="fade-up"
+                    data-aos-duration="800"
+                    data-aos-delay="400"
+                  >
+                    <a
+                      href="/event/angkor-festival-2025"
+                      class="card-hover block bg-white rounded-2xl shadow-md overflow-hidden"
+                      role="article"
+                      aria-label="Angkor Festival"
+                    >
+                      <div class="relative overflow-hidden">
+                        <img
+                          src="https://stc-bucket.sgp1.cdn.digitaloceanspaces.com/0001/1892/2024/12/04/469127413-1129112029221951-1946086047743839692-n.jpg"
+                          alt="Angkor Festival"
+                          class="w-full h-48 sm:h-64 object-cover card-image-hover"
+                          loading="lazy"
+                        />
+                        <div
+                          class="absolute inset-0 card-gradient-overlay"
+                        ></div>
+                        <div
+                          class="absolute bottom-0 left-0 right-0 p-4 text-white"
+                        >
+                          <div
+                            class="inline-block px-2 py-1 rounded text-xs bg-white/20 mb-2"
+                          >
+                            Art & Culture
+                          </div>
+                          <h3 class="font-semibold text-sm leading-tight mb-1">
+                            Angkor Festival
+                          </h3>
+                          <div
+                            class="flex items-center justify-between text-xs text-gray-200"
+                          >
+                            <div class="flex items-center">
+                              <svg
+                                class="w-3 h-3 mr-1"
+                                fill="currentColor"
+                                viewBox="0 0 20 20"
+                                aria-hidden="true"
+                              >
+                                <path
+                                  fill-rule="evenodd"
+                                  d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z"
+                                  clip-rule="evenodd"
+                                ></path>
+                              </svg>
+                              Jun 20
+                            </div>
+                            <div class="flex items-center">
+                              <svg
+                                class="w-3 h-3 mr-1"
+                                fill="currentColor"
+                                viewBox="0 0 20 20"
+                                aria-hidden="true"
+                              >
+                                <path
+                                  fill-rule="evenodd"
+                                  d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z"
+                                  clip-rule="evenodd"
+                                ></path>
+                              </svg>
+                              Siemreap
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </a>
+                  </div>
+
+                  <!-- Card 5 -->
+                  <div
+                    class="w-full sm:w-1/2 lg:w-1/3 flex-shrink-0 px-2"
+                    data-aos="fade-up"
+                    data-aos-duration="800"
+                    data-aos-delay="500"
+                  >
+                    <a
+                      href="/event/kleng-ack-2025"
+                      class="card-hover block bg-white rounded-2xl shadow-md overflow-hidden"
+                      role="article"
+                      aria-label="Kleng Ack"
+                    >
+                      <div class="relative overflow-hidden">
+                        <img
+                          src="https://cdn.cc-times.com/kh.cc-times.com/media/57421/large/471245565_910039464608963_5071739137653322790_n.jpg?1735186818"
+                          alt="Kleng Ack"
+                          class="w-full h-48 sm:h-64 object-cover card-image-hover"
+                          loading="lazy"
+                        />
+                        <div
+                          class="absolute inset-0 card-gradient-overlay"
+                        ></div>
+                        <div
+                          class="absolute bottom-0 left-0 right-0 p-4 text-white"
+                        >
+                          <div
+                            class="inline-block px-2 py-1 rounded text-xs bg-white/20 mb-2"
+                          >
+                            Traditional
+                          </div>
+                          <h3 class="font-semibold text-sm leading-tight mb-1">
+                            Kep
+                          </h3>
+                          <div
+                            class="flex items-center justify-between text-xs text-gray-200"
+                          >
+                            <div class="flex items-center">
+                              <svg
+                                class="w-3 h-3 mr-1"
+                                fill="currentColor"
+                                viewBox="0 0 20 20"
+                                aria-hidden="true"
+                              >
+                                <path
+                                  fill-rule="evenodd"
+                                  d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z"
+                                  clip-rule="evenodd"
+                                ></path>
+                              </svg>
+                              Jun 21
+                            </div>
+                            <div class="flex items-center">
+                              <svg
+                                class="w-3 h-3 mr-1"
+                                fill="currentColor"
+                                viewBox="0 0 20 20"
+                                aria-hidden="true"
+                              >
+                                <path
+                                  fill-rule="evenodd"
+                                  d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z"
+                                  clip-rule="evenodd"
+                                ></path>
+                              </svg>
+                              Kratie
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </a>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Navigation Controls -->
+              <div class="flex items-center justify-center mt-6 space-x-4">
+                <button
+                  id="prevBtn"
+                  class="flex items-center justify-center w-10 h-10 rounded-full border border-primary/20 text-primary hover:bg-primary/10 hover:border-primary transition-colors disabled:btn-disabled"
+                  aria-label="Previous Slide"
+                >
+                  <svg
+                    class="w-5 h-5"
+                    fill="currentColor"
+                    viewBox="0 0 20 20"
+                    aria-hidden="true"
+                  >
+                    <path
+                      fill-rule="evenodd"
+                      d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z"
+                      clip-rule="evenodd"
+                    ></path>
+                  </svg>
+                </button>
+                <div
+                  class="flex space-x-2"
+                  id="indicators"
+                  role="tablist"
+                  aria-label="Slide Indicators"
+                >
+                  <button
+                    class="slide-indicator w-2 h-2 rounded-full bg-primary active"
+                    data-slide="0"
+                    role="tab"
+                    aria-selected="true"
+                    aria-label="Slide 1"
+                  ></button>
+                  <button
+                    class="slide-indicator w-2 h-2 rounded-full bg-gray-300"
+                    data-slide="1"
+                    role="tab"
+                    aria-selected="false"
+                    aria-label="Slide 2"
+                  ></button>
+                  <button
+                    class="slide-indicator w-2 h-2 rounded-full bg-gray-300"
+                    data-slide="2"
+                    role="tab"
+                    aria-selected="false"
+                    aria-label="Slide 3"
+                  ></button>
+                </div>
+                <button
+                  id="nextBtn"
+                  class="flex items-center justify-center w-10 h-10 rounded-full border border-primary/20 text-primary hover:bg-primary/10 hover:border-primary transition-colors disabled:btn-disabled"
+                  aria-label="Next Slide"
+                >
+                  <svg
+                    class="w-5 h-5"
+                    fill="currentColor"
+                    viewBox="0 0 20 20"
+                    aria-hidden="true"
+                  >
+                    <path
+                      fill-rule="evenodd"
+                      d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
+                      clip-rule="evenodd"
+                    ></path>
+                  </svg>
+                </button>
+              </div>
+            </div>
+
+            <!-- Quick Stats -->
+            <div class="mt-12 grid grid-cols-3 sm:grid-cols-3 gap-3">
+              <div
+                class="stats-card text-center"
+                data-aos="fade-up"
+                data-aos-duration="800"
+                data-aos-delay="100"
+              >
+                <div class="stats-number">50+</div>
+                <div class="stats-label">Events</div>
+              </div>
+              <div
+                class="stats-card text-center"
+                data-aos="fade-up"
+                data-aos-duration="800"
+                data-aos-delay="200"
+              >
+                <div class="stats-number">10K+</div>
+                <div class="stats-label">Attendees</div>
+              </div>
+              <div
+                class="stats-card text-center"
+                data-aos="fade-up"
+                data-aos-duration="800"
+                data-aos-delay="300"
+              >
+                <div class="stats-number">25</div>
+                <div class="stats-label">Cities</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+    </section>
+    <!-- ============================================ -->
+
+    <!-- ============================================ -->
+
+    <!-- Section 2 -->
+    <section class="bg-gray-50 py-12">
+      <div class="container mx-auto px-4">
+        <div class="relative w-full max-w-7xl mx-auto">
+          <!-- Navigation Buttons -->
+          <button
+            id="prevBtn2"
+            class="absolute left-2 top-[40%] -translate-y-1/2 z-10 bg-white/90 hover:bg-white shadow-lg rounded-full w-10 h-10 flex items-center justify-center border-2 border-pink-500 transition-colors nav-btn"
+            aria-label="Previous slide"
+          >
+            <svg
+              class="h-5 w-5 text-pink-500"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M15 19l-7-7 7-7"
+              ></path>
+            </svg>
+          </button>
+          <button
+            id="nextBtn2"
+            class="absolute right-2 top-[40%] -translate-y-1/2 z-10 bg-white/90 hover:bg-white shadow-lg rounded-full w-10 h-10 flex items-center justify-center border-2 border-pink-500 transition-colors nav-btn"
+            aria-label="Next slide"
+          >
+            <svg
+              class="h-5 w-5 text-pink-500"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M9 5l7 7-7 7"
+              ></path>
+            </svg>
+          </button>
+          <!-- Carousel Container -->
+          <div class="overflow-hidden">
+            <div id="carousel2" class="flex gap-4 px-4 carousel-container">
+              <!-- Cards will be dynamically generated here -->
+            </div>
+          </div>
+          <!-- Dots Indicator -->
+          <div class="flex justify-center mt-6 space-x-2" id="dots2">
+            <!-- Dots will be dynamically generated here -->
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <script>
+      // Section 1 JavaScript
+      (function () {
+        const eventSlides = [
+          {
+            id: 1,
+            title: "Highlight Events",
+            name: "Khmer New Year",
+            date: "April 13-14-15 or 14-15-16 Every Years",
+            image:
+              "https://i.pinimg.com/736x/f9/00/f3/f900f309f362a91b344384ba87a1d86e.jpg",
+          },
+          {
+            id: 2,
+            title: "Cultural Celebration",
+            name: "Angkor Wat Equinox",
+            date: "March 21st or 23rd Every Years",
+            image:
+              "https://i.pinimg.com/736x/65/0c/0b/650c0bbf2aeb53e8290b30763ed04bea.jpg",
+          },
+          {
+            id: 3,
+            title: "Music & Arts",
+            name: "CAMBODIA NATIONAL CULTURE DAY",
+            date: "March 3rd Every Years",
+            image:
+              "https://i.pinimg.com/736x/54/71/dd/5471dd7852b2eceb243eaf8bb24aa429.jpg",
+          },
+          {
+            id: 4,
+            title: "Community Gathering",
+            name: "Pchum Ben Festival",
+            date: "October Every Years",
+            image:
+              "https://i.pinimg.com/736x/0f/62/53/0f62531d4f4e6d8d825ad61352e711c3.jpg",
+          },
+          {
+            id: 5,
+            title: "Youth Festival",
+            name: "Khmer Water Festival",
+            date: "November Every Years",
+            image:
+              "https://i.pinimg.com/736x/31/f9/d4/31f9d443e660b9ce9aded6ee6b0c3011.jpg",
+          },
+        ];
+
+        let currentSlideIndex = 0;
+        const slidesContainer = document.getElementById("slidesContainer");
+        const eventName = document.getElementById("eventName");
+        const eventDate = document.getElementById("eventDate");
+        const prevBtn = document.getElementById("prevBtn1");
+        const nextBtn = document.getElementById("nextBtn1");
+        const dotsContainer = document.getElementById("dotsContainer1");
+
+        function createSlideElement(data, className = "") {
+          const slideDiv = document.createElement("div");
+          slideDiv.className = `relative cursor-pointer group ${className}`;
+          let slideClasses =
+            "w-40 h-56 sm:w-48 sm:h-64 md:w-56 md:h-80 lg:w-64 lg:h-96 rounded-lg sm:rounded-xl overflow-hidden bg-white shadow-lg";
+          let imageClasses =
+            "w-full h-full object-cover transition-transform duration-500 group-hover:scale-105";
+          let opacityClasses = "";
+          let blurClasses = "";
+          let zIndexClasses = "";
+
+          if (className.includes("center")) {
+            slideClasses += " shadow-xl sm:shadow-2xl shadow-black/20";
+            zIndexClasses = "z-10";
+            opacityClasses = "opacity-100";
+            slideDiv.classList.add("slide-3d1-center");
+          } else if (className.includes("left")) {
+            opacityClasses = "opacity-40 sm:opacity-50";
+            blurClasses = "blur-sm";
+            zIndexClasses = "z-5";
+            slideClasses += " -mr-8 sm:-mr-12 md:-mr-16 lg:-mr-20";
+            slideDiv.classList.add("slide-3d1-left");
+          } else if (className.includes("right")) {
+            opacityClasses = "opacity-40 sm:opacity-50";
+            blurClasses = "blur-sm";
+            zIndexClasses = "z-5";
+            slideClasses += " -ml-8 sm:-ml-12 md:-ml-16 lg:-mr-20";
+            slideDiv.classList.add("slide-3d1-right");
+          }
+
+          slideDiv.className += ` ${slideClasses} ${opacityClasses} ${zIndexClasses}`;
+          slideDiv.innerHTML = `
+                    <img src="${data.image}" alt="${data.name}" class="${imageClasses} ${blurClasses}" loading="lazy">
+                `;
+          return slideDiv;
+        }
+
+        function createDots() {
+          dotsContainer.innerHTML = "";
+          eventSlides.forEach((_, index) => {
+            const dot = document.createElement("button");
+            dot.className = `w-2 h-2 rounded-full transition-all duration-300 ${
+              index === currentSlideIndex
+                ? "bg-pink-600 w-6"
+                : "bg-white/60 hover:bg-white/80"
+            }`;
+            dot.setAttribute("role", "tab");
+            dot.setAttribute(
+              "aria-selected",
+              index === currentSlideIndex ? "true" : "false"
+            );
+            dot.addEventListener("click", () => {
+              currentSlideIndex = index;
+              renderSlides();
+            });
+            dotsContainer.appendChild(dot);
+          });
+        }
+
+        function updateEventDetails() {
+          const currentEvent = eventSlides[currentSlideIndex];
+          eventName.style.opacity = "0";
+          eventDate.style.opacity = "0";
+          setTimeout(() => {
+            eventName.textContent = currentEvent.name;
+            eventDate.textContent = currentEvent.date;
+            eventName.style.opacity = "1";
+            eventDate.style.opacity = "1";
+          }, 200);
+        }
+
+        function renderSlides() {
+          slidesContainer.innerHTML = "";
+          const totalSlides = eventSlides.length;
+          const prevIndex = (currentSlideIndex - 1 + totalSlides) % totalSlides;
+          const nextIndex = (currentSlideIndex + 1) % totalSlides;
+
+          const prevSlide = createSlideElement(
+            eventSlides[prevIndex],
+            "side-slide left"
+          );
+          slidesContainer.appendChild(prevSlide);
+          const currentSlide = createSlideElement(
+            eventSlides[currentSlideIndex],
+            "center-slide center"
+          );
+          slidesContainer.appendChild(currentSlide);
+          const nextSlide = createSlideElement(
+            eventSlides[nextIndex],
+            "side-slide right"
+          );
+          slidesContainer.appendChild(nextSlide);
+
+          updateEventDetails();
+          createDots();
+        }
+
+        function nextSlide() {
+          currentSlideIndex = (currentSlideIndex + 1) % eventSlides.length;
+          renderSlides();
+        }
+
+        function prevSlide() {
+          currentSlideIndex =
+            (currentSlideIndex - 1 + eventSlides.length) % eventSlides.length;
+          renderSlides();
+        }
+
+        nextBtn.addEventListener("click", nextSlide);
+        prevBtn.addEventListener("click", prevSlide);
+
+        document.addEventListener("keydown", (event) => {
+          if (event.key === "ArrowLeft") prevSlide();
+          else if (event.key === "ArrowRight") nextSlide();
+        });
+
+        let touchStartX = 0,
+          touchEndX = 0,
+          touchStartY = 0,
+          touchEndY = 0,
+          isSwipeInProgress = false;
+
+        slidesContainer.addEventListener(
+          "touchstart",
+          (event) => {
+            touchStartX = event.touches[0].clientX;
+            touchStartY = event.touches[0].clientY;
+            isSwipeInProgress = false;
+          },
+          { passive: true }
+        );
+
+        slidesContainer.addEventListener(
+          "touchmove",
+          (event) => {
+            if (!isSwipeInProgress) {
+              const touchCurrentX = event.touches[0].clientX;
+              const touchCurrentY = event.touches[0].clientY;
+              const deltaX = Math.abs(touchCurrentX - touchStartX);
+              const deltaY = Math.abs(touchCurrentY - touchStartY);
+              if (deltaX > deltaY && deltaX > 10) {
+                event.preventDefault();
+                isSwipeInProgress = true;
+              }
+            }
+          },
+          { passive: false }
+        );
+
+        slidesContainer.addEventListener(
+          "touchend",
+          (event) => {
+            touchEndX = event.changedTouches[0].clientX;
+            touchEndY = event.changedTouches[0].clientY;
+            handleSwipe();
+          },
+          { passive: true }
+        );
+
+        function handleSwipe() {
+          const swipeThreshold = 50;
+          const swipeDistance = touchEndX - touchStartX;
+          const verticalDistance = Math.abs(touchEndY - touchStartY);
+          if (
+            Math.abs(swipeDistance) > swipeThreshold &&
+            verticalDistance < 100
+          ) {
+            if (swipeDistance > 0) prevSlide();
+            else nextSlide();
+          }
+        }
+
+        let autoPlayInterval;
+
+        function startAutoPlay() {
+          autoPlayInterval = setInterval(nextSlide, 5000);
+        }
+
+        function stopAutoPlay() {
+          clearInterval(autoPlayInterval);
+        }
+
+        const carouselContainer = document.querySelector(".carousel-container");
+        carouselContainer.addEventListener("mouseenter", stopAutoPlay);
+        carouselContainer.addEventListener("mouseleave", startAutoPlay);
+        carouselContainer.addEventListener("touchstart", stopAutoPlay);
+        carouselContainer.addEventListener("touchend", () => {
+          setTimeout(startAutoPlay, 3000);
+        });
+
+        function handleViewMore() {
+          const currentEventId = eventSlides[currentSlideIndex].id;
+          const detailUrl = `view/index.html?event=${currentEventId}`;
+          window.location.href = detailUrl;
+        }
+
+        function initCarousel() {
+          renderSlides();
+          startAutoPlay();
+        }
+
+        document.addEventListener("DOMContentLoaded", initCarousel);
+      })();
+
+      // Section 2 JavaScript
+      (function () {
+        const carouselData = [
+          {
+            id: 1,
+            title: "Kun Bokator",
+            description: "Khmer martial arts",
+            image:
+              "https://media.nationthailand.com/uploads/images/md/2023/01/kK1qsY9gAVxTzkMHQhxz.webp",
+            badge: { text: "30%", color: "bg-pink-500" },
+          },
+          {
+            id: 2,
+            title: "Online Booking",
+            description: "BOOKMEBUS",
+            subtitle: "www.BookMeBus.com",
+            image:
+              "https://assets.bookmebus.com/assets/slides/bookmebus-app-promotion-738426df0204d4cc596e6b2980f5e3b1.png",
+          },
+          {
+            id: 3,
+            title: "Khmer Festival",
+            description: "Experience the Magic",
+            image:
+              "https://rimbukmedia.wordpress.com/wp-content/uploads/2016/11/img_4167.jpg",
+          },
+          {
+            id: 4,
+            title: "Khmer Massage & Spa",
+            description: "Traditional Wellness",
+            image:
+              "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/05/38/eb/1e/feel-good-spa-emporium.jpg?w=900&h=500&s=1",
+            hasSparkles: true,
+          },
+          {
+            id: 5,
+            title: "Villa Serey",
+            description: "Privilege Visa for Long Stay",
+            image:
+              "https://cf-img.villa-finder.com/cf/m/villas/villa-serey/villa-serey-main-villa-64ab7f0e7aa3c.jpg",
+          },
+          {
+            id: 6,
+            title: "Khmer Cuisine",
+            description: "Authentic Food Experience",
+            image:
+              "https://angkorw.wordpress.com/wp-content/uploads/2014/10/embassy-logo.jpg?w=640",
+            badge: { text: "NEW", color: "bg-green-600" },
+          },
+          {
+            id: 7,
+            title: "Khmer Ceramics Centre",
+            description: "More cultural experiences",
+            image:
+              "https://pppenglish.sgp1.digitaloceanspaces.com/image/main/field/image/cambodian-actress-shin-yubin-takes-in-a-pottery-class-at-the-khmer-ceramics-centre.-facebook.jpg",
+            badge: { text: "INSPIRE", color: "bg-rose-600" },
+          },
+          {
+            id: 8,
+            title: "Island Hopping",
+            description: "Koh Rong & Koh Rong Samloem Tours",
+            image:
+              "https://images.travelandleisureasia.com/wp-content/uploads/sites/6/2024/05/13095606/cambodia-islands_0_feature.jpeg?tr=w-480,f-jpg,pr-true",
+            badge: { text: "POPULAR", color: "bg-cyan-600" },
+          },
+          {
+            id: 9,
+            title: "Cambo City Tour",
+            description: "Temples & Markets",
+            image:
+              "https://call.tours/uploads/0000/46/2024/12/07/lets-go-its-time-to-traels-1.jpg",
+            badge: { text: "CITY", color: "bg-amber-600" },
+          },
+          {
+            id: 10,
+            title: "Kun Khmer Training",
+            description: "Learn Traditional Art",
+            image:
+              "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQBacpI9wUPFyphWjRF7bbhPWIcDYzvb16T0hNu18KMVJ5v9Tt_DYaMG_BOqZA28jHe9Xc&usqp=CAU",
+            badge: { text: "SPORT", color: "bg-red-600" },
+          },
+          {
+            id: 11,
+            title: "Angkor Wildlife",
+            description: "Ethical Wildlife & Aquarium Experience",
+            image: "https://cambodianess.com/uploads/images/1737686883.jpg",
+            badge: { text: "ECO", color: "bg-emerald-600" },
+          },
+          {
+            id: 12,
+            title: "Khmer Cooking Class",
+            description: "Master Khmer Flavors",
+            image:
+              "https://visitcommunities.com/wp-content/uploads/2022/04/ca6-1.jpg",
+            badge: { text: "LEARN", color: "bg-yellow-600" },
+          },
+        ];
+
+        let currentIndex = 0;
+        let isTransitioning = false;
+        let autoScrollInterval;
+        let touchStartX = 0;
+        let touchEndX = 0;
+
+        const getCardWidth = () => {
+          return window.innerWidth <= 640 ? 192 : 320;
+        };
+        let cardWidth = getCardWidth();
+        const visibleCards = 3;
+        const totalCards = carouselData.length;
+
+        const extendedData = [
+          ...carouselData.slice(-visibleCards),
+          ...carouselData,
+          ...carouselData.slice(0, visibleCards),
+        ];
+
+        const carousel = document.getElementById("carousel2");
+        const dotsContainer = document.getElementById("dots2");
+        const prevBtn = document.getElementById("prevBtn2");
+        const nextBtn = document.getElementById("nextBtn2");
+
+        function createCardHTML(card, index) {
+          const badgeHTML = card.badge
+            ? `<div class="absolute top-3 left-3 ${card.badge.color} text-white px-2 py-1 rounded-full text-xs font-semibold z-10">
+                            ${card.badge.text}
+                        </div>`
+            : "";
+
+          const sparklesHTML = card.hasSparkles
+            ? `<div class="absolute top-3 right-3 text-yellow-300 text-lg animate-pulse z-10 drop-shadow-lg">🎇</div>
+                        <div class="absolute top-6 right-8 text-pink-300 text-sm animate-pulse-delayed z-10 drop-shadow-lg">🎆</div>`
+            : "";
+
+          const subtitleHTML = card.subtitle
+            ? `<p class="text-xs opacity-75 drop-shadow-md">${card.subtitle}</p>`
+            : "";
+
+          return `
+                    <div class="carousel-card flex-shrink-0 ${
+                      window.innerWidth <= 640 ? "w-48" : "w-80"
+                    }" data-card-id="${card.id}-${index}">
+                        <div class="rounded-xl ${
+                          window.innerWidth <= 640 ? "h-32" : "h-48"
+                        } relative overflow-hidden shadow-lg hover:shadow-xl transition-shadow cursor-pointer">
+                            <img src="${card.image}" alt="${
+            card.title
+          }" class="w-full h-full object-cover" loading="lazy">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent"></div>
+                            ${badgeHTML}
+                            ${sparklesHTML}
+                            <div class="absolute bottom-0 left-0 right-0 p-4 text-white">
+                                <div class="flex items-end justify-between">
+                                    <div>
+                                        <h3 class="font-bold mb-1 drop-shadow-lg ${
+                                          window.innerWidth <= 640
+                                            ? "text-sm"
+                                            : "text-xl"
+                                        }">${card.title}</h3>
+                                        <p class="opacity-90 drop-shadow-md ${
+                                          window.innerWidth <= 640
+                                            ? "text-xs"
+                                            : "text-sm"
+                                        }">${card.description}</p>
+                                        ${subtitleHTML}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `;
+        }
+
+        function initCarousel() {
+          carousel.innerHTML = extendedData
+            .map((card, index) => createCardHTML(card, index))
+            .join("");
+
+          const totalDots = Math.min(6, totalCards);
+          dotsContainer.innerHTML = Array.from(
+            { length: totalDots },
+            (_, index) =>
+              `<button class="w-2 h-2 rounded-full transition-colors ${
+                index === 0 ? "bg-purple-500" : "bg-gray-300"
+              } dot" data-index="${index}" aria-label="Go to slide ${
+                index + 1
+              }"></button>`
+          ).join("");
+
+          updateCarousel(currentIndex, false);
+        }
+
+        function updateCarousel(index, withTransition = true) {
+          if (isTransitioning) return;
+
+          if (withTransition) {
+            isTransitioning = true;
+            carousel.classList.remove("no-transition");
+            setTimeout(() => {
+              isTransitioning = false;
+            }, 500);
+          } else {
+            carousel.classList.add("no-transition");
+          }
+
+          const translateX = (index + visibleCards) * cardWidth;
+          carousel.style.transform = `translateX(-${translateX}px)`;
+          updateDots();
+        }
+
+        function updateDots() {
+          const dots = document.querySelectorAll(".dot");
+          const normalizedIndex =
+            ((currentIndex % totalCards) + totalCards) % totalCards;
+          const totalDots = dots.length;
+          const dotsPerSection = Math.ceil(totalCards / totalDots);
+          const activeDotIndex = Math.floor(normalizedIndex / dotsPerSection);
+
+          dots.forEach((dot, index) => {
+            if (index === activeDotIndex) {
+              dot.classList.remove("bg-gray-300");
+              dot.classList.add("bg-purple-500");
+            } else {
+              dot.classList.remove("bg-purple-500");
+              dot.classList.add("bg-gray-300");
+            }
+          });
+        }
+
+        function nextSlide() {
+          if (isTransitioning) return;
+          const nextIndex = currentIndex + 1;
+          currentIndex = nextIndex;
+          updateCarousel(nextIndex);
+
+          if (nextIndex >= totalCards) {
+            setTimeout(() => {
+              currentIndex = 0;
+              updateCarousel(0, false);
+            }, 500);
+          }
+        }
+
+        function prevSlide() {
+          if (isTransitioning) return;
+          const prevIndex = currentIndex - 1;
+          currentIndex = prevIndex;
+          updateCarousel(prevIndex);
+
+          if (prevIndex < 0) {
+            setTimeout(() => {
+              currentIndex = totalCards - 1;
+              updateCarousel(totalCards - 1, false);
+            }, 500);
+          }
+        }
+
+        function goToSlide(index) {
+          if (isTransitioning) return;
+          currentIndex = index;
+          updateCarousel(index);
+        }
+
+        function startAutoScroll() {
+          autoScrollInterval = setInterval(nextSlide, 3000);
+        }
+
+        function stopAutoScroll() {
+          if (autoScrollInterval) {
+            clearInterval(autoScrollInterval);
+          }
+        }
+
+        function handleTouchStart(e) {
+          touchStartX = e.touches[0].clientX;
+          stopAutoScroll();
+        }
+
+        function handleTouchEnd(e) {
+          touchEndX = e.changedTouches[0].clientX;
+          const distance = touchStartX - touchEndX;
+          const isLeftSwipe = distance > 50;
+          const isRightSwipe = distance < -50;
+
+          if (isLeftSwipe) nextSlide();
+          if (isRightSwipe) prevSlide();
+          startAutoScroll();
+        }
+
+        function setupEventListeners() {
+          nextBtn.addEventListener("click", () => {
+            nextSlide();
+            stopAutoScroll();
+            startAutoScroll();
+          });
+
+          prevBtn.addEventListener("click", () => {
+            prevSlide();
+            stopAutoScroll();
+            startAutoScroll();
+          });
+
+          dotsContainer.addEventListener("click", (e) => {
+            if (e.target.classList.contains("dot")) {
+              const index = parseInt(e.target.dataset.index);
+              const totalDots = document.querySelectorAll(".dot").length;
+              const dotsPerSection = Math.ceil(totalCards / totalDots);
+              const targetIndex = Math.min(
+                index * dotsPerSection,
+                totalCards - 1
+              );
+              goToSlide(targetIndex);
+              stopAutoScroll();
+              startAutoScroll();
+            }
+          });
+
+          carousel.addEventListener("touchstart", handleTouchStart, {
+            passive: true,
+          });
+          carousel.addEventListener("touchend", handleTouchEnd, {
+            passive: true,
+          });
+
+          document.addEventListener("keydown", (e) => {
+            if (e.key === "ArrowLeft") {
+              prevSlide();
+              stopAutoScroll();
+              startAutoScroll();
+            } else if (e.key === "ArrowRight") {
+              nextSlide();
+              stopAutoScroll();
+              startAutoScroll();
+            }
+          });
+
+          carousel.addEventListener("mouseenter", stopAutoScroll);
+          carousel.addEventListener("mouseleave", startAutoScroll);
+
+          window.addEventListener("resize", () => {
+            cardWidth = getCardWidth();
+            updateCarousel(currentIndex, false);
+          });
+        }
+
+        document.addEventListener("DOMContentLoaded", () => {
+          initCarousel();
+          setupEventListeners();
+          startAutoScroll();
+        });
+      })();
+    </script>
+
+    <!-- card============================================ -->
+    <section class="bg-pink-50 py-10 px-4 sm:px-6 lg:px-8">
+      <div class="max-w-6xl mx-auto">
+        <!-- Section Header -->
+        <div class="text-center mb-12">
+          <h2 class="text-[24px] font-bold text-gray-900 mb-3">
+            Travel Services
+          </h2>
+          <p class="text-[14px] text-gray-600 max-w-2xl mx-auto">
+            Everything you need for your perfect trip to Cambodia
+          </p>
+        </div>
+
+        <!-- Navigation Grid -->
+        <div
+          class="grid grid-cols-2 md:grid-cols-4 ml-16 mr-16 gap-2 lg:gap-10"
+        >
+          <!-- Visa & Passport -->
+          <a
+            href="/visa-passport"
+            class="flex flex-col items-center text-center group cursor-pointer p-4 transition-all duration-300"
+          >
+            <div
+              class="mb-2 transform transition-transform group-hover:scale-110 duration-300"
+            >
+              <img
+                src="https://api.tourismthailand.org/asset/home/plan_your_trip/Visa.svg"
+                alt="Visa and Passport icon"
+                class="w-14 h-14 object-contain"
+              />
+            </div>
+            <h3
+              class="text-gray-800 font-semibold text-[16px] group-hover:text-gray-900 transition-colors duration-300"
+            >
+              Visa & Passport
+            </h3>
+          </a>
+
+          <!-- Travel To Cambodia -->
+          <a
+            href="/travel-cambodia"
+            class="flex flex-col items-center text-center group cursor-pointer p-4 transition-all duration-300"
+          >
+            <div
+              class="mb-2 transform transition-transform group-hover:scale-110 duration-300"
+            >
+              <img
+                src="https://api.tourismthailand.org/asset/home/plan_your_trip/Travel.svg"
+                alt="Travel to Cambodia icon"
+                class="w-14 h-14 object-contain"
+              />
+            </div>
+            <h3
+              class="text-gray-800 font-semibold text-[16px] group-hover:text-gray-900 transition-colors duration-300"
+            >
+              Travel To Cambodia
+            </h3>
+          </a>
+
+          <!-- Getting Around -->
+          <a
+            href="/getting-around"
+            class="flex flex-col items-center text-center group cursor-pointer p-4 transition-all duration-300"
+          >
+            <div
+              class="mb-2 transform transition-transform group-hover:scale-110 duration-300"
+            >
+              <img
+                src="https://api.tourismthailand.org/asset/home/plan_your_trip/Train.svg"
+                alt="Getting Around icon"
+                class="w-14 h-14 object-contain"
+              />
+            </div>
+            <h3
+              class="text-gray-800 font-semibold text-[16px] group-hover:text-gray-900 transition-colors duration-300"
+            >
+              Getting Around
+            </h3>
+          </a>
+
+          <!-- Weather -->
+          <a
+            href="/weather"
+            class="flex flex-col items-center text-center group cursor-pointer p-4 transition-all duration-300"
+          >
+            <div
+              class="mb-2 transform transition-transform group-hover:scale-110 duration-300"
+            >
+              <img
+                src="https://api.tourismthailand.org/asset/home/plan_your_trip/Weather.svg"
+                alt="Weather icon"
+                class="w-14 h-14 object-contain"
+              />
+            </div>
+            <h3
+              class="text-gray-800 font-semibold text-[16px] group-hover:text-gray-900 transition-colors duration-300"
+            >
+              Weather
+            </h3>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section footer================== -->
+    <section
+      class="bg-gray-100 text-gray-800 dark:bg-gray-900 dark:text-gray-100"
+    >
+      <footer
+        class="bg-gray-100 text-gray-800 text-sm px-6 pt-12 pb-6 dark:bg-gray-800 dark:text-gray-200"
+      >
+        <div class="block md:hidden space-y-4">
+          <div>
+            <button
+              class="w-full text-left font-bold mb-2 flex justify-between items-center"
+              onclick="toggleFooter(this)"
+            >
+              Top Destinations
+              <svg
+                class="w-4 h-4 transition-transform transform text-gray-400 dark:text-gray-500"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M9 5l7 7-7 7"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </button>
+            <div class="hidden">
+              <hr
+                class="border-t-2 border-gray-300 w-full mb-1 dark:border-gray-700"
+              />
+              <ul class="space-y-1">
+                <li>Phnom Penh</li>
+                <li>Siem Reap</li>
+                <li>Kompot</li>
+                <li>Mondulkiri</li>
+                <li>Preah Vihear</li>
+              </ul>
+            </div>
+          </div>
+
+          <div>
+            <button
+              class="w-full text-left font-bold mb-2 flex justify-between items-center"
+              onclick="toggleFooter(this)"
+            >
+              Destinations
+              <svg
+                class="w-4 h-4 transition-transform transform text-gray-400 dark:text-gray-500"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M9 5l7 7-7 7"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </button>
+            <div class="hidden">
+              <hr
+                class="border-t-2 border-gray-300 w-full mb-1 dark:border-gray-700"
+              />
+              <ul class="space-y-1">
+                <li>See & Do</li>
+                <li>Food</li>
+                <li>Shop</li>
+                <li>Spa & Wellness</li>
+                <li>Recreational & Entertainment</li>
+              </ul>
+            </div>
+          </div>
+
+          <div>
+            <button
+              class="w-full text-left font-bold mb-2 flex justify-between items-center"
+              onclick="toggleFooter(this)"
+            >
+              Regions of Thailand
+              <svg
+                class="w-4 h-4 transition-transform transform text-gray-400 dark:text-gray-500"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M9 5l7 7-7 7"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </button>
+            <div class="hidden">
+              <hr
+                class="border-t-2 border-gray-300 w-full mb-1 dark:border-gray-700"
+              />
+              <ul class="space-y-1">
+                <li>North</li>
+                <li>Central</li>
+                <li>East</li>
+                <li>North East</li>
+                <li>South</li>
+              </ul>
+            </div>
+          </div>
+
+          <div>
+            <button
+              class="w-full text-left font-bold mb-2 flex justify-between items-center"
+              onclick="toggleFooter(this)"
+            >
+              Experiences
+              <svg
+                class="w-4 h-4 transition-transform transform text-gray-400 dark:text-gray-500"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M9 5l7 7-7 7"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </button>
+            <div class="hidden">
+              <hr
+                class="border-t-2 border-gray-300 w-full mb-1 dark:border-gray-700"
+              />
+              <ul class="space-y-1">
+                <li>History / Religion / Museum</li>
+                <li>Nature & Outdoor</li>
+                <li>Events & Festivals</li>
+                <li>Food / Shopping / Entertainment</li>
+              </ul>
+            </div>
+          </div>
+
+          <div>
+            <button
+              class="w-full text-left font-bold mb-2 flex justify-between items-center"
+              onclick="toggleFooter(this)"
+            >
+              Helpful Links
+              <svg
+                class="w-4 h-4 transition-transform transform text-gray-400 dark:text-gray-500"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M9 5l7 7-7 7"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </button>
+            <div class="hidden">
+              <hr
+                class="border-t-2 border-gray-300 w-full mb-1 dark:border-gray-700"
+              />
+              <ul class="space-y-1">
+                <li>Business Partner</li>
+                <li>Media & Press</li>
+                <li>About TAT</li>
+                <li>Request Inquiry</li>
+                <li>Feedback</li>
+              </ul>
+            </div>
+          </div>
+
+          <div>
+            <button
+              class="w-full text-left font-bold mb-2 flex justify-between items-center"
+              onclick="toggleFooter(this)"
+            >
+              Promotions
+              <svg
+                class="w-4 h-4 transition-transform transform text-gray-400 dark:text-gray-500"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M9 5l7 7-7 7"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </button>
+            <div class="hidden">
+              <hr
+                class="border-t-2 border-gray-300 w-full mb-1 dark:border-gray-700"
+              />
+              <ul class="space-y-1">
+                <li>Trip Planner</li>
+                <li>Tour Agent</li>
+                <li>Stays</li>
+                <li>Cambodia</li>
+              </ul>
+            </div>
+          </div>
+
+          <div>
+            <button
+              class="w-full text-left font-bold mb-2 flex justify-between items-center"
+              onclick="toggleFooter(this)"
+            >
+              Personal Data Protection
+              <svg
+                class="w-4 h-4 transition-transform transform text-gray-400 dark:text-gray-500"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M9 5l7 7-7 7"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </button>
+            <div class="hidden">
+              <hr
+                class="border-t-2 border-gray-300 w-full mb-1 dark:border-gray-700"
+              />
+              <ul class="space-y-1">
+                <li>Privacy Notice</li>
+                <li>Data Subject Request</li>
+                <li>Data Breach Complaint</li>
+                <li>Contact DPA</li>
+              </ul>
+            </div>
+          </div>
+
+          <div>
+            <button
+              class="w-full text-left font-bold mb-2 flex justify-between items-center"
+              onclick="toggleFooter(this)"
+            >
+              Contact Us
+              <svg
+                class="w-4 h-4 transition-transform transform text-gray-400 dark:text-gray-500"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M9 5l7 7-7 7"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </button>
+            <div class="hidden">
+              <hr
+                class="border-t-2 border-gray-300 w-full mb-1 dark:border-gray-700"
+              />
+              <ul class="space-y-1">
+                <li>Phone number: +885 964 735 981</li>
+                <li>Telegram: +885 854 620 66</li>
+                <li>Facebook page: Visit Cambodia</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div
+          class="hidden md:grid max-w-7xl mx-auto grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-8"
+        >
+          <div>
+            <h3 class="font-bold mb-2">Top Destinations</h3>
+            <hr
+              class="border-t-2 border-gray-300 w-full dark:border-gray-700"
+            />
+            <ul class="space-y-1">
+              <li>Phnom Penh</li>
+              <li>Siem Reap</li>
+              <li>Kompot</li>
+              <li>Mondulkiri</li>
+              <li>Preah Vihear</li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="font-bold mb-2">Destinations</h3>
+            <hr
+              class="border-t-2 border-gray-300 w-full dark:border-gray-700"
+            />
+            <ul class="space-y-1">
+              <li>See & Do</li>
+              <li>Food</li>
+              <li>Shop</li>
+              <li>Spa & Wellness</li>
+              <li>Recreational & Entertainment</li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="font-bold mb-2">Regions of Thailand</h3>
+            <hr
+              class="border-t-2 border-gray-300 w-full dark:border-gray-700"
+            />
+            <ul class="space-y-1">
+              <li>North</li>
+              <li>Central</li>
+              <li>East</li>
+              <li>North East</li>
+              <li></li>
+              <li>South</li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="font-bold mb-2">Experiences</h3>
+            <hr
+              class="border-t-2 border-gray-300 w-full dark:border-gray-700"
+            />
+            <ul class="space-y-1">
+              <li>History / Religion / Museum</li>
+              <li>Nature & Outdoor</li>
+              <li>Events & Festivals</li>
+              <li>Food / Shopping / Entertainment</li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="font-bold mb-2">Helpful Links</h3>
+            <hr
+              class="border-t-2 border-gray-300 w-full dark:border-gray-700"
+            />
+            <ul class="space-y-1">
+              <li>Business Partner</li>
+              <li>Media & Press</li>
+              <li>About TAT</li>
+              <li>Request Inquiry</li>
+              <li>Feedback</li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="font-bold mb-2">Promotions</h3>
+            <hr
+              class="border-t-2 border-gray-300 w-full dark:border-gray-700"
+            />
+            <ul class="space-y-1">
+              <li>Trip Planner</li>
+              <li>Tour Agent</li>
+              <li>Stays</li>
+              <li>Cambodia</li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="font-bold mb-2">Personal Data Protection</h3>
+            <hr
+              class="border-t-2 border-gray-300 w-full dark:border-gray-700"
+            />
+            <ul class="space-y-1">
+              <li>Privacy Notice</li>
+              <li>Data Subject Request</li>
+              <li>Data Breach Complaint</li>
+              <li>Contact DPA</li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="font-bold mb-2">Contact Us</h3>
+            <hr
+              class="border-t-2 border-gray-300 w-full dark:border-gray-700"
+            />
+            <ul class="space-y-1">
+              <li>Phone number: +885 964 735 981</li>
+              <li>Telegram: +885 854 620 66</li>
+              <li>Facebook page: Visit Cambodia</li>
+            </ul>
+          </div>
+        </div>
+
+        <div
+          class="my-8 border-t border-gray-300 w-full dark:border-gray-700"
+        ></div>
+
+        <div
+          class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-gray-600 dark:text-gray-400"
+        >
+          <div class="flex items-center gap-3">
+            <img
+              src="./img/logo.png"
+              alt="Logo"
+              class="h-16 w-auto"
+            />
+            <span>
+              Tourism Authority of Cambodia<br />
+              1600 Phetchaburi Road, Makkasan, Ratchathevi, Phnom Penh
+            </span>
+          </div>
+
+          <div class="flex items-center gap-4">
+            <a
+              href="#"
+              aria-label="Telegram"
+              class="text-gray-500 hover:text-gray-800 dark:text-gray-400 dark:hover:text-gray-100"
+              ><i class="fab fa-telegram"></i
+            ></a>
+            <a
+              href="#"
+              aria-label="Facebook"
+              class="text-gray-500 hover:text-gray-800 dark:text-gray-400 dark:hover:text-gray-100"
+              ><i class="fab fa-facebook"></i
+            ></a>
+            <a
+              href="#"
+              aria-label="YouTube"
+              class="text-gray-500 hover:text-gray-800 dark:text-gray-400 dark:hover:text-gray-100"
+              ><i class="fab fa-youtube"></i
+            ></a>
+          </div>
+        </div>
+      </footer>
+    </section>
+
+    <script>
+      let currentIndex = 0;
+      const cardWidth = 320; // 320px (w-80 + gap)
+      const visibleCards = Math.floor(window.innerWidth / cardWidth);
+      const totalCards = 12;
+      const maxIndex = Math.max(0, totalCards - visibleCards);
+
+      const carousel = document.getElementById("carousel");
+      const dots = document.querySelectorAll(".dot");
+      const prevBtn = document.getElementById("prevBtn");
+      const nextBtn = document.getElementById("nextBtn");
+
+      let autoScrollInterval;
+
+      function updateCarousel() {
+        const translateX = currentIndex * cardWidth;
+        carousel.style.transform = `translateX(-${translateX}px)`;
+
+        // Update dots based on scroll position
+        const dotIndex = Math.floor(
+          currentIndex / Math.max(1, Math.floor(totalCards / dots.length))
+        );
+        dots.forEach((dot, index) => {
+          if (index === Math.min(dotIndex, dots.length - 1)) {
+            dot.classList.remove("bg-gray-300");
+            dot.classList.add("bg-purple-500");
+          } else {
+            dot.classList.remove("bg-purple-500");
+            dot.classList.add("bg-gray-300");
+          }
+        });
+
+        // Update button states
+        prevBtn.style.opacity = currentIndex === 0 ? "0.5" : "1";
+        nextBtn.style.opacity = currentIndex >= maxIndex ? "0.5" : "1";
+      }
+
+      function nextSlide() {
+        if (currentIndex < maxIndex) {
+          currentIndex++;
+        } else {
+          currentIndex = 0; // Loop back to beginning
+        }
+        updateCarousel();
+      }
+
+      function prevSlide() {
+        if (currentIndex > 0) {
+          currentIndex--;
+        } else {
+          currentIndex = maxIndex; // Loop to end
+        }
+        updateCarousel();
+      }
+
+      function startAutoScroll() {
+        autoScrollInterval = setInterval(() => {
+          nextSlide();
+        }, 3000); // Auto-scroll every 3 seconds
+      }
+
+      function stopAutoScroll() {
+        clearInterval(autoScrollInterval);
+      }
+
+      // Event listeners
+      nextBtn.addEventListener("click", () => {
+        nextSlide();
+        // Restart auto-scroll timer
+        stopAutoScroll();
+        startAutoScroll();
+      });
+
+      prevBtn.addEventListener("click", () => {
+        prevSlide();
+        // Restart auto-scroll timer
+        stopAutoScroll();
+        startAutoScroll();
+      });
+
+      // Dot navigation
+      dots.forEach((dot, index) => {
+        dot.addEventListener("click", () => {
+          currentIndex = Math.min(
+            index * Math.floor(totalCards / dots.length),
+            maxIndex
+          );
+          updateCarousel();
+          // Restart auto-scroll timer
+          stopAutoScroll();
+          startAutoScroll();
+        });
+      });
+
+      // Touch/swipe support for mobile
+      let startX = 0;
+      let endX = 0;
+
+      carousel.addEventListener("touchstart", (e) => {
+        startX = e.touches[0].clientX;
+        stopAutoScroll();
+      });
+
+      carousel.addEventListener("touchend", (e) => {
+        endX = e.changedTouches[0].clientX;
+        handleSwipe();
+        startAutoScroll();
+      });
+
+      function handleSwipe() {
+        const swipeThreshold = 50;
+        const diff = startX - endX;
+
+        if (Math.abs(diff) > swipeThreshold) {
+          if (diff > 0) {
+            nextSlide();
+          } else {
+            prevSlide();
+          }
+        }
+      }
+
+      // Responsive handling
+      window.addEventListener("resize", () => {
+        updateCarousel();
+      });
+
+      // Initialize
+      updateCarousel();
+      startAutoScroll();
+    </script>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+      // Initialize AOS
+      AOS.init({
+        once: true,
+        offset: 100,
+        duration: 800,
+        easing: "ease-out-quart",
+      });
+
+      class EventSlider {
+        constructor() {
+          this.currentSlide = 0;
+          this.totalCards = 5;
+          this.slider = document.getElementById("slider");
+          this.prevBtn = document.getElementById("prevBtn");
+          this.nextBtn = document.getElementById("nextBtn");
+          this.indicators = document.querySelectorAll(".slide-indicator");
+          this.sliderContainer = document.querySelector(".relative");
+          this.autoPlayInterval = null;
+          this.startX = 0;
+          this.isDragging = false;
+
+          this.cardsPerView = this.getCardsPerView();
+          this.maxSlide = Math.max(0, this.totalCards - this.cardsPerView);
+
+          this.init();
+        }
+
+        getCardsPerView() {
+          if (window.innerWidth < 640) return 1;
+          if (window.innerWidth < 1024) return 2;
+          return 3;
+        }
+
+        updateSlider() {
+          const translateX = -(this.currentSlide * (100 / this.cardsPerView));
+          this.slider.style.transform = `translateX(${translateX}%)`;
+          this.prevBtn.disabled = this.currentSlide === 0;
+          this.nextBtn.disabled = this.currentSlide >= this.maxSlide;
+          this.indicators.forEach((indicator, index) => {
+            indicator.classList.toggle("active", index === this.currentSlide);
+            indicator.classList.toggle(
+              "bg-primary",
+              index === this.currentSlide
+            );
+            indicator.classList.toggle(
+              "bg-gray-300",
+              index !== this.currentSlide
+            );
+            indicator.setAttribute(
+              "aria-selected",
+              index === this.currentSlide
+            );
+          });
+        }
+
+        nextSlide() {
+          if (this.currentSlide < this.maxSlide) {
+            this.currentSlide++;
+            this.updateSlider();
+          }
+        }
+
+        prevSlide() {
+          if (this.currentSlide > 0) {
+            this.currentSlide--;
+            this.updateSlider();
+          }
+        }
+
+        goToSlide(slideIndex) {
+          if (slideIndex >= 0 && slideIndex <= this.maxSlide) {
+            this.currentSlide = slideIndex;
+            this.updateSlider();
+          }
+        }
+
+        startAutoPlay() {
+          this.autoPlayInterval = setInterval(() => {
+            this.currentSlide =
+              this.currentSlide >= this.maxSlide ? 0 : this.currentSlide + 1;
+            this.updateSlider();
+          }, 5000);
+        }
+
+        stopAutoPlay() {
+          clearInterval(this.autoPlayInterval);
+        }
+
+        handleTouchStart(e) {
+          this.startX = e.touches[0].clientX;
+          this.isDragging = true;
+          this.stopAutoPlay();
+        }
+
+        handleTouchMove(e) {
+          if (!this.isDragging) return;
+          e.preventDefault();
+        }
+
+        handleTouchEnd(e) {
+          if (!this.isDragging) return;
+          const endX = e.changedTouches[0].clientX;
+          const diffX = this.startX - endX;
+          if (Math.abs(diffX) > 50) {
+            diffX > 0 ? this.nextSlide() : this.prevSlide();
+          }
+          this.isDragging = false;
+          this.startAutoPlay();
+        }
+
+        handleResize() {
+          const newCardsPerView = this.getCardsPerView();
+          if (newCardsPerView !== this.cardsPerView) {
+            this.cardsPerView = newCardsPerView;
+            this.maxSlide = Math.max(0, this.totalCards - this.cardsPerView);
+            this.currentSlide = Math.min(this.currentSlide, this.maxSlide);
+            this.updateSlider();
+          }
+        }
+
+        init() {
+          this.prevBtn.addEventListener("click", () => this.prevSlide());
+          this.nextBtn.addEventListener("click", () => this.nextSlide());
+          this.indicators.forEach((indicator, index) => {
+            indicator.addEventListener("click", () => this.goToSlide(index));
+          });
+          this.sliderContainer.addEventListener("mouseenter", () =>
+            this.stopAutoPlay()
+          );
+          this.sliderContainer.addEventListener("mouseleave", () =>
+            this.startAutoPlay()
+          );
+          this.slider.addEventListener("touchstart", (e) =>
+            this.handleTouchStart(e)
+          );
+          this.slider.addEventListener("touchmove", (e) =>
+            this.handleTouchMove(e)
+          );
+          this.slider.addEventListener("touchend", (e) =>
+            this.handleTouchEnd(e)
+          );
+          document.addEventListener("keydown", (e) => {
+            if (e.key === "ArrowLeft") this.prevSlide();
+            if (e.key === "ArrowRight") this.nextSlide();
+          });
+          window.addEventListener("resize", () => this.handleResize());
+          this.startAutoPlay();
+          this.updateSlider();
+        }
+      }
+
+      new EventSlider();
+    </script>
+    <!-- Nav bav Script -->
+    <script>
+      // Enhanced Mobile menu functionality
+      const mobileMenuButton = document.getElementById("mobile-menu-button");
+      const closeMobileMenu = document.getElementById("close-mobile-menu");
+      const mobileMenu = document.getElementById("mobile-menu");
+      const mobileMenuOverlay = document.getElementById("mobile-menu-overlay");
+      const header = document.getElementById("header");
+
+      function openMobileMenu() {
+        mobileMenu.classList.add("active");
+        mobileMenuOverlay.classList.remove("hidden");
+        document.body.style.overflow = "hidden";
+      }
+
+      function closeMobileMenuFunc() {
+        mobileMenu.classList.remove("active");
+        mobileMenuOverlay.classList.add("hidden");
+        document.body.style.overflow = "auto";
+      }
+
+      mobileMenuButton.addEventListener("click", openMobileMenu);
+      closeMobileMenu.addEventListener("click", closeMobileMenuFunc);
+      mobileMenuOverlay.addEventListener("click", closeMobileMenuFunc);
+
+      // Close mobile menu when clicking on a link
+      const mobileMenuLinks = mobileMenu.querySelectorAll("a");
+      mobileMenuLinks.forEach((link) => {
+        link.addEventListener("click", closeMobileMenuFunc);
+      });
+
+      // Close mobile menu on escape key
+      document.addEventListener("keydown", function (e) {
+        if (e.key === "Escape" && mobileMenu.classList.contains("active")) {
+          closeMobileMenuFunc();
+        }
+      });
+
+      // Enhanced scroll effects with glass navigation
+      window.addEventListener("scroll", function () {
+        if (window.scrollY > 100) {
+          header.classList.remove("header-default");
+          header.classList.add("nav-glass");
+        } else {
+          header.classList.remove("nav-glass");
+          header.classList.add("header-default");
+        }
+      });
+
+      // Smooth scrolling for anchor links
+      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+        anchor.addEventListener("click", function (e) {
+          e.preventDefault();
+          const target = document.querySelector(this.getAttribute("href"));
+          if (target) {
+            target.scrollIntoView({
+              behavior: "smooth",
+              block: "start",
+            });
+          }
+        });
+      });
+
+      // Enhanced dropdown functionality
+      const dropdowns = document.querySelectorAll(".dropdown");
+
+      dropdowns.forEach((dropdown) => {
+        const button = dropdown.querySelector("button");
+        const content = dropdown.querySelector(".dropdown-content");
+        let timeout;
+
+        dropdown.addEventListener("mouseenter", () => {
+          clearTimeout(timeout);
+          dropdown.classList.add("active");
+        });
+
+        dropdown.addEventListener("mouseleave", () => {
+          timeout = setTimeout(() => {
+            dropdown.classList.remove("active");
+          }, 150);
+        });
+
+        // Keyboard navigation
+        button.addEventListener("keydown", (e) => {
+          if (e.key === "Enter" || e.key === " ") {
+            e.preventDefault();
+            dropdown.classList.toggle("active");
+          }
+          if (e.key === "Escape") {
+            dropdown.classList.remove("active");
+            button.focus();
+          }
+        });
+      });
+
+      // Close dropdowns when clicking outside
+      document.addEventListener("click", (e) => {
+        if (!e.target.closest(".dropdown")) {
+          dropdowns.forEach((dropdown) => {
+            dropdown.classList.remove("active");
+          });
+        }
+      });
+
+      // Parallax effect for hero section
+      window.addEventListener("scroll", function () {
+        const scrolled = window.pageYOffset;
+        const video = document.querySelector("video");
+        if (video && scrolled < window.innerHeight) {
+          video.style.transform = `translateY(${scrolled * 0.3}px)`;
+        }
+      });
+
+      // Intersection Observer for animations
+      const observerOptions = {
+        threshold: 0.1,
+        rootMargin: "0px 0px -50px 0px",
+      };
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.style.opacity = "1";
+            entry.target.style.transform = "translateY(0)";
+          }
+        });
+      }, observerOptions);
+
+      // Observe feature cards for animation
+      document.querySelectorAll(".feature-card").forEach((card) => {
+        card.style.opacity = "0";
+        card.style.transform = "translateY(30px)";
+        card.style.transition = "all 0.6s ease";
+        observer.observe(card);
+      });
+
+      // Loading animation for images
+      document.querySelectorAll("img").forEach((img) => {
+        img.addEventListener("load", function () {
+          this.style.opacity = "1";
+        });
+      });
+
+      // Enhanced button interactions
+      document.querySelectorAll("a, button").forEach((element) => {
+        element.addEventListener("mouseenter", function () {
+          this.style.transform = "translateY(-1px)";
+        });
+
+        element.addEventListener("mouseleave", function () {
+          this.style.transform = "translateY(0)";
+        });
+      });
+    </script>
+
+    <!-- Footer Script=========== -->
+    <script>
+      function toggleFooter(btn) {
+        const content = btn.nextElementSibling;
+        content.classList.toggle("hidden");
+        const svg = btn.querySelector("svg");
+        svg.classList.toggle("rotate-90");
+      }
+    </script>
+
+    <script>
+      AOS.init();
+    </script>
+  </body>
+</html>
