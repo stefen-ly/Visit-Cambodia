@@ -3,12 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Phnom Penh</title>
+    <title>Food</title>
     <script src="https://cdn.tailwindcss.com"></script>
-      <!-- AOS CSS CDN -->
-  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-  <!-- Font Awesome CDN for location dot icon -->
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <script>
         tailwind.config = {
             theme: {
@@ -285,8 +284,21 @@
             background: rgba(236, 72, 153, 0.2);
             border-color: rgba(236, 72, 153, 0.3);
         }
-        body{
-            font-family: ;
+                .card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+        }
+        .card:active {
+            transform: scale(0.98);
+        }
+        .star {
+            transition: color 0.3s ease;
+        }
+        .card:hover .star {
+            color: #f59e0b;
         }
     </style>
 </head>
@@ -309,7 +321,7 @@
                     <span class="font-medium">Search</span>
                 </a>
 
-                <!-- Destinations Dropdown -->
+ <!--===== Destinations Dropdown =====================-->
                 <div class="dropdown relative">
                     <button class="nav-item flex items-center space-x-2 px-4 py-2 rounded-lg transition-all duration-200">
                         <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -431,17 +443,17 @@
                                     </a>
                                 </div>
                             </div>
-                            <div class="flex items-center justify-center">
+                            <div class="flex items-center justify-center-safe">
                                 <div class="relative group">
-                                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/47/Cambodia_provinces_en.svg/960px-Cambodia_provinces_en.svg.png" 
+                                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/47/Cambodia_provinces_en.svg/960px-Cambodia_provinces_en.svg.png" 
                                          alt="Cambodia Map" class="w-[600px] h-auto object-cover transition-transform duration-300">
-                                    <div class="absolute inset-0 bg-gradient-to-t from-pink-500/20 to-transparent rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                                    <div class="absolute inset-0 bg-gradient-to-t from-pink-500/20 to-transparent rounded-xl opacity-0 transition-opacity duration-300"></div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-
+<!-- ====================================================== -->
                 <!-- Plan Your Trip Dropdown -->
                 <div class="dropdown relative">
                     <button class="nav-item flex items-center space-x-2 px-4 py-2 rounded-lg transition-all duration-200">
@@ -556,11 +568,11 @@
                                     </a>
                                 </div>
                             </div>
-                            <div class="flex items-center justify-center">
+                                <div class="flex items-center justify-center-safe">
                                 <div class="relative group">
-                                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/47/Cambodia_provinces_en.svg/960px-Cambodia_provinces_en.svg.png" 
+                                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/47/Cambodia_provinces_en.svg/960px-Cambodia_provinces_en.svg.png" 
                                          alt="Cambodia Map" class="w-[600px] h-auto object-cover transition-transform duration-300">
-                                    <div class="absolute inset-0 bg-gradient-to-t from-pink-500/20 to-transparent rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                                    <div class="absolute inset-0 bg-gradient-to-t from-pink-500/20 to-transparent rounded-xl opacity-0 transition-opacity duration-300"></div>
                                 </div>
                             </div>
                         </div>
@@ -598,7 +610,7 @@
                                             <div class="text-sm text-gray-500">Top attractions and activities</div>
                                         </div>
                                     </a>
-                                    <a href="./shopping.html" class="dropdown-item flex items-start space-x-3 p-3 rounded-lg">
+                                    <a href="./see&do.html" class="dropdown-item flex items-start space-x-3 p-3 rounded-lg">
                                         <svg class="item-icon w-5 h-5 text-gray-600 mt-0.5 flex-shrink-0 transition-all duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M8 11v6a2 2 0 002 2h4a2 2 0 002-2v-6M8 11h8"></path>
                                         </svg>
@@ -674,11 +686,11 @@
                                     </a>
                                 </div>
                             </div>
-                            <div class="flex items-center justify-center">
+                                <div class="flex items-center justify-center-safe">
                                 <div class="relative group">
-                                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/47/Cambodia_provinces_en.svg/960px-Cambodia_provinces_en.svg.png" 
+                                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/47/Cambodia_provinces_en.svg/960px-Cambodia_provinces_en.svg.png" 
                                          alt="Cambodia Map" class="w-[600px] h-auto object-cover transition-transform duration-300">
-                                    <div class="absolute inset-0 bg-gradient-to-t from-pink-500/20 to-transparent rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                                    <div class="absolute inset-0 bg-gradient-to-t from-pink-500/20 to-transparent rounded-xl opacity-0 transition-opacity duration-300"></div>
                                 </div>
                             </div>
                         </div>
@@ -773,180 +785,252 @@
 
 <!-- Mobile Menu Overlay -->
     <div id="mobile-menu-overlay" class="fixed inset-0 bg-black bg-opacity-50 z-40 hidden lg:hidden transition-opacity duration-300"></div>
-    
-    <!-- banner -->
-         <!-- banner -->
-    <section class="w-full">
-        <img class="w-full object-cover h-[250px] sm:h-[350px] md:h-[500px] lg:h-[650px]"
-            src="https://cambodia-airlines.com/sites/all/themes/newtheme/images/homeBanner.jpg" alt="angkor-wat" />
+
+      <!-- Hero Section - Mobile Responsive -->
+    <section class="py-12 px-4" data-aos="fade-up" data-aos-duration="1000">
+        <div class="container mx-auto max-w-4xl">
+            <div class="space-y-4">
+                <div class="flex flex-col md:flex-row md:space-x-4">
+                    <div class="w-full md:w-1/3 mb-4 md:mb-0" data-aos="fade-right" data-aos-delay="100">
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Keyword</label>
+                        <div class="relative">
+                            <input type="text" placeholder="Keyword" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
+                            <span class="absolute inset-y-0 right-0 flex items-center pr-3">
+                                <svg class="w-5 h-5 text-gray-400" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" clip-rule="evenodd" />
+                                </svg>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="w-full md:w-1/3 mb-4 md:mb-0" data-aos="fade-up" data-aos-delay="200">
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Category</label>
+                        <select class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
+                            <option>All</option>
+                            <option>Food & Shopping</option>
+                            <option>24h Restaurant</option>
+                            <option>Afternoon Tea</option>
+                            <option>Bakery/Snack</option>
+                            <option>Cafes</option>
+                            <option>Buffets</option>
+                            <option>Children/Family</option>
+                            <option>Private Dining</option>
+                        </select>
+                    </div>
+                    <div class="w-full md:w-1/3" data-aos="fade-left" data-aos-delay="300">
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Destination</label>
+                        <select class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
+                            <option>All</option>
+                            <option>Phnom Penh</option>
+                            <option>Siem Reap</option>
+                            <option>Battambang</option>
+                            <option>Sihanoukville</option>
+                            <option>Kampot</option>
+                            <option>Kep</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="flex flex-col md:flex-row md:space-x-4">
+                    <div class="w-full md:w-1/3 mb-4 md:mb-0" data-aos="fade-right" data-aos-delay="400">
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Tourism Standard</label>
+                        <select class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
+                            <option>All</option>
+                            <option>Standard</option>
+                            <option>Premium</option>
+                            <option>Luxury</option>
+                            <option>Eco-Friendly</option>
+                            <option>Local Experience</option>
+                        </select>
+                    </div>
+                    <div class="w-full md:w-1/3 md:mt-6" data-aos="fade-up" data-aos-delay="500">
+                        <button class="w-full md:w-auto px-6 py-2 bg-pink-500 text-white rounded-md hover:bg-pink-600 focus:outline-none focus:ring-2 focus:ring-blue-500">
+                            Search
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
     </section>
 
-    <!-- Breadcrumb --><div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-12" data-aos="fade-down" data-aos-duration="1000">
-    <div class="flex items-center space-x-2 text-gray-800 text-sm dark:text-gray-300">
-      <a href="/index.html" class="hover:underline font-medium">Home</a>
-      <span class="text-gray-500">></span>
-      <a href="#" class="hover:underline font-medium">Destinations</a>
-    </div>
-
-    <!-- Heading -->
-    <div class="mt-6 text-4xl sm:text-5xl md:text-6xl font-semibold text-blue-900 dark:text-gray-200" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="100">
-      Phnom Penh
-    </div>
-  </div>
-
-  <main class="max-w-4xl mx-auto px-4 py-10" id="intro">
-    <section class="mb-12" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">
-      <article class="dark:bg-gray-800 p-6">
-        <h2 id="highlights" class="text-2xl font-bold text-blue-900 dark:text-yellow-400 mb-2">Highlights</h2>
-        <div class="w-16 h-1 bg-yellow-400 mb-4"></div>
-        <ul class="list-disc list-inside space-y-2 text-sm md:text-base">
-          <li class="dark:text-gray-200">Royal Palace and Silver Pagoda</li>
-          <li class="dark:text-gray-200">National Museum of Cambodia</li>
-          <li class="dark:text-gray-200">Central Market</li>
-          <li class="dark:text-gray-200">Wat Phnom</li>
-          <li class="text-gray-800 dark:text-gray-200">Sisowath Quay</li>
-          <li class="text-gray-800 dark:text-gray-200">Independence Monument</li>
-        </ul>
-      </article>
+    <!-- Card Section 1 -->
+    <section class="py-12 px-4" data-aos="fade-up" data-aos-duration="1000">
+        <div class="container mx-auto max-w-7xl">
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Card 1 -->
+                <div class="card bg-white rounded-lg overflow-hidden shadow-md" data-aos="zoom-in" data-aos-delay="100">
+                    <img src="https://foodfuntravel.com/wp-content/uploads/2020/09/Trey-Amok-Fish-Amok-Cambodia.jpg" alt="Amok" class="w-full h-48 object-cover">
+                    <div class="p-4">
+                        <h3 class="text-lg font-semibold">Amok</h3>
+                        <p class="text-gray-500 text-sm flex items-center"><span class="material-icons">location_on</span> Cambodia</p>
+                        <button class="star text-blue-500 mt-2">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+                <!-- Card 2 -->
+                <div class="card bg-white rounded-lg overflow-hidden shadow-md" data-aos="zoom-in" data-aos-delay="200">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTpVs4JrJE4CoE68WzIspOZyr9II0-nqzufiA&s" alt="Baba Nest" class="w-full h-48 object-cover">
+                    <div class="p-4">
+                        <h3 class="text-lg font-semibold">Baba Nest</h3>
+                        <p class="text-gray-500 text-sm flex items-center"><span class="material-icons">location_on</span> Cambodia</p>
+                        <button class="star text-blue-500 mt-2">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+                <!-- Card 3 -->
+                <div class="card bg-white rounded-lg overflow-hidden shadow-md" data-aos="zoom-in" data-aos-delay="300">
+                    <img src="https://www.indochinavoyages.com/wp-content/uploads/2020/04/lort-cha.jpg" alt="Sanpakoi Kanomjeen" class="w-full h-48 object-cover">
+                    <div class="p-4">
+                        <h3 class="text-lg font-semibold">Sanpakoi Kanomjeen</h3>
+                        <p class="text-gray-500 text-sm flex items-center"><span class="material-icons">location_on</span> Cambodia</p>
+                        <button class="star text-blue-500 mt-2">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+                <!-- Card 4 -->
+                <div class="card bg-white rounded-lg overflow-hidden shadow-md" data-aos="zoom-in" data-aos-delay="400">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSdh71ibPjT5KQWAmBzePglPg_VrTh-huqfSQ&s" alt="Khaomao-Khaofang" class="w-full h-48 object-cover">
+                    <div class="p-4">
+                        <h3 class="text-lg font-semibold">Khaomao-Khaofang</h3>
+                        <p class="text-gray-500 text-sm flex items-center"><span class="material-icons">location_on</span> Cambodia</p>
+                        <button class="star text-blue-500 mt-2">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+                <!-- Card 5 -->
+                <div class="card bg-white rounded-lg overflow-hidden shadow-md" data-aos="zoom-in" data-aos-delay="500">
+                    <img src="https://media.istockphoto.com/id/516177554/photo/khmer-green-papaya-salad-bok-lahong.jpg?s=612x612&w=0&k=20&c=VownYw8LMu6VRF2f3eybgSnSd0k-Fm3VOYSyOCR9dCc=" alt="Kinsa Sushi Ichi" class="w-full h-48 object-cover">
+                    <div class="p-4">
+                        <h3 class="text-lg font-semibold">Kinsa Sushi Ichi</h3>
+                        <p class="text-gray-500 text-sm flex items-center"><span class="material-icons">location_on</span> Cambodia</p>
+                        <button class="star text-blue-500 mt-2">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+                <!-- Card 6 -->
+                <div class="card bg-white rounded-lg overflow-hidden shadow-md" data-aos="zoom-in" data-aos-delay="600">
+                    <img src="https://www.adventureworld.com/blog/wp-content/uploads/sites/3/2025/05/Cambodia-Food-Cambodian-curry-dish-served-in-bowl-Samlar-Kari-1024x679.jpeg" alt="Bacchus" class="w-full h-48 object-cover">
+                    <div class="p-4">
+                        <h3 class="text-lg font-semibold">Bacchus</h3>
+                        <p class="text-gray-500 text-sm flex items-center"><span class="material-icons">location_on</span> Cambodia</p>
+                        <button class="star text-blue-500 mt-2">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
     </section>
 
-    <section class="text-justify space-y-6" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="300">
-      <p>
-        Phnom Penh, the vibrant capital of Cambodia, attracts an increasing number of tourists each year, proving its status as a popular destination.
-      </p>
-      <p>
-        The city is renowned for its historical and cultural landmarks, such as the Royal Palace and Silver Pagoda, which showcase stunning Khmer architecture and royal heritage. The National Museum of Cambodia houses an extensive collection of artifacts, offering insights into the country’s rich history.
-      </p>
-      <p>
-        Other notable sites include Wat Phnom, a historic temple central to the city’s founding legend, and the bustling Central Market, known for its unique art-deco design and vibrant atmosphere.
-      </p>
-      <p>
-        Visitors can also enjoy the scenic Sisowath Quay along the Mekong River, perfect for leisurely strolls, and the iconic Independence Monument, a symbol of Cambodia’s independence. Markets, museums, and riverside areas provide ample opportunities for relaxation and exploration.
-      </p>
+    <!-- Card Section 2 -->
+    <section class="py-12 px-4" data-aos="fade-up" data-aos-duration="1000">
+        <div class="container mx-auto max-w-7xl">
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Card 1 -->
+                <div class="card bg-white rounded-lg overflow-hidden shadow-md" data-aos="zoom-in" data-aos-delay="100">
+                    <img src="https://c4.wallpaperflare.com/wallpaper/294/887/634/asian-cambodia-cambodian-food-wallpaper-preview.jpg" alt="Bread" class="w-full h-48 object-cover">
+                    <div class="p-4">
+                        <h3 class="text-lg font-semibold">Bread</h3>
+                        <p class="text-gray-500 text-sm flex items-center"><span class="material-icons">location_on</span> Cambodia</p>
+                        <button class="star text-blue-500 mt-2">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+                <!-- Card 2 -->
+                <div class="card bg-white rounded-lg overflow-hidden shadow-md" data-aos="zoom-in" data-aos-delay="200">
+                    <img src="https://img.freepik.com/free-photo/delicious-vietnamese-food-including-pho-ga-noodles-spring-rolls-white-wall_181624-34158.jpg?semt=ais_hybrid&w=740" alt="Baba Nest" class="w-full h-48 object-cover">
+                    <div class="p-4">
+                        <h3 class="text-lg font-semibold">Baba Nest</h3>
+                        <p class="text-gray-500 text-sm flex items-center"><span class="material-icons">location_on</span> Cambodia</p>
+                        <button class="star text-blue-500 mt-2">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+                <!-- Card 3 -->
+                <div class="card bg-white rounded-lg overflow-hidden shadow-md" data-aos="zoom-in" data-aos-delay="300">
+                    <img src="https://focus-cambodia.com/wp-content/uploads/2024/05/434212553_406288648683281_5737120918395716393_n.jpg" alt="Sanpakoi Kanomjeen" class="w-full h-48 object-cover">
+                    <div class="p-4">
+                        <h3 class="text-lg font-semibold">Sanpakoi Kanomjeen</h3>
+                        <p class="text-gray-500 text-sm flex items-center"><span class="material-icons">location_on</span> Cambodia</p>
+                        <button class="star text-blue-500 mt-2">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+                <!-- Card 4 -->
+                <div class="card bg-white rounded-lg overflow-hidden shadow-md" data-aos="zoom-in" data-aos-delay="400">
+                    <img src="https://media-cdn.tripadvisor.com/media/photo-s/07/3a/a4/aa/typical-cambodian-food.jpg" alt="Khaomao-Khaofang" class="w-full h-48 object-cover">
+                    <div class="p-4">
+                        <h3 class="text-lg font-semibold">Khaomao-Khaofang</h3>
+                        <p class="text-gray-500 text-sm flex items-center"><span class="material-icons">location_on</span> Cambodia</p>
+                        <button class="star text-blue-500 mt-2">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+                <!-- Card 5 -->
+                <div class="card bg-white rounded-lg overflow-hidden shadow-md" data-aos="zoom-in" data-aos-delay="500">
+                    <img src="https://www.indochinatour.com/assets/images/Cambodia-/Nom-Banh-Chok.jpg" alt="Kinsa Sushi Ichi" class="w-full h-48 object-cover">
+                    <div class="p-4">
+                        <h3 class="text-lg font-semibold">Kinsa Sushi Ichi</h3>
+                        <p class="text-gray-500 text-sm flex items-center"><span class="material-icons">location_on</span> Cambodia</p>
+                        <button class="star text-blue-500 mt-2">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+                <!-- Card 6 -->
+                <div class="card bg-white rounded-lg overflow-hidden shadow-md" data-aos="zoom-in" data-aos-delay="600">
+                    <img src="https://images.deliveryhero.io/image/fd-kh/LH/gffq-listing.jpg" alt="Bacchus" class="w-full h-48 object-cover">
+                    <div class="p-4">
+                        <h3 class="text-lg font-semibold">Bacchus</h3>
+                        <p class="text-gray-500 text-sm flex items-center"><span class="material-icons">location_on</span> Cambodia</p>
+                        <button class="star text-blue-500 mt-2">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
     </section>
-  </main>
 
-  <section class="max-w-6xl mx-auto px-4 py-8">
-    <h2 class="text-2xl md:text-3xl font-bold text-blue-900 mb-8 dark:text-gray-300" data-aos="fade-up" data-aos-duration="1000">Explore Phnom Penh</h2>
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+    <script>
+        AOS.init();
+    </script>
 
-    <div class="flex flex-wrap gap-4" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="100">
-      <!-- Active Button -->
-      <button class="px-4 py-2 rounded-full bg-blue-100 border-2 border-blue-900 font-semibold shadow-sm">
-        See & Do
-      </button>
-      <!-- Inactive Buttons -->
-      <button class="px-4 py-2 rounded-full border-2 border-blue-900 text-blue-900 font-semibold hover:bg-blue-100">
-        Shop
-      </button>
-      <button class="px-4 py-2 rounded-full border-2 border-blue-900 text-blue-900 font-semibold hover:bg-blue-100">
-        Food
-      </button>
-      <button class="px-4 py-2 rounded-full border-2 border-blue-900 text-blue-900 font-semibold hover:bg-blue-100">
-        Stay
-      </button>
-      <button class="px-4 py-2 rounded-full border-2 border-blue-900 text-blue-900 font-semibold hover:bg-blue-100">
-        Festival & Event
-      </button>
-      <button class="px-4 py-2 rounded-full border-2 border-blue-900 text-blue-900 font-semibold hover:bg-blue-100">
-        Spa & Wellness
-      </button>
-      <button class="px-4 py-2 rounded-full border-2 border-blue-900 text-blue-900 font-semibold hover:bg-blue-100">
-        Tour Agent
-      </button>
-      <button class="px-4 py-2 rounded-full border-2 border-blue-900 text-blue-900 font-semibold hover:bg-blue-100">
-        Recreational & Entertainment
-      </button>
-      <button class="px-4 py-2 rounded-full border-2 border-blue-900 text-blue-900 font-semibold hover:bg-blue-100">
-        Transportation
-      </button>
-    </div>
-
-    <div class="grid grid-cols-2 md:grid-cols-3 gap-6 mt-[50px]">
-      <!-- Card Item -->
-      <div class="bg-white rounded-lg shadow hover:shadow-md transition overflow-hidden" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="100">
-        <img src="https://www.novotelphnompenhbkk1.com/wp-content/uploads/sites/53/2023/08/royal-palace-1920x1200.jpg" alt="Royal Palace and Silver Pagoda" class="w-full h-40 md:h-60 object-cover" />
-        <div class="p-4">
-          <h3 class="text-lg font-medium text-blue-900 mb-4">Royal Palace and Silver Pagoda</h3>
-          <p class="text-sm text-gray-600 flex items-center">
-            <i class="fa-solid fa-location-dot pr-2"></i>
-            Phnom Penh
-          </p>
-        </div>
-      </div>
-
-      <div class="bg-white rounded-lg shadow hover:shadow-md transition overflow-hidden" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">
-        <img src="https://tkviewhotelapartment.com/userfiles/plneaxd0sh4v0gmqdxlh.jpg" alt="National Museum of Cambodia" class="w-full h-40 md:h-60 object-cover" />
-        <div class="p-4">
-          <h3 class="text-lg font-medium text-blue-900 mb-4">National Museum of Cambodia</h3>
-          <p class="text-sm text-gray-600 flex items-center">
-            <i class="fa-solid fa-location-dot pr-2"></i>
-            Phnom Penh
-          </p>
-        </div>
-      </div>
-
-      <div class="bg-white rounded-lg shadow hover:shadow-md transition overflow-hidden" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="300">
-        <img src="https://leightontravels.com/wp-content/uploads/2021/05/Visit-Central-Market-Phnom-Penh.jpg" alt="Central Market" class="w-full h-40 md:h-60 object-cover" />
-        <div class="p-4">
-          <h3 class="text-lg font-medium text-blue-900 mb-4">Central Market</h3>
-          <p class="text-sm text-gray-600 flex items-center">
-            <i class="fa-solid fa-location-dot pr-2"></i>
-            Phnom Penh
-          </p>
-        </div>
-      </div>
-
-      <div class="bg-white rounded-lg shadow hover:shadow-md transition overflow-hidden" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="100">
-        <img src="https://easydiscoprod.s3.ap-southeast-1.amazonaws.com/thumb_profile_1675066090.jpg" alt="Wat Phnom" class="w-full h-40 md:h-60 object-cover" />
-        <div class="p-4">
-          <h3 class="text-lg font-medium text-blue-900 mb-4">Wat Phnom</h3>
-          <p class="text-sm text-gray-600 flex items-center">
-            <i class="fa-solid fa-location-dot pr-2"></i>
-            Phnom Penh
-          </p>
-        </div>
-      </div>
-
-      <div class="bg-white rounded-lg shadow hover:shadow-md transition overflow-hidden" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">
-        <img src="https://waybird.imgix.net/experiences/kodak_images/000/013/373/original/Walk_along_the_Sisowath_Quay.jpg?w=1420&h=946&crop=center%20center&fit=min&dpr=1&q=50&auto=format" alt="Sisowath Quay" class="w-full h-40 md:h-60 object-cover" />
-        <div class="p-4">
-          <h3 class="text-lg font-medium text-blue-900 mb-4">Sisowath Quay</h3>
-          <p class="text-sm text-gray-600 flex items-center">
-            <i class="fa-solid fa-location-dot pr-2"></i>
-            Phnom Penh
-          </p>
-        </div>
-      </div>
-
-      <div class="bg-white rounded-lg shadow hover:shadow-md transition overflow-hidden" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="300">
-        <img src="https://dev-mot-visit-cambodia.kesspay.io/uploads/0000/227/2024/09/05/independence-monument.jpg" alt="Independence Monument" class="w-full h-40 md:h-60 object-cover" />
-        <div class="p-4">
-          <h3 class="text-lg font-medium text-blue-900 mb-4">Independence Monument</h3>
-          <p class="text-sm text-gray-600 flex items-center">
-            <i class="fa-solid fa-location-dot pr-2"></i>
-            Phnom Penh
-          </p>
-        </div>
-      </div>
-    </div>
-
-    <div class="flex justify-end" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="400">
-      <button class="mt-[20px] px-7 py-2 rounded-lg text-blue-900 font-bold hover:border-white text-[15px] border border-blue-900">
-        <a href="#">See all</a>
-      </button>
-    </div>
-  </section>
-
-  <!-- AOS JS CDN -->
-  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-  <script>
-    // Initialize AOS
-    AOS.init();
-  </script>
-
-    <!-- Section ================== -->
+  <!-- !-- Section ================== -->
     <section
-      class="bg-gray-100 text-gray-800 dark:bg-gray-900 dark:text-gray-100"
+      class="bg-gray-100 text-gray-800 dark:bg-gray-900 dark:text-gray-100 mt-4"
     >
       <footer
         class="bg-gray-100 text-gray-800 text-sm px-6 pt-12 pb-6 dark:bg-gray-800 dark:text-gray-200"
@@ -1333,7 +1417,7 @@
           class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-gray-600 dark:text-gray-400"
         >
           <div class="flex items-center gap-3">
-            <img
+             <img
               src="../img/logo.png"
               alt="Logo"
               class="h-16 w-auto"
@@ -1375,7 +1459,7 @@
         svg.classList.toggle("rotate-90");
       }
     </script>
-    
+
 <!-- Nav bav Script -->
     <script>
         // Enhanced Mobile menu functionality
